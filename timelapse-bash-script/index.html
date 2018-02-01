@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="profile" href="http://gmpg.org/xfn/11"/>
+    <link rel="pingback" href="../xmlrpc.php"/>
+
+    <title>Timelapse Bash Script</title>
+
+    <script type='text/javascript'>
+        var ct_ajaxurl = '../wp-admin/admin-ajax.php';
+        var ct_info_flag = false;
+        var ct_set_cookies_flag = true;
+    </script>
+
+    <!-- This site is optimized with the Yoast SEO Premium plugin v4.2.1 - https://yoast.com/wordpress/plugins/seo/ -->
+    <meta name="description"
+          content="Harry Durgin&#039;s tutorial: how to create a smooth timelapse from a webcam with Darktable&#039;s cli, Bash, Perl, and ImageMagick, deflickering and averaging frames"/>
+    <meta name="robots" content="noodp"/>
+    <link rel="canonical" href="../timelapse-bash-script/"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Build a Timelapse with Bash and Darktable"/>
+    <meta property="og:description"
+          content="Ever want to make a timelapse from a webcam you found on the internet? This week, Harry Durgin shows you how, step by step, using Darktable&#039;s Command Line Interface, Bash, Perl, and Imagemagick. All scripts revealed and explained! Everything smooth and beautiful! Super-wonky and fun!"/>
+    <meta property="og:url" content="../timelapse-bash-script/"/>
+    <meta property="og:site_name" content="Weekly Edit"/>
+    <meta property="article:section" content="Weekly Edits"/>
+    <meta property="article:published_time" content="2016-12-07T12:00:38+00:00"/>
+    <meta property="article:modified_time" content="2016-12-14T09:28:09+00:00"/>
+    <meta property="og:updated_time" content="2016-12-14T09:28:09+00:00"/>
+    <meta property="og:image" content="../wp-content/uploads/2016/12/bash_timelapse.jpg"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description"
+          content="Harry Durgin&#039;s tutorial: how to create a smooth timelapse from a webcam with Darktable&#039;s cli, Bash, Perl, and ImageMagick, deflickering and averaging frames"/>
+    <meta name="twitter:title" content="Timelapse Bash Script"/>
+    <meta name="twitter:image" content="../wp-content/uploads/2016/12/bash_timelapse.jpg"/>
+    <meta property="DC.date.issued" content="2016-12-07T12:00:38+00:00"/>
+    <!-- / Yoast SEO Premium plugin. -->
+
+    <link rel='dns-prefetch' href='http://fonts.googleapis.com'/>
+    <link rel='dns-prefetch' href='http://s.w.org'/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Feed" href="../feed/"/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Comments Feed"
+          href="../comments/feed/"/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Timelapse Bash Script Comments Feed"
+          href="../timelapse-bash-script/feed/"/>
+    <script type="text/javascript">
+        window._wpemojiSettings = {
+            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/",
+            "ext": ".png",
+            "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/",
+            "svgExt": ".svg",
+            "source": {"concatemoji": "http:\/\/weeklyedit.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.2"}
+        };
+        !function (a, b, c) {
+            function d(a) {
+                var b, c, d, e, f = String.fromCharCode;
+                if (!k || !k.fillText)return !1;
+                switch (k.clearRect(0, 0, j.width, j.height), k.textBaseline = "top", k.font = "600 32px Arial", a) {
+                    case"flag":
+                        return k.fillText(f(55356, 56826, 55356, 56819), 0, 0), !(j.toDataURL().length < 3e3) && (k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 65039, 8205, 55356, 57096), 0, 0), b = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 55356, 57096), 0, 0), c = j.toDataURL(), b !== c);
+                    case"emoji4":
+                        return k.fillText(f(55357, 56425, 55356, 57341, 8205, 55357, 56507), 0, 0), d = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55357, 56425, 55356, 57341, 55357, 56507), 0, 0), e = j.toDataURL(), d !== e
+                }
+                return !1
+            }
+
+            function e(a) {
+                var c = b.createElement("script");
+                c.src = a, c.defer = c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c)
+            }
+
+            var f, g, h, i, j = b.createElement("canvas"), k = j.getContext && j.getContext("2d");
+            for (i = Array("flag", "emoji4"), c.supports = {
+                everything: !0,
+                everythingExceptFlag: !0
+            }, h = 0; h < i.length; h++)c.supports[i[h]] = d(i[h]), c.supports.everything = c.supports.everything && c.supports[i[h]], "flag" !== i[h] && (c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && c.supports[i[h]]);
+            c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && !c.supports.flag, c.DOMReady = !1, c.readyCallback = function () {
+                c.DOMReady = !0
+            }, c.supports.everything || (g = function () {
+                c.readyCallback()
+            }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () {
+                "complete" === b.readyState && c.readyCallback()
+            })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji)))
+        }(window, document, window._wpemojiSettings);
+    </script>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' id='siteorigin-panels-front-css'
+          href='../wp-content/plugins/siteorigin-panels/css/front.css?ver=2.4.24' type='text/css' media='all'/>
+    <link rel='stylesheet' id='sow-image-default-3f547a15eaaa-css'
+          href='../wp-content/uploads/siteorigin-widgets/sow-image-default-3f547a15eaaa.css?ver=4.7.2' type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='siteorigin-google-web-fonts-css'
+          href='http://fonts.googleapis.com/css?family=Montserrat&#038;ver=4.7.2' type='text/css' media='all'/>
+    <link rel='stylesheet' id='influence-style-css' href='../wp-content/themes/influence/style.css?ver=4.7.2'
+          type='text/css' media='all'/>
+    <script type='text/javascript' src='../wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+    <script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+    <script type='text/javascript' src='../wp-content/themes/influence/js/jquery.fitvids.min.js?ver=1.0'></script>
+    <script type='text/javascript' src='../wp-content/themes/influence/js/jquery.theme-main.min.js?ver=1.2.1'></script>
+    <link rel='https://api.w.org/' href='../wp-json/'/>
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php?rsd"/>
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml"/>
+    <meta name="generator" content="WordPress 4.7.2"/>
+    <link rel='shortlink' href='../?p=599'/>
+    <link rel="alternate" type="application/json+oembed"
+          href="../wp-json/oembed/1.0/embed?url=http%3A%2F%2Fweeklyedit.com%2Ftimelapse-bash-script%2F"/>
+    <link rel="alternate" type="text/xml+oembed"
+          href="../wp-json/oembed/1.0/embed?url=http%3A%2F%2Fweeklyedit.com%2Ftimelapse-bash-script%2F&#038;format=xml"/>
+    <!--[if lt IE 9]>
+    <script src="../wp-content/themes/influence/js/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if (gte IE 6)&(lte IE 8)]>
+    <script type="text/javascript" src="../wp-content/themes/influence/js/selectivizr.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <style type="text/css" id="custom-background-css">
+        body.custom-background {
+            background-color: #ffffff;
+            background-image: url("../wp-content/themes/influence/images/background.png");
+            background-position: left top;
+            background-size: auto;
+            background-repeat: repeat;
+            background-attachment: scroll;
+        }
+    </style>
+    <style type="text/css" media="all" id="siteorigin-panels-grids-wp_head">/* Layout 599 */
+    #pg-599-0, #pg-599-1, #pl-599 .panel-grid-cell .so-panel {
+        margin-bottom: 30px
+    }
+
+    #pg-599-0 .panel-grid-cell, #pg-599-1 .panel-grid-cell, #pg-599-2 .panel-grid-cell {
+        float: none
+    }
+
+    #pl-599 .panel-grid-cell .so-panel:last-child {
+        margin-bottom: 0px
+    }
+
+    #pg-599-0, #pg-599-1, #pg-599-2 {
+        margin-left: -15px;
+        margin-right: -15px
+    }
+
+    #pg-599-0 .panel-grid-cell, #pg-599-1 .panel-grid-cell, #pg-599-2 .panel-grid-cell {
+        padding-left: 15px;
+        padding-right: 15px
+    }
+
+    #panel-599-1-0-0 > .panel-widget-style {
+        padding: 0px 0px 0px 0px
+    }
+
+    @media (max-width: 780px) {
+        #pg-599-0 .panel-grid-cell, #pg-599-1 .panel-grid-cell, #pg-599-2 .panel-grid-cell {
+            float: none;
+            width: auto
+        }
+
+        #pl-599 .panel-grid, #pl-599 .panel-grid-cell {
+        }
+
+        #pl-599 .panel-grid .panel-grid-cell-empty {
+            display: none
+        }
+
+        #pl-599 .panel-grid .panel-grid-cell-mobile-last {
+            margin-bottom: 0px
+        }
+    } </style>
+    <style type="text/css" id="influence-footer-widgets">#footer-widgets aside {
+        width: 50%;
+    } </style>
+    <style id='influence-custom-css' class='siteorigin-custom-css' type='text/css'>
+        .post-thumbnail {
+            display: none;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        article.entry .entry-content h3 {
+            font-size: 17px;
+            text-align: left;
+            margin-left: 0px;
+            margin-top: 0em;
+            margin-bottom: 0px;
+        }
+
+        #panel-37-0-1-2.so-panel.widget.widget_recent-posts.widget_recent_entries {
+            margin-bottom: 0px;
+        }
+
+        .entry-content ul {
+            margin-left: -6px;
+        }
+
+        #topics {
+            margin-top: -30px;
+        }
+
+        #modules {
+            margin-top: -30px;
+        }
+
+        .panel-grid-cell .widget-title {
+            padding-bottom: 15px;
+        }
+
+        #main-menu .widgets aside.widget .widget-title {
+            margin-bottom: 0px;
+            margin-top: -20px;
+        }
+
+        #panel-470-0-0-0.so-panel.widget.widget_sow-image.panel-first-child.panel-last-child {
+            margin-top: -50px;
+        }
+
+        article.entry {
+            visibility: visible;
+        }
+
+        .post-text {
+            visibility: visible;
+        }
+
+        .entry-title {
+            visibility: visible;
+        }
+
+        article.entry .post-text {
+            padding-top: 0px;
+        }
+
+        #panel-72-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-75-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-131-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-133-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-135-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-137-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-140-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-177-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-278-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-354-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-430-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-448-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-475-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-488-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-518-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-550-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-575-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-599-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-625-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-664-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-682-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-704-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-722-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-736-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-757-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-765-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+    </style>
+    <style type="text/css" id="customizer-css">h1, h2, h3, h4, h5, h6 {
+        font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+        font-weight: 400
+    }
+
+    article.entry {
+        background-color: #ffffff
+    } </style>
+</head>
+
+<body class="post-template-default single single-post postid-599 single-format-standard custom-background siteorigin-panels responsive has-main-sidebar">
+
+<div id="page" class="hfeed site">
+
+
+    <header id="masthead" class="site-header has-shadow" role="banner">
+
+        <div class="container">
+
+            <div class="hgroup">
+
+                <h1 class="site-title">
+                    <a href="../index.html" title="Weekly Edit" rel="home">
+                        Weekly Edit </a>
+                </h1>
+
+
+            </div>
+
+
+            <nav role="navigation" class="site-navigation main-navigation primary">
+
+                <h1 class="assistive-text">Menu</h1>
+
+                <a href="#" class="main-menu-button">
+                    <i class="influence-icon-menu-icon"></i>
+                    Menu </a>
+
+            </nav><!-- .site-navigation .main-navigation -->
+
+
+        </div>
+
+    </header><!-- #masthead .site-header -->
+
+    <div class="site-header has-shadow site-header-sentinel">
+
+        <div class="container">
+
+            <div class="hgroup">
+
+                <h1 class="site-title">
+                    Weekly Edit </h1>
+
+
+            </div>
+
+
+            <div role="navigation" class="site-navigation main-navigation primary">
+
+                <h1 class="assistive-text">Menu</h1>
+
+                <a href="#" class="main-menu-button">
+                    <i class="influence-icon-menu-icon"></i>
+                    Menu </a>
+
+            </div><!-- .site-navigation .main-navigation -->
+
+
+        </div>
+
+    </div><!-- #masthead .site-header -->
+
+    <div id="main" class="site-main">
+
+        <section id="primary" class="content-area">
+
+            <div id="content" class="site-content" role="main">
+
+
+                <article id="post-599"
+                         class="entry post-599 post type-post status-publish format-standard hentry category-weekly-edits">
+
+
+                    <div class="post-text">
+
+                        <h1 class="entry-title"><a href="../timelapse-bash-script/"
+                                                   title="Permalink to Timelapse Bash Script" rel="bookmark">Timelapse
+                            Bash Script</a></h1>
+
+                        <div class="entry-content">
+                            <div id="pl-599">
+                                <div class="panel-grid" id="pg-599-0">
+                                    <div class="panel-grid-cell" id="pgc-599-0-0">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-599-0-0-0" data-index="0">
+                                            <div class="textwidget">
+                                                <div id="vp">
+                                                    <iframe frameborder=0 allowfullscreen
+                                                            src="https://www.youtube.com/embed/SbBsu81kLgM"></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-grid" id="pg-599-1">
+                                    <div class="panel-grid-cell" id="pgc-599-1-0">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-599-1-0-0" data-index="1">
+                                            <div class="panel-widget-style"><h3 class="widget-title">Timelapse
+                                                Strategies</h3>
+                                                <div class="textwidget"><p>This week we use Darktable's Command Line
+                                                    Interface, Bash, Perl, and ImageMagick to create a smooth timelapse
+                                                    from a webcam image I found on the internet.<br/>
+                                                    We walk through the process together. First, we find a webcam on the
+                                                    internet to provide our images. We set up a timer to download them
+                                                    every five minutes and archive them in a file. As we download, we
+                                                    process each image by setting up a generalized edit in Darktable and
+                                                    applying it with Darktable's cli.<br/>
+                                                    Once we have enough to make a movie, we deflicker and average the
+                                                    frames with moving window to create a smoother experience. The
+                                                    result is a smooth, corrected timelapse you can create from any
+                                                    sequence of JPGs or PNGs </p>
+                                                    <p><a target=_blank
+                                                          href="https://drive.google.com/open?id=0B7mIPRZEcQpAcDJ0aHkwNGJkelE">timelapse-deflicker.pl
+                                                        (by Vangelis Tasoulas)</a><br/>
+                                                        <a target=_blank
+                                                           href="https://drive.google.com/open?id=0B7mIPRZEcQpAcV9RTUJKNS1xLTA">maunaloa.xmp</a>
+                                                    </p>
+                                                    <p><b>get_images.zsh</b></p>
+<pre>
+#!/bin/zsh
+
+url='http://www.esrl.noaa.gov/gmd/webdata/mlo/webcam/northcam.jpg'
+xmp='maunaloa/maunaloa.xmp'
+dir='maunaloa'
+
+TZ='HST' date |read time
+TZ='HST' date +%s |read seconds
+
+# DOWNLOAD WEBCAM IMAGE
+wget -T6 --random-wait -O /tmp/image.jpg "$url"
+
+# PROCESS WITH DARKTABLE
+rm /tmp/image_dt*
+/opt/darktable/bin/darktable-cli /tmp/image.jpg "$xmp" --width 1920 --height 1080 --upscale true /tmp/image_dt.jpg
+
+# ARCHIVE WITH DATE STAMP
+convert /tmp/image_dt.jpg -pointsize 36 -fill "#FFFFFF" -draw "text 1400,1050 '$time'" ~/$dir/$seconds.jpg
+</pre>
+                                                    <p><b>make_movie.zsh</b></p>
+<pre>
+#!/bin/zsh
+
+num_images=2000
+slow=8
+frame_window=16
+source_dir='/home/harry/int/maunaloa'
+mkdir final &> /dev/null
+cat /dev/null >frames
+
+# COPY FILES
+ls "$source_dir" |tail -n $num_images |while read file; do
+  cp "$source_dir/$file" ./
+done
+
+# DEFLICKER
+/home/harry/bin/timelapse-deflicker.pl -w 15 -p 2
+
+# BUILD FRAME LIST
+ls Deflickered |while read file; do
+  seq 1 $slow |while read i; do
+    echo Deflickered/$file >>frames
+  done
+done
+
+wc -l frames |cut -d' ' -f1 |read num_frames
+typeset -Z6 c
+
+# CREATE FRAMES
+seq 1 $num_frames |while read c; do
+  convert `head -n $frame_window frames` -average final/$c.jpg
+  sed -i '1d' frames
+  echo -ne "e[0Kr$c / $num_frames"
+done
+
+# MAKE MOVIE
+avconv -f image2 -r 30 -i final/%06d.jpg -aspect 16:9 -b:v 15000k -y video.avi &> /dev/null
+</pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-grid" id="pg-599-2">
+                                    <div class="panel-grid-cell" id="pgc-599-2-0">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-599-2-0-0" data-index="2"><h3 class="widget-title">Complete Show
+                                            Text</h3>
+                                            <div class="textwidget"><p><a href="../annotations/SbBsu81kLgM.txt"
+                                                                          download>Download complete text here</a></p>
+                                                <p>Aloha everybody.</p>
+                                                <p> This is Harry with another edition of Weekly Edit.</p>
+                                                <p> What you're looking at here is a timelapse that I made using images
+                                                    from a webcam on the CO2 observatory on Mauna Loa on the Big Island
+                                                    of Hawaii.</p>
+                                                <p> This is our first significant snowfall of the winter.</p>
+                                                <p> This camera faces Mauna Kea, where all the telescopes are.</p>
+                                                <p> This image is taken from the webcam every five minutes.</p>
+                                                <p> It's real jerky, and there are a lot of changes in brightness.</p>
+                                                <p> I've got some techniques I use when I make timelapses of images
+                                                    where there's a lot of time in between the images.</p>
+                                                <p> I've worked on this to smooth images from the webcams overlooking
+                                                    our volcano too, where you only get an image every five minutes.</p>
+                                                <p> I use a Perl script called Timelapse Deflicker, which is
+                                                    amazing.</p>
+                                                <p> It does a great job.</p>
+                                                <p> I'll have that in the show notes.</p>
+                                                <p> I also use a way of averaging frames together, combining those two
+                                                    techniques to give a more smooth look to the timelapse and make it
+                                                    easier to understand what's happening because there's so much time
+                                                    in between each frame.</p>
+                                                <p> This episode will be pretty technical.</p>
+                                                <p> We'll do a lot of Bash scripting.</p>
+                                                <p> I made my scripts as simple as possible, so even people who aren't
+                                                    familiar with Bash scripting should be able to follow along to some
+                                                    extent.</p>
+                                                <p> I'll be using Darktable's Command Line Interface (cli), which lets
+                                                    us make changes in a script, using Darktable's engine.</p>
+                                                <p> I've broken up what we're doing into two different scripts.</p>
+                                                <p> The first one is called get_images In this script I do three things:
+                                                    One, I find which image I want to get.</p>
+                                                <p> It can be any webcam image.</p>
+                                                <p> There are webcams on resorts and government ones all over the
+                                                    place.</p>
+                                                <p> It's a lot of fun to find and play with them.</p>
+                                                <p> Then, there's a sidecar .xmp file.</p>
+                                                <p> We'll create that and move it over here.</p>
+                                                <p> Then, I have a working directory.</p>
+                                                <p> First thing, we'll find this image.</p>
+                                                <p> I'll show you where I got this URL, then we'll download this
+                                                    image.</p>
+                                                <p> I'll show you how this wget works.</p>
+                                                <p> Then we'll create this sidecar file so that the image looks the way
+                                                    we want it with Darktable.</p>
+                                                <p> Then we'll go back into this script.</p>
+                                                <p> So, first, we'll find this.</p>
+                                                <p> We've got these Mauna Kea Weather Cams.</p>
+                                                <p> If we look at the webcams up here, here's the one we want.</p>
+                                                <p> It looks at Mauna Kea from the CO2 observatory.</p>
+                                                <p> Live Cameras.</p>
+                                                <p> We want the north one.</p>
+                                                <p> This is my URL right here.</p>
+                                                <p> If you drill down on a site, you can usually find a single image
+                                                    like this or something that you can grab.</p>
+                                                <p> It's usually a JPG.</p>
+                                                <p> I'll copy and paste this.</p>
+                                                <p> It goes right here.</p>
+                                                <p> I just have my URL as a variable.</p>
+                                                <p> The reason I use single quotes everywhere is, if I want to have a
+                                                    space in my directory name, or if there's an odd character in my
+                                                    URL, then I just single-quote it and I don't have to worry about
+                                                    it.</p>
+                                                <p> The way this wget works is, the '-t' is the number of tries.</p>
+                                                <p> It says, 'if I can't get the image, should I try again?' and I say
+                                                    'yeah, give it a few tries.' 'random-wait' is really nice.</p>
+                                                <p> It waits a certain number of milliseconds.</p>
+                                                <p> If you happen to hit a server that may think you're a bot if you try
+                                                    more than once, this random-wait will help with that.</p>
+                                                <p>Most of the time it doesn't matter at all.</p>
+                                                <p> ' -O' is just the name of the output file.</p>
+                                                <p> I'm going to store these images in the tmp directory because I'm not
+                                                    going to keep them.</p>
+                                                <p> I'll create this image, and I'm going to save it in the tmp
+                                                    directory too.</p>
+                                                <p> So, I get my image with the wget.</p>
+                                                <p> I modify it with Darktable.</p>
+                                                <p> Then, I save it AGAIN in the temporary image directory.</p>
+                                                <p> Then, I'll grab that image, and use ImageMagick's 'convert' command
+                                                    to add a time-date stamp and name it in a way that I can archive
+                                                    it.</p>
+                                                <p> Next thing we'll do is download this image and modify it with
+                                                    Darktable.</p>
+                                                <p> Then we'll grab the XMP file and use it on every image that we
+                                                    download.</p>
+                                                <p> So, let's get the image with wget.</p>
+                                                <p> Open another terminal.</p>
+                                                <p> Here's our URL.</p>
+                                                <p> Here's our wget.</p>
+                                                <p> Okay, we got the image and stored it.</p>
+                                                <p> Here we are in tmp directory.</p>
+                                                <p> Here's our image.</p>
+                                                <p> We've got some fisheye with this lens.</p>
+                                                <p> I don't mind that too much, but I really want the tower to be
+                                                    straight.</p>
+                                                <p> I'll look in the Lens Correction Module to find something to
+                                                    de-fisheye it.</p>
+                                                <p> I've already messed with a bunch of options here in the past.</p>
+                                                <p> There isn't anything that matches it exactly; it's a small
+                                                    webcam.</p>
+                                                <p> But, it looks a lot like what I would get with a wide angle on my
+                                                    RX100, so I just grabbed the RX100.</p>
+                                                <p> If we go to 10mm, it straightens it out quite a bit.</p>
+                                                <p> You can play with things like this.</p>
+                                                <p> Here's 8.8 You lose a little more on top, but it does make it a
+                                                    little straighter.</p>
+                                                <p> That looks a little better than the 10mm.</p>
+                                                <p> Here's the 12mm.</p>
+                                                <p> It doesn't quite de-fisheye it enough, so let's go with that 8.8
+                                                    Now, I can do the rest of the correction in Crop and Rotate.</p>
+                                                <p> If you'll notice, Lens Correction occurs before Crop and Rotate.</p>
+                                                <p> Here we are with Crop and Rotate.</p>
+                                                <p> My horizon is level, so I'll use Keystoning to correct this.</p>
+                                                <p> Vertical Keystoning: I pull it towards where I want it to be
+                                                    vertical.</p>
+                                                <p> That might be a little too much, but we'll see.</p>
+                                                <p> And I click Okay.</p>
+                                                <p> That looks pretty good.</p>
+                                                <p> Now, I'll be working as a video in 16:9, so I'm setting my aspect to
+                                                    16:9 now, and I'll go ahead and crop it now.</p>
+                                                <p> Like that.</p>
+                                                <p> That looks good.</p>
+                                                <p> There we go.</p>
+                                                <p> Now our tower is a little straighter and I think our horizon looks
+                                                    okay too.</p>
+                                                <p> Now, this image goes 24 hours a day, so the lighting will vary
+                                                    considerably, even though it has an auto-gain feature on the
+                                                    camera.</p>
+                                                <p> So, I'll make changes that aren't going to be as affected by
+                                                    different lighting conditions and will give me positive effects
+                                                    either way.</p>
+                                                <p> I'm a little limited on what I can do because I'm not just editing a
+                                                    single image.</p>
+                                                <p> One of the first things I'll do is use the Shadows and Highlights
+                                                    Module because that will correct itself to allow me to have good
+                                                    effects under a variety of conditions.</p>
+                                                <p> I'll soften with the Bilateral Filter.</p>
+                                                <p> I'll change my Radius to right about there.</p>
+                                                <p> That looks good.</p>
+                                                <p> And my Compression.</p>
+                                                <p> There we go.</p>
+                                                <p> Now, let's see: Shadows.</p>
+                                                <p> We're a little strong.</p>
+                                                <p> And Highlights: give us a little more.</p>
+                                                <p> Alright, there's our before and there's our after.</p>
+                                                <p> It normalizes the image a bit and should give good results
+                                                    regardless of the conditions.</p>
+                                                <p> A lot of low-quality images have pixelation in areas that have
+                                                    smooth tonal changes, like in here.</p>
+                                                <p> I can use a Gaussian Blur based on the L Channel because, see, it
+                                                    shows up more in the lighter parts than in the darker parts.</p>
+                                                <p> So, I'll use a Parametric Mask and select the lighter parts of the
+                                                    image where the pixelation is occurring.</p>
+                                                <p> Then in those areas, I'll apply a small Gaussian Blur.</p>
+                                                <p> I'll start with zero and slowly bring it up until this pixelation
+                                                    gets better.</p>
+                                                <p> That's significantly better, and it's just 1.80 pixel radius.</p>
+                                                <p> Now, we're losing some detail in this tower and on the building.</p>
+                                                <p> Hmm...</p>
+                                                <p> If I increase my Mask Blur a little, will that help? That made it
+                                                    worse.</p>
+                                                <p> Okay.</p>
+                                                <p> Well, we'll see if we can pick that up again later on.</p>
+                                                <p> If not, we'll come back and affect this.</p>
+                                                <p> I guess one of the things we can do is just not use it full
+                                                    force.</p>
+                                                <p> There we go.</p>
+                                                <p> That helps.</p>
+                                                <p> Now I'd like to do another pass with the Lowpass Module to add some
+                                                    contour shading to the clouds and buildings.</p>
+                                                <p> So, I'll turn my Saturation all the way off and bring my Radius down
+                                                    until I can see some kind of contours in the buildings and in the
+                                                    clouds.</p>
+                                                <p> See, I can see some in the clouds here and I'm getting shapes in the
+                                                    buildings.</p>
+                                                <p> So, that's good.</p>
+                                                <p> Then I'll apply that with the Softlight Blend Mode and bring that
+                                                    down a little.</p>
+                                                <p> This is with it off, and this is with it on.</p>
+                                                <p> Right around there, I think that livens up the image a bit,
+                                                    especially in the clouds.</p>
+                                                <p> It gives me more range.</p>
+                                                <p> Now, I'd like to add a little color to the image.</p>
+                                                <p> I like to use the Subtract Method to add color and a little contrast
+                                                    at the same time.</p>
+                                                <p> I always use a Parametric Mask based on the L Channel with my
+                                                    Subtract Method.</p>
+                                                <p> Now, if I do that, though, I stand the risk of making things too
+                                                    noisy because I've got all this color noise.</p>
+                                                <p> Well, here's what it looks like if I add it with the Tone Curve.</p>
+                                                <p> We'll take a Snapshot of this so we can compare it.</p>
+                                                <p> We'll try to do the same thing, but with a little bit of a Blur and
+                                                    see what that looks like.</p>
+                                                <p> So, let's do a Radius -- Oh, that looks good, around 4 pixels.</p>
+                                                <p> Okay, and I'll do the same thing: Parametric Mask based on the L
+                                                    Channel and Subtract Blend Mode.</p>
+                                                <p> And bring that up a little bit.</p>
+                                                <p> Right about there, I think.</p>
+                                                <p> Okay, so we've added a similar amount of color, but see: we've got a
+                                                    lot of fringing, and we've got color fringing around these features
+                                                    when we added it with the Tone Curve.</p>
+                                                <p> Now, we lose a little detail, but I think that's okay, because this
+                                                    is going to be a video.</p>
+                                                <p> Look how much our colors are behaving when we add it with the
+                                                    Lowpass Filter and the Gaussian Blur.</p>
+                                                <p> This is more of the effect I'm looking for, for this video.</p>
+                                                <p> As a matter of fact, I could probably make it a little smaller and
+                                                    still have a good smoothing effect.</p>
+                                                <p> There we go.</p>
+                                                <p> There is 3 pixels.</p>
+                                                <p> Now I want to bring out these features and some of the details.</p>
+                                                <p> I'll use a Highpass Filter.</p>
+                                                <p> I'll adjust Sharpness and Contrast Boost to bring out the features I
+                                                    want without getting halos.</p>
+                                                <p> I think this is good.</p>
+                                                <p> I'm looking for this tower and for these rocks and stuff, but I
+                                                    don't want to get strong halos.</p>
+                                                <p> This should be okay, because I'll apply it with the Softlight Blend
+                                                    Mode.</p>
+                                                <p> I'll use the L Mask again.</p>
+                                                <p> I don't want as much of the effect on the darker parts of the
+                                                    image.</p>
+                                                <p> And Softlight.</p>
+                                                <p> That brings out a little more detail in this tower and knocks down
+                                                    some of the fringing that we had around the edges.</p>
+                                                <p> Here's where we started and here's where we ended.</p>
+                                                <p> It's a softer image with better colors and a lot less noise and
+                                                    smoother transitions.</p>
+                                                <p> We'll take this sidecar XMP file and re-name it and save it.</p>
+                                                <p> I'll save it in this maunaloa directory: cp /tmp/image.jpg.xmp
+                                                    (sidecar file, okay?) as: maunaloa/maunaloa.xmp Now we have our XMP
+                                                    file.</p>
+                                                <p> Every time I save something with this Darktable Command Line
+                                                    Interface, it will increment the name of the file so it doesn't
+                                                    overwrite it.</p>
+                                                <p> So, in my code here, I do an 'rm' on the last one that was saved
+                                                    before I save a new one so it doesn't increment it.</p>
+                                                <p> All this code does here is: it calls Darktable cli with the image
+                                                    file.</p>
+                                                <p> Then this XMP file that we stored right here upscales the width (new
+                                                    feature in Darktable -- love that!), and then saves it with this
+                                                    name right here.</p>
+                                                <p> When it's all done doing that...</p>
+                                                <p> --well, here, let's try it...</p>
+                                                <p> And there it is.</p>
+                                                <p> That's the one we did with the Command Line Interface.</p>
+                                                <p> After we do that, I use ImageMagick's 'convert' to grab that file we
+                                                    just created and draw the time in the corner.</p>
+                                                <p> You set the point size and the color before you execute the 'draw'
+                                                    command with Convert.</p>
+                                                <p> So, first you give it the parameters, which are your default
+                                                    parameters, and then I just '-draw' text at this position.</p>
+                                                <p> This is my horizontal and my vertical axes.</p>
+                                                <p> And what I'm drawing is the time.</p>
+                                                <p> I got the time just by calling 'date'.</p>
+                                                <p> That's all.</p>
+                                                <p> This TZ='HST' What this does is sets the time zone.</p>
+                                                <p>I'm in Hawaii, so HST.</p>
+                                                <p> The reason I'm setting the time zones when I call 'date' is, if I'm
+                                                    running this code locally or on a cloudserver, I want to have the
+                                                    same time zone either way.</p>
+                                                <p> Then, it just saves it in the directory, this directory I called
+                                                    maunaloa.</p>
+                                                <p> That's where we'll save all our files.</p>
+                                                <p> A naming convention I'm using is I just call 'date' with a number of
+                                                    seconds since the epoch and give it an extension .jpg So, if we run
+                                                    this script, there should be a file in the maunaloa directory that's
+                                                    named with the number of seconds since the epoch that is all
+                                                    processed for us.</p>
+                                                <p> Let's do that.</p>
+                                                <p> There, it downloads the image, processes it with Darktable, and now
+                                                    we should have an image in our directory that's named with the
+                                                    seconds since the epoch.</p>
+                                                <p> There we are.</p>
+                                                <p> We've got our time in the corner and there's our processed
+                                                    image.</p>
+                                                <p> It's all straightened up; it's got a little extra color and a little
+                                                    extra punch; we got rid of some of the pixelation.</p>
+                                                <p> Now we can build up an archive of these images by adding that script
+                                                    to a cron job.</p>
+                                                <p> Let's look at that.</p>
+                                                <p> Every 5 minutes we run our command.</p>
+                                                <p> That's it; that's all we have to do.</p>
+                                                <p> Now that our script's been running for a while, we should have a
+                                                    whole bunch of images.</p>
+                                                <p> There they are.</p>
+                                                <p> So, let's look at this script that is going to create our movie.</p>
+                                                <p> This script has five parts.</p>
+                                                <p> It copies over the right number of files, because we only want to
+                                                    make the movie be maybe the last 12 hours or so.</p>
+                                                <p> That gets it from 'num_images' right here So, for instance, we have
+                                                    an image every five minutes, so that's 12 images an hour.</p>
+                                                <p> In 12 hours, that would be 144 images.</p>
+                                                <p> So, it copies over from our source directory, which was maunaloa
+                                                    --that's where we put all those images from our cron job -- and just
+                                                    picks 144 of them and moves them into our directory where we're
+                                                    going to be working.</p>
+                                                <p> We'll call it 'timelapse' Then we call this really cool Perl script
+                                                    right here.</p>
+                                                <p> This Perl script normalizes all the images on their L Channel.</p>
+                                                <p> It uses a moving window.</p>
+                                                <p>This '-w' and I set it to 15 frames.</p>
+                                                <p> You can set it to less or more; it gives you nice results.</p>
+                                                <p> '-p 2' just means to do two passes.</p>
+                                                <p> You can set it to one pass or two.</p>
+                                                <p> I find that two passes gives nice results.</p>
+                                                <p> It puts all the de-flickered images --and it will work with either a
+                                                    JPG or a PNG -- into a directory that it creates called Deflickered
+                                                    The third part of this script goes through and builds a frame
+                                                    list.</p>
+                                                <p> Let me show you what I mean by that.</p>
+                                                <p> If I've got a frame, and it's five minutes until the next frame,
+                                                    it's going to look really jerky.</p>
+                                                <p> So, I'll create a frame that will be this moving window.</p>
+                                                <p> It will start here and take a little bit of Frame 1 and Frame 2; and
+                                                    then a little bit of Frame 1, Frame 2, and Frame 3; and none of
+                                                    Frame 1 but some of Frame 2 and Frame 3.</p>
+                                                <p> It keeps moving like that, giving me nice smooth transitions in
+                                                    between my frames.</p>
+                                                <p> To do that, I create a file I call 'frames'.</p>
+                                                <p> All I do is put the name of the file in there a certain number of
+                                                    times.</p>
+                                                <p> Like, here: I said slow=4 Okay, so it will do 4 of each file.</p>
+                                                <p> So, file 1 it will do 4 times; file 2 it will do 4 times; file 3 it
+                                                    will do 4 times...</p>
+                                                <p> Then we're going to have a window.</p>
+                                                <p> This one is an 8-image wide window.</p>
+                                                <p> That window will take the first 8 file names in this text file, do
+                                                    an average on those, ditch the top one, do an average on the next 8,
+                                                    ditch the top one, do an average on the next 8, and I'll show you
+                                                    what happens.</p>
+                                                <p> We'll go through it.</p>
+                                                <p> So, that's this part here, where it ditches the top one after doing
+                                                    an average.</p>
+                                                <p> Then, the last thing is just to make a movie.</p>
+                                                <p> Let's go through it one at a time.</p>
+                                                <p> We'll put an exit in here so we can see what it looks like after it
+                                                    runs.</p>
+                                                <p> We'll work in this timelapse directory.</p>
+                                                <p> What's there? Oh, a bunch of JPGs.</p>
+                                                <p> Let's get rid of those.</p>
+                                                <p> Okay.</p>
+                                                <p> There we go.</p>
+                                                <p> Let's call our file.</p>
+                                                <p> we_timelapse/make_movie.zsh and it runs, and now we have 144 images
+                                                    copied over.</p>
+                                                <p> That brought us here.</p>
+                                                <p> So, now we'll go down one more and run the Deflicker program.</p>
+                                                <p> Add an exit there.</p>
+                                                <p> Now it's running the Deflicker program.</p>
+                                                <p> Let's see what's in our Deflicker directory.</p>
+                                                <p> There are all our images.</p>
+                                                <p> They've all been normalized.</p>
+                                                <p> That was quick.</p>
+                                                <p> The next step is to build this frame list, so we'll put an exit here
+                                                    and see what that frame list looks like when it's done being
+                                                    built.</p>
+                                                <p> Alright, here we are.</p>
+                                                <p> As you can see, the first image occurs four times, then the second
+                                                    image occurs four times, and the third image occurs four times.</p>
+                                                <p> So, we'll take these first eight images and average them
+                                                    together.</p>
+                                                <p> Then we'll ditch this top line, and we'll take these eight images
+                                                    and average them together.</p>
+                                                <p> See, there's one of this one, four of this one, and three of this
+                                                    one.</p>
+                                                <p> Then we'll ditch this line and do these eight images.</p>
+                                                <p> We'll keep going like that all the way down this file to the
+                                                    end.</p>
+                                                <p> So, that's where we create the frames right here.</p>
+                                                <p> See, it says '-average' Now, this is really important.</p>
+                                                <p> This 'typeset -Z6' here.</p>
+                                                <p> The reason it's important is avconvert will only make a movie if
+                                                    they're sequentially numbered and zero padded.</p>
+                                                <p> So, I've got this '%6d' That's a 6-digit zero-padded number, and it
+                                                    has to be sequential or it will throw an error.</p>
+                                                <p> So, I start my c with this 'typeset' command which says 'no matter
+                                                    what value c has, zero-pad it' Then 'seq 1 $num_frames' All I do is
+                                                    look at how many lines there are in this file 'frames' that we just
+                                                    looked at here.</p>
+                                                <p> We just looked at 'frames' and it had 576 lines.</p>
+                                                <p> So, this 'num_frames' will be 576.</p>
+                                                <p> So sequence from 1 to 576 and then 'while read c' so it starts at 1,
+                                                    then goes to 2, then goes to 3; it loops through until it hits
+                                                    576.</p>
+                                                <p> The first 'convert', which is ImageMagick's convert command, says
+                                                    'give me the first 8 frames' because this 'frame_window' was set to
+                                                    8 up here.</p>
+                                                <p> 'give me the first 8 file names, average them together, and store
+                                                    them in this directory called 'final' with the value of c' So, 'c'
+                                                    starts at 1, which will be 000001 because we gave it six digits, and
+                                                    then .jpg Then, this sed command right here: '-i 1d' says 'pop the
+                                                    first line and ditch it from this file frames' So, every time we run
+                                                    through this, 'frames' is one line smaller.</p>
+                                                <p> This 'echo' here just gives us a nice little status update while
+                                                    it's running so we can see where it's at.</p>
+                                                <p> Then, all we do is make a movie.</p>
+                                                <p> The way we make a movie is 'avconv' The '-f' is 'what format?' and
+                                                    'image2' is what you want to use when you make a movie.</p>
+                                                <p>The frame rate: 30 frames/second.</p>
+                                                <p> And '-i' is 'input' and the 'final'-- this is that final directory
+                                                    here with all the images in it.</p>
+                                                <p> That '%06d' says 'it's a six-digit zero-padded number.jpg' I've got
+                                                    the aspect ratio here, but I don't think it's required.</p>
+                                                <p> I set my quality to 15000k (1500K); my output is video.avi, and
+                                                    that's just the name of the file.</p>
+                                                <p> I send my status messages to /dev/null in case it has a problem with
+                                                    one of the JPG files or something, so I don't have to see a bunch of
+                                                    junk on the screen.</p>
+                                                <p> Let's run the whole thing from start to finish and see how it
+                                                    goes.</p>
+                                                <p> Here we go.</p>
+                                                <p> Smoothing.</p>
+                                                <p> Creating our inter-frames here that are eight images wide.</p>
+                                                <p> They're all averages.</p>
+                                                <p> 576 Frames at 30 frames/second should be just shy of 20 seconds.</p>
+                                                <p> And, let's see what our movie looks like.</p>
+                                                <p> Here comes the sun at 6:00.</p>
+                                                <p> There are some clouds.</p>
+                                                <p> And a rainbow.</p>
+                                                <p> And snow on our mountains.</p>
+                                                <p> Okay, let's take a minute to look at that Perl script we used to do
+                                                    smoothing.</p>
+                                                <p> It's written by Vangelis Tasoulas.</p>
+                                                <p> I sure appreciate this package.</p>
+                                                <p> All you have to do is take this file and put it in the same
+                                                    directory that you're working in, and then just run it.</p>
+                                                <p> That's it.</p>
+                                                <p> And it goes.</p>
+                                                <p> It's wonderful.</p>
+                                                <p> It works with JPGs and PNGs.</p>
+                                                <p> I will link to the file in the show notes.</p>
+                                                <p> Well, thanks for watching another week's episode of Weekly Edit.</p>
+                                                <p> I wanted to show you my website here.</p>
+                                                <p> It's at weeklyedit.com There are all the recent posts here, and
+                                                    there are resources.</p>
+                                                <p> All my scripts are listed here.</p>
+                                                <p> The scripts for today's episode are all here, including the Perl
+                                                    script for the L Channel normalization.</p>
+                                                <p> And my Lab Color Reference Chart is here.</p>
+                                                <p> You can make playlists based on Topics or Modules.</p>
+                                                <p> I want to show you Shoot with Harry.</p>
+                                                <p> You can come to Hawaii and go shooting with me.</p>
+                                                <p> We'll do some processing and just have fun.</p>
+                                                <p> Here's our Shoot With Harry page.</p>
+                                                <p> It's got a calendar showing all sorts of stuff that's happening on
+                                                    the island.</p>
+                                                <p> It makes it easy to decide when to come because you can see all the
+                                                    upcoming events.</p>
+                                                <p> We also have a Patreon campaign.</p>
+                                                <p> We have three people who have subscribed already, which is
+                                                    fantastic.</p>
+                                                <p> You can go to my Patreon page and pledge to support some amount per
+                                                    month.</p>
+                                                <p> This encourages and supports my wife and I in continuing with all of
+                                                    what we do.</p>
+                                                <p> Thank you everybody for watching these videos, for contributing your
+                                                    opinions and comments, for asking questions and giving me
+                                                    suggestions.</p>
+                                                <p> I really appreciate you.</p>
+                                                <p> Have a great week.</p>
+                                                <p> I'll see you here next week.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- .entry-content -->
+
+                        <div class="entry-meta">
+                            <div class="taxonomy">
+                                <div class="categories"><span class="influence-icon-layers"></span><a
+                                        href="../../category/weekly-edits/index.html" rel="tag">Weekly Edits</a></div>
+                            </div>
+
+                            <div class="posted-on">Posted on <a href="../timelapse-bash-script/" title="12:00 pm"
+                                                                rel="bookmark">
+                                <time class="entry-date" datetime="2016-12-07T12:00:38+00:00">December 7, 2016</time>
+                            </a></div>
+                        </div><!-- .entry-meta -->
+
+
+                        <div id="single-comments-wrapper">
+
+
+                            <div id="comments" class="comments-area">
+
+
+                                <div id="respond" class="comment-respond">
+                                    <h3 id="reply-title" class="comment-reply-title">Leave a Reply
+                                        <small><a rel="nofollow" id="cancel-comment-reply-link"
+                                                  href="/timelapse-bash-script/#respond" style="display:none;">Cancel
+                                            reply</a></small>
+                                    </h3>
+                                    <form action="../wp-comments-post.php" method="post" id="commentform"
+                                          class="comment-form">
+                                        <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span>
+                                        </p>
+                                        <p class="comment-form-comment"><textarea id="comment" name="comment" rows="8"
+                                                                                  aria-required="true"></textarea></p>
+                                        <p class="comment-form-author"><label for="author">Name</label> <input
+                                                id="author" name="author" type="text" value="" size="30"
+                                                maxlength="245"/></p>
+                                        <p class="comment-form-email"><label for="email">Email</label> <input id="email"
+                                                                                                              name="email"
+                                                                                                              type="text"
+                                                                                                              value=""
+                                                                                                              size="30"
+                                                                                                              maxlength="100"
+                                                                                                              aria-describedby="email-notes"/>
+                                        </p>
+                                        <p class="comment-form-url"><label for="url">Website</label> <input id="url"
+                                                                                                            name="url"
+                                                                                                            type="text"
+                                                                                                            value=""
+                                                                                                            size="30"
+                                                                                                            maxlength="200"/>
+                                        </p>
+                                        <p class="form-submit"><input name="submit" type="submit" id="submit"
+                                                                      class="submit" value="Post Comment"/> <input
+                                                type='hidden' name='comment_post_ID' value='599' id='comment_post_ID'/>
+                                            <input type='hidden' name='comment_parent' id='comment_parent' value='0'/>
+                                        </p><input type="hidden" id="ct_checkjs_6a9aeddfc689c1d0e3b9ccc3ab651bc5"
+                                                   name="ct_checkjs" value="0"/>
+                                        <script type="text/javascript">setTimeout(function () {
+                                            var ct_input_name = 'ct_checkjs_6a9aeddfc689c1d0e3b9ccc3ab651bc5';
+                                            if (document.getElementById(ct_input_name) !== null) {
+                                                var ct_input_value = document.getElementById(ct_input_name).value;
+                                                document.getElementById(ct_input_name).value = document.getElementById(ct_input_name).value.replace(ct_input_value, '754191685');
+                                            }
+                                        }, 1000);</script>
+                                    </form>
+                                </div><!-- #respond -->
+
+                            </div><!-- #comments .comments-area -->
+                        </div><!-- #single-comments-wrapper -->
+
+
+                        <nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+                            <h1 class="assistive-text">Post navigation</h1>
+
+
+                            <div class="nav-previous"><a href="../red-hair/index.html" rel="prev"><span
+                                    class="meta-nav influence-icon-arrow-left"></span> Red Hair</a></div>
+                            <div class="nav-next"><a href="../mask-manager/index.html" rel="next">Mask Manager <span
+                                    class="meta-nav influence-icon-arrow-right"></span></a></div>
+
+                        </nav><!-- #nav-below -->
+
+                    </div>
+
+                </article><!-- #post-599 -->
+
+
+            </div><!-- #content .site-content -->
+
+        </section><!-- #primary .content-area -->
+
+
+        <div id="secondary">
+
+            <div class="widgets">
+                <aside id="sow-image-2" class="widget widget_sow-image">
+                    <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                        <div class="sow-image-container">
+                            <a href="../index.html"> <img src="../wp-content/uploads/2016/10/logo512-1.jpg" width="512"
+                                                          height="512"
+                                                          srcset="../wp-content/uploads/2016/10/logo512-1.jpg 512w, ../wp-content/uploads/2016/10/logo512-1-150x150.jpg 150w, ../wp-content/uploads/2016/10/logo512-1-300x300.jpg 300w"
+                                                          title="logo512" class="so-widget-image"/>
+                            </a></div>
+
+                    </div>
+                </aside>
+                <aside id="search-2" class="widget widget_search">
+                    <form method="get" id="searchform" action="../index.html" role="search">
+                        <label for="s" class="assistive-text">Search</label>
+                        <input type="text" class="field" name="s" value="" id="s" placeholder="Search"/>
+                        <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search"/>
+                    </form>
+                </aside>
+                <aside id="text-2" class="widget widget_text">
+                    <div class="textwidget">
+                        <script type='text/javascript' src="../cgi/build_links.js">
+                        </script>
+                    </div>
+                </aside>
+                <aside id="text-3" class="widget widget_text">
+                    <div class="textwidget">
+                        <div id='results'></div>
+                    </div>
+                </aside>
+            </div>
+
+        </div>
+
+
+    </div><!-- #main .site-main -->
+
+    <footer id="colophon" class="site-footer" role="contentinfo">
+
+        <div class="container">
+
+            <div id="footer-widgets">
+                <aside id="meta-3" class="widget widget_meta"><h3 class="widget-title">Meta</h3>
+                    <ul>
+                        <li><a rel="nofollow" href="../wp-login.php">Log in</a></li>
+                        <li><a href="../feed/index.html">Entries <abbr title="Really Simple Syndication">RSS</abbr></a>
+                        </li>
+                        <li><a href="../comments/feed/index.html">Comments <abbr
+                                title="Really Simple Syndication">RSS</abbr></a></li>
+                        <li><a href="https://wordpress.org/"
+                               title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a>
+                        </li>
+                    </ul>
+                </aside>
+                <aside id="text-4" class="widget widget_text">
+                    <div class="textwidget"><a href="stats">Stats</a></div>
+                </aside>
+            </div><!-- #footer-widgets -->
+
+
+        </div>
+
+    </footer><!-- #colophon .site-footer -->
+</div><!-- #page .hfeed .site -->
+
+
+<div id="main-menu">
+
+    <a href="#" class="influence-icon influence-icon-cross main-menu-close"></a>
+
+    <div class="menu">
+        <div class="menu">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li class="page_item page-item-232"><a href="../about-us/index.html">About Us</a></li>
+                <li class="page_item page-item-391"><a href="../awesome-links/index.html">Awesome Links</a></li>
+                <li class="page_item page-item-470"><a href="../lab-reference-chart/index.html">Lab Color Reference
+                    Chart</a></li>
+                <li class="page_item page-item-258"><a href="../order-prints-of-my-work/index.html">Order Prints of My
+                    Work</a></li>
+                <li class="page_item page-item-573"><a href="../scripts/index.html">Scripts</a></li>
+                <li class="page_item page-item-527"><a href="../show-suggestions/index.html">Show Suggestions</a></li>
+                <li class="page_item page-item-172"><a href="../shoot-with-harry/index.html">Shoot with Harry</a></li>
+                <li class="page_item page-item-154"><a href="../support-weekly-edit/index.html">Donate to the Show</a>
+                </li>
+                <li class="page_item page-item-142"><a href="../my-workflow/index.html">My Workflow</a></li>
+                <li class="page_item page-item-170"><a href="../edit-my-raw/index.html">Edit my RAW</a></li>
+                <li class="page_item page-item-156"><a href="../tpe/index.html">Sun and Moon Calendar</a></li>
+                <li class="page_item page-item-103"><a href="../playlist/index.html">Playlist</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="widgets">
+        <aside id="siteorigin-panels-builder-3" class="widget widget_siteorigin-panels-builder">
+            <div id="pl-w57e4594d719bc">
+                <div class="panel-grid" id="pg-w57e4594d719bc-0">
+                    <div class="panel-grid-cell" id="pgc-w57e4594d719bc-0-0">
+                        <div class="so-panel widget widget_pages panel-first-child" id="panel-w57e4594d719bc-0-0-0"
+                             data-index="0"><h3 class="widget-title">Resources</h3>
+                            <ul>
+                                <li class="page_item page-item-232"><a href="../about-us/index.html">About Us</a></li>
+                                <li class="page_item page-item-391"><a href="../awesome-links/index.html">Awesome
+                                    Links</a></li>
+                                <li class="page_item page-item-37"><a href="../index.html">Home Page</a></li>
+                                <li class="page_item page-item-470"><a href="../lab-reference-chart/index.html">Lab
+                                    Color Reference Chart</a></li>
+                                <li class="page_item page-item-258"><a href="../order-prints-of-my-work/index.html">Order
+                                    Prints of My Work</a></li>
+                                <li class="page_item page-item-573"><a href="../scripts/index.html">Scripts</a></li>
+                                <li class="page_item page-item-527"><a href="../show-suggestions/index.html">Show
+                                    Suggestions</a></li>
+                                <li class="page_item page-item-172"><a href="../shoot-with-harry/index.html">Shoot with
+                                    Harry</a></li>
+                                <li class="page_item page-item-154"><a href="../support-weekly-edit/index.html">Donate
+                                    to the Show</a></li>
+                                <li class="page_item page-item-142"><a href="../my-workflow/index.html">My Workflow</a>
+                                </li>
+                                <li class="page_item page-item-170"><a href="../edit-my-raw/index.html">Edit my RAW</a>
+                                </li>
+                                <li class="page_item page-item-156"><a href="../tpe/index.html">Sun and Moon
+                                    Calendar</a></li>
+                            </ul>
+                        </div>
+                        <div class="so-panel widget widget_recent-posts widget_recent_entries"
+                             id="panel-w57e4594d719bc-0-0-1" data-index="1"><h3 class="widget-title">Recent Posts</h3>
+                            <ul>
+                                <li>
+                                    <a href="../advancetown-lake/index.html">Advancetown Lake</a>
+                                </li>
+                                <li>
+                                    <a href="../lucky-shot/index.html">Lucky Shot</a>
+                                </li>
+                                <li>
+                                    <a href="../now-quicker-edits/index.html">Now with Quicker Edits</a>
+                                </li>
+                                <li>
+                                    <a href="../thinking-differently/index.html">Thinking Differently</a>
+                                </li>
+                                <li>
+                                    <a href="../stacking-by-hand/index.html">Stacking by Hand</a>
+                                </li>
+                                <li>
+                                    <a href="../shot-year-2016/index.html">Shot of the Year 2016</a>
+                                </li>
+                                <li>
+                                    <a href="../story-telling-panoramas/index.html">Story Telling with Panoramas</a>
+                                </li>
+                                <li>
+                                    <a href="../lets-add-grain/index.html">Let&#8217;s Add Grain</a>
+                                </li>
+                                <li>
+                                    <a href="../mask-manager/index.html">Mask Manager</a>
+                                </li>
+                                <li>
+                                    <a href="../timelapse-bash-script/index.html">Timelapse Bash Script</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="so-panel widget widget_search panel-last-child" id="panel-w57e4594d719bc-0-0-2"
+                             data-index="2">
+                            <form method="get" id="searchform" action="../index.html" role="search">
+                                <label for="s" class="assistive-text">Search</label>
+                                <input type="text" class="field" name="s" value="" id="s" placeholder="Search"/>
+                                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+</div>
+<script async type='text/javascript'
+        src='../wp-content/plugins/cleantalk-spam-protect/inc/cleantalk_nocache.js?random=5.58'></script>
+<script type="text/javascript">function ctSetCookie(c_name, value, def_value) {
+    document.cookie = c_name + "=" + escape(value) + "; path=/";
+}
+ctSetCookie("ct_checkjs", "754191685", "0");</script>
+<style type="text/css" media="all" id="siteorigin-panels-grids-wp_footer">/* Layout w57e4594d719bc */
+#pg-w57e4594d719bc-0 .panel-grid-cell {
+    float: none
+}
+
+#pl-w57e4594d719bc .panel-grid-cell .so-panel {
+    margin-bottom: 30px
+}
+
+#pl-w57e4594d719bc .panel-grid-cell .so-panel:last-child {
+    margin-bottom: 0px
+}
+
+#pg-w57e4594d719bc-0 {
+    margin-left: -15px;
+    margin-right: -15px
+}
+
+#pg-w57e4594d719bc-0 .panel-grid-cell {
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+@media (max-width: 780px) {
+    #pg-w57e4594d719bc-0 .panel-grid-cell {
+        float: none;
+        width: auto
+    }
+
+    #pl-w57e4594d719bc .panel-grid, #pl-w57e4594d719bc .panel-grid-cell {
+    }
+
+    #pl-w57e4594d719bc .panel-grid .panel-grid-cell-empty {
+        display: none
+    }
+
+    #pl-w57e4594d719bc .panel-grid .panel-grid-cell-mobile-last {
+        margin-bottom: 0px
+    }
+} </style>
+<script type='text/javascript' src='../wp-includes/js/comment-reply.min.js?ver=4.7.2'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min.js?ver=4.7.2'></script>
+
+<script async type='text/javascript'
+        src='../wp-content/plugins/cleantalk-spam-protect/inc/cleantalk_nocache.js?random=5.58'></script>
+</body>
+</html>

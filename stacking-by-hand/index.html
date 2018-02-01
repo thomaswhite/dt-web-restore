@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="profile" href="http://gmpg.org/xfn/11"/>
+    <link rel="pingback" href="../xmlrpc.php"/>
+
+    <title>Stacking by Hand</title>
+
+    <script type='text/javascript'>
+        var ct_ajaxurl = '../wp-admin/admin-ajax.php';
+        var ct_info_flag = false;
+        var ct_set_cookies_flag = true;
+    </script>
+
+    <!-- This site is optimized with the Yoast SEO Premium plugin v4.2.1 - https://yoast.com/wordpress/plugins/seo/ -->
+    <meta name="description"
+          content="In this opensource tutorial, Harry Durgin shows how to tackle a tricky focus stack by hand-stacking in the GIMP and finish the image edit in Darktable"/>
+    <meta name="robots" content="noodp"/>
+    <link rel="canonical" href="../stacking-by-hand/"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="From a Flower to the Galaxy"/>
+    <meta property="og:description"
+          content="In Harry Durgin&#039;s opensource tutorial, the GIMP is the answer to the challenge in a tricky macro focus stack. Then, it&#039;s off to Sweden for a beautiful Aurora Borealis shot in the Edit my RAW segment."/>
+    <meta property="og:url" content="../stacking-by-hand/"/>
+    <meta property="og:site_name" content="Weekly Edit"/>
+    <meta property="article:section" content="Uncategorized"/>
+    <meta property="article:published_time" content="2017-01-11T12:00:17+00:00"/>
+    <meta property="article:modified_time" content="2017-01-11T12:14:13+00:00"/>
+    <meta property="og:updated_time" content="2017-01-11T12:14:13+00:00"/>
+    <meta property="og:image" content="../wp-content/uploads/2017/01/2017-01-07-weekly_edit_small.jpg"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description"
+          content="In this opensource tutorial, Harry Durgin shows how to tackle a tricky focus stack by hand-stacking in the GIMP and finish the image edit in Darktable"/>
+    <meta name="twitter:title" content="Stacking by Hand"/>
+    <meta name="twitter:image" content="../wp-content/uploads/2017/01/2017-01-07-weekly_edit_small.jpg"/>
+    <meta property="DC.date.issued" content="2017-01-11T12:00:17+00:00"/>
+    <!-- / Yoast SEO Premium plugin. -->
+
+    <link rel='dns-prefetch' href='http://fonts.googleapis.com'/>
+    <link rel='dns-prefetch' href='http://s.w.org'/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Feed" href="../feed/"/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Comments Feed"
+          href="../comments/feed/"/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Stacking by Hand Comments Feed"
+          href="../stacking-by-hand/feed/"/>
+    <script type="text/javascript">
+        window._wpemojiSettings = {
+            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/",
+            "ext": ".png",
+            "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/",
+            "svgExt": ".svg",
+            "source": {"concatemoji": "http:\/\/weeklyedit.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.2"}
+        };
+        !function (a, b, c) {
+            function d(a) {
+                var b, c, d, e, f = String.fromCharCode;
+                if (!k || !k.fillText)return !1;
+                switch (k.clearRect(0, 0, j.width, j.height), k.textBaseline = "top", k.font = "600 32px Arial", a) {
+                    case"flag":
+                        return k.fillText(f(55356, 56826, 55356, 56819), 0, 0), !(j.toDataURL().length < 3e3) && (k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 65039, 8205, 55356, 57096), 0, 0), b = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 55356, 57096), 0, 0), c = j.toDataURL(), b !== c);
+                    case"emoji4":
+                        return k.fillText(f(55357, 56425, 55356, 57341, 8205, 55357, 56507), 0, 0), d = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55357, 56425, 55356, 57341, 55357, 56507), 0, 0), e = j.toDataURL(), d !== e
+                }
+                return !1
+            }
+
+            function e(a) {
+                var c = b.createElement("script");
+                c.src = a, c.defer = c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c)
+            }
+
+            var f, g, h, i, j = b.createElement("canvas"), k = j.getContext && j.getContext("2d");
+            for (i = Array("flag", "emoji4"), c.supports = {
+                everything: !0,
+                everythingExceptFlag: !0
+            }, h = 0; h < i.length; h++)c.supports[i[h]] = d(i[h]), c.supports.everything = c.supports.everything && c.supports[i[h]], "flag" !== i[h] && (c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && c.supports[i[h]]);
+            c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && !c.supports.flag, c.DOMReady = !1, c.readyCallback = function () {
+                c.DOMReady = !0
+            }, c.supports.everything || (g = function () {
+                c.readyCallback()
+            }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () {
+                "complete" === b.readyState && c.readyCallback()
+            })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji)))
+        }(window, document, window._wpemojiSettings);
+    </script>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' id='siteorigin-panels-front-css'
+          href='../wp-content/plugins/siteorigin-panels/css/front.css?ver=2.4.24' type='text/css' media='all'/>
+    <link rel='stylesheet' id='sow-image-default-3f547a15eaaa-css'
+          href='../wp-content/uploads/siteorigin-widgets/sow-image-default-3f547a15eaaa.css?ver=4.7.2' type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='siteorigin-google-web-fonts-css'
+          href='http://fonts.googleapis.com/css?family=Montserrat&#038;ver=4.7.2' type='text/css' media='all'/>
+    <link rel='stylesheet' id='influence-style-css' href='../wp-content/themes/influence/style.css?ver=4.7.2'
+          type='text/css' media='all'/>
+    <script type='text/javascript' src='../wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+    <script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+    <script type='text/javascript' src='../wp-content/themes/influence/js/jquery.fitvids.min.js?ver=1.0'></script>
+    <script type='text/javascript' src='../wp-content/themes/influence/js/jquery.theme-main.min.js?ver=1.2.1'></script>
+    <link rel='https://api.w.org/' href='../wp-json/'/>
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php?rsd"/>
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml"/>
+    <meta name="generator" content="WordPress 4.7.2"/>
+    <link rel='shortlink' href='../?p=722'/>
+    <link rel="alternate" type="application/json+oembed"
+          href="../wp-json/oembed/1.0/embed?url=http%3A%2F%2Fweeklyedit.com%2Fstacking-by-hand%2F"/>
+    <link rel="alternate" type="text/xml+oembed"
+          href="../wp-json/oembed/1.0/embed?url=http%3A%2F%2Fweeklyedit.com%2Fstacking-by-hand%2F&#038;format=xml"/>
+    <!--[if lt IE 9]>
+    <script src="../wp-content/themes/influence/js/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if (gte IE 6)&(lte IE 8)]>
+    <script type="text/javascript" src="../wp-content/themes/influence/js/selectivizr.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <style type="text/css" id="custom-background-css">
+        body.custom-background {
+            background-color: #ffffff;
+            background-image: url("../wp-content/themes/influence/images/background.png");
+            background-position: left top;
+            background-size: auto;
+            background-repeat: repeat;
+            background-attachment: scroll;
+        }
+    </style>
+    <style type="text/css" media="all" id="siteorigin-panels-grids-wp_head">/* Layout 722 */
+    #pg-722-0, #pg-722-1, #pl-722 .panel-grid-cell .so-panel {
+        margin-bottom: 30px
+    }
+
+    #pg-722-0 .panel-grid-cell, #pg-722-2 .panel-grid-cell {
+        float: none
+    }
+
+    #pgc-722-1-0, #pgc-722-1-1 {
+        width: 50%
+    }
+
+    #pg-722-1 .panel-grid-cell {
+        float: left
+    }
+
+    #pl-722 .panel-grid-cell .so-panel:last-child {
+        margin-bottom: 0px
+    }
+
+    #pg-722-0, #pg-722-1, #pg-722-2 {
+        margin-left: -15px;
+        margin-right: -15px
+    }
+
+    #pg-722-0 .panel-grid-cell, #pg-722-1 .panel-grid-cell, #pg-722-2 .panel-grid-cell {
+        padding-left: 15px;
+        padding-right: 15px
+    }
+
+    @media (max-width: 780px) {
+        #pg-722-0 .panel-grid-cell, #pg-722-1 .panel-grid-cell, #pg-722-2 .panel-grid-cell {
+            float: none;
+            width: auto
+        }
+
+        #pgc-722-1-0 {
+            margin-bottom: 30px
+        }
+
+        #pl-722 .panel-grid, #pl-722 .panel-grid-cell {
+        }
+
+        #pl-722 .panel-grid .panel-grid-cell-empty {
+            display: none
+        }
+
+        #pl-722 .panel-grid .panel-grid-cell-mobile-last {
+            margin-bottom: 0px
+        }
+    } </style>
+    <style type="text/css" id="influence-footer-widgets">#footer-widgets aside {
+        width: 50%;
+    } </style>
+    <style id='influence-custom-css' class='siteorigin-custom-css' type='text/css'>
+        .post-thumbnail {
+            display: none;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        article.entry .entry-content h3 {
+            font-size: 17px;
+            text-align: left;
+            margin-left: 0px;
+            margin-top: 0em;
+            margin-bottom: 0px;
+        }
+
+        #panel-37-0-1-2.so-panel.widget.widget_recent-posts.widget_recent_entries {
+            margin-bottom: 0px;
+        }
+
+        .entry-content ul {
+            margin-left: -6px;
+        }
+
+        #topics {
+            margin-top: -30px;
+        }
+
+        #modules {
+            margin-top: -30px;
+        }
+
+        .panel-grid-cell .widget-title {
+            padding-bottom: 15px;
+        }
+
+        #main-menu .widgets aside.widget .widget-title {
+            margin-bottom: 0px;
+            margin-top: -20px;
+        }
+
+        #panel-470-0-0-0.so-panel.widget.widget_sow-image.panel-first-child.panel-last-child {
+            margin-top: -50px;
+        }
+
+        article.entry {
+            visibility: visible;
+        }
+
+        .post-text {
+            visibility: visible;
+        }
+
+        .entry-title {
+            visibility: visible;
+        }
+
+        article.entry .post-text {
+            padding-top: 0px;
+        }
+
+        #panel-72-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-75-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-131-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-133-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-135-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-137-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-140-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-177-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-278-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-354-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-430-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-448-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-475-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-488-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-518-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-550-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-575-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-599-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-625-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-664-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-682-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-704-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-722-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-736-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-757-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-765-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+    </style>
+    <style type="text/css" id="customizer-css">h1, h2, h3, h4, h5, h6 {
+        font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+        font-weight: 400
+    }
+
+    article.entry {
+        background-color: #ffffff
+    } </style>
+</head>
+
+<body class="post-template-default single single-post postid-722 single-format-standard custom-background siteorigin-panels responsive has-main-sidebar">
+
+<div id="page" class="hfeed site">
+
+
+    <header id="masthead" class="site-header has-shadow" role="banner">
+
+        <div class="container">
+
+            <div class="hgroup">
+
+                <h1 class="site-title">
+                    <a href="../index.html" title="Weekly Edit" rel="home">
+                        Weekly Edit </a>
+                </h1>
+
+
+            </div>
+
+
+            <nav role="navigation" class="site-navigation main-navigation primary">
+
+                <h1 class="assistive-text">Menu</h1>
+
+                <a href="#" class="main-menu-button">
+                    <i class="influence-icon-menu-icon"></i>
+                    Menu </a>
+
+            </nav><!-- .site-navigation .main-navigation -->
+
+
+        </div>
+
+    </header><!-- #masthead .site-header -->
+
+    <div class="site-header has-shadow site-header-sentinel">
+
+        <div class="container">
+
+            <div class="hgroup">
+
+                <h1 class="site-title">
+                    Weekly Edit </h1>
+
+
+            </div>
+
+
+            <div role="navigation" class="site-navigation main-navigation primary">
+
+                <h1 class="assistive-text">Menu</h1>
+
+                <a href="#" class="main-menu-button">
+                    <i class="influence-icon-menu-icon"></i>
+                    Menu </a>
+
+            </div><!-- .site-navigation .main-navigation -->
+
+
+        </div>
+
+    </div><!-- #masthead .site-header -->
+
+    <div id="main" class="site-main">
+
+        <section id="primary" class="content-area">
+
+            <div id="content" class="site-content" role="main">
+
+
+                <article id="post-722"
+                         class="entry post-722 post type-post status-publish format-standard hentry category-uncategorized">
+
+
+                    <div class="post-text">
+
+                        <h1 class="entry-title"><a href="../stacking-by-hand/" title="Permalink to Stacking by Hand"
+                                                   rel="bookmark">Stacking by Hand</a></h1>
+
+                        <div class="entry-content">
+                            <div id="pl-722">
+                                <div class="panel-grid" id="pg-722-0">
+                                    <div class="panel-grid-cell" id="pgc-722-0-0">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-722-0-0-0" data-index="0">
+                                            <div class="textwidget">
+                                                <div id="vp">
+                                                    <iframe frameborder=0 allowfullscreen
+                                                            src="https://www.youtube.com/embed/dfy57vynOQU"></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-grid" id="pg-722-1">
+                                    <div class="panel-grid-cell" id="pgc-722-1-0">
+                                        <div class="so-panel widget widget_sow-image panel-first-child"
+                                             id="panel-722-1-0-0" data-index="1">
+                                            <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                                                <div class="sow-image-container">
+                                                    <a href="../wp-content/uploads/2017/01/610_9939_01.jpg"
+                                                       target="_blank"> <img
+                                                            src="../wp-content/uploads/2017/01/610_9939_01.jpg"
+                                                            width="1055" height="1280"
+                                                            srcset="../wp-content/uploads/2017/01/610_9939_01.jpg 1055w, ../wp-content/uploads/2017/01/610_9939_01-247x300.jpg 247w, ../wp-content/uploads/2017/01/610_9939_01-768x932.jpg 768w, ../wp-content/uploads/2017/01/610_9939_01-844x1024.jpg 844w, ../wp-content/uploads/2017/01/610_9939_01-824x1000.jpg 824w"
+                                                            title="Aurora by Andreas, from Sweden - RAW image"
+                                                            alt="RAW file of Aurora Borealis in Sweden, submitted by Andreas for edit by Harry Durgin in a Darktable tutorial on Weekly Edit "
+                                                            class="so-widget-image"/>
+                                                    </a></div>
+
+                                            </div>
+                                        </div>
+                                        <div class="so-panel widget widget_sow-image panel-last-child"
+                                             id="panel-722-1-0-1" data-index="2">
+                                            <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                                                <div class="sow-image-container">
+                                                    <a href="../wp-content/uploads/2017/01/610_9939_02.jpg"
+                                                       target="_blank"> <img
+                                                            src="../wp-content/uploads/2017/01/610_9939_02.jpg"
+                                                            width="1280" height="855"
+                                                            srcset="../wp-content/uploads/2017/01/610_9939_02.jpg 1280w, ../wp-content/uploads/2017/01/610_9939_02-300x200.jpg 300w, ../wp-content/uploads/2017/01/610_9939_02-768x513.jpg 768w, ../wp-content/uploads/2017/01/610_9939_02-1024x684.jpg 1024w, ../wp-content/uploads/2017/01/610_9939_02-1000x668.jpg 1000w, ../wp-content/uploads/2017/01/610_9939_02-272x182.jpg 272w"
+                                                            title="Aurora by Andreas, from Sweden - finished image"
+                                                            alt="RAW file of Aurora Borealis in Sweden, submitted by Andreas for edit by Harry Durgin in a Darktable tutorial on Weekly Edit "
+                                                            class="so-widget-image"/>
+                                                    </a></div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-grid-cell" id="pgc-722-1-1">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-722-1-1-0" data-index="3"><h3 class="widget-title">From a Flower
+                                            to the Aurora</h3>
+                                            <div class="textwidget"><p>Spanning the size scale from a single flower to
+                                                the entire galaxy, we encounter challenges with both edits. Because of
+                                                breezy conditions, we ended up with only a handful of usable shots for
+                                                our macro stack. Standard techniques for alignment were failing, but a
+                                                little hand blending in the GIMP makes short work of the job.</p>
+                                                <p>In the Aurora shot, the Aurora is so bright that the stars are hard
+                                                    to pick out. The challenge here is to bring up the stars without
+                                                    excessive haloing. I use multiple instances of both the Highpass and
+                                                    Equalizer modules to add a starry-night feel to this spectacular
+                                                    viewer-contributed shot.</p>
+                                                <p>Thank you, Andreas, for your Edit my RAW submission!</p>
+                                                <p>This video builds on knowledge from previous videos, running
+                                                    full-tilt through tools and methods to achieve the edit. For fuller
+                                                    explanations, return to the <a href=../ target=_blank> Home Page</a>
+                                                    and scroll down to Topics Discussed or Modules Used on the
+                                                    right-hand bar. Click on any of these, and we assemble a complete
+                                                    playlist of every instance for quick review right here on the site.
+                                                </p>
+                                                <p><a target=_blank
+                                                      href="https://drive.google.com/open?id=0B7mIPRZEcQpAaWVteWJPRWxKNm8">Stack
+                                                    RAW 1</a><br/>
+                                                    <a target=_blank
+                                                       href="https://drive.google.com/open?id=0B7mIPRZEcQpAYkt0QUhUc0RRYWM">Stack
+                                                        RAW 2</a><br/>
+                                                    <a target=_blank
+                                                       href="https://drive.google.com/open?id=0B7mIPRZEcQpAbktnWWpwcnpKTjQ">Stack
+                                                        RAW 3</a><br/>
+                                                    <a target=_blank
+                                                       href="https://drive.google.com/open?id=0B7mIPRZEcQpARDBLbG92d3VVSXM">Stack
+                                                        RAW 4</a><br/>
+                                                    <a target=_blank
+                                                       href="https://drive.google.com/open?id=0B7mIPRZEcQpAWDRpN2NjVDlPUlE">Stack
+                                                        RAW 5</a><br/>
+                                                    <a target=_blank
+                                                       href="https://drive.google.com/open?id=0B7mIPRZEcQpARlc1eTNKYU01UGs">Stack
+                                                        XMP</a></p>
+                                                <p><a target=_blank
+                                                      href="https://drive.google.com/open?id=0B7mIPRZEcQpAeUxmRXc2R25TX2s">Aurora
+                                                    RAW</a><br/>
+                                                    <a target=_blank
+                                                       href="https://drive.google.com/open?id=0B7mIPRZEcQpARktEUnByQUNNR1E">Aurora
+                                                        XMP 1</a><br/>
+                                                    <a target=_blank
+                                                       href="https://drive.google.com/open?id=0B7mIPRZEcQpAQUg1X3ljUE9sX2c">Aurora
+                                                        XMP 2</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-grid" id="pg-722-2">
+                                    <div class="panel-grid-cell" id="pgc-722-2-0">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-722-2-0-0" data-index="4"><h3 class="widget-title">Complete Show
+                                            Text</h3>
+                                            <div class="textwidget"><p><a href="../annotations/dfy57vynOQU.txt"
+                                                                          download>Download complete text here</a></p>
+                                                <p>(triangle palm flower)<br/>
+                                                    (Carlsmith Beach Park, Hilo)<br/>
+                                                    (Kapoho shoreline)<br/>
+                                                    (Kapoho tide pools)<br/>
+                                                    (Pahoa sunrise)</p>
+                                                <p>Aloha.</p>
+                                                <p> Welcome to Weekly Edit for January 11, 2016.</p>
+                                                <p> Hawaii is known for beautiful flowers.</p>
+                                                <p> We are also known for our ocean breezes.</p>
+                                                <p> These two factors combined to give us this week's inspiration.</p>
+                                                <p> Shooting this flower, we had to use a lower f-stop to get a fast
+                                                    enough shutter speed to compensate for the wind.</p>
+                                                <p> But that gave us a shallow depth of field.</p>
+                                                <p> No worries: just get lots of frames and focus-stack, right? Well,
+                                                    when we got back to the studio, that tricky wind left us with only a
+                                                    few usable shots.</p>
+                                                <p> We tried our faithful friends Hugin and Enfuse, but the parallax
+                                                    differences between the frames were too extreme.</p>
+                                                <p> When all else fails, hand-stack in the GIMP! (Harry's Voice) I took
+                                                    this macro stack, and it was windy.</p>
+                                                <p> I actually had to take around 30 shots, and only some of them came
+                                                    out.</p>
+                                                <p> Let's look at the ones that came out.</p>
+                                                <p> In this one, these parts of the flower are in focus.</p>
+                                                <p> I don't know that this one's really very useful.</p>
+                                                <p> It looks like these parts are in focus, but as I focus down further,
+                                                    it looks like it's better on the later ones.</p>
+                                                <p> This one looks like it gets parts of this.</p>
+                                                <p> Maybe that's helpful; maybe it isn't.</p>
+                                                <p> It looks like this part looks better.</p>
+                                                <p> And, on this last one, this back part looks great.</p>
+                                                <p> They're all in different locations and different magnifications.</p>
+                                                <p> I have tried this multiple ways.</p>
+                                                <p> I tried using Align Image Stack with various parameters; I tried
+                                                    setting control points with Hugin and having it do the
+                                                    alignment.</p>
+                                                <p> The problem is that the parallax view errors are so great because
+                                                    I'm so close to the subject matter and it's so deep from this point
+                                                    to the back, that this needs to be hand-stitched.</p>
+                                                <p> The best way to do that is in the GIMP.</p>
+                                                <p> Let's open the GIMP and open these as layers.</p>
+                                                <p> Let's see what we've got here.</p>
+                                                <p> This top one is focused closest to us.</p>
+                                                <p> This bottom one is focused farthest away from us.</p>
+                                                <p> This bottom one is going to have the smallest image, so we'll have
+                                                    it set the size.</p>
+                                                <p> So, let's come forward one.</p>
+                                                <p> Let's see where we stand with this.</p>
+                                                <p>Ah, look at the size difference.</p>
+                                                <p> We need to scale this down; it's too large.</p>
+                                                <p> The one beneath it is smaller.</p>
+                                                <p> Layer and Scale Layer.</p>
+                                                <p> We're at 6200; let's try 5600 and see what that looks like.</p>
+                                                <p> Okay, that looks better.</p>
+                                                <p> Let's move it and see how it lines up.</p>
+                                                <p> It looks a little too small now.</p>
+                                                <p> We'll work on that: Layer.</p>
+                                                <p> Scale Layer.</p>
+                                                <p> Instead of 5600, we'll go with 5700.</p>
+                                                <p> That still looks a little small.</p>
+                                                <p> Oh, that looks good.</p>
+                                                <p> Now I'll Add Layer Mask at (White) full opacity.</p>
+                                                <p> Then I'll take a pencil tool because it goes super fast, and make it
+                                                    nice and big.</p>
+                                                <p> Then I'll paint where I want the back to show through.</p>
+                                                <p> Over here, the back was much more in focus, so we definitely want
+                                                    that.</p>
+                                                <p> I can use that leaf as a dividing line.</p>
+                                                <p> If I let the back through here, it actually makes these parts
+                                                    larger.</p>
+                                                <p> I don't want them to be larger because when I paste them at the end,
+                                                    they'll be smaller.</p>
+                                                <p> So, I can go back and either Ctrl-z that, or I can use the Eraser
+                                                    tool and just remove the parts I don't want.</p>
+                                                <p> We'll go to Show Layer Mask and we can paint in all the areas we
+                                                    didn't catch.</p>
+                                                <p> Now what? Does that look pretty good? Are we lined up? Okay, but is
+                                                    it better here with the one behind it, or with this one? Oh, the one
+                                                    behind it looks better.</p>
+                                                <p> Okay, let's do this section too.</p>
+                                                <p> That looks nice.</p>
+                                                <p> So, it seems like we'll only use this second layer right up
+                                                    here.</p>
+                                                <p> That looks pretty good.</p>
+                                                <p> I'll feather these edges now.</p>
+                                                <p> Show Layer Mask.</p>
+                                                <p> I'll get these areas.</p>
+                                                <p> What was right here? Nothing.</p>
+                                                <p>Okay.</p>
+                                                <p> Then I'll feather this.</p>
+                                                <p> Let's see: this tool, and take our Size down, and take our Hardness
+                                                    down.</p>
+                                                <p> There we go.</p>
+                                                <p> Okay, our first two are done.</p>
+                                                <p> Let's go up one more.</p>
+                                                <p> Okay, what's useful in this? It looks like these parts of the center
+                                                    are useful.</p>
+                                                <p> Are they better on any of these others? Maybe.</p>
+                                                <p> That one looks better.</p>
+                                                <p> Maybe we don't need that one.</p>
+                                                <p> And then that one looks much better.</p>
+                                                <p> Well, let's just use this one and call it good.</p>
+                                                <p> Okay, I'll turn these two off.</p>
+                                                <p> So, we want to go to the left, and we need to be a little
+                                                    smaller.</p>
+                                                <p> Yeah, look; we're way down here.</p>
+                                                <p> Scale Layer.</p>
+                                                <p> Let's try 5000.</p>
+                                                <p> That looks pretty good.</p>
+                                                <p> Okay, what do we look like here? A little small.</p>
+                                                <p> Let's try 5300.</p>
+                                                <p> That looks pretty good.</p>
+                                                <p> I don't care about this over here; I'm just painting in the
+                                                    center.</p>
+                                                <p> Yeah, our lines lined up pretty well here.</p>
+                                                <p> Okay, we'll try that.</p>
+                                                <p> I don't want to mess with this part down here.</p>
+                                                <p> We'll Add Layer Mask.</p>
+                                                <p> White (full opacity).</p>
+                                                <p> We'll paint where we don't want the center now.</p>
+                                                <p> We'll start up here and work our way down, trying to get closer and
+                                                    closer to get our blend nice.</p>
+                                                <p> First off, I can see that this layer is not the same brightness as
+                                                    this layer.</p>
+                                                <p> I think a cloud may have gone in front of the sun.</p>
+                                                <p> So, let's get the exposure right.</p>
+                                                <p> We'll click on that and go up here to Colors and Curves.</p>
+                                                <p> We'll sample this area.</p>
+                                                <p> What's the greatest distance? Probably right there.</p>
+                                                <p> Oh, we're almost there.</p>
+                                                <p> Now we're getting brighter than the other one.</p>
+                                                <p> So we'll come down a little.</p>
+                                                <p> Oh, that's pretty close.</p>
+                                                <p> Now I want to feather in this edge.</p>
+                                                <p> We're on our Layer Mask, and we want this tool.</p>
+                                                <p> The Paintbrush instead of the Pencil.</p>
+                                                <p> Our Opacity is 100.0; that's good.</p>
+                                                <p> Hardness: that will give us a feathered edge.</p>
+                                                <p> We can go in and feather this in.</p>
+                                                <p> That's looking pretty good.</p>
+                                                <p> I can make it smaller and get in between these points.</p>
+                                                <p> Okay, let's make it smaller and get in between these little areas
+                                                    here a little more.</p>
+                                                <p> It's starting to look better.</p>
+                                                <p> This looks a little odd right in here.</p>
+                                                <p> And look, we're getting some yellow here and here.</p>
+                                                <p> We'll go back to the Eraser tool and fix these: kind of go back and
+                                                    forth a little bit.</p>
+                                                <p> Right there, and right there, and right there.</p>
+                                                <p> And right there.</p>
+                                                <p> How about here? Okay, I feel good about that.</p>
+                                                <p> Now I just want to quickly fill the rest of the area.</p>
+                                                <p> We'll zoom out and change our view to Show Layer Mask.</p>
+                                                <p> This is kind of crazy (laugh) It looks like we probably want to fill
+                                                    in this stuff.</p>
+                                                <p> Let's look and see what's behind those.</p>
+                                                <p> Yes, we definitely need to.</p>
+                                                <p> Let's see what that looks like.</p>
+                                                <p> Okay, now I want to fill in the rest.</p>
+                                                <p> We'll use this Fill tool.</p>
+                                                <p> Turn off our Show Layer Mask.</p>
+                                                <p> File.</p>
+                                                <p> Export As.</p>
+                                                <p> We'll call this _gimp.tif Here we are in Darktable.</p>
+                                                <p> That turned out pretty sweet, actually.</p>
+                                                <p> I want to accentuate these large curves of these petals.</p>
+                                                <p> I don't want to get lost in the details.</p>
+                                                <p> That will give everything a little bit of a soft focus feel and a
+                                                    dreamlike look.</p>
+                                                <p> I want to sharpen this.</p>
+                                                <p> This looks a little jarring right now.</p>
+                                                <p> This area is so bright and this area is a little dark, or at least
+                                                    the stem is.</p>
+                                                <p> The whole thing looks a little jarring.</p>
+                                                <p> I want to make some tonal changes first, then we'll apply the
+                                                    shading.</p>
+                                                <p> Let's try this.</p>
+                                                <p> Where is it bright? It's bright here and here and here and here, and
+                                                    here and here.</p>
+                                                <p> We'll make that a little smaller, feather our edge.</p>
+                                                <p> What's bright? The brightest thing is right here.</p>
+                                                <p> Okay, that looks better.</p>
+                                                <p> Now, let's see: the stem looks so dark! Let's bring that up.</p>
+                                                <p> Oh, that looks better.</p>
+                                                <p> This looks a little too bright, though, right there.</p>
+                                                <p> Bring that down a little.</p>
+                                                <p> I only want to do that here on the stem.</p>
+                                                <p> And let's see if we can make that just a little smaller and feather
+                                                    that a little tighter.</p>
+                                                <p> Can I exclude the brighter parts with a Parametric Mask? I think
+                                                    so.</p>
+                                                <p> That might have worked just fine.</p>
+                                                <p> It might need a little Mask Blur there.</p>
+                                                <p> Mask Blur.</p>
+                                                <p> Then, maybe this is a bit much and we can come down a little.</p>
+                                                <p> That looks better.</p>
+                                                <p> Before, and after.</p>
+                                                <p> We don't even need as much as that.</p>
+                                                <p> There we go.</p>
+                                                <p> What else? I want the middle to look darker so it looks farther
+                                                    away.</p>
+                                                <p> Right there.</p>
+                                                <p> Maybe bring that down a little, and then feather this out.</p>
+                                                <p> And make these darkest points right there.</p>
+                                                <p> Right there.</p>
+                                                <p> Bring that down.</p>
+                                                <p> Oh, good.</p>
+                                                <p> Now I want to work on shading.</p>
+                                                <p> Take our Saturation down to zero and bring our Contrast down just a
+                                                    little.</p>
+                                                <p> I want larger-scale shading; I don't want to see these details.</p>
+                                                <p> So, I'll bring my Radius up.</p>
+                                                <p> Oh, yeah: like these large parts -- and bring my Brightness down a
+                                                    little.</p>
+                                                <p> Like that.</p>
+                                                <p> I might want to apply a Parametric Mask to exclude these darker
+                                                    areas, or minimize the effect.</p>
+                                                <p> Let's see what it looks like though.</p>
+                                                <p> We use the Softlight Blend Mode.</p>
+                                                <p> Let's bring this down a little.</p>
+                                                <p> It's not affecting this too badly; I think we can leave it.</p>
+                                                <p> I want to do that again, that same thing.</p>
+                                                <p> So, Saturation down to zero, and bring our Radius up, Brightness
+                                                    down.</p>
+                                                <p> I'm trying to show this shape, the larger shape of the flower.</p>
+                                                <p> Once again, Softlight Blend Mode.</p>
+                                                <p> There we go; it's kind of pulling you in here now, isn't it? How did
+                                                    that work here? Is that too much? It does look like it's a bit much,
+                                                    doesn't it? Let's apply this with a Parametric Mask and avoid some
+                                                    of these darker parts.</p>
+                                                <p> See how that looks.</p>
+                                                <p> Ah, like that.</p>
+                                                <p> Okay, there we go.</p>
+                                                <p> Now, I want to pick up some of this finer detail in here.</p>
+                                                <p> I'll use the Highpass Filter for that.</p>
+                                                <p> We'll do two passes: one for the contours and one for the edge
+                                                    detection.</p>
+                                                <p> This is nice; it's getting me these little stems here, and it's also
+                                                    getting me these veins in here.</p>
+                                                <p> I want to bring my Contrast up, but not to the point where I'm
+                                                    clipping either the dark or the light.</p>
+                                                <p> Then I'll apply this with a Parametric Mask based on the L
+                                                    Channel.</p>
+                                                <p> Softlight Blend Mode.</p>
+                                                <p> Bring down our Opacity.</p>
+                                                <p> That's with it full, and you can see it brings out a lot of the
+                                                    contours in the petals and it makes this look a little
+                                                    high-contrast.</p>
+                                                <p> So, we'll bring it down some.</p>
+                                                <p> Right about there.</p>
+                                                <p> Now I want to do something with edge detection.</p>
+                                                <p> That's another Highpass Filter instance, but this time we'll turn
+                                                    our Sharpness way down, and our Contrast Boost too.</p>
+                                                <p> This time I'll use the Overlay Blend Mode.</p>
+                                                <p> See how that brings this up? Before, and after.</p>
+                                                <p> It really gives us a lot of edge detection.</p>
+                                                <p> It's too much, so I'll change the Opacity down to around 50% That
+                                                    looks good.</p>
+                                                <p> Now we've got sharp edges everywhere and nice color.</p>
+                                                <p> I want to enhance the color just a little bit.</p>
+                                                <p> I'll do a gamma adjustment before the color, so I want to bring this
+                                                    up just a little bit.</p>
+                                                <p> And bring this down just a little.</p>
+                                                <p> Then, one last instance.</p>
+                                                <p> This time I'll add a little color with the Subtract Method based on
+                                                    the L Channel.</p>
+                                                <p> It's a little bit heavy; let's bring it back down to around 9%.</p>
+                                                <p> That looks good.</p>
+                                                <p> I think I'm liking it.</p>
+                                                <p> Do I need to apply an Unsharp Mask? At the very end here? Yeah, that
+                                                    helps.</p>
+                                                <p> Now, I would normally scale it first, and then apply an Unsharp
+                                                    Mask, so that's something I might do in the GIMP.</p>
+                                                <p> I still think this is a little bright, right here and in here.</p>
+                                                <p> Let's try a little Shadows and Highlights.</p>
+                                                <p> We'll switch this to Bilateral.</p>
+                                                <p> Okay, that certainly knocked down those highlights.</p>
+                                                <p> And it brought up the shadows a little too much.</p>
+                                                <p> Let's see what happens if we don't affect the shadows at all.</p>
+                                                <p> So, make that zero.</p>
+                                                <p> And it knocked down our highlights a little more than I
+                                                    wanted...</p>
+                                                <p> Oh, that looks better.</p>
+                                                <p> Okay, -28.67 That's it on this one; we're done.</p>
+                                                <p> (Mouse's Voice) Nice edit! I like the way the center of the flower
+                                                    darkens and draws you in.</p>
+                                                <p> I like that balance between detail and story that we achieved in
+                                                    this image.</p>
+                                                <p> Even more than that, I like the simplicity of this edit.</p>
+                                                <p> But we got great results without a lot of fuss.</p>
+                                                <p> (Harry's Voice) We have a guest edit this week.</p>
+                                                <p> Here we are.</p>
+                                                <p> This shot was taken by Andreas.</p>
+                                                <p> Thanks for sharing! This was on New Year's Eve.</p>
+                                                <p> It's really dark; it's the Aurora Borealis.</p>
+                                                <p> He lives in Sweden.</p>
+                                                <p> This looks beautiful.</p>
+                                                <p> I can see there's some foreground stuff going on here.</p>
+                                                <p> Let's take a look at what we can do.</p>
+                                                <p> Let's see: Base Curve.</p>
+                                                <p> What kind of camera was this? It is a Nikon D610.</p>
+                                                <p> Let's look at different Base Curves here.</p>
+                                                <p> There's Nikon LIke.</p>
+                                                <p> And this Nikon Like Alternate.</p>
+                                                <p> I'm not seeing much of a difference.</p>
+                                                <p> Okay.</p>
+                                                <p> I want to see what's going on with the bottom.</p>
+                                                <p> Let's see: that really washes out our top end, doesn't it? Let's try
+                                                    just increasing the Exposure.</p>
+                                                <p> Okay.</p>
+                                                <p> Can we set our White Balance by the snow? Let's see.</p>
+                                                <p> Now, I think some of the color in the sky is supposed to be
+                                                    reflected in the snow.</p>
+                                                <p> If I just take a White Balance from the snow, it won't be very
+                                                    accurate, so I'll take into account what these numbers are and try
+                                                    to meet them part way.</p>
+                                                <p> From the camera, we've got 0.97 and 3400.</p>
+                                                <p> Okay, 0.97 and 3400.</p>
+                                                <p> So, Temperature stays the same.</p>
+                                                <p> So, the distance between 0.69 and 0.97 -- well, we'll come up a
+                                                    little bit here and I think we'll have to split the difference.</p>
+                                                <p> There we go.</p>
+                                                <p> Now, how can I bring out the snow? Usually for really dark stuff
+                                                    like this, Tone Mapping is the way to go.</p>
+                                                <p> Yeah, look at that; that's: Kaboom! It's like daytime.</p>
+                                                <p> Obviously, it's too much; let's bring down our Spatial Extent.</p>
+                                                <p> Okay, and Contrast Compression.</p>
+                                                <p> Oh, that looks better.</p>
+                                                <p> The snow looks better now.</p>
+                                                <p> Okay, I just want to apply this to the snow, not to the sky.</p>
+                                                <p> We'll use a combination of a Drawn &amp; Parametric Mask and use
+                                                    this ridge line.</p>
+                                                <p> We'll have to turn this around because we want the lower part.</p>
+                                                <p> Here's our Mask Indicator.</p>
+                                                <p> Now it looks like we need more here on the sides and less in the
+                                                    middle because the sides are darker.</p>
+                                                <p> Let's add a mask here and feather the edges.</p>
+                                                <p> Okay, turn on our Mask Indicator.</p>
+                                                <p> I want to exclude this second one.</p>
+                                                <p> So, Tone Group, the first one we'll do Union and the second one
+                                                    we'll do Intersection, and then the second one we'll do Use Inverted
+                                                    Shape.</p>
+                                                <p> There we go.</p>
+                                                <p> Now it's applying more of it over here and none in the middle.</p>
+                                                <p> Now we can turn this down until it's even and apply it to the whole
+                                                    instance.</p>
+                                                <p> See, now this area is a little too bright.</p>
+                                                <p> We'll have to bring that down on our first one.</p>
+                                                <p> Adjust Opacity until we match better.</p>
+                                                <p> There we go: Opacity 15% Now on this second one.</p>
+                                                <p> And bring our Contrast Compression down.</p>
+                                                <p> Once again, use a Drawn Mask.</p>
+                                                <p> We will combine it with a Parametric Mask in just a second.</p>
+                                                <p> And exclude these darker areas.</p>
+                                                <p> There we go.</p>
+                                                <p> Give it a little Mask Blur on both of these.</p>
+                                                <p> Okay, now we've got a little foreground information; that helps.</p>
+                                                <p> This looks like it's greatly skewed.</p>
+                                                <p> I'll increase the Brightness so I can see what's going on.</p>
+                                                <p> Yeah, we've got trees pointed this way and trees pointed this
+                                                    way.</p>
+                                                <p> So: Keystoning.</p>
+                                                <p> Keystone.</p>
+                                                <p> Full.</p>
+                                                <p> I love Keystone.</p>
+                                                <p> It's so easy to use.</p>
+                                                <p> Just pick a couple of straight lines, like I want this one to be
+                                                    straight right here, on that tree.</p>
+                                                <p> See? And I want this one to be straight on this tree.</p>
+                                                <p> Then I try and get my horizon level too.</p>
+                                                <p> It looks like there's a greater distance here than here, so I'll
+                                                    bring this one up a little.</p>
+                                                <p> There we go.</p>
+                                                <p> Then click Okay.</p>
+                                                <p> Now we have a straight horizon and our trees are straight on both
+                                                    sides.</p>
+                                                <p> Now we can crop it.</p>
+                                                <p> Oh, nice.</p>
+                                                <p> Okay, I'm happier with that perspective.</p>
+                                                <p> Get rid of our brightness here.</p>
+                                                <p> Now let's see what we can do.</p>
+                                                <p> I want to bring out the shapes in the Aurora and I want to bring out
+                                                    the stars.</p>
+                                                <p> If I look at the image information here, the Aurora must be
+                                                    incredibly bright because this is only a 3-second exposure, so the
+                                                    stars are kind of dim.</p>
+                                                <p> We'll have to bring up the stars and we'll have to bring up the
+                                                    Aurora.</p>
+                                                <p> I think there's more of the Aurora in here too, look.</p>
+                                                <p> Yeah, there's stuff in here.</p>
+                                                <p> Let's see if we can bring that out.</p>
+                                                <p> Where is that? Oh, yeah; that brings up this whole curtain here.</p>
+                                                <p> Now, these darker parts here: do we need to worry about them? Oh,
+                                                    nice.</p>
+                                                <p> This looks a little bright right in here.</p>
+                                                <p> Right from here to here, like that.</p>
+                                                <p> Now, we just want to bring down this high end a little.</p>
+                                                <p> That looks better.</p>
+                                                <p> I want to make the snow whiter and bring up the stars.</p>
+                                                <p> The snow: whiter.</p>
+                                                <p> Oh, yeah; that's a lot of green.</p>
+                                                <p> And a little bit of yellow.</p>
+                                                <p> That snow is looking better.</p>
+                                                <p> Denoise (profiled): what does that look like? Oh, that does a pretty
+                                                    nice job.</p>
+                                                <p> Look at that.</p>
+                                                <p> We've still got some fringing up here.</p>
+                                                <p> Can I change this patch size and get even better? Ah, yes; that is
+                                                    even better And, it's possible that when we turn on Chromatic
+                                                    Aberrations, that will get rid of some of this fringing too.</p>
+                                                <p> Okay: Equalizer.</p>
+                                                <p> Let's see what we can do.</p>
+                                                <p> Different sizes.</p>
+                                                <p> That looks pretty interesting.</p>
+                                                <p> So does that.</p>
+                                                <p> That's a little small.</p>
+                                                <p> Now let's try the same thing with the Lowpass Filter and see what it
+                                                    looks like.</p>
+                                                <p> Oh, that gives nice edges, doesn't it? Okay, that's probably the way
+                                                    to go.</p>
+                                                <p> Let's see: bring our Brightness down a little.</p>
+                                                <p> Contrast up.</p>
+                                                <p> Okay, let's try that again.</p>
+                                                <p> I want to bring out more detail in the middle here and more down
+                                                    here.</p>
+                                                <p> Let's see if we can do that with the Equalizer.</p>
+                                                <p> Try and stay away from these edges so I don't get halos.</p>
+                                                <p> Now I'm going to go with Darken only.</p>
+                                                <p> There we go.</p>
+                                                <p> Oh, yeah, that brought up a lot.</p>
+                                                <p> And then let's see if we can do the same thing down here.</p>
+                                                <p> We'll start another instance.</p>
+                                                <p> Same thing: Darken only.</p>
+                                                <p> Ah, that looks better.</p>
+                                                <p> I'd like to bring this up over here, and also some of this over here
+                                                    and over here.</p>
+                                                <p> How can we do that? I want to brighten that up, but I don't want to
+                                                    brighten it up and add a bunch of noise.</p>
+                                                <p> I'm afraid that I will.</p>
+                                                <p> Let's try it with just the Tone Curve first.</p>
+                                                <p> Right there.</p>
+                                                <p> No, it doesn't bring up a lot of noise.</p>
+                                                <p> That looks fine.</p>
+                                                <p> Oh, yeah; that opened that up.</p>
+                                                <p> This looks a little bright right here.</p>
+                                                <p> And I definitely don't want it up here.</p>
+                                                <p> Okay, just a little bit of a gamma adjustment here.</p>
+                                                <p> Bring this down.</p>
+                                                <p> That's starting to look pretty good.</p>
+                                                <p> What can I do in here? It seems like there should be more
+                                                    information, doesn't it? It looks like my best bet is this Highpass
+                                                    Filter.</p>
+                                                <p> Yeah, right in here.</p>
+                                                <p> So: Drawn Mask.</p>
+                                                <p> We'll go like this.</p>
+                                                <p> We'll apply that with a Parametric Mask based on the L Channel and
+                                                    we'll change the Blend Mode to Softlight.</p>
+                                                <p> There's our before and there's our after.</p>
+                                                <p> Oh, that added a lot of detail.</p>
+                                                <p> Now, I want to bring out the stars and I'd like to enhance the
+                                                    colors a little more.</p>
+                                                <p> I'm just wondering if I can get a little bit more right here in the
+                                                    middle.</p>
+                                                <p> Is there anything in there? Is it our Denoising that's getting rid
+                                                    of any detail? No, it isn't.</p>
+                                                <p> We might be able to bring down the Strength a little bit though.</p>
+                                                <p> No...</p>
+                                                <p> Okay.</p>
+                                                <p> Here we go.</p>
+                                                <p> Right here in the middle, let's see what we can do.</p>
+                                                <p> We'll leave these ones where they are.</p>
+                                                <p> And we want the difference between here and here.</p>
+                                                <p> So, bring this down a little bit.</p>
+                                                <p> Okay.</p>
+                                                <p> And bring that back up a little bit.</p>
+                                                <p> Okay, good: now I can see some more information in there.</p>
+                                                <p> I want these colors to be more intense up here.</p>
+                                                <p> How about right in here.</p>
+                                                <p> What have we got? Okay, greens.</p>
+                                                <p> Ah, there we go.</p>
+                                                <p> And our yellows.</p>
+                                                <p> First off, I've got all this crazy fringing here.</p>
+                                                <p> And I don't know if my Chromatic Aberration control is going to get
+                                                    rid of it.</p>
+                                                <p> Let's turn on our correction for our lens; maybe that will get rid
+                                                    of it.</p>
+                                                <p> Where's a bad fringe? There's one.</p>
+                                                <p> Okay, let's see: Lens Correction.</p>
+                                                <p>On.</p>
+                                                <p> Nope; that didn't do it.</p>
+                                                <p> It says Corrections: All.</p>
+                                                <p> TCA was part of it.</p>
+                                                <p> Okay, well, let's do it manually.</p>
+                                                <p> Using the Chromaticity Channel, I'm going to try and isolate these
+                                                    areas that have this blue right there.</p>
+                                                <p> Give it a little Mask Blur.</p>
+                                                <p> Give it a little bit more.</p>
+                                                <p> Okay, and is that hitting any area we don't want? It is, right in
+                                                    here.</p>
+                                                <p> So, I will draw those out.</p>
+                                                <p> Right there.</p>
+                                                <p> Okay, invert that.</p>
+                                                <p> And now, hopefully it's just our stars here that have fringing going
+                                                    on.</p>
+                                                <p> Yeah, there are our yellow spots.</p>
+                                                <p> Turn off our Mask Indicator and take our Saturation way down.</p>
+                                                <p> Almost gone.</p>
+                                                <p> And take our Radius down to just a couple of pixels.</p>
+                                                <p> Take our Saturation down to zero.</p>
+                                                <p> And take it negative.</p>
+                                                <p> Okay, that looks a lot better.</p>
+                                                <p> Now to bring out these stars.</p>
+                                                <p> Highpass Filter.</p>
+                                                <p> I really want to bring out the stars a lot, so we might have to do
+                                                    this a couple times.</p>
+                                                <p> So, I just want the stars; I don't want anything else.</p>
+                                                <p> I'm bringing down my Sharpness until I only have the stars.</p>
+                                                <p> Like that.</p>
+                                                <p> Bring my Contrast Boost down.</p>
+                                                <p> Oh, bring it up just a little.</p>
+                                                <p> Okay, there we go.</p>
+                                                <p> And then we just want it on the stars.</p>
+                                                <p> Can we do that with an L Mask to some extent? Parametric.</p>
+                                                <p> Okay, that's mostly just getting the stars, and it's not going to
+                                                    really affect the Aurora up here.</p>
+                                                <p> So I will combine this with a Drawn Mask so it doesn't affect this
+                                                    lower part of the image, because there are no stars down there
+                                                    anyway.</p>
+                                                <p> And then we want to apply this with an Overlay Blend Mode.</p>
+                                                <p> Did that mess up our Aurora? No, it didn't.</p>
+                                                <p> It definitely brought out the stars, though.</p>
+                                                <p> Okay, let's just Duplicate that a couple of times.</p>
+                                                <p> There we go; now we've got some stars going on.</p>
+                                                <p> These halos are a little tough, eh? So, let's bring our Opacity down
+                                                    on each of these.</p>
+                                                <p> There we go.</p>
+                                                <p> Alright, now we've got stars with a lot less halos.</p>
+                                                <p> Maybe we can do that a little more in these darker areas.</p>
+                                                <p> It seems like we've got stars in these lighter areas now.</p>
+                                                <p> So, I'll Duplicate Instance this again, except on my Parametric Mask
+                                                    I just want it on these darker areas.</p>
+                                                <p> And I don't want it to exclude the stars, so I'm going to make my
+                                                    Mask much bigger.</p>
+                                                <p> Now, I don't need to change my Opacity, because when I Mask Blur it,
+                                                    it doesn't apply it fully.</p>
+                                                <p> There we go.</p>
+                                                <p> And then we'll Duplicate Instance that one more time.</p>
+                                                <p> There we go.</p>
+                                                <p> Now we've got stars, and we've got the Aurora, and we've got our
+                                                    colors looking better.</p>
+                                                <p> (Mouse's Voice) While Harry grabs a cup of coffee, I just want to go
+                                                    over how to create Playlists on our website.</p>
+                                                <p> Let's go to Weekly Edit.</p>
+                                                <p> When you get there, this is what you see.</p>
+                                                <p> Our most recent post is right up in front.</p>
+                                                <p> On the right-hand side is a list of all the recent posts.</p>
+                                                <p> You can just click on any one of those episodes; it takes you
+                                                    straight to it.</p>
+                                                <p> When you do that, you can watch this; obviously you can watch this,
+                                                    and you can go to Full Screen...</p>
+                                                <p> But, if you scroll down here, you see that we've cataloged all of
+                                                    the Topics Discussed and the Modules Discussed, with their
+                                                    times.</p>
+                                                <p> So, you can jump to wherever you want to in the video based on what
+                                                    Topic or Module you want to look at.</p>
+                                                <p> But the really cool thing, if we go back to the Home Page, and you
+                                                    scroll down again on that right-hand sidebar past Resources, you see
+                                                    that same list of Topics discussed.</p>
+                                                <p> Now, this is every Topic and every Module from the beginning.</p>
+                                                <p> So, if you were to click on one of these, it takes you to the
+                                                    Playlist Page.</p>
+                                                <p> On the Playlist Page, we've composed a playlist, chronologically, of
+                                                    all of the times we've used Denoise Profiled, in this example, from
+                                                    the beginning of time.</p>
+                                                <p> You click on one of those and it takes you to that video.</p>
+                                                <p> That was an early one; you can hear the frogs in the background.</p>
+                                                <p> We started recording in the daytime so you didn't hear that as
+                                                    much.</p>
+                                                <p> Or, in 'Let's Add Grain'...</p>
+                                                <p> Well, that's what I wanted to show you.</p>
+                                                <p> I'll let Harry get back to his Aurora Borealis shot.</p>
+                                                <p> (Harry's Voice) So, Crop and Rotate...</p>
+                                                <p> Let's see now.</p>
+                                                <p> I want to bring this in.</p>
+                                                <p> I want to feel like we're tight in on this action.</p>
+                                                <p> And I'm not a big fan of this upright stem right here, so I'm going
+                                                    to try and bring it in just before that.</p>
+                                                <p> There we go.</p>
+                                                <p> Oh, that's kind of nice.</p>
+                                                <p> How does that look? I feel like we're tilted a tiny bit to the
+                                                    right.</p>
+                                                <p> Okay, that looks better.</p>
+                                                <p> I like it.</p>
+                                                <p> Now I feel like I'm in the action.</p>
+                                                <p> So, what do we have here? Hot Pixels: Detect by 3 Neighbors.</p>
+                                                <p> I don't know if we'll find many with a 3-second...</p>
+                                                <p> Oh, 59.</p>
+                                                <p> And correct for Chromatic Aberrations.</p>
+                                                <p> Then export this as a TIFF.</p>
+                                                <p> When it's done, I'll open it up.</p>
+                                                <p> Alright, here we are.</p>
+                                                <p> Let's see what we've got.</p>
+                                                <p> Oh, not too bad.</p>
+                                                <p> I wonder if we can get rid of some of this with the Defringing
+                                                    Tool.</p>
+                                                <p> Hmm...</p>
+                                                <p> Maybe not.</p>
+                                                <p> Nope.</p>
+                                                <p> Okay.</p>
+                                                <p> I'm not going to worry about it.</p>
+                                                <p> I would like to bring out these stars even more, though.</p>
+                                                <p> I'll try the Equalizer, bring it up at the right size for stars.</p>
+                                                <p> That looks good, like that.</p>
+                                                <p> And then set this to Lighten only.</p>
+                                                <p> That made a big difference.</p>
+                                                <p> Let's try that one more time.</p>
+                                                <p> We've got a sky full of stars now! Wonderful.</p>
+                                                <p> They look pretty good, too.</p>
+                                                <p> I want to add some color to the Aurora.</p>
+                                                <p> We'll use a Subtract Method to do this.</p>
+                                                <p> This adds more intense colors to the brighter parts of the image
+                                                    because I used an L Mask.</p>
+                                                <p> Oh, that's starting to look pretty good, except that this looks
+                                                    terrible down here.</p>
+                                                <p> Probably the Equalizers.</p>
+                                                <p> Yes, okay, so we'll have to put Drawn Masks with those.</p>
+                                                <p> We don't need them any lower than the stars.</p>
+                                                <p> There we go.</p>
+                                                <p> Okay, so there's one.</p>
+                                                <p> And there's a second one.</p>
+                                                <p> Now the snow looks better.</p>
+                                                <p> The snow still looks a little bright to me right here.</p>
+                                                <p> Final touches.</p>
+                                                <p> That looks about right.</p>
+                                                <p> Okay, ...and, Gradient.</p>
+                                                <p> It makes it easier to grab it when it's behind another shape.</p>
+                                                <p> Okay, there we go.</p>
+                                                <p> Turn on our Mask Indicator.</p>
+                                                <p> We want Union and Intersection.</p>
+                                                <p> There we go.</p>
+                                                <p> So, it will tone it down the most right here.</p>
+                                                <p> Then we want this right here.</p>
+                                                <p> I want to bring down both sides of this.</p>
+                                                <p> That looks a little more like night time.</p>
+                                                <p> Perfect.</p>
+                                                <p> Just a little more color? I think the color is a little intense down
+                                                    here, and it could be more up here.</p>
+                                                <p> So, I'll add a Drawn Mask to this.</p>
+                                                <p> Here we go.</p>
+                                                <p> Then I can turn this up a little more.</p>
+                                                <p> There we go; that looks good.</p>
+                                                <p> Thanks Andreas.</p>
+                                                <p> What a beautiful shot! That was so much fun.</p>
+                                                <p> I got a lot of wonderful RAW contributions.</p>
+                                                <p> I cannot wait to go through them! I just had to do this one today,
+                                                    though, because I love the Aurora Borealis.</p>
+                                                <p> I'll have more to do next week.</p>
+                                                <p> Now I'll hand you over to Mouse.</p>
+                                                <p> She wants to tell you a little bit about our website.</p>
+                                                <p> (Mouse's Voice) Harry's right; I do have a couple more things to
+                                                    show you about the website, so let's go there.</p>
+                                                <p> Here we are, on an episode.</p>
+                                                <p> I already showed you about the Topics and watching it, so let's
+                                                    scroll down a little bit.</p>
+                                                <p> You'll see we've got show notes on every episode.</p>
+                                                <p> Then we get to the fun part.</p>
+                                                <p> You can download the RAW files so that you can play along at
+                                                    home.</p>
+                                                <p> Right here, from our Google drive to you.</p>
+                                                <p> But, in addition, we give you all the sidecar files.</p>
+                                                <p> Keep on going down and you see we've included the complete text from
+                                                    when I transcribe the show.</p>
+                                                <p> You can also download that, just that easily.</p>
+                                                <p> Let's go back to the Home Page and I'll show you how Andreas got us
+                                                    that beautiful RAW shot that we edited in today's episode.</p>
+                                                <p> If you scroll down past all those posts, you get to Resources.</p>
+                                                <p> Towards the bottom of Resources: Edit my RAW.</p>
+                                                <p> That's the segment of the show.</p>
+                                                <p> Click right there and there's a place where you can upload your
+                                                    file.</p>
+                                                <p> Send us your RAW files.</p>
+                                                <p> Each week we select one.</p>
+                                                <p> We edit it on the show, and if yours is the winning one, we'll print
+                                                    it out and send you a signed, matted copy of it as a souvenir of the
+                                                    show, with our undying thanks.</p>
+                                                <p> And one more thing: Patreon! Go to patreon.com/weekly_edit and
+                                                    become a patron.</p>
+                                                <p> Support us in what we do.</p>
+                                                <p> If you choose $10 a month, you can choose any of these rewards.</p>
+                                                <p> There is a bunch of them.</p>
+                                                <p> Or, you can choose 'No Reward' and put in whatever amount you want
+                                                    here.</p>
+                                                <p> $5, or $50 or $500...</p>
+                                                <p>whatever you want to do.</p>
+                                                <p> Just click 'Continue' and it's super-easy.</p>
+                                                <p> Thank you for supporting us.</p>
+                                                <p> Thank you for watching.</p>
+                                                <p> We'll see you again here next week.</p>
+                                                <p> A hui hou.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- .entry-content -->
+
+                        <div class="entry-meta">
+                            <div class="taxonomy">
+                                <div class="categories"><span class="influence-icon-layers"></span><a
+                                        href="../../category/uncategorized/index.html" rel="tag">Uncategorized</a></div>
+                            </div>
+
+                            <div class="posted-on">Posted on <a href="../stacking-by-hand/" title="12:00 pm"
+                                                                rel="bookmark">
+                                <time class="entry-date" datetime="2017-01-11T12:00:17+00:00">January 11, 2017</time>
+                            </a></div>
+                        </div><!-- .entry-meta -->
+
+
+                        <div id="single-comments-wrapper">
+
+
+                            <div id="comments" class="comments-area">
+
+
+                                <h2 id="comments-title">
+                                    One thought on &ldquo;<span>Stacking by Hand</span>&rdquo;        </h2>
+
+
+                                <ol class="commentlist">
+                                    <li class="post pingback">
+                                        <p>Pingback: <a
+                                                href='https://darktable-fr.tuxfamily.org/2017/01/traitement-par-darktable-23-stacking-manuel/'
+                                                rel='external nofollow' class='url'>Traitement par darktable 23:
+                                            Stacking manuel &#8211; darktable FR</a></p>
+                                    </li><!-- #comment-## -->
+                                </ol><!-- .commentlist -->
+
+
+                                <div id="respond" class="comment-respond">
+                                    <h3 id="reply-title" class="comment-reply-title">Leave a Reply
+                                        <small><a rel="nofollow" id="cancel-comment-reply-link"
+                                                  href="/stacking-by-hand/#respond" style="display:none;">Cancel
+                                            reply</a></small>
+                                    </h3>
+                                    <form action="../wp-comments-post.php" method="post" id="commentform"
+                                          class="comment-form">
+                                        <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span>
+                                        </p>
+                                        <p class="comment-form-comment"><textarea id="comment" name="comment" rows="8"
+                                                                                  aria-required="true"></textarea></p>
+                                        <p class="comment-form-author"><label for="author">Name</label> <input
+                                                id="author" name="author" type="text" value="" size="30"
+                                                maxlength="245"/></p>
+                                        <p class="comment-form-email"><label for="email">Email</label> <input id="email"
+                                                                                                              name="email"
+                                                                                                              type="text"
+                                                                                                              value=""
+                                                                                                              size="30"
+                                                                                                              maxlength="100"
+                                                                                                              aria-describedby="email-notes"/>
+                                        </p>
+                                        <p class="comment-form-url"><label for="url">Website</label> <input id="url"
+                                                                                                            name="url"
+                                                                                                            type="text"
+                                                                                                            value=""
+                                                                                                            size="30"
+                                                                                                            maxlength="200"/>
+                                        </p>
+                                        <p class="form-submit"><input name="submit" type="submit" id="submit"
+                                                                      class="submit" value="Post Comment"/> <input
+                                                type='hidden' name='comment_post_ID' value='722' id='comment_post_ID'/>
+                                            <input type='hidden' name='comment_parent' id='comment_parent' value='0'/>
+                                        </p><input type="hidden" id="ct_checkjs_caf1a3dfb505ffed0d024130f58c5cfa"
+                                                   name="ct_checkjs" value="0"/>
+                                        <script type="text/javascript">setTimeout(function () {
+                                            var ct_input_name = 'ct_checkjs_caf1a3dfb505ffed0d024130f58c5cfa';
+                                            if (document.getElementById(ct_input_name) !== null) {
+                                                var ct_input_value = document.getElementById(ct_input_name).value;
+                                                document.getElementById(ct_input_name).value = document.getElementById(ct_input_name).value.replace(ct_input_value, '1151865178');
+                                            }
+                                        }, 1000);</script>
+                                    </form>
+                                </div><!-- #respond -->
+
+                            </div><!-- #comments .comments-area -->
+                        </div><!-- #single-comments-wrapper -->
+
+
+                        <nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+                            <h1 class="assistive-text">Post navigation</h1>
+
+
+                            <div class="nav-previous"><a href="../shot-year-2016/index.html" rel="prev"><span
+                                    class="meta-nav influence-icon-arrow-left"></span> Shot of the Year 2016</a></div>
+                            <div class="nav-next"><a href="../thinking-differently/index.html" rel="next">Thinking
+                                Differently <span class="meta-nav influence-icon-arrow-right"></span></a></div>
+
+                        </nav><!-- #nav-below -->
+
+                    </div>
+
+                </article><!-- #post-722 -->
+
+
+            </div><!-- #content .site-content -->
+
+        </section><!-- #primary .content-area -->
+
+
+        <div id="secondary">
+
+            <div class="widgets">
+                <aside id="sow-image-2" class="widget widget_sow-image">
+                    <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                        <div class="sow-image-container">
+                            <a href="../index.html"> <img src="../wp-content/uploads/2016/10/logo512-1.jpg" width="512"
+                                                          height="512"
+                                                          srcset="../wp-content/uploads/2016/10/logo512-1.jpg 512w, ../wp-content/uploads/2016/10/logo512-1-150x150.jpg 150w, ../wp-content/uploads/2016/10/logo512-1-300x300.jpg 300w"
+                                                          title="logo512" class="so-widget-image"/>
+                            </a></div>
+
+                    </div>
+                </aside>
+                <aside id="search-2" class="widget widget_search">
+                    <form method="get" id="searchform" action="../index.html" role="search">
+                        <label for="s" class="assistive-text">Search</label>
+                        <input type="text" class="field" name="s" value="" id="s" placeholder="Search"/>
+                        <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search"/>
+                    </form>
+                </aside>
+                <aside id="text-2" class="widget widget_text">
+                    <div class="textwidget">
+                        <script type='text/javascript' src="../cgi/build_links.js">
+                        </script>
+                    </div>
+                </aside>
+                <aside id="text-3" class="widget widget_text">
+                    <div class="textwidget">
+                        <div id='results'></div>
+                    </div>
+                </aside>
+            </div>
+
+        </div>
+
+
+    </div><!-- #main .site-main -->
+
+    <footer id="colophon" class="site-footer" role="contentinfo">
+
+        <div class="container">
+
+            <div id="footer-widgets">
+                <aside id="meta-3" class="widget widget_meta"><h3 class="widget-title">Meta</h3>
+                    <ul>
+                        <li><a rel="nofollow" href="../wp-login.php">Log in</a></li>
+                        <li><a href="../feed/index.html">Entries <abbr title="Really Simple Syndication">RSS</abbr></a>
+                        </li>
+                        <li><a href="../comments/feed/index.html">Comments <abbr
+                                title="Really Simple Syndication">RSS</abbr></a></li>
+                        <li><a href="https://wordpress.org/"
+                               title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a>
+                        </li>
+                    </ul>
+                </aside>
+                <aside id="text-4" class="widget widget_text">
+                    <div class="textwidget"><a href="stats">Stats</a></div>
+                </aside>
+            </div><!-- #footer-widgets -->
+
+
+        </div>
+
+    </footer><!-- #colophon .site-footer -->
+</div><!-- #page .hfeed .site -->
+
+
+<div id="main-menu">
+
+    <a href="#" class="influence-icon influence-icon-cross main-menu-close"></a>
+
+    <div class="menu">
+        <div class="menu">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li class="page_item page-item-232"><a href="../about-us/index.html">About Us</a></li>
+                <li class="page_item page-item-391"><a href="../awesome-links/index.html">Awesome Links</a></li>
+                <li class="page_item page-item-470"><a href="../lab-reference-chart/index.html">Lab Color Reference
+                    Chart</a></li>
+                <li class="page_item page-item-258"><a href="../order-prints-of-my-work/index.html">Order Prints of My
+                    Work</a></li>
+                <li class="page_item page-item-573"><a href="../scripts/index.html">Scripts</a></li>
+                <li class="page_item page-item-527"><a href="../show-suggestions/index.html">Show Suggestions</a></li>
+                <li class="page_item page-item-172"><a href="../shoot-with-harry/index.html">Shoot with Harry</a></li>
+                <li class="page_item page-item-154"><a href="../support-weekly-edit/index.html">Donate to the Show</a>
+                </li>
+                <li class="page_item page-item-142"><a href="../my-workflow/index.html">My Workflow</a></li>
+                <li class="page_item page-item-170"><a href="../edit-my-raw/index.html">Edit my RAW</a></li>
+                <li class="page_item page-item-156"><a href="../tpe/index.html">Sun and Moon Calendar</a></li>
+                <li class="page_item page-item-103"><a href="../playlist/index.html">Playlist</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="widgets">
+        <aside id="siteorigin-panels-builder-3" class="widget widget_siteorigin-panels-builder">
+            <div id="pl-w57e4594d719bc">
+                <div class="panel-grid" id="pg-w57e4594d719bc-0">
+                    <div class="panel-grid-cell" id="pgc-w57e4594d719bc-0-0">
+                        <div class="so-panel widget widget_pages panel-first-child" id="panel-w57e4594d719bc-0-0-0"
+                             data-index="0"><h3 class="widget-title">Resources</h3>
+                            <ul>
+                                <li class="page_item page-item-232"><a href="../about-us/index.html">About Us</a></li>
+                                <li class="page_item page-item-391"><a href="../awesome-links/index.html">Awesome
+                                    Links</a></li>
+                                <li class="page_item page-item-37"><a href="../index.html">Home Page</a></li>
+                                <li class="page_item page-item-470"><a href="../lab-reference-chart/index.html">Lab
+                                    Color Reference Chart</a></li>
+                                <li class="page_item page-item-258"><a href="../order-prints-of-my-work/index.html">Order
+                                    Prints of My Work</a></li>
+                                <li class="page_item page-item-573"><a href="../scripts/index.html">Scripts</a></li>
+                                <li class="page_item page-item-527"><a href="../show-suggestions/index.html">Show
+                                    Suggestions</a></li>
+                                <li class="page_item page-item-172"><a href="../shoot-with-harry/index.html">Shoot with
+                                    Harry</a></li>
+                                <li class="page_item page-item-154"><a href="../support-weekly-edit/index.html">Donate
+                                    to the Show</a></li>
+                                <li class="page_item page-item-142"><a href="../my-workflow/index.html">My Workflow</a>
+                                </li>
+                                <li class="page_item page-item-170"><a href="../edit-my-raw/index.html">Edit my RAW</a>
+                                </li>
+                                <li class="page_item page-item-156"><a href="../tpe/index.html">Sun and Moon
+                                    Calendar</a></li>
+                            </ul>
+                        </div>
+                        <div class="so-panel widget widget_recent-posts widget_recent_entries"
+                             id="panel-w57e4594d719bc-0-0-1" data-index="1"><h3 class="widget-title">Recent Posts</h3>
+                            <ul>
+                                <li>
+                                    <a href="../basic-stacking-orion/index.html">Basic Stacking &#8211; Orion</a>
+                                </li>
+                                <li>
+                                    <a href="../advancetown-lake/index.html">Advancetown Lake</a>
+                                </li>
+                                <li>
+                                    <a href="../lucky-shot/index.html">Lucky Shot</a>
+                                </li>
+                                <li>
+                                    <a href="../now-quicker-edits/index.html">Now with Quicker Edits</a>
+                                </li>
+                                <li>
+                                    <a href="../thinking-differently/index.html">Thinking Differently</a>
+                                </li>
+                                <li>
+                                    <a href="../stacking-by-hand/index.html">Stacking by Hand</a>
+                                </li>
+                                <li>
+                                    <a href="../shot-year-2016/index.html">Shot of the Year 2016</a>
+                                </li>
+                                <li>
+                                    <a href="../story-telling-panoramas/index.html">Story Telling with Panoramas</a>
+                                </li>
+                                <li>
+                                    <a href="../lets-add-grain/index.html">Let&#8217;s Add Grain</a>
+                                </li>
+                                <li>
+                                    <a href="../mask-manager/index.html">Mask Manager</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="so-panel widget widget_search panel-last-child" id="panel-w57e4594d719bc-0-0-2"
+                             data-index="2">
+                            <form method="get" id="searchform" action="../index.html" role="search">
+                                <label for="s" class="assistive-text">Search</label>
+                                <input type="text" class="field" name="s" value="" id="s" placeholder="Search"/>
+                                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+</div>
+<script async type='text/javascript'
+        src='../wp-content/plugins/cleantalk-spam-protect/inc/cleantalk_nocache.js?random=5.58'></script>
+<script type="text/javascript">function ctSetCookie(c_name, value, def_value) {
+    document.cookie = c_name + "=" + escape(value) + "; path=/";
+}
+ctSetCookie("ct_checkjs", "1151865178", "0");</script>
+<style type="text/css" media="all" id="siteorigin-panels-grids-wp_footer">/* Layout w57e4594d719bc */
+#pg-w57e4594d719bc-0 .panel-grid-cell {
+    float: none
+}
+
+#pl-w57e4594d719bc .panel-grid-cell .so-panel {
+    margin-bottom: 30px
+}
+
+#pl-w57e4594d719bc .panel-grid-cell .so-panel:last-child {
+    margin-bottom: 0px
+}
+
+#pg-w57e4594d719bc-0 {
+    margin-left: -15px;
+    margin-right: -15px
+}
+
+#pg-w57e4594d719bc-0 .panel-grid-cell {
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+@media (max-width: 780px) {
+    #pg-w57e4594d719bc-0 .panel-grid-cell {
+        float: none;
+        width: auto
+    }
+
+    #pl-w57e4594d719bc .panel-grid, #pl-w57e4594d719bc .panel-grid-cell {
+    }
+
+    #pl-w57e4594d719bc .panel-grid .panel-grid-cell-empty {
+        display: none
+    }
+
+    #pl-w57e4594d719bc .panel-grid .panel-grid-cell-mobile-last {
+        margin-bottom: 0px
+    }
+} </style>
+<script type='text/javascript' src='../wp-includes/js/comment-reply.min.js?ver=4.7.2'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min.js?ver=4.7.2'></script>
+
+<script async type='text/javascript'
+        src='../wp-content/plugins/cleantalk-spam-protect/inc/cleantalk_nocache.js?random=5.58'></script>
+</body>
+</html>

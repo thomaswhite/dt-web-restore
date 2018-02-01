@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="profile" href="http://gmpg.org/xfn/11"/>
+    <link rel="pingback" href="../xmlrpc.php"/>
+
+    <title>Lowpass, Highpass and how I use them</title>
+
+    <script type='text/javascript'>
+        var ct_ajaxurl = '../wp-admin/admin-ajax.php';
+        var ct_info_flag = false;
+        var ct_set_cookies_flag = true;
+    </script>
+
+    <!-- This site is optimized with the Yoast SEO Premium plugin v4.2.1 - https://yoast.com/wordpress/plugins/seo/ -->
+    <meta name="description"
+          content="In this Darktable tutorial video, Harry Durgin explains how to use the lowpass and highpass modules and combine them with overlay and softlight blend modes."/>
+    <meta name="robots" content="noodp"/>
+    <link rel="canonical" href="../darktable-lowpass-highpass/"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Lowpass and Highpass Filters in Darktable"/>
+    <meta property="og:description"
+          content="What is the difference between Overlay and Softlight Blend Modes? In this Darktable tutorial video, I explain how I use the lowpass and highpass modules and combine them with overlay and softlight."/>
+    <meta property="og:url" content="../darktable-lowpass-highpass/"/>
+    <meta property="og:site_name" content="Weekly Edit"/>
+    <meta property="article:tag" content="highpass"/>
+    <meta property="article:tag" content="lowpass"/>
+    <meta property="article:tag" content="overlay"/>
+    <meta property="article:tag" content="softlight"/>
+    <meta property="article:section" content="Weekly Edits"/>
+    <meta property="article:published_time" content="2016-10-19T04:49:52+00:00"/>
+    <meta property="article:modified_time" content="2016-12-13T12:42:31+00:00"/>
+    <meta property="og:updated_time" content="2016-12-13T12:42:31+00:00"/>
+    <meta property="og:image" content="../wp-content/uploads/2016/10/highpass_lowpass_flower.jpg"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description"
+          content="In this Darktable tutorial video, Harry Durgin explains how to use the lowpass and highpass modules and combine them with overlay and softlight blend modes."/>
+    <meta name="twitter:title" content="Lowpass, Highpass and how I use them"/>
+    <meta name="twitter:image" content="../wp-content/uploads/2016/10/highpass_lowpass_flower.jpg"/>
+    <meta property="DC.date.issued" content="2016-10-19T04:49:52+00:00"/>
+    <!-- / Yoast SEO Premium plugin. -->
+
+    <link rel='dns-prefetch' href='http://fonts.googleapis.com'/>
+    <link rel='dns-prefetch' href='http://s.w.org'/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Feed" href="../feed/"/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Comments Feed"
+          href="../comments/feed/"/>
+    <link rel="alternate" type="application/rss+xml"
+          title="Weekly Edit &raquo; Lowpass, Highpass and how I use them Comments Feed"
+          href="../darktable-lowpass-highpass/feed/"/>
+    <script type="text/javascript">
+        window._wpemojiSettings = {
+            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/",
+            "ext": ".png",
+            "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/",
+            "svgExt": ".svg",
+            "source": {"concatemoji": "http:\/\/weeklyedit.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.2"}
+        };
+        !function (a, b, c) {
+            function d(a) {
+                var b, c, d, e, f = String.fromCharCode;
+                if (!k || !k.fillText)return !1;
+                switch (k.clearRect(0, 0, j.width, j.height), k.textBaseline = "top", k.font = "600 32px Arial", a) {
+                    case"flag":
+                        return k.fillText(f(55356, 56826, 55356, 56819), 0, 0), !(j.toDataURL().length < 3e3) && (k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 65039, 8205, 55356, 57096), 0, 0), b = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 55356, 57096), 0, 0), c = j.toDataURL(), b !== c);
+                    case"emoji4":
+                        return k.fillText(f(55357, 56425, 55356, 57341, 8205, 55357, 56507), 0, 0), d = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55357, 56425, 55356, 57341, 55357, 56507), 0, 0), e = j.toDataURL(), d !== e
+                }
+                return !1
+            }
+
+            function e(a) {
+                var c = b.createElement("script");
+                c.src = a, c.defer = c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c)
+            }
+
+            var f, g, h, i, j = b.createElement("canvas"), k = j.getContext && j.getContext("2d");
+            for (i = Array("flag", "emoji4"), c.supports = {
+                everything: !0,
+                everythingExceptFlag: !0
+            }, h = 0; h < i.length; h++)c.supports[i[h]] = d(i[h]), c.supports.everything = c.supports.everything && c.supports[i[h]], "flag" !== i[h] && (c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && c.supports[i[h]]);
+            c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && !c.supports.flag, c.DOMReady = !1, c.readyCallback = function () {
+                c.DOMReady = !0
+            }, c.supports.everything || (g = function () {
+                c.readyCallback()
+            }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () {
+                "complete" === b.readyState && c.readyCallback()
+            })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji)))
+        }(window, document, window._wpemojiSettings);
+    </script>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' id='siteorigin-panels-front-css'
+          href='../wp-content/plugins/siteorigin-panels/css/front.css?ver=2.4.24' type='text/css' media='all'/>
+    <link rel='stylesheet' id='sow-image-default-3f547a15eaaa-css'
+          href='../wp-content/uploads/siteorigin-widgets/sow-image-default-3f547a15eaaa.css?ver=4.7.2' type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='siteorigin-google-web-fonts-css'
+          href='http://fonts.googleapis.com/css?family=Montserrat&#038;ver=4.7.2' type='text/css' media='all'/>
+    <link rel='stylesheet' id='influence-style-css' href='../wp-content/themes/influence/style.css?ver=4.7.2'
+          type='text/css' media='all'/>
+    <script type='text/javascript' src='../wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+    <script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+    <script type='text/javascript' src='../wp-content/themes/influence/js/jquery.fitvids.min.js?ver=1.0'></script>
+    <script type='text/javascript' src='../wp-content/themes/influence/js/jquery.theme-main.min.js?ver=1.2.1'></script>
+    <link rel='https://api.w.org/' href='../wp-json/'/>
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php?rsd"/>
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml"/>
+    <meta name="generator" content="WordPress 4.7.2"/>
+    <link rel='shortlink' href='../?p=430'/>
+    <link rel="alternate" type="application/json+oembed"
+          href="../wp-json/oembed/1.0/embed?url=http%3A%2F%2Fweeklyedit.com%2Fdarktable-lowpass-highpass%2F"/>
+    <link rel="alternate" type="text/xml+oembed"
+          href="../wp-json/oembed/1.0/embed?url=http%3A%2F%2Fweeklyedit.com%2Fdarktable-lowpass-highpass%2F&#038;format=xml"/>
+    <!--[if lt IE 9]>
+    <script src="../wp-content/themes/influence/js/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if (gte IE 6)&(lte IE 8)]>
+    <script type="text/javascript" src="../wp-content/themes/influence/js/selectivizr.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <style type="text/css" id="custom-background-css">
+        body.custom-background {
+            background-color: #ffffff;
+            background-image: url("../wp-content/themes/influence/images/background.png");
+            background-position: left top;
+            background-size: auto;
+            background-repeat: repeat;
+            background-attachment: scroll;
+        }
+    </style>
+    <style type="text/css" media="all" id="siteorigin-panels-grids-wp_head">/* Layout 430 */
+    #pg-430-0, #pg-430-1, #pl-430 .panel-grid-cell .so-panel {
+        margin-bottom: 30px
+    }
+
+    #pg-430-0 .panel-grid-cell, #pg-430-2 .panel-grid-cell {
+        float: none
+    }
+
+    #pgc-430-1-0 {
+        width: 33.775%
+    }
+
+    #pgc-430-1-1 {
+        width: 66.225%
+    }
+
+    #pg-430-1 .panel-grid-cell {
+        float: left
+    }
+
+    #pl-430 .panel-grid-cell .so-panel:last-child {
+        margin-bottom: 0px
+    }
+
+    #pg-430-0, #pg-430-1, #pg-430-2 {
+        margin-left: -15px;
+        margin-right: -15px
+    }
+
+    #pg-430-0 .panel-grid-cell, #pg-430-1 .panel-grid-cell, #pg-430-2 .panel-grid-cell {
+        padding-left: 15px;
+        padding-right: 15px
+    }
+
+    #panel-430-1-1-0 > .panel-widget-style {
+        padding: 0px 0px 0px 0px
+    }
+
+    @media (max-width: 780px) {
+        #pg-430-0 .panel-grid-cell, #pg-430-1 .panel-grid-cell, #pg-430-2 .panel-grid-cell {
+            float: none;
+            width: auto
+        }
+
+        #pgc-430-1-0 {
+            margin-bottom: 30px
+        }
+
+        #pl-430 .panel-grid, #pl-430 .panel-grid-cell {
+        }
+
+        #pl-430 .panel-grid .panel-grid-cell-empty {
+            display: none
+        }
+
+        #pl-430 .panel-grid .panel-grid-cell-mobile-last {
+            margin-bottom: 0px
+        }
+    } </style>
+    <style type="text/css" id="influence-footer-widgets">#footer-widgets aside {
+        width: 50%;
+    } </style>
+    <style id='influence-custom-css' class='siteorigin-custom-css' type='text/css'>
+        .post-thumbnail {
+            display: none;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        article.entry .entry-content h3 {
+            font-size: 17px;
+            text-align: left;
+            margin-left: 0px;
+            margin-top: 0em;
+            margin-bottom: 0px;
+        }
+
+        #panel-37-0-1-2.so-panel.widget.widget_recent-posts.widget_recent_entries {
+            margin-bottom: 0px;
+        }
+
+        .entry-content ul {
+            margin-left: -6px;
+        }
+
+        #topics {
+            margin-top: -30px;
+        }
+
+        #modules {
+            margin-top: -30px;
+        }
+
+        .panel-grid-cell .widget-title {
+            padding-bottom: 15px;
+        }
+
+        #main-menu .widgets aside.widget .widget-title {
+            margin-bottom: 0px;
+            margin-top: -20px;
+        }
+
+        #panel-470-0-0-0.so-panel.widget.widget_sow-image.panel-first-child.panel-last-child {
+            margin-top: -50px;
+        }
+
+        article.entry {
+            visibility: visible;
+        }
+
+        .post-text {
+            visibility: visible;
+        }
+
+        .entry-title {
+            visibility: visible;
+        }
+
+        article.entry .post-text {
+            padding-top: 0px;
+        }
+
+        #panel-72-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-75-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-131-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-133-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-135-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-137-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-140-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-177-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-278-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-354-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-430-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-448-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-475-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-488-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-518-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-550-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-575-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-599-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-625-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-664-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-682-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-704-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-722-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-736-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-757-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-765-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+    </style>
+    <style type="text/css" id="customizer-css">h1, h2, h3, h4, h5, h6 {
+        font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+        font-weight: 400
+    }
+
+    article.entry {
+        background-color: #ffffff
+    } </style>
+</head>
+
+<body class="post-template-default single single-post postid-430 single-format-standard custom-background siteorigin-panels responsive has-main-sidebar">
+
+<div id="page" class="hfeed site">
+
+
+    <header id="masthead" class="site-header has-shadow" role="banner">
+
+        <div class="container">
+
+            <div class="hgroup">
+
+                <h1 class="site-title">
+                    <a href="../index.html" title="Weekly Edit" rel="home">
+                        Weekly Edit </a>
+                </h1>
+
+
+            </div>
+
+
+            <nav role="navigation" class="site-navigation main-navigation primary">
+
+                <h1 class="assistive-text">Menu</h1>
+
+                <a href="#" class="main-menu-button">
+                    <i class="influence-icon-menu-icon"></i>
+                    Menu </a>
+
+            </nav><!-- .site-navigation .main-navigation -->
+
+
+        </div>
+
+    </header><!-- #masthead .site-header -->
+
+    <div class="site-header has-shadow site-header-sentinel">
+
+        <div class="container">
+
+            <div class="hgroup">
+
+                <h1 class="site-title">
+                    Weekly Edit </h1>
+
+
+            </div>
+
+
+            <div role="navigation" class="site-navigation main-navigation primary">
+
+                <h1 class="assistive-text">Menu</h1>
+
+                <a href="#" class="main-menu-button">
+                    <i class="influence-icon-menu-icon"></i>
+                    Menu </a>
+
+            </div><!-- .site-navigation .main-navigation -->
+
+
+        </div>
+
+    </div><!-- #masthead .site-header -->
+
+    <div id="main" class="site-main">
+
+        <section id="primary" class="content-area">
+
+            <div id="content" class="site-content" role="main">
+
+
+                <article id="post-430"
+                         class="entry post-430 post type-post status-publish format-standard has-post-thumbnail hentry category-weekly-edits tag-highpass tag-lowpass tag-overlay tag-softlight">
+
+                    <div class="post-thumbnail">
+                        <a href="../darktable-lowpass-highpass/"
+                           title="Permalink to Lowpass, Highpass and how I use them" rel="bookmark">
+                            <img width="1000" height="748"
+                                 src="../wp-content/uploads/2016/10/highpass_lowpass_flower-1000x748.jpg"
+                                 class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt=""
+                                 srcset="../wp-content/uploads/2016/10/highpass_lowpass_flower-1000x748.jpg 1000w, ../wp-content/uploads/2016/10/highpass_lowpass_flower-300x224.jpg 300w, ../wp-content/uploads/2016/10/highpass_lowpass_flower-768x574.jpg 768w, ../wp-content/uploads/2016/10/highpass_lowpass_flower-1024x766.jpg 1024w, ../wp-content/uploads/2016/10/highpass_lowpass_flower.jpg 1280w"
+                                 sizes="(max-width: 1000px) 100vw, 1000px"/> </a>
+                    </div>
+
+
+                    <div class="post-text">
+
+                        <h1 class="entry-title"><a href="../darktable-lowpass-highpass/"
+                                                   title="Permalink to Lowpass, Highpass and how I use them"
+                                                   rel="bookmark">Lowpass, Highpass and how I use them</a></h1>
+
+                        <div class="entry-content">
+                            <div id="pl-430">
+                                <div class="panel-grid" id="pg-430-0">
+                                    <div class="panel-grid-cell" id="pgc-430-0-0">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-430-0-0-0" data-index="0">
+                                            <div class="textwidget">
+                                                <div id="vp">
+                                                    <iframe frameborder=0 allowfullscreen
+                                                            src="https://www.youtube.com/embed/s0kjSvW93L0"></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-grid" id="pg-430-1">
+                                    <div class="panel-grid-cell" id="pgc-430-1-0">
+                                        <div class="so-panel widget widget_sow-image panel-first-child"
+                                             id="panel-430-1-0-0" data-index="1">
+                                            <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                                                <div class="sow-image-container">
+                                                    <a href="../wp-content/uploads/2016/10/IMG_5521_raw.jpg"
+                                                       target="_blank"> <img
+                                                            src="../wp-content/uploads/2016/10/IMG_5521_raw-199x300.jpg"
+                                                            width="199" height="300"
+                                                            srcset="../wp-content/uploads/2016/10/IMG_5521_raw-199x300.jpg 199w, ../wp-content/uploads/2016/10/IMG_5521_raw-768x1157.jpg 768w, ../wp-content/uploads/2016/10/IMG_5521_raw-680x1024.jpg 680w, ../wp-content/uploads/2016/10/IMG_5521_raw-664x1000.jpg 664w, ../wp-content/uploads/2016/10/IMG_5521_raw.jpg 850w"
+                                                            title="Edit my RAW -Before-"
+                                                            alt="Country road in Europe with mountain and vineyard RAW image before Darktable editing"
+                                                            class="so-widget-image"/>
+                                                    </a></div>
+
+                                            </div>
+                                        </div>
+                                        <div class="so-panel widget widget_sow-image panel-last-child"
+                                             id="panel-430-1-0-1" data-index="2">
+                                            <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                                                <div class="sow-image-container">
+                                                    <a href="../wp-content/uploads/2016/10/IMG_5521.jpg"
+                                                       target="_blank"> <img
+                                                            src="../wp-content/uploads/2016/10/IMG_5521-200x300.jpg"
+                                                            width="200" height="300"
+                                                            srcset="../wp-content/uploads/2016/10/IMG_5521-200x300.jpg 200w, ../wp-content/uploads/2016/10/IMG_5521-768x1154.jpg 768w, ../wp-content/uploads/2016/10/IMG_5521-682x1024.jpg 682w, ../wp-content/uploads/2016/10/IMG_5521-666x1000.jpg 666w, ../wp-content/uploads/2016/10/IMG_5521.jpg 852w"
+                                                            title="Edit My RAW -After-"
+                                                            alt="Country road in Europe with vineyard and mountain, after editing image with Darktable"
+                                                            class="so-widget-image"/>
+                                                    </a></div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-grid-cell" id="pgc-430-1-1">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-430-1-1-0" data-index="3">
+                                            <div class="panel-widget-style"><h3 class="widget-title">What is the
+                                                difference between Darktable&#8217;s overlay and softlight blend
+                                                modes?</h3>
+                                                <div class="textwidget"><p>Overlay adds contrast and softlight is a more
+                                                    gentle version. In this video tutorial I dive deeper into the
+                                                    questions I get asked most often about how I utilize Darktable's
+                                                    lowpass and highpass modules. I show different effects realized by
+                                                    combining them with overlay and softlight blend modes.</p>
+                                                    <p>After the discussion and examples, I get to edit a contributor's
+                                                        RAW file. Thanks Sergei for the beautiful shot to work with.</p>
+                                                    <p><a target=_blank
+                                                          href="http://www.darktable.org/2012/02/using-lowpass-filter-to-recover-shadows/index.html">Here</a>
+                                                        is the link to the Darktable.org blog post "Using lowpass filter
+                                                        to recover shadows"</p>
+                                                    <p>The RAW files used in this video are available here<br/>
+                                                        <a target=_blank
+                                                           href="https://drive.google.com/open?id=0B7mIPRZEcQpARmZmc1g4NzBJbFU">Lava
+                                                            Steam</a><br/>
+                                                        <a target=_blank
+                                                           href="https://drive.google.com/open?id=0B7mIPRZEcQpAcTMxTlJYb2I5MVU">Flower</a><br/>
+                                                        <a target=_blank
+                                                           href="https://drive.google.com/open?id=0B7mIPRZEcQpAOXZUdXJtWmtPMGM">Vineyard</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-grid" id="pg-430-2">
+                                    <div class="panel-grid-cell" id="pgc-430-2-0">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-430-2-0-0" data-index="4"><h3 class="widget-title">Complete Show
+                                            Text</h3>
+                                            <div class="textwidget"><p><a href="../annotations/s0kjSvW93L0.txt"
+                                                                          download>Download complete text here</a></p>
+                                                <p>Hi everybody and welcome to Weekly Edit.</p>
+                                                <p> I am going to talk about Lowpass Filters for a while.</p>
+                                                <p> We've had requests, and I'd like to nail down this subject.</p>
+                                                <p> Before I get started on that, I want to talk about Blend Modes.</p>
+                                                <p> There are two that I use a lot: I use Overlay and I use
+                                                    Softlight.</p>
+                                                <p> Overlay is a way of adding contrast to the way that you apply an
+                                                    effect, for instance a Gaussian Blur.</p>
+                                                <p> Softlight is a more gentle version of Overlay.</p>
+                                                <p> Let's look at Overlay.</p>
+                                                <p> This is a bunch of fuzzy dots that I made.</p>
+                                                <p> I want to use them to demonstrate some concepts.</p>
+                                                <p> First, let's look at a basic S-curve for Contrast.</p>
+                                                <p> It might be something like this.</p>
+                                                <p> Now, according to Wikipedia, an Overlay is an awful lot like an
+                                                    S-curve when you're applying an image to itself.</p>
+                                                <p> We'll take a Snapshot, turn that off, take the original image and
+                                                    apply it to itself with Overlay.</p>
+                                                <p> As we look at the two, aside from the color, they're very
+                                                    similar.</p>
+                                                <p> We've increased the Contrast.</p>
+                                                <p> This is what Wikipedia is talking about when they say we're
+                                                    increasing the Contrast.</p>
+                                                <p> Now, the Overlay method and the Softlight method don't increase the
+                                                    Contrast much right in the mid-tones.</p>
+                                                <p> The Softlight specifically protects shadows and highlights to a
+                                                    greater extent, too.</p>
+                                                <p> The areas where you're going to see more differentiation is between
+                                                    your mid-tones and your shadows and between your midtones and your
+                                                    highlights, with both of these.</p>
+                                                <p> What they do is take these middle values and push them toward the
+                                                    edges.</p>
+                                                <p> By doing so, they expand the contrast in these middle values and
+                                                    give you more information in those areas.</p>
+                                                <p> So, what effect does this give us? The first effect I want to show
+                                                    you is controlling highlights and shadows.</p>
+                                                <p> Let's imagine these darker parts are shadows and these brighter
+                                                    parts are highlights.</p>
+                                                <p> I'd like to bring the highlights down a little; I'd like to bring
+                                                    the shadows up a little.</p>
+                                                <p> One of the ways I can do that smoothly, without having halos around
+                                                    the edges or an uncomfortable transition zone is to use a Gaussian
+                                                    Blur.</p>
+                                                <p> A Gaussian Blur makes the whole image a little fuzzy.</p>
+                                                <p> The larger the radius, the more fuzzy it becomes.</p>
+                                                <p> If I make my radius pretty large and apply it with the Overlay
+                                                    method, and make my Contrast be zero, I can slowly bring my Contrast
+                                                    down.</p>
+                                                <p> As I do this, the darker parts get lighter and the lighter parts get
+                                                    darker.</p>
+                                                <p> I'll take a Snapshot and we'll take a look.</p>
+                                                <p> You can see that this part, which was lighter, is now darker than
+                                                    the original.</p>
+                                                <p> And this part that was dark, is now lighter than the original.</p>
+                                                <p> If I decrease my Contrast further, it will have even more
+                                                    effect.</p>
+                                                <p> So, the lighter parts are even more dark.</p>
+                                                <p> And the darker parts are even more light.</p>
+                                                <p> Notice how, because of the way the Gaussian Blur works, we don't
+                                                    lose our edge; we still have our contrast on our edge.</p>
+                                                <p> You can see this: it's going from a light to a dark in a transition
+                                                    zone here.</p>
+                                                <p> That's based on the size of this Gaussian Blur.</p>
+                                                <p> Look at where it's bright and where it gets dark.</p>
+                                                <p> Now I'll turn off the Overlay and we'll look at the original
+                                                    Blur.</p>
+                                                <p> You'll see it's the same size.</p>
+                                                <p> That's what's going on there.</p>
+                                                <p> We use that to control shadows and highlights.</p>
+                                                <p> Let's look at a real world example.</p>
+                                                <p> I have a shot here with a bright and a dark area.</p>
+                                                <p> Let's use the Lowpass Filter to fix that.</p>
+                                                <p> I'm going to take the Radius and turn it way up so that I'm not
+                                                    changing the tone in little areas, like in the clouds.</p>
+                                                <p> Nice and big.</p>
+                                                <p> Now I've got a general dark area and a general light area.</p>
+                                                <p> So if I take my Contrast and bring it down to zero, like we did with
+                                                    the dots -- once again, we're using our Overlay method -- then, if I
+                                                    take my Contrast and turn it negative, you'll see that the darker
+                                                    parts of the image got brighter and the brighter parts got
+                                                    darker.</p>
+                                                <p> Here's a great place to read about using a Lowpass Filter to recover
+                                                    shadows.</p>
+                                                <p> It's an article from a few years ago, but it's an excellent
+                                                    article.</p>
+                                                <p> It's on Darktable's site.</p>
+                                                <p> They talk about using the Overlay method and reversing the Contrast,
+                                                    and the size of the Gaussian Blur, and all the cool stuff.</p>
+                                                <p> It's a great article: lots of fun.</p>
+                                                <p> I put a link to it in the show notes.</p>
+                                                <p> The next thing I'd like to show you is Tones.</p>
+                                                <p> I'm using the same module: the Lowpass Filter with the Gaussian
+                                                    Blur, but I'm going to use it in a different way.</p>
+                                                <p> Instead of turning my Contrast negative and using an Overlay, I'm
+                                                    going to use Softlight, which is a more gentle version of the
+                                                    Overlay.</p>
+                                                <p> Let's see what it does to our fuzzy dots.</p>
+                                                <p> Take our Saturation down to zero.</p>
+                                                <p> Take our Radius and turn it up a little.</p>
+                                                <p> Now we've got rounded dots.</p>
+                                                <p> If we apply this with Softlight, we get a dome effect here.</p>
+                                                <p> I'll turn my Contrast all the way up and my Brightness all the way
+                                                    down so you can really see this.</p>
+                                                <p> It goes from darker in the middle to a little bit lighter on the
+                                                    outsides.</p>
+                                                <p> That gives us a tonal effect, and a more 3-dimensional look because
+                                                    the shading is more continuous instead of just going --BAM!-- from
+                                                    one color to another.</p>
+                                                <p> If I change this Radius -- if I make it larger, it looks even more
+                                                    like a little ball.</p>
+                                                <p> If I make it smaller, the transition is sharper.</p>
+                                                <p> How does this affect our real-world example? Let's give that a
+                                                    shot.</p>
+                                                <p> Here's our image.</p>
+                                                <p> We equalized the shadow and the highlight.</p>
+                                                <p> Now we're going to add a Lowpass Filter with the Softlight.</p>
+                                                <p> So, Saturation down to zero again.</p>
+                                                <p> Make the Radius be such that the clouds are the right size.</p>
+                                                <p> I want them to look like little balls, like the dots in the example
+                                                    did.</p>
+                                                <p> I'll change my Radius to achieve the nice, smooth shading.</p>
+                                                <p> Look at this: I don't have much distance between my lighter and my
+                                                    darker tones here.</p>
+                                                <p> In order to get more effect, I want my tonal range in the Histogram
+                                                    to be closer to this midpoint.</p>
+                                                <p> I'll fix that right now.</p>
+                                                <p> I'm adjusting my Radius now to give nice, billowing clouds with the
+                                                    shading.</p>
+                                                <p> If I apply this with the Softlight...</p>
+                                                <p> Here's our original.</p>
+                                                <p> It looks a little flat.</p>
+                                                <p> Here's our new version.</p>
+                                                <p> See, we've got some shading here, and we've got more
+                                                    3-dimensionality here and up here.</p>
+                                                <p> I'll take a Snapshot.</p>
+                                                <p> There's our original on the bottom, and with the shading on top,
+                                                    there's our new one.</p>
+                                                <p> Before, and after.</p>
+                                                <p> Let's try that with a flower, too.</p>
+                                                <p> We'll do the same thing.Take our Lowpass Filter.</p>
+                                                <p> Saturation down to zero.</p>
+                                                <p> Take our Radius and adjust it to get the right size dots here.</p>
+                                                <p> We want these drops to show up really well.</p>
+                                                <p> I'll set my Radius so they show up real well.</p>
+                                                <p> If I go too far, I'm looking at the individual pores on the
+                                                    leaf.</p>
+                                                <p> I don't want that.</p>
+                                                <p> If I go too large, I don't see the individual drops.</p>
+                                                <p> I'll get to just the right size where I've got just the drops.</p>
+                                                <p> Now, I'm going to apply this Gaussian Blur with the Softlight
+                                                    Filter.</p>
+                                                <p> That's what that looks like.</p>
+                                                <p> Without it, and with it.</p>
+                                                <p> We'll take a Snapshot and look at that closely.</p>
+                                                <p> This is our original on the bottom, and this is our new version on
+                                                    top.</p>
+                                                <p> See, it's adding contrast over a distance.</p>
+                                                <p> Now, we're going to look at applying tones with the Highpass
+                                                    Filter.</p>
+                                                <p> It's a lot like the Lowpass Filter, but it works on finer-grained
+                                                    details.</p>
+                                                <p> If I take my Sharpness and turn it all the way up, you'll see I get
+                                                    some nice shading.</p>
+                                                <p> I've got some lightness in here going out to darkness.</p>
+                                                <p> I've got some nice shading around the outside of these.</p>
+                                                <p> If I apply that with the Softlight, it gives me a lot of the same
+                                                    effect that I got with the Lowpass Filter.</p>
+                                                <p> So, I'll take my Lowpass filter and work with it, take my Radius all
+                                                    the way down to about seven or eight pixels, and then I'll switch
+                                                    over and do the finer details with the Highpass Filter.</p>
+                                                <p> I'll show you a trick with the Highpass Filter and the
+                                                    Softlight.</p>
+                                                <p> Let's look at a real-world example here.</p>
+                                                <p> The finer details I want to bring out are all in these brighter
+                                                    parts of the image.</p>
+                                                <p> Let's try our trick with the Highpass Filter.</p>
+                                                <p> We'll bring the Sharpness way up.</p>
+                                                <p> Then we'll bring our Contrast up until we get the shading we
+                                                    want.</p>
+                                                <p> That looks great in here.</p>
+                                                <p> Now, when I apply that with the Softlight, it gives me a lot of
+                                                    detail in these highlights.</p>
+                                                <p> But, it makes the darks too contrasty.</p>
+                                                <p> So, the trick is to apply it with a Parametric Mask based on the L
+                                                    Channel.</p>
+                                                <p> Voila: our contrast isn't too high and we've got these beautiful
+                                                    details in our highlights.</p>
+                                                <p> Let's look at before and after.</p>
+                                                <p> This is what we started with.</p>
+                                                <p> Concentrate on these brighter areas and the detail in them.</p>
+                                                <p> See how that brings it out? This is before.</p>
+                                                <p> This is a good place to look, right in here.</p>
+                                                <p> And after.</p>
+                                                <p> Now, these halos around the edge: they're too much for me.</p>
+                                                <p> That usually happens, so I'll bring my amount down a little bit to
+                                                    get rid of them.</p>
+                                                <p> Sometimes you have to bring the Sharpness down a little too:
+                                                    whatever it takes to get rid of the halos.</p>
+                                                <p> There we go; those are gone.</p>
+                                                <p> Let's see if we still have a nice effect though.</p>
+                                                <p> Before, and after.</p>
+                                                <p> Oh, yeah, especially right in here.</p>
+                                                <p> And down here.</p>
+                                                <p> It adds a lot.</p>
+                                                <p> Let's look at it on the flower too.</p>
+                                                <p> Use our Highpass Filter.</p>
+                                                <p> Bring our Contrast way up to get some of this nice shading here.</p>
+                                                <p> Bring our Contrast up, but not so much that we get halos.</p>
+                                                <p> We'll apply that with Softlight.</p>
+                                                <p> Here's our before, and our after.</p>
+                                                <p> Now, see, it's awful crunchy in these darker pixels.</p>
+                                                <p> So, I'm going to use a Parametric Mask based on the L Channel.</p>
+                                                <p> There we go: our drops look more 3-dimensional and we don't look
+                                                    crunchy.</p>
+                                                <p> Okay, we've got two more things to talk about.</p>
+                                                <p> One is separating things from other things.</p>
+                                                <p> I like to do that with the Highpass Filter and the Overlay Blend
+                                                    Mode.</p>
+                                                <p> I pick a Radius that determines the general shape of what I
+                                                    want.</p>
+                                                <p> Like, these circles are about that size.</p>
+                                                <p> Don't forget to take your Saturation down to zero.</p>
+                                                <p> When I apply this with Overlay, it gives me more contrast than I had
+                                                    to start with.</p>
+                                                <p> That makes these separate from the background.</p>
+                                                <p> Let's see what that looks like on this.</p>
+                                                <p> I would like to separate this smoke from this background.</p>
+                                                <p> Take our Lowpass.</p>
+                                                <p> Turn off our Saturation.</p>
+                                                <p> Adjust the Radius of our Gaussian Blur so that I'm seeing the
+                                                    general shape that I want here and here.</p>
+                                                <p> Then apply this with an Overlay mode.</p>
+                                                <p> Now, that really takes this smoke and separates it from the
+                                                    background.</p>
+                                                <p> As a matter of fact, it does it too much on this side.</p>
+                                                <p> So, once again, we use our heads and decide how to apply the
+                                                    effect.</p>
+                                                <p> I'm going to use a Drawn Mask so that a little bit of it gets used
+                                                    on the left, but more of it gets used as we go to the right.</p>
+                                                <p> There we go.</p>
+                                                <p> Before, and after.</p>
+                                                <p> It takes these large shapes and separates them from the
+                                                    background.</p>
+                                                <p> Let's try that with the flower too.</p>
+                                                <p> I'd like to separate this general flower from this background with
+                                                    the green.</p>
+                                                <p> We'll bring up a Lowpass.</p>
+                                                <p> Turn our Saturation down to zero.</p>
+                                                <p> Make our Radius large enough that we're just seeing the general
+                                                    outline of the flower.</p>
+                                                <p> I think that's about as good as I can do.</p>
+                                                <p> That gives me a little bit of separation down here and over here,
+                                                    and a little bit up here, but not much.</p>
+                                                <p> Okay, Overlay method.</p>
+                                                <p> Now, let's look at our original.</p>
+                                                <p> And let's look at our new one.</p>
+                                                <p> See how separate we are from the background now? The last thing I
+                                                    wanted to talk about is edges.</p>
+                                                <p> The reason I started with fuzzy circles is so that we could talk
+                                                    about edges.</p>
+                                                <p> I'm going to zoom in on this fuzzy circle.</p>
+                                                <p> These Highpass Filters: if I turn them all the way down, I can get
+                                                    JUST the edge of the circle.</p>
+                                                <p> Oops, too far.</p>
+                                                <p> Take my Contrast and turn it down.</p>
+                                                <p> Now, I've got just this border.</p>
+                                                <p> Overlay was the more contrasty method, so that's what I'm going to
+                                                    use.</p>
+                                                <p> I'll take Overlay and apply it to give me a nice sharp edge.</p>
+                                                <p> Where it was soft...</p>
+                                                <p>...and now it's sharper.</p>
+                                                <p> Let's see it in a real-world example.</p>
+                                                <p> Let's try and define our edges on the edge of the cloud.</p>
+                                                <p> We'll zoom in here and look.</p>
+                                                <p> We'll start up another Highpass Filter.</p>
+                                                <p> Take our Sharpness and go all the way down, so that we just have
+                                                    these edges that we want to enhance.</p>
+                                                <p> Bring our Contrast down -- like that.</p>
+                                                <p> Overlay method.</p>
+                                                <p> Before, and after.</p>
+                                                <p> It's almost like a sharpening filter, isn't it? We'll turn that
+                                                    off.</p>
+                                                <p> Take a Snapshot, and look at the difference.</p>
+                                                <p> On top is after; on the bottom is before.</p>
+                                                <p> As you can see, it makes such a difference that it's too much.</p>
+                                                <p> We actually have to turn it down some.</p>
+                                                <p> I usually end up using about half as much.</p>
+                                                <p> That's what half as much looks like.</p>
+                                                <p> So, here's where we started on this image, and here's where we
+                                                    ended, just by using Highpass and Lowpass Filters.</p>
+                                                <p> Let's see where our flower is at.</p>
+                                                <p> We're going to try and get edges around these water drops.</p>
+                                                <p> See how they're a little soft? The water drops are nice and rounded,
+                                                    but we don't have sharp edges.</p>
+                                                <p> Okay, Highpass Filter: build a new one.</p>
+                                                <p> Take our Sharpness and turn it down so that we have those edges.</p>
+                                                <p> We don't want to turn it down so far that we lose the edges.</p>
+                                                <p> There we go.</p>
+                                                <p> Take my Contrast and turn it down so I just have those edges.</p>
+                                                <p> Now I'll apply this with Overlay.</p>
+                                                <p> Here's what we got.</p>
+                                                <p> Once again, we got a little too much; we're a little crispy.</p>
+                                                <p> I'll turn it down.</p>
+                                                <p> Here's our before.</p>
+                                                <p> Here's our after.</p>
+                                                <p> It sharpened it up and gave us nicer edges.</p>
+                                                <p> We'll zoom in for a look.</p>
+                                                <p> Turn it off.</p>
+                                                <p> Take a Snapshot.</p>
+                                                <p> And turn it on.</p>
+                                                <p> Our edge is a little soft, and doesn't have much contrast.</p>
+                                                <p> After this effect, our contrast is increased and we have more
+                                                    delineation.</p>
+                                                <p> Before, and after.</p>
+                                                <p> From here, to here, just by using Lowpass and Highpass Filters.</p>
+                                                <p> I hope that answers some questions.</p>
+                                                <p> Now it's time for an edit.</p>
+                                                <p> This week, for Edit my RAW, Sergei from France sent us what looks
+                                                    like a vineyard picture with some mountains and some clouds.</p>
+                                                <p> To start, on this picture, I want to drive the highlights and
+                                                    shadows toward the mid-tones to get something to work with.</p>
+                                                <p> First, we'll look at our Input Color Matrix.</p>
+                                                <p> Let's see: Standard, Enhanced -- I don't see much difference
+                                                    there.</p>
+                                                <p> SRGB -- nope.</p>
+                                                <p> And Adobe -- nope.</p>
+                                                <p> Okay, we'll go with Enhanced.</p>
+                                                <p> That's a good starting point.</p>
+                                                <p> Next: Demosaic-ing.</p>
+                                                <p> Let's see if that makes any difference.</p>
+                                                <p> Starting with PPG...</p>
+                                                <p> Oh, boy, that Amaze looks better, doesn't it? And VNG...</p>
+                                                <p>that looks good too.</p>
+                                                <p> I'll have to take a Snapshot and take a look.</p>
+                                                <p> It's hard to tell which looks better: the VNG or the Amaze.</p>
+                                                <p> I like the Amaze better (on the right).</p>
+                                                <p> The VNG is a little soft in here, and you can see the Amaze is a
+                                                    little sharper.</p>
+                                                <p> Yes, definitely with the Amaze.</p>
+                                                <p> Okay, we've got Demosaic-ing; we've got our Input Color Profile.</p>
+                                                <p> We'll drive these shadows and highlights towards our mid-tones.</p>
+                                                <p> Let's try the Shadow and Highlights.</p>
+                                                <p> Hmmm...</p>
+                                                <p>doesn't do much for these deep shadows, and it's affecting all this
+                                                    area here too.</p>
+                                                <p> So, let's Compress it, so it's just affecting our deeper
+                                                    shadows.</p>
+                                                <p> Boy it isn't doing much, is it? We can go like that, and turn our
+                                                    Radius down.</p>
+                                                <p> See, our Radius is so big, it's got giant halos now.</p>
+                                                <p> Bring our Radius down.</p>
+                                                <p> Bring our Shadows to there...</p>
+                                                <p> Oh, we've still got halos everywhere.</p>
+                                                <p> This is terrible.</p>
+                                                <p> Okay: NOT the Shadow and Highlights slider; let's look at Tone
+                                                    Mapping.</p>
+                                                <p> Bring our Compression down.</p>
+                                                <p> Boy, that looks a lot better through here.</p>
+                                                <p> It does a terrible job on these highlights, though.</p>
+                                                <p> Maybe we can just get the darker places with a Parametric Mask.</p>
+                                                <p> First I'm going to turn way down the Spatial Extent to give it a
+                                                    more natural look.</p>
+                                                <p> That looks better.</p>
+                                                <p> Let's see if we can get rid of its effect here.</p>
+                                                <p> Then we'll reverse this mask.</p>
+                                                <p> Oh, I don't want this area to be affected; just the tree.</p>
+                                                <p> We'll start up here.</p>
+                                                <p> Alright, let's see what that looks like.</p>
+                                                <p> Wow, that really lightened it up.</p>
+                                                <p> Let's do a Blend -- maybe 50% Okay So, this is before and after.</p>
+                                                <p> That might even be a little strong; we can come back a little from
+                                                    50%.</p>
+                                                <p> Let's come back to 34%.</p>
+                                                <p> Yes.</p>
+                                                <p> Okay, that helps.</p>
+                                                <p> We still have dark shadows, and our clouds don't have much
+                                                    contrast.</p>
+                                                <p> Also, there's not much contrast in the mountains here.</p>
+                                                <p> Well, there's a Gamma correction called Unbreak Input Profile.</p>
+                                                <p> Let's give that a shot.</p>
+                                                <p> Now, the way the Unbreak Input Profile works is that it's got a
+                                                    linear setting.</p>
+                                                <p> That determines where...</p>
+                                                <p>here, I'll show you with a Tone Curve.</p>
+                                                <p> It's like this: if I bring this Gamma up like this; if I bring it
+                                                    farther to the left, that's like that linearity, and then the
+                                                    distance up I go is the Gamma value.</p>
+                                                <p> So, let's give that a shot.</p>
+                                                <p> Well, that helps some.</p>
+                                                <p> We certainly have more data towards our mid-points now.</p>
+                                                <p> Let's look at our History and see how far we've come.</p>
+                                                <p> Alright, most of our data was over here, and now we look a lot more
+                                                    mid-tone-y.</p>
+                                                <p> Good.</p>
+                                                <p> I want to increase the contrast on the mountain and in the sky.</p>
+                                                <p> I'll try creating an L Channel with more contrast.</p>
+                                                <p> I'll go to the Channel Mixer, go to Lightness.</p>
+                                                <p> I'll take a Snapshot so I can compare, and I'll bring up my
+                                                    Blue.</p>
+                                                <p> That blue does not show much contrast; as a matter of fact, it
+                                                    decreases the contrast.</p>
+                                                <p> Okay: no help.</p>
+                                                <p> The Green? A little more contrast, but not much.</p>
+                                                <p> Let's see what the Red does.</p>
+                                                <p> Oh, now we're talking.</p>
+                                                <p> The clouds look more distinct and so does the mountain, but it makes
+                                                    the green on the bottom look unrealistic.</p>
+                                                <p> I'll turn the Green a little bit negative so it darkens the greens,
+                                                    and bring the Red up just a little.</p>
+                                                <p> Now I've got more contrast in the mountain and up here.</p>
+                                                <p> It still looks unrealistic down here and terrible here.</p>
+                                                <p> We'll try applying it with an L Mask.</p>
+                                                <p> That certainly looks better.</p>
+                                                <p> I want to still bring out the shadows here more and knock down my
+                                                    highlights more.</p>
+                                                <p> I'll use a Lowpass Filter.</p>
+                                                <p> Saturation down to zero.</p>
+                                                <p> Bring my Radius up, maybe like that.</p>
+                                                <p> Overlay.</p>
+                                                <p> And bring our Contrast negative.</p>
+                                                <p> That made our shadows brighter and knocked down the highlights.</p>
+                                                <p> Let's see what we got.</p>
+                                                <p> I don't see any halos, so I think we're good.</p>
+                                                <p> What color do we have in our whites here? Not quite white.</p>
+                                                <p> It looks like it's magenta and yellow.</p>
+                                                <p> We'll fix that.</p>
+                                                <p> Color Balance.</p>
+                                                <p> Gamma.</p>
+                                                <p> Yellow.</p>
+                                                <p> Move it towards the Blue.</p>
+                                                <p> As I do, I'm watching this B Channel go down.</p>
+                                                <p> Okay, there's my B Channel going down, and I've got way too much
+                                                    magenta, so I'll move that towards the Green.</p>
+                                                <p> There we go: I'm almost at zero and zero.</p>
+                                                <p> My whites look better now.</p>
+                                                <p> I've got a big black dot here.</p>
+                                                <p> Maybe it's a spot on the sensor? Well: Spot Removal.</p>
+                                                <p> No, that didn't match; it's too dark.</p>
+                                                <p> That's too light.</p>
+                                                <p> Oh, this is a tricky one.</p>
+                                                <p> I'm going to Blend it, and use only Lighten.</p>
+                                                <p> I can still see it.</p>
+                                                <p> Oh, that's frustrating.</p>
+                                                <p> Okay, Spot Removal, and bring this down.</p>
+                                                <p> Boy, that is a tricky spot.</p>
+                                                <p> Okay, I still don't like it; I can still see a circle there.</p>
+                                                <p> Oh, I think I'm finally happy.</p>
+                                                <p> I'll Export this and start working with tones.</p>
+                                                <p> I would like for these clouds to have more definition; I want this
+                                                    mountain to have more definition; I want to see details in the
+                                                    leaves of the vineyard, and I'd like to see this rock better.</p>
+                                                <p> I'd like to see this road delineated more, and I want to see more
+                                                    detail in these rocks.</p>
+                                                <p> We'll start with the larger objects first, so we'll start with the
+                                                    road and the mountain first, and then we'll work our way down to the
+                                                    clouds and then the finer details like the leaves here and the rocks
+                                                    here.</p>
+                                                <p> So, Lowpass.</p>
+                                                <p> Bring our Contrast down a little, our Brightness up a little,
+                                                    Saturation down to zero, bring our Radius up until we can see the
+                                                    road and the rock.</p>
+                                                <p> Nice big features.</p>
+                                                <p> And the mountain.</p>
+                                                <p> Can we add a little tone to that mountain? A little bit, not
+                                                    much.</p>
+                                                <p> So, now I can see the rock and the road and the mountain, but I'm
+                                                    not lost in the details of the leaves and the rocks down here.</p>
+                                                <p> I'll apply that with the Softlight Blend Mode and use the
+                                                    Opacity.</p>
+                                                <p> That looks better.</p>
+                                                <p> Okay, one more time.</p>
+                                                <p> Go to finer and finer details each time.</p>
+                                                <p> I'm looking for more detail in the mountain and more detail in the
+                                                    clouds.</p>
+                                                <p> I'm having a tough time with these clouds, so before I go too far,
+                                                    I'll use my Tone Control to create more distance between the lighter
+                                                    and darker parts of the clouds.</p>
+                                                <p> So, here's a lighter part.</p>
+                                                <p> I'll bring that up just a little.</p>
+                                                <p> Then here's a darker part of the cloud.</p>
+                                                <p> We'll bring this down a little, give us a little more to work
+                                                    with.</p>
+                                                <p> This is making the tree awful dark, so I'll exclude that with the
+                                                    Parametric Mask.</p>
+                                                <p> Apply this with the Softlight and use my Opacity to determine how
+                                                    much gets used.</p>
+                                                <p> Okay, that looks good.</p>
+                                                <p> Now, the finer details.</p>
+                                                <p> The finer details, instead of using a Lowpass Filter, I'm going to
+                                                    use the Highpass Filter with the Softlight Blend Mode.</p>
+                                                <p> There we go.</p>
+                                                <p> I'll apply this with a Parametric Mask based on the L Channel and a
+                                                    Softlight Blend Mode.</p>
+                                                <p> Let's see what that looks like.</p>
+                                                <p> It certainly adds more contrast up here.</p>
+                                                <p> Let's see what it looks like in the rest of the photo.</p>
+                                                <p> Before, and after.</p>
+                                                <p> It's making the tree dark.</p>
+                                                <p> I'll exclude it from the darkest parts of the tree.</p>
+                                                <p> Turn on my Mask Indicator, and that excludes these darkest
+                                                    parts.</p>
+                                                <p> I want to add a little more color, but I don't want to add it
+                                                    everywhere.</p>
+                                                <p> I'll steepen my A and B Channels and use my Chromacity Channel to
+                                                    apply the steeper color channels to the areas of the image that have
+                                                    less color saturation to start with.</p>
+                                                <p> I'll first look at my A and B Channels, and bring these up to...</p>
+                                                <p> ..about there...</p>
+                                                <p> Parametric Mask.</p>
+                                                <p> C.</p>
+                                                <p> Now, there's way too much of it in here and in here and over here,
+                                                    so let's turn on our Mask Indicator and bring our high end down
+                                                    until we start excluding the parts we don't want.</p>
+                                                <p> There we go.</p>
+                                                <p> Then we'll bring the upper limit all the way down to zero.</p>
+                                                <p> Now it's applying more of the effect, the steepening of the A and B
+                                                    Channels, to the areas that have the least color.</p>
+                                                <p> One of the nice things this does is reduce color noise a bit.</p>
+                                                <p> See, the areas that have more color are getting less of the
+                                                    effect.</p>
+                                                <p> Let's see what that looks like.</p>
+                                                <p> This is before, and this is after.</p>
+                                                <p> Before, and after.</p>
+                                                <p> Good.</p>
+                                                <p> It makes the road a little more red and doesn't get us out of gamut
+                                                    down here.</p>
+                                                <p> I'll save this and start over once again.</p>
+                                                <p> Here's our new version.</p>
+                                                <p> We're starting again with a zero on the History.</p>
+                                                <p> First, I'll add more contrast in the finer details.</p>
+                                                <p> Let's find some edges.</p>
+                                                <p> Use the Highpass filter and bring the Sharpness all the way down
+                                                    until we just find the edges we want.</p>
+                                                <p> Bring our Contrast down too.</p>
+                                                <p> That looks pretty good.</p>
+                                                <p> I'll apply this with the Overlay Blend Mode.</p>
+                                                <p> I'll have to attenuate it; it's usually too much.</p>
+                                                <p> There we go: right about like that.</p>
+                                                <p> Here's our before and our after.</p>
+                                                <p> It seems to sharpen things up; it finds edges for us.</p>
+                                                <p> That's starting to look good.</p>
+                                                <p> Let's see if we can sharpen things up more in here.</p>
+                                                <p> I'll use the Equalizer.</p>
+                                                <p> Well, that helps a little.</p>
+                                                <p> That helps more.</p>
+                                                <p> And that doesn't do much.</p>
+                                                <p> Okay, so we'll come up a little here and a little here.</p>
+                                                <p> That's on the L Channel; I'm not going to mess with the C
+                                                    Channel.</p>
+                                                <p> That looks pretty good.</p>
+                                                <p> It looks a little crunchy down here, so I'll mostly apply it up
+                                                    here.</p>
+                                                <p> That looks better.</p>
+                                                <p> This looks dark on the bottom.</p>
+                                                <p> I'll fix that before I carry on.</p>
+                                                <p> Oh, that looks more natural.</p>
+                                                <p> We want some color in here.</p>
+                                                <p> I want the road to be more red and the greens to pop more.</p>
+                                                <p> I don't want to enhance the blue.</p>
+                                                <p> How can I do that? Well, let's find out what these colors actually
+                                                    are, and then enhance them.</p>
+                                                <p> So, it's this much Magenta and this much Blue.</p>
+                                                <p> I'll pull up the high end.</p>
+                                                <p> There's my Blue.</p>
+                                                <p> And there's my Magenta.</p>
+                                                <p> That gives a little more contrast on the green and the red:
+                                                    nice.</p>
+                                                <p> It didn't touch our Blue too much, but it did some.</p>
+                                                <p> Yeah, that's already looking a little ballistic there.</p>
+                                                <p> I'll take our Blue down a little.</p>
+                                                <p> There we go.</p>
+                                                <p> Good.</p>
+                                                <p> Now what? I want more deeper saturation down here.</p>
+                                                <p> I'll use a Drawn Mask and a Parametric Mask combined.</p>
+                                                <p> I'll reverse the Drawn Mask so it's just down here.</p>
+                                                <p> I'll take my L Channel and use that as a mask also, and apply this
+                                                    with a Subtract method.</p>
+                                                <p> I won't need much; just a little.</p>
+                                                <p> There.</p>
+                                                <p> Here's before, and here's after.</p>
+                                                <p> Adds a little saturation.</p>
+                                                <p> I'd like more contrast in the mountain here and in the clouds, and
+                                                    I'd like to bring out the shadows more in the tree.</p>
+                                                <p> Also, I need to bring my White Point up and my Black Point down.</p>
+                                                <p> First, let's see what color is on the mountain.</p>
+                                                <p> The darkest parts are here and the lightest parts are here.</p>
+                                                <p> That makes it tough because I don't want to reduce contrast in here,
+                                                    and that's in the same area.</p>
+                                                <p> I might be stuck with the mountain.</p>
+                                                <p> I do have the ability to separate by where it is, so maybe I can get
+                                                    a little bit of an effect.</p>
+                                                <p> We'll bring this down.</p>
+                                                <p> We'll create a little separation in the mountain foliage itself.</p>
+                                                <p> I'll bring this down, there we go, and bring that up.</p>
+                                                <p> What does that look like? Get rid of that.</p>
+                                                <p> I think that helps.</p>
+                                                <p> Then, in the clouds, I want more separation.</p>
+                                                <p> I want more separation in the blue in general.</p>
+                                                <p> So, Parametric Mask based on the amount of blue.</p>
+                                                <p> I'll take my Eyedropper Tool, use Area, and look at the entire
+                                                    image.</p>
+                                                <p> So, my blue goes from here to here.</p>
+                                                <p> This is the least amount of blue, and this is the most amount of
+                                                    blue.</p>
+                                                <p> I want to bring down my blue level, so I want to apply most of this
+                                                    to the most blue.</p>
+                                                <p> I'll bring this slider over to the most blue there is in the
+                                                    picture, and I'll bring this slider over to where the least blue in
+                                                    the picture is, and then I'll create more contrast.</p>
+                                                <p> I'm bringing this over, watching my Black Point to make sure I don't
+                                                    clip, and bringing this end up, also watching my Black Point.</p>
+                                                <p> I don't want to get out of gamut here.</p>
+                                                <p> Look, I'm starting to get a little Magenta.</p>
+                                                <p> I've got to come back.</p>
+                                                <p> There we go.</p>
+                                                <p> Now it looks nice and white.</p>
+                                                <p> Before, and after.</p>
+                                                <p> Okay, and I want to bring up a little bit in these shadows.</p>
+                                                <p> Let's do that.</p>
+                                                <p> Keep our Black Point where it is and bring this up a little.</p>
+                                                <p> We'll just work on the Gamma for the whole image with an emphasis on
+                                                    these tones.</p>
+                                                <p> Ah, this got too bright in here.</p>
+                                                <p> Eyedropper.</p>
+                                                <p> And: too much.</p>
+                                                <p> Alright, Sergei; I hope you like it.</p>
+                                                <p> Thank you for sending it in.</p>
+                                                <p> You win the prize this week.</p>
+                                                <p> I will send you an autographed photo.</p>
+                                                <p> Everybody, have a great week; I'll see you next week.</p>
+                                                <p> Thanks so much.</p>
+                                                <p> Don't forget to send in your RAWs for me to edit.</p>
+                                                <p> Next week, we'll look at a different topic.</p>
+                                                <p> Bye, everybody.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- .entry-content -->
+
+                        <div class="entry-meta">
+                            <div class="taxonomy">
+                                <div class="tags"><span class="influence-icon-ribbon"></span><a
+                                        href="../tag/highpass/index.html" rel="tag">highpass</a>, <a
+                                        href="../tag/lowpass/index.html" rel="tag">lowpass</a>, <a
+                                        href="../tag/overlay/index.html" rel="tag">overlay</a>, <a
+                                        href="../tag/softlight/index.html" rel="tag">softlight</a></div>
+                                <div class="categories"><span class="influence-icon-layers"></span><a
+                                        href="../../category/weekly-edits/index.html" rel="tag">Weekly Edits</a></div>
+                            </div>
+
+                            <div class="posted-on">Posted on <a href="../darktable-lowpass-highpass/" title="4:49 am"
+                                                                rel="bookmark">
+                                <time class="entry-date" datetime="2016-10-19T04:49:52+00:00">October 19, 2016</time>
+                            </a></div>
+                        </div><!-- .entry-meta -->
+
+
+                        <div id="single-comments-wrapper">
+
+
+                            <div id="comments" class="comments-area">
+
+
+                                <h2 id="comments-title">
+                                    9 thoughts on &ldquo;<span>Lowpass, Highpass and how I use them</span>&rdquo;</h2>
+
+
+                                <ol class="commentlist">
+                                    <li class="comment even thread-even depth-1" id="li-comment-33">
+                                        <article id="comment-33" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/13770b421e9ca9b0df2d2625eaa75bd2?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/13770b421e9ca9b0df2d2625eaa75bd2?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Mathieu</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../darktable-lowpass-highpass/#comment-33">
+                                                        <time datetime="2016-11-13T11:01:04+00:00">November 13, 2016 at
+                                                            11:01 am
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../darktable-lowpass-highpass/?replytocom=33#respond'
+                                   onclick='return addComment.moveForm( "comment-33", "33", "respond", "430" )'
+                                   aria-label='Reply to Mathieu'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Thanks for you videos!<br/>
+                                                I am wondering if this lowpass/highpass method gives very different
+                                                results from the Shadows and Highlights module?<br/>
+                                                <a href="http://www.darktable.org/usermanual/ch03s04.html.php#shadows_and_highlights"
+                                                   rel="nofollow">http://www.darktable.org/usermanual/ch03s04.html.php#shadows_and_highlights</a>
+                                            </p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                        <ul class="children">
+                                            <li class="comment odd alt depth-2" id="li-comment-35">
+                                                <article id="comment-35" class="comment">
+                                                    <footer>
+                                                        <img alt=''
+                                                             src='http://0.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                             srcset='http://0.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                             class='avatar avatar-50 photo avatar-default' height='50'
+                                                             width='50'/>
+                                                        <div class="comment-author">
+                                                            <cite class="fn">Harry</cite>
+                                                        </div><!-- .comment-author -->
+
+
+                                                        <div class="comment-meta commentmetadata">
+                                                            <a href="../darktable-lowpass-highpass/#comment-35">
+                                                                <time datetime="2016-11-14T17:51:43+00:00">November 14,
+                                                                    2016 at 5:51 pm
+                                                                </time>
+                                                            </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../darktable-lowpass-highpass/?replytocom=35#respond'
+                                   onclick='return addComment.moveForm( "comment-35", "35", "respond", "430" )'
+                                   aria-label='Reply to Harry'>Reply</a>															</span>
+                                                        </div><!-- .comment-meta .commentmetadata -->
+
+                                                    </footer>
+
+                                                    <div class="comment-content entry-content"><p>Aloha Mathieu,</p>
+                                                        <p>The lowpass, shadows/highlights, and equalizer all use
+                                                            similar methods. So you&#8217;re right about them being
+                                                            similar. But I find the lowpass method easier to visualize
+                                                            where the effects are happen. Also it&#8217;s gives a little
+                                                            separation with defocusing some elements vs others. But
+                                                            sometimes I don&#8217;t want that effect and I&#8217;ll use
+                                                            the shadows/highlights or equalizer. This would be a great
+                                                            idea for a video topic, comparing the effects of each.</p>
+                                                        <p>Thank you so much for writing,<br/>
+                                                            Harry</p>
+                                                    </div>
+                                                </article><!-- #comment-## -->
+
+                                            </li><!-- #comment-## -->
+                                        </ul><!-- .children -->
+                                    </li><!-- #comment-## -->
+                                    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-6">
+                                        <article id="comment-6" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://0.gravatar.com/avatar/6980014effe8498cc54d26d84f5fdd65?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://0.gravatar.com/avatar/6980014effe8498cc54d26d84f5fdd65?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn"><a href='http://www.apratizando.com'
+                                                                        rel='external nofollow'
+                                                                        class='url'>Medyr</a></cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../darktable-lowpass-highpass/#comment-6">
+                                                        <time datetime="2016-10-21T21:27:45+00:00">October 21, 2016 at
+                                                            9:27 pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../darktable-lowpass-highpass/?replytocom=6#respond'
+                                   onclick='return addComment.moveForm( "comment-6", "6", "respond", "430" )'
+                                   aria-label='Reply to Medyr'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Hello Harry</p>
+                                                <p>As I promise, a small explanation in Spanish:</p>
+                                                <p>
+                                                    <a href="http://www.apratizando.com/2016/10/paso-bajo-y-paso-alto-con-harry-durgin/index.html"
+                                                       rel="nofollow">http://www.apratizando.com/2016/10/paso-bajo-y-paso-alto-con-harry-durgin/</a>
+                                                </p>
+                                                <p>Regards</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                        <ul class="children">
+                                            <li class="comment byuser comment-author-harry bypostauthor odd alt depth-2"
+                                                id="li-comment-8">
+                                                <article id="comment-8" class="comment">
+                                                    <footer>
+                                                        <img alt=''
+                                                             src='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=50&#038;d=blank&#038;r=g'
+                                                             srcset='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=100&amp;d=blank&amp;r=g 2x'
+                                                             class='avatar avatar-50 photo' height='50' width='50'/>
+                                                        <div class="comment-author">
+                                                            <cite class="fn">harry</cite>
+                                                        </div><!-- .comment-author -->
+
+
+                                                        <div class="comment-meta commentmetadata">
+                                                            <a href="../darktable-lowpass-highpass/#comment-8">
+                                                                <time datetime="2016-10-23T04:13:58+00:00">October 23,
+                                                                    2016 at 4:13 am
+                                                                </time>
+                                                            </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../darktable-lowpass-highpass/?replytocom=8#respond'
+                                   onclick='return addComment.moveForm( "comment-8", "8", "respond", "430" )'
+                                   aria-label='Reply to harry'>Reply</a>															</span>
+                                                        </div><!-- .comment-meta .commentmetadata -->
+
+                                                    </footer>
+
+                                                    <div class="comment-content entry-content"><p>Thank you Medyr. What
+                                                        a great resource!</p>
+                                                    </div>
+                                                </article><!-- #comment-## -->
+
+                                            </li><!-- #comment-## -->
+                                        </ul><!-- .children -->
+                                    </li><!-- #comment-## -->
+                                    <li class="post pingback">
+                                        <p>Pingback: <a
+                                                href='http://www.apratizando.com/2016/10/paso-bajo-y-paso-alto-con-harry-durgin/'
+                                                rel='external nofollow' class='url'>Paso bajo y paso alto con Harry
+                                            Durgin - Apratizando</a></p>
+                                    </li><!-- #comment-## -->
+                                    <li class="comment even thread-even depth-1" id="li-comment-3">
+                                        <article id="comment-3" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://2.gravatar.com/avatar/b929a3d2898febdfa1cd39d53751a4e4?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://2.gravatar.com/avatar/b929a3d2898febdfa1cd39d53751a4e4?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Fernando Camargo</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../darktable-lowpass-highpass/#comment-3">
+                                                        <time datetime="2016-10-20T17:58:56+00:00">October 20, 2016 at
+                                                            5:58 pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../darktable-lowpass-highpass/?replytocom=3#respond'
+                                   onclick='return addComment.moveForm( "comment-3", "3", "respond", "430" )'
+                                   aria-label='Reply to Fernando Camargo'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>I&#8217;ve created some notes
+                                                based on this video and I&#8217;m sharing below to help others.</p>
+                                                <p>&#8220;Overlay adds contrast and softlight is a more gentle version.&#8221;</p>
+                                                <p>Overlay takes more effect in the mid tones (specially between the mid
+                                                    tones and the light tones, and between the mid tones and dark
+                                                    tones).<br/>
+                                                    Softlight protects the light and dark tones, taking effect on the
+                                                    mid tones.</p>
+                                                <p>&#8211; Lowpass Filter</p>
+                                                <p>  &#8211; Recover Shadows (darker parts -&gt; brither / lighter parts
+                                                    -&gt; darker):<br/>
+                                                    &#8211; Overlay<br/>
+                                                    &#8211; Radius: any (control the transition zone)<br/>
+                                                    &#8211; Contrast: negative (control the effect)<br/>
+                                                    &#8211; Brightness: 0<br/>
+                                                    &#8211; Saturation: 0</p>
+                                                <p>  &#8211; Apply tones (more 3D look, less flat / shades more
+                                                    continuous):<br/>
+                                                    &#8211; Softlight<br/>
+                                                    &#8211; Radius: any (less -&gt; sharper / more -&gt; more continuous
+                                                    transitions) (adjust just enough to see the wanted details)<br/>
+                                                    &#8211; Contrast: positive (control the effect)<br/>
+                                                    &#8211; Brightness: 0<br/>
+                                                    &#8211; Saturation: 0</p>
+                                                <p>  &#8211; Separate things (more contrast / separate from background):<br/>
+                                                    &#8211; Overlay<br/>
+                                                    &#8211; Radius: any (adjust to large enough to see general only the
+                                                    shape of objects)<br/>
+                                                    &#8211; Contrast: 1<br/>
+                                                    &#8211; Brightness: 0<br/>
+                                                    &#8211; Saturation: 0</p>
+                                                <p>&#8211; Highpass Filter</p>
+                                                <p>  &#8211; Apply tones (same as lowpass, but works on fine grain
+                                                    details / bring out fine details):<br/>
+                                                    &#8211; Softlight<br/>
+                                                    &#8211; Sharpness: 100% or lower<br/>
+                                                    &#8211; Contrat boost: any (control the shade)<br/>
+                                                    &#8211; Opacity: control the effect / remove hallos in the
+                                                    edges<br/>
+                                                    &#8211; Parametric mask: more effect on highlights</p>
+                                                <p>  &#8211; Sharpen edges:<br/>
+                                                    &#8211; Overlay<br/>
+                                                    &#8211; Sharpness: any (adjust to low enough to see only the edges
+                                                    of objects)<br/>
+                                                    &#8211; Contrat boost: any (same as Sharpness)<br/>
+                                                    &#8211; Opacity: control the effect</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                        <ul class="children">
+                                            <li class="comment byuser comment-author-harry bypostauthor odd alt depth-2"
+                                                id="li-comment-4">
+                                                <article id="comment-4" class="comment">
+                                                    <footer>
+                                                        <img alt=''
+                                                             src='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=50&#038;d=blank&#038;r=g'
+                                                             srcset='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=100&amp;d=blank&amp;r=g 2x'
+                                                             class='avatar avatar-50 photo' height='50' width='50'/>
+                                                        <div class="comment-author">
+                                                            <cite class="fn">harry</cite>
+                                                        </div><!-- .comment-author -->
+
+
+                                                        <div class="comment-meta commentmetadata">
+                                                            <a href="../darktable-lowpass-highpass/#comment-4">
+                                                                <time datetime="2016-10-21T00:12:25+00:00">October 21,
+                                                                    2016 at 12:12 am
+                                                                </time>
+                                                            </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../darktable-lowpass-highpass/?replytocom=4#respond'
+                                   onclick='return addComment.moveForm( "comment-4", "4", "respond", "430" )'
+                                   aria-label='Reply to harry'>Reply</a>															</span>
+                                                        </div><!-- .comment-meta .commentmetadata -->
+
+                                                    </footer>
+
+                                                    <div class="comment-content entry-content"><p>Thank you Fernando
+                                                        Camargo!</p>
+                                                    </div>
+                                                </article><!-- #comment-## -->
+
+                                            </li><!-- #comment-## -->
+                                            <li class="comment even depth-2" id="li-comment-7">
+                                                <article id="comment-7" class="comment">
+                                                    <footer>
+                                                        <img alt=''
+                                                             src='http://0.gravatar.com/avatar/6980014effe8498cc54d26d84f5fdd65?s=50&#038;d=blank&#038;r=g'
+                                                             srcset='http://0.gravatar.com/avatar/6980014effe8498cc54d26d84f5fdd65?s=100&amp;d=blank&amp;r=g 2x'
+                                                             class='avatar avatar-50 photo' height='50' width='50'/>
+                                                        <div class="comment-author">
+                                                            <cite class="fn"><a href='http://www.apratizando.com'
+                                                                                rel='external nofollow' class='url'>Medyr</a></cite>
+                                                        </div><!-- .comment-author -->
+
+
+                                                        <div class="comment-meta commentmetadata">
+                                                            <a href="../darktable-lowpass-highpass/#comment-7">
+                                                                <time datetime="2016-10-21T21:35:00+00:00">October 21,
+                                                                    2016 at 9:35 pm
+                                                                </time>
+                                                            </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../darktable-lowpass-highpass/?replytocom=7#respond'
+                                   onclick='return addComment.moveForm( "comment-7", "7", "respond", "430" )'
+                                   aria-label='Reply to Medyr'>Reply</a>															</span>
+                                                        </div><!-- .comment-meta .commentmetadata -->
+
+                                                    </footer>
+
+                                                    <div class="comment-content entry-content"><p>Hi Fernando</p>
+                                                        <p>Can I translate to Spanish this fast reference for the entry
+                                                            I prepare on my blog? Obviously I&#8217;ll explain that is
+                                                            is only a translation and is from you.</p>
+                                                        <p>Regards</p>
+                                                    </div>
+                                                </article><!-- #comment-## -->
+
+                                                <ul class="children">
+                                                    <li class="comment odd alt depth-3" id="li-comment-9">
+                                                        <article id="comment-9" class="comment">
+                                                            <footer>
+                                                                <img alt=''
+                                                                     src='http://2.gravatar.com/avatar/b929a3d2898febdfa1cd39d53751a4e4?s=50&#038;d=blank&#038;r=g'
+                                                                     srcset='http://2.gravatar.com/avatar/b929a3d2898febdfa1cd39d53751a4e4?s=100&amp;d=blank&amp;r=g 2x'
+                                                                     class='avatar avatar-50 photo' height='50'
+                                                                     width='50'/>
+                                                                <div class="comment-author">
+                                                                    <cite class="fn">Fernando Camargo</cite>
+                                                                </div><!-- .comment-author -->
+
+
+                                                                <div class="comment-meta commentmetadata">
+                                                                    <a href="../darktable-lowpass-highpass/#comment-9">
+                                                                        <time datetime="2016-10-23T11:49:44+00:00">
+                                                                            October 23, 2016 at 11:49 am
+                                                                        </time>
+                                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../darktable-lowpass-highpass/?replytocom=9#respond'
+                                   onclick='return addComment.moveForm( "comment-9", "9", "respond", "430" )'
+                                   aria-label='Reply to Fernando Camargo'>Reply</a>															</span>
+                                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                                            </footer>
+
+                                                            <div class="comment-content entry-content"><p>Sure,
+                                                                Medyr.</p>
+                                                                <p>My intention was just to help other people! 🙂</p>
+                                                            </div>
+                                                        </article><!-- #comment-## -->
+
+                                                    </li><!-- #comment-## -->
+                                                </ul><!-- .children -->
+                                            </li><!-- #comment-## -->
+                                        </ul><!-- .children -->
+                                    </li><!-- #comment-## -->
+                                </ol><!-- .commentlist -->
+
+
+                                <div id="respond" class="comment-respond">
+                                    <h3 id="reply-title" class="comment-reply-title">Leave a Reply
+                                        <small><a rel="nofollow" id="cancel-comment-reply-link"
+                                                  href="/darktable-lowpass-highpass/#respond" style="display:none;">Cancel
+                                            reply</a></small>
+                                    </h3>
+                                    <form action="../wp-comments-post.php" method="post" id="commentform"
+                                          class="comment-form">
+                                        <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span>
+                                        </p>
+                                        <p class="comment-form-comment"><textarea id="comment" name="comment" rows="8"
+                                                                                  aria-required="true"></textarea></p>
+                                        <p class="comment-form-author"><label for="author">Name</label> <input
+                                                id="author" name="author" type="text" value="" size="30"
+                                                maxlength="245"/></p>
+                                        <p class="comment-form-email"><label for="email">Email</label> <input id="email"
+                                                                                                              name="email"
+                                                                                                              type="text"
+                                                                                                              value=""
+                                                                                                              size="30"
+                                                                                                              maxlength="100"
+                                                                                                              aria-describedby="email-notes"/>
+                                        </p>
+                                        <p class="comment-form-url"><label for="url">Website</label> <input id="url"
+                                                                                                            name="url"
+                                                                                                            type="text"
+                                                                                                            value=""
+                                                                                                            size="30"
+                                                                                                            maxlength="200"/>
+                                        </p>
+                                        <p class="form-submit"><input name="submit" type="submit" id="submit"
+                                                                      class="submit" value="Post Comment"/> <input
+                                                type='hidden' name='comment_post_ID' value='430' id='comment_post_ID'/>
+                                            <input type='hidden' name='comment_parent' id='comment_parent' value='0'/>
+                                        </p><input type="hidden" id="ct_checkjs_c9f0f895fb98ab9159f51fd0297e236d"
+                                                   name="ct_checkjs" value="0"/>
+                                        <script type="text/javascript">setTimeout(function () {
+                                            var ct_input_name = 'ct_checkjs_c9f0f895fb98ab9159f51fd0297e236d';
+                                            if (document.getElementById(ct_input_name) !== null) {
+                                                var ct_input_value = document.getElementById(ct_input_name).value;
+                                                document.getElementById(ct_input_name).value = document.getElementById(ct_input_name).value.replace(ct_input_value, '754191685');
+                                            }
+                                        }, 1000);</script>
+                                    </form>
+                                </div><!-- #respond -->
+
+                            </div><!-- #comments .comments-area -->
+                        </div><!-- #single-comments-wrapper -->
+
+
+                        <nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+                            <h1 class="assistive-text">Post navigation</h1>
+
+
+                            <div class="nav-previous"><a href="../hamakua-waterfalls/index.html" rel="prev"><span
+                                    class="meta-nav influence-icon-arrow-left"></span> Hamakua Waterfalls</a></div>
+                            <div class="nav-next"><a href="../darktable_process_lava_video/index.html" rel="next">Ocean
+                                Entry Lava Video <span class="meta-nav influence-icon-arrow-right"></span></a></div>
+
+                        </nav><!-- #nav-below -->
+
+                    </div>
+
+                </article><!-- #post-430 -->
+
+
+            </div><!-- #content .site-content -->
+
+        </section><!-- #primary .content-area -->
+
+
+        <div id="secondary">
+
+            <div class="widgets">
+                <aside id="sow-image-2" class="widget widget_sow-image">
+                    <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                        <div class="sow-image-container">
+                            <a href="../index.html"> <img src="../wp-content/uploads/2016/10/logo512-1.jpg" width="512"
+                                                          height="512"
+                                                          srcset="../wp-content/uploads/2016/10/logo512-1.jpg 512w, ../wp-content/uploads/2016/10/logo512-1-150x150.jpg 150w, ../wp-content/uploads/2016/10/logo512-1-300x300.jpg 300w"
+                                                          title="logo512" class="so-widget-image"/>
+                            </a></div>
+
+                    </div>
+                </aside>
+                <aside id="search-2" class="widget widget_search">
+                    <form method="get" id="searchform" action="../index.html" role="search">
+                        <label for="s" class="assistive-text">Search</label>
+                        <input type="text" class="field" name="s" value="" id="s" placeholder="Search"/>
+                        <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search"/>
+                    </form>
+                </aside>
+                <aside id="text-2" class="widget widget_text">
+                    <div class="textwidget">
+                        <script type='text/javascript' src="../cgi/build_links.js">
+                        </script>
+                    </div>
+                </aside>
+                <aside id="text-3" class="widget widget_text">
+                    <div class="textwidget">
+                        <div id='results'></div>
+                    </div>
+                </aside>
+            </div>
+
+        </div>
+
+
+    </div><!-- #main .site-main -->
+
+    <footer id="colophon" class="site-footer" role="contentinfo">
+
+        <div class="container">
+
+            <div id="footer-widgets">
+                <aside id="meta-3" class="widget widget_meta"><h3 class="widget-title">Meta</h3>
+                    <ul>
+                        <li><a rel="nofollow" href="../wp-login.php">Log in</a></li>
+                        <li><a href="../feed/index.html">Entries <abbr title="Really Simple Syndication">RSS</abbr></a>
+                        </li>
+                        <li><a href="../comments/feed/index.html">Comments <abbr
+                                title="Really Simple Syndication">RSS</abbr></a></li>
+                        <li><a href="https://wordpress.org/"
+                               title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a>
+                        </li>
+                    </ul>
+                </aside>
+                <aside id="text-4" class="widget widget_text">
+                    <div class="textwidget"><a href="stats">Stats</a></div>
+                </aside>
+            </div><!-- #footer-widgets -->
+
+
+        </div>
+
+    </footer><!-- #colophon .site-footer -->
+</div><!-- #page .hfeed .site -->
+
+
+<div id="main-menu">
+
+    <a href="#" class="influence-icon influence-icon-cross main-menu-close"></a>
+
+    <div class="menu">
+        <div class="menu">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li class="page_item page-item-232"><a href="../about-us/index.html">About Us</a></li>
+                <li class="page_item page-item-391"><a href="../awesome-links/index.html">Awesome Links</a></li>
+                <li class="page_item page-item-470"><a href="../lab-reference-chart/index.html">Lab Color Reference
+                    Chart</a></li>
+                <li class="page_item page-item-258"><a href="../order-prints-of-my-work/index.html">Order Prints of My
+                    Work</a></li>
+                <li class="page_item page-item-573"><a href="../scripts/index.html">Scripts</a></li>
+                <li class="page_item page-item-527"><a href="../show-suggestions/index.html">Show Suggestions</a></li>
+                <li class="page_item page-item-172"><a href="../shoot-with-harry/index.html">Shoot with Harry</a></li>
+                <li class="page_item page-item-154"><a href="../support-weekly-edit/index.html">Donate to the Show</a>
+                </li>
+                <li class="page_item page-item-142"><a href="../my-workflow/index.html">My Workflow</a></li>
+                <li class="page_item page-item-170"><a href="../edit-my-raw/index.html">Edit my RAW</a></li>
+                <li class="page_item page-item-156"><a href="../tpe/index.html">Sun and Moon Calendar</a></li>
+                <li class="page_item page-item-103"><a href="../playlist/index.html">Playlist</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="widgets">
+        <aside id="siteorigin-panels-builder-3" class="widget widget_siteorigin-panels-builder">
+            <div id="pl-w57e4594d719bc">
+                <div class="panel-grid" id="pg-w57e4594d719bc-0">
+                    <div class="panel-grid-cell" id="pgc-w57e4594d719bc-0-0">
+                        <div class="so-panel widget widget_pages panel-first-child" id="panel-w57e4594d719bc-0-0-0"
+                             data-index="0"><h3 class="widget-title">Resources</h3>
+                            <ul>
+                                <li class="page_item page-item-232"><a href="../about-us/index.html">About Us</a></li>
+                                <li class="page_item page-item-391"><a href="../awesome-links/index.html">Awesome
+                                    Links</a></li>
+                                <li class="page_item page-item-37"><a href="../index.html">Home Page</a></li>
+                                <li class="page_item page-item-470"><a href="../lab-reference-chart/index.html">Lab
+                                    Color Reference Chart</a></li>
+                                <li class="page_item page-item-258"><a href="../order-prints-of-my-work/index.html">Order
+                                    Prints of My Work</a></li>
+                                <li class="page_item page-item-573"><a href="../scripts/index.html">Scripts</a></li>
+                                <li class="page_item page-item-527"><a href="../show-suggestions/index.html">Show
+                                    Suggestions</a></li>
+                                <li class="page_item page-item-172"><a href="../shoot-with-harry/index.html">Shoot with
+                                    Harry</a></li>
+                                <li class="page_item page-item-154"><a href="../support-weekly-edit/index.html">Donate
+                                    to the Show</a></li>
+                                <li class="page_item page-item-142"><a href="../my-workflow/index.html">My Workflow</a>
+                                </li>
+                                <li class="page_item page-item-170"><a href="../edit-my-raw/index.html">Edit my RAW</a>
+                                </li>
+                                <li class="page_item page-item-156"><a href="../tpe/index.html">Sun and Moon
+                                    Calendar</a></li>
+                            </ul>
+                        </div>
+                        <div class="so-panel widget widget_recent-posts widget_recent_entries"
+                             id="panel-w57e4594d719bc-0-0-1" data-index="1"><h3 class="widget-title">Recent Posts</h3>
+                            <ul>
+                                <li>
+                                    <a href="../basic-stacking-orion/index.html">Basic Stacking &#8211; Orion</a>
+                                </li>
+                                <li>
+                                    <a href="../advancetown-lake/index.html">Advancetown Lake</a>
+                                </li>
+                                <li>
+                                    <a href="../lucky-shot/index.html">Lucky Shot</a>
+                                </li>
+                                <li>
+                                    <a href="../now-quicker-edits/index.html">Now with Quicker Edits</a>
+                                </li>
+                                <li>
+                                    <a href="../thinking-differently/index.html">Thinking Differently</a>
+                                </li>
+                                <li>
+                                    <a href="../stacking-by-hand/index.html">Stacking by Hand</a>
+                                </li>
+                                <li>
+                                    <a href="../shot-year-2016/index.html">Shot of the Year 2016</a>
+                                </li>
+                                <li>
+                                    <a href="../story-telling-panoramas/index.html">Story Telling with Panoramas</a>
+                                </li>
+                                <li>
+                                    <a href="../lets-add-grain/index.html">Let&#8217;s Add Grain</a>
+                                </li>
+                                <li>
+                                    <a href="../mask-manager/index.html">Mask Manager</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="so-panel widget widget_search panel-last-child" id="panel-w57e4594d719bc-0-0-2"
+                             data-index="2">
+                            <form method="get" id="searchform" action="../index.html" role="search">
+                                <label for="s" class="assistive-text">Search</label>
+                                <input type="text" class="field" name="s" value="" id="s" placeholder="Search"/>
+                                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+</div>
+<script async type='text/javascript'
+        src='../wp-content/plugins/cleantalk-spam-protect/inc/cleantalk_nocache.js?random=5.58'></script>
+<script type="text/javascript">function ctSetCookie(c_name, value, def_value) {
+    document.cookie = c_name + "=" + escape(value) + "; path=/";
+}
+ctSetCookie("ct_checkjs", "754191685", "0");</script>
+<style type="text/css" media="all" id="siteorigin-panels-grids-wp_footer">/* Layout w57e4594d719bc */
+#pg-w57e4594d719bc-0 .panel-grid-cell {
+    float: none
+}
+
+#pl-w57e4594d719bc .panel-grid-cell .so-panel {
+    margin-bottom: 30px
+}
+
+#pl-w57e4594d719bc .panel-grid-cell .so-panel:last-child {
+    margin-bottom: 0px
+}
+
+#pg-w57e4594d719bc-0 {
+    margin-left: -15px;
+    margin-right: -15px
+}
+
+#pg-w57e4594d719bc-0 .panel-grid-cell {
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+@media (max-width: 780px) {
+    #pg-w57e4594d719bc-0 .panel-grid-cell {
+        float: none;
+        width: auto
+    }
+
+    #pl-w57e4594d719bc .panel-grid, #pl-w57e4594d719bc .panel-grid-cell {
+    }
+
+    #pl-w57e4594d719bc .panel-grid .panel-grid-cell-empty {
+        display: none
+    }
+
+    #pl-w57e4594d719bc .panel-grid .panel-grid-cell-mobile-last {
+        margin-bottom: 0px
+    }
+} </style>
+<script type='text/javascript' src='../wp-includes/js/comment-reply.min.js?ver=4.7.2'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min.js?ver=4.7.2'></script>
+
+<script async type='text/javascript'
+        src='../wp-content/plugins/cleantalk-spam-protect/inc/cleantalk_nocache.js?random=5.58'></script>
+</body>
+</html>

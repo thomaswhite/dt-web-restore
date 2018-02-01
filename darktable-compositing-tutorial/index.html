@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="profile" href="http://gmpg.org/xfn/11"/>
+    <link rel="pingback" href="../xmlrpc.php"/>
+
+    <title>Compositing with Darktable</title>
+
+    <!-- This site is optimized with the Yoast SEO Premium plugin v4.2.1 - https://yoast.com/wordpress/plugins/seo/ -->
+    <meta name="description"
+          content="In this tutorial video, Harry Durgin shows how to composite in Darktable using the Watermark Module. Bitmap to .svg conversion in Inkscape, then compositing and blending to finish. Simple and powerful."/>
+    <meta name="robots" content="noodp"/>
+    <link rel="canonical" href="../darktable-compositing-tutorial/"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Compositing in Darktable"/>
+    <meta property="og:description"
+          content="Brand-new and exciting off-label use of the Watermark Module to do compositing right in Darktable. It&#039;s a simple, powerful sidestep you&#039;ll fall in love with."/>
+    <meta property="og:url" content="../darktable-compositing-tutorial/"/>
+    <meta property="og:site_name" content="Weekly Edit"/>
+    <meta property="article:tag" content="compositing"/>
+    <meta property="article:tag" content="Darktable"/>
+    <meta property="article:tag" content="watermark"/>
+    <meta property="article:section" content="Weekly Edits"/>
+    <meta property="article:published_time" content="2016-10-31T02:53:04+00:00"/>
+    <meta property="article:modified_time" content="2016-11-21T16:49:25+00:00"/>
+    <meta property="og:updated_time" content="2016-11-21T16:49:25+00:00"/>
+    <meta property="og:image" content="../wp-content/uploads/2016/10/IMG_5610_03.jpg"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description"
+          content="In this tutorial video, Harry Durgin shows how to composite in Darktable using the Watermark Module. Bitmap to .svg conversion in Inkscape, then compositing and blending to finish. Simple and powerful."/>
+    <meta name="twitter:title" content="Compositing with Darktable"/>
+    <meta name="twitter:image" content="../wp-content/uploads/2016/10/IMG_5610_03.jpg"/>
+    <meta property="DC.date.issued" content="2016-10-31T02:53:04+00:00"/>
+    <!-- / Yoast SEO Premium plugin. -->
+
+    <link rel='dns-prefetch' href='http://fonts.googleapis.com'/>
+    <link rel='dns-prefetch' href='http://s.w.org'/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Feed" href="../feed/"/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Comments Feed"
+          href="../comments/feed/"/>
+    <link rel="alternate" type="application/rss+xml"
+          title="Weekly Edit &raquo; Compositing with Darktable Comments Feed"
+          href="../darktable-compositing-tutorial/feed/"/>
+    <script type="text/javascript">
+        window._wpemojiSettings = {
+            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/",
+            "ext": ".png",
+            "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/",
+            "svgExt": ".svg",
+            "source": {"concatemoji": "http:\/\/weeklyedit.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.2"}
+        };
+        !function (a, b, c) {
+            function d(a) {
+                var b, c, d, e, f = String.fromCharCode;
+                if (!k || !k.fillText)return !1;
+                switch (k.clearRect(0, 0, j.width, j.height), k.textBaseline = "top", k.font = "600 32px Arial", a) {
+                    case"flag":
+                        return k.fillText(f(55356, 56826, 55356, 56819), 0, 0), b = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 56826, 8203, 55356, 56819), 0, 0), c = j.toDataURL(), b !== c && (k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57332, 56128, 56423, 56128, 56418, 56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447), 0, 0), b = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203, 56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447), 0, 0), c = j.toDataURL(), b !== c);
+                    case"emoji4":
+                        return k.fillText(f(55358, 56794, 8205, 9794, 65039), 0, 0), d = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55358, 56794, 8203, 9794, 65039), 0, 0), e = j.toDataURL(), d !== e
+                }
+                return !1
+            }
+
+            function e(a) {
+                var c = b.createElement("script");
+                c.src = a, c.defer = c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c)
+            }
+
+            var f, g, h, i, j = b.createElement("canvas"), k = j.getContext && j.getContext("2d");
+            for (i = Array("flag", "emoji4"), c.supports = {
+                everything: !0,
+                everythingExceptFlag: !0
+            }, h = 0; h < i.length; h++)c.supports[i[h]] = d(i[h]), c.supports.everything = c.supports.everything && c.supports[i[h]], "flag" !== i[h] && (c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && c.supports[i[h]]);
+            c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && !c.supports.flag, c.DOMReady = !1, c.readyCallback = function () {
+                c.DOMReady = !0
+            }, c.supports.everything || (g = function () {
+                c.readyCallback()
+            }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () {
+                "complete" === b.readyState && c.readyCallback()
+            })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji)))
+        }(window, document, window._wpemojiSettings);
+    </script>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' id='siteorigin-panels-front-css'
+          href='../wp-content/plugins/siteorigin-panels/css/front.css?ver=2.4.24' type='text/css' media='all'/>
+    <link rel='stylesheet' id='sow-image-default-3f547a15eaaa-css'
+          href='../wp-content/uploads/siteorigin-widgets/sow-image-default-3f547a15eaaa.css?ver=4.8.2' type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='siteorigin-google-web-fonts-css'
+          href='http://fonts.googleapis.com/css?family=Montserrat&#038;ver=4.8.2' type='text/css' media='all'/>
+    <link rel='stylesheet' id='influence-style-css' href='../wp-content/themes/influence/style.css?ver=4.8.2'
+          type='text/css' media='all'/>
+    <script type='text/javascript' src='../wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+    <script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+    <script type='text/javascript' src='../wp-content/themes/influence/js/jquery.fitvids.min.js?ver=1.0'></script>
+    <script type='text/javascript' src='../wp-content/themes/influence/js/jquery.theme-main.min.js?ver=1.2.1'></script>
+    <link rel='https://api.w.org/' href='../wp-json/'/>
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php?rsd"/>
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml"/>
+    <meta name="generator" content="WordPress 4.8.2"/>
+    <link rel='shortlink' href='../?p=475'/>
+    <link rel="alternate" type="application/json+oembed"
+          href="../wp-json/oembed/1.0/embed?url=http%3A%2F%2Fweeklyedit.com%2Fdarktable-compositing-tutorial%2F"/>
+    <link rel="alternate" type="text/xml+oembed"
+          href="../wp-json/oembed/1.0/embed?url=http%3A%2F%2Fweeklyedit.com%2Fdarktable-compositing-tutorial%2F&#038;format=xml"/>
+    <!--[if lt IE 9]>
+    <script src="../wp-content/themes/influence/js/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if (gte IE 6)&(lte IE 8)]>
+    <script type="text/javascript" src="../wp-content/themes/influence/js/selectivizr.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <style type="text/css" id="custom-background-css">
+        body.custom-background {
+            background-color: #ffffff;
+            background-image: url("../wp-content/themes/influence/images/background.png");
+            background-position: left top;
+            background-size: auto;
+            background-repeat: repeat;
+            background-attachment: scroll;
+        }
+    </style>
+    <style type="text/css" media="all" id="siteorigin-panels-grids-wp_head">/* Layout 475 */
+    #pg-475-0, #pl-475 .panel-grid-cell .so-panel {
+        margin-bottom: 30px
+    }
+
+    #pg-475-0 .panel-grid-cell {
+        float: none
+    }
+
+    #pgc-475-1-0 {
+        width: 40.591%
+    }
+
+    #pgc-475-1-1 {
+        width: 59.409%
+    }
+
+    #pg-475-1 .panel-grid-cell {
+        float: left
+    }
+
+    #pl-475 .panel-grid-cell .so-panel:last-child {
+        margin-bottom: 0px
+    }
+
+    #pg-475-0, #pg-475-1 {
+        margin-left: -15px;
+        margin-right: -15px
+    }
+
+    #pg-475-0 .panel-grid-cell, #pg-475-1 .panel-grid-cell {
+        padding-left: 15px;
+        padding-right: 15px
+    }
+
+    #panel-475-1-1-0 > .panel-widget-style {
+        padding: 0px 0px 0px 0px
+    }
+
+    @media (max-width: 780px) {
+        #pg-475-0 .panel-grid-cell, #pg-475-1 .panel-grid-cell {
+            float: none;
+            width: auto
+        }
+
+        #pgc-475-1-0 {
+            margin-bottom: 30px
+        }
+
+        #pl-475 .panel-grid, #pl-475 .panel-grid-cell {
+        }
+
+        #pl-475 .panel-grid .panel-grid-cell-empty {
+            display: none
+        }
+
+        #pl-475 .panel-grid .panel-grid-cell-mobile-last {
+            margin-bottom: 0px
+        }
+    } </style>
+    <style type="text/css" id="influence-footer-widgets">#footer-widgets aside {
+        width: 50%;
+    } </style>
+    <style id='influence-custom-css' class='siteorigin-custom-css' type='text/css'>
+        .post-thumbnail {
+            display: none;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        article.entry .entry-content h3 {
+            font-size: 17px;
+            text-align: left;
+            margin-left: 0px;
+            margin-top: 0em;
+            margin-bottom: 0px;
+        }
+
+        #panel-37-0-1-2.so-panel.widget.widget_recent-posts.widget_recent_entries {
+            margin-bottom: 0px;
+        }
+
+        .entry-content ul {
+            margin-left: -6px;
+        }
+
+        #topics {
+            margin-top: -30px;
+        }
+
+        #modules {
+            margin-top: -30px;
+        }
+
+        .panel-grid-cell .widget-title {
+            padding-bottom: 15px;
+        }
+
+        #main-menu .widgets aside.widget .widget-title {
+            margin-bottom: 0px;
+            margin-top: -20px;
+        }
+
+        #panel-470-0-0-0.so-panel.widget.widget_sow-image.panel-first-child.panel-last-child {
+            margin-top: -50px;
+        }
+
+        article.entry {
+            visibility: visible;
+        }
+
+        .post-text {
+            visibility: visible;
+        }
+
+        .entry-title {
+            visibility: visible;
+        }
+
+        article.entry .post-text {
+            padding-top: 0px;
+        }
+    </style>
+    <style type="text/css" id="customizer-css">h1, h2, h3, h4, h5, h6 {
+        font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+        font-weight: 400
+    }
+
+    article.entry {
+        background-color: #ffffff
+    } </style>
+</head>
+
+<body class="post-template-default single single-post postid-475 single-format-standard custom-background siteorigin-panels responsive has-main-sidebar">
+
+<div id="page" class="hfeed site">
+
+
+    <header id="masthead" class="site-header has-shadow" role="banner">
+
+        <div class="container">
+
+            <div class="hgroup">
+
+                <h1 class="site-title">
+                    <a href="../index.html" title="Weekly Edit" rel="home">
+                        Weekly Edit </a>
+                </h1>
+
+
+            </div>
+
+
+            <nav role="navigation" class="site-navigation main-navigation primary">
+
+                <h1 class="assistive-text">Menu</h1>
+
+                <a href="#" class="main-menu-button">
+                    <i class="influence-icon-menu-icon"></i>
+                    Menu </a>
+
+            </nav><!-- .site-navigation .main-navigation -->
+
+
+        </div>
+
+    </header><!-- #masthead .site-header -->
+
+    <div class="site-header has-shadow site-header-sentinel">
+
+        <div class="container">
+
+            <div class="hgroup">
+
+                <h1 class="site-title">
+                    Weekly Edit </h1>
+
+
+            </div>
+
+
+            <div role="navigation" class="site-navigation main-navigation primary">
+
+                <h1 class="assistive-text">Menu</h1>
+
+                <a href="#" class="main-menu-button">
+                    <i class="influence-icon-menu-icon"></i>
+                    Menu </a>
+
+            </div><!-- .site-navigation .main-navigation -->
+
+
+        </div>
+
+    </div><!-- #masthead .site-header -->
+
+    <div id="main" class="site-main">
+
+        <section id="primary" class="content-area">
+
+            <div id="content" class="site-content" role="main">
+
+
+                <article id="post-475"
+                         class="entry post-475 post type-post status-publish format-standard has-post-thumbnail hentry category-weekly-edits tag-compositing tag-darktable tag-watermark">
+
+                    <div class="post-thumbnail">
+                        <a href="../darktable-compositing-tutorial/" title="Permalink to Compositing with Darktable"
+                           rel="bookmark">
+                            <img width="667" height="1000" src="../wp-content/uploads/2016/10/IMG_5610_03-667x1000.jpg"
+                                 class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt=""
+                                 srcset="../wp-content/uploads/2016/10/IMG_5610_03-667x1000.jpg 667w, ../wp-content/uploads/2016/10/IMG_5610_03-200x300.jpg 200w, ../wp-content/uploads/2016/10/IMG_5610_03-768x1151.jpg 768w, ../wp-content/uploads/2016/10/IMG_5610_03-683x1024.jpg 683w, ../wp-content/uploads/2016/10/IMG_5610_03.jpg 854w"
+                                 sizes="(max-width: 667px) 100vw, 667px"/> </a>
+                    </div>
+
+
+                    <div class="post-text">
+
+                        <h1 class="entry-title"><a href="../darktable-compositing-tutorial/"
+                                                   title="Permalink to Compositing with Darktable" rel="bookmark">Compositing
+                            with Darktable</a></h1>
+
+                        <div class="entry-content">
+                            <div id="pl-475">
+                                <div class="panel-grid" id="pg-475-0">
+                                    <div class="panel-grid-cell" id="pgc-475-0-0">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-475-0-0-0" data-index="0">
+                                            <div class="textwidget">
+                                                <div id="vp">
+                                                    <iframe frameborder=0 allowfullscreen
+                                                            src="https://www.youtube.com/embed/yPJrnoEgG5w"></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-grid" id="pg-475-1">
+                                    <div class="panel-grid-cell" id="pgc-475-1-0">
+                                        <div class="so-panel widget widget_sow-image panel-first-child"
+                                             id="panel-475-1-0-0" data-index="1">
+                                            <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                                                <div class="sow-image-container">
+                                                    <a href="../wp-content/uploads/2016/10/IMG_5610_03.jpg"
+                                                       target="_blank"> <img
+                                                            src="../wp-content/uploads/2016/10/IMG_5610_03.jpg"
+                                                            width="854" height="1280"
+                                                            srcset="../wp-content/uploads/2016/10/IMG_5610_03.jpg 854w, ../wp-content/uploads/2016/10/IMG_5610_03-200x300.jpg 200w, ../wp-content/uploads/2016/10/IMG_5610_03-768x1151.jpg 768w, ../wp-content/uploads/2016/10/IMG_5610_03-683x1024.jpg 683w, ../wp-content/uploads/2016/10/IMG_5610_03-667x1000.jpg 667w"
+                                                            title="﻿ Edit My RAW -After- Photo from Carrington Falls, Robertson, New South Wales, Australia."
+                                                            alt="Carrington Falls, Robertson, New South Wales, Australia - Image after Darktable compositing and edit"
+                                                            class="so-widget-image"/>
+                                                    </a></div>
+
+                                            </div>
+                                        </div>
+                                        <div class="so-panel widget widget_sow-image panel-last-child"
+                                             id="panel-475-1-0-1" data-index="2">
+                                            <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                                                <div class="sow-image-container">
+                                                    <a href="../wp-content/uploads/2016/10/IMG_5610_02.jpg"
+                                                       target="_blank"> <img
+                                                            src="../wp-content/uploads/2016/10/IMG_5610_02.jpg"
+                                                            width="854" height="1280"
+                                                            srcset="../wp-content/uploads/2016/10/IMG_5610_02.jpg 854w, ../wp-content/uploads/2016/10/IMG_5610_02-200x300.jpg 200w, ../wp-content/uploads/2016/10/IMG_5610_02-768x1151.jpg 768w, ../wp-content/uploads/2016/10/IMG_5610_02-683x1024.jpg 683w, ../wp-content/uploads/2016/10/IMG_5610_02-667x1000.jpg 667w"
+                                                            title="Edit my RAW -Before- Image from Carrington Falls, Robertson, New South Wales, Australia"
+                                                            alt="Carrington Falls, Robertson, New South Wales, Australia - Image before Darktable compositing and edit"
+                                                            class="so-widget-image"/>
+                                                    </a></div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-grid-cell" id="pgc-475-1-1">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-475-1-1-0" data-index="3">
+                                            <div class="panel-widget-style"><h3 class="widget-title">Extend Darktable&#8217;s
+                                                functionality by compositing with the watermark module</h3>
+                                                <div class="textwidget"><p>In this video tutorial I look at compositing
+                                                    with the watermark module. The procedure is simple but powerful.
+                                                    Here's how it works:</p>
+                                                    <p>Darktable's watermark module allows you to overlay an svg file on
+                                                        the current canvas. I find 8mb to be the current upper limit on
+                                                        the file size of the svg in order for Darktable to import it
+                                                        properly. A bitmap image can be converted into an svg file by
+                                                        using inkscape like this:</p>
+<pre>
+inkscape -f filename.jpg -l filename.svg
+</pre>
+                                                    <p>It's that simple. The svg file needs to be located in </p>
+<pre>
+.config/darktable/watermarks/
+</pre>
+                                                    <p>Blending can be accomplished with the usual suite of blending
+                                                        operators (drawn and parametric).</p>
+                                                    <p>* note: in this video I use the Raw black/white point module...
+                                                        but that is probably not a good idea. The exposure module is the
+                                                        much preferred solution!</p>
+                                                    <p>The RAW file used in this video is available <a target=_blank
+                                                                                                       href="https://drive.google.com/open?id=0B8vTy8xq7dFWNDl4Yjk4ak5RTUU">here</a>.
+                                                        Thank you fatdunky for the contribution 🙂</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- .entry-content -->
+
+                        <div class="entry-meta">
+                            <div class="taxonomy">
+                                <div class="tags"><span class="influence-icon-ribbon"></span><a
+                                        href="../tag/compositing/index.html" rel="tag">compositing</a>, <a
+                                        href="../tag/darktable/index.html" rel="tag">Darktable</a>, <a
+                                        href="../tag/watermark/index.html" rel="tag">watermark</a></div>
+                                <div class="categories"><span class="influence-icon-layers"></span><a
+                                        href="../../category/weekly-edits/index.html" rel="tag">Weekly Edits</a></div>
+                            </div>
+
+                            <div class="posted-on">Posted on <a href="../darktable-compositing-tutorial/"
+                                                                title="2:53 am" rel="bookmark">
+                                <time class="entry-date" datetime="2016-10-31T02:53:04+00:00">October 31, 2016</time>
+                            </a></div>
+                        </div><!-- .entry-meta -->
+
+
+                        <div id="single-comments-wrapper">
+
+
+                            <div id="comments" class="comments-area">
+
+
+                                <h2 id="comments-title">
+                                    One thought on &ldquo;<span>Compositing with Darktable</span>&rdquo;        </h2>
+
+
+                                <ol class="commentlist">
+                                    <li class="post pingback">
+                                        <p>Pingback: <a href='../parametric-masks/' rel='external nofollow' class='url'>Parametric
+                                            Masks &#8211; Weekly Edit</a></p>
+                                    </li><!-- #comment-## -->
+                                </ol><!-- .commentlist -->
+
+
+                                <div id="respond" class="comment-respond">
+                                    <h3 id="reply-title" class="comment-reply-title">Leave a Reply
+                                        <small><a rel="nofollow" id="cancel-comment-reply-link"
+                                                  href="/darktable-compositing-tutorial/#respond" style="display:none;">Cancel
+                                            reply</a></small>
+                                    </h3>
+                                    <form action="../wp-comments-post.php" method="post" id="commentform"
+                                          class="comment-form">
+                                        <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span>
+                                        </p>
+                                        <p class="comment-form-comment"><textarea id="comment" name="comment" rows="8"
+                                                                                  aria-required="true"></textarea></p>
+                                        <p class="comment-form-author"><label for="author">Name</label> <input
+                                                id="author" name="author" type="text" value="" size="30"
+                                                maxlength="245"/></p>
+                                        <p class="comment-form-email"><label for="email">Email</label> <input id="email"
+                                                                                                              name="email"
+                                                                                                              type="text"
+                                                                                                              value=""
+                                                                                                              size="30"
+                                                                                                              maxlength="100"
+                                                                                                              aria-describedby="email-notes"/>
+                                        </p>
+                                        <p class="comment-form-url"><label for="url">Website</label> <input id="url"
+                                                                                                            name="url"
+                                                                                                            type="text"
+                                                                                                            value=""
+                                                                                                            size="30"
+                                                                                                            maxlength="200"/>
+                                        </p>
+                                        <p class="form-submit"><input name="submit" type="submit" id="submit"
+                                                                      class="submit" value="Post Comment"/> <input
+                                                type='hidden' name='comment_post_ID' value='475' id='comment_post_ID'/>
+                                            <input type='hidden' name='comment_parent' id='comment_parent' value='0'/>
+                                        </p></form>
+                                </div><!-- #respond -->
+
+                            </div><!-- #comments .comments-area -->
+                        </div><!-- #single-comments-wrapper -->
+
+
+                        <nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+                            <h1 class="assistive-text">Post navigation</h1>
+
+
+                            <div class="nav-previous"><a href="../darktable-tone-color-1-shot-hdr/index.html"
+                                                         rel="prev"><span
+                                    class="meta-nav influence-icon-arrow-left"></span> 1 Shot HDR</a></div>
+                            <div class="nav-next"><a href="../parametric-masks-tutorial/index.html" rel="next">Parametric
+                                Masks <span class="meta-nav influence-icon-arrow-right"></span></a></div>
+
+                        </nav><!-- #nav-below -->
+
+                    </div>
+
+                </article><!-- #post-475 -->
+
+
+            </div><!-- #content .site-content -->
+
+        </section><!-- #primary .content-area -->
+
+
+        <div id="secondary">
+
+            <div class="widgets">
+                <aside id="sow-image-2" class="widget widget_sow-image">
+                    <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                        <div class="sow-image-container">
+                            <a href="../index.html"> <img src="../wp-content/uploads/2016/10/logo512-1.jpg" width="512"
+                                                          height="512"
+                                                          srcset="../wp-content/uploads/2016/10/logo512-1.jpg 512w, ../wp-content/uploads/2016/10/logo512-1-150x150.jpg 150w, ../wp-content/uploads/2016/10/logo512-1-300x300.jpg 300w"
+                                                          title="logo512" class="so-widget-image"/>
+                            </a></div>
+
+                    </div>
+                </aside>
+                <aside id="search-2" class="widget widget_search">
+                    <form method="get" id="searchform" action="../index.html" role="search">
+                        <label for="s" class="assistive-text">Search</label>
+                        <input type="text" class="field" name="s" value="" id="s" placeholder="Search"/>
+                        <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search"/>
+                    </form>
+                </aside>
+                <aside id="text-2" class="widget widget_text">
+                    <div class="textwidget">
+                        <script type='text/javascript' src="../cgi/build_links.js">
+                        </script>
+                    </div>
+                </aside>
+                <aside id="text-3" class="widget widget_text">
+                    <div class="textwidget">
+                        <div id='results'></div>
+                    </div>
+                </aside>
+            </div>
+
+        </div>
+
+
+    </div><!-- #main .site-main -->
+
+    <footer id="colophon" class="site-footer" role="contentinfo">
+
+        <div class="container">
+
+            <div id="footer-widgets">
+                <aside id="meta-3" class="widget widget_meta"><h3 class="widget-title">Meta</h3>
+                    <ul>
+                        <li><a rel="nofollow" href="../wp-login.php">Log in</a></li>
+                        <li><a href="../feed/index.html">Entries <abbr title="Really Simple Syndication">RSS</abbr></a>
+                        </li>
+                        <li><a href="../comments/feed/index.html">Comments <abbr
+                                title="Really Simple Syndication">RSS</abbr></a></li>
+                        <li><a href="https://wordpress.org/"
+                               title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a>
+                        </li>
+                    </ul>
+                </aside>
+                <aside id="text-4" class="widget widget_text">
+                    <div class="textwidget"><a href="stats">Stats</a></div>
+                </aside>
+            </div><!-- #footer-widgets -->
+
+
+        </div>
+
+    </footer><!-- #colophon .site-footer -->
+</div><!-- #page .hfeed .site -->
+
+
+<div id="main-menu">
+
+    <a href="#" class="influence-icon influence-icon-cross main-menu-close"></a>
+
+    <div class="menu">
+        <div class="menu">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li class="page_item page-item-232"><a href="../about-us/index.html">About Us</a></li>
+                <li class="page_item page-item-391"><a href="../awesome-links/index.html">Awesome Links</a></li>
+                <li class="page_item page-item-470"><a href="../lab-reference-chart/index.html">Lab Color Reference
+                    Chart</a></li>
+                <li class="page_item page-item-258"><a href="../order-prints-of-my-work/index.html">Order Prints of My
+                    Work</a></li>
+                <li class="page_item page-item-573"><a href="../scripts/index.html">Scripts</a></li>
+                <li class="page_item page-item-527"><a href="../show-suggestions/index.html">Show Suggestions</a></li>
+                <li class="page_item page-item-172"><a href="../shoot-with-harry/index.html">Shoot with Harry</a></li>
+                <li class="page_item page-item-154"><a href="../patreon-support/index.html">Patreon Support</a></li>
+                <li class="page_item page-item-142"><a href="../my-workflow/index.html">My Workflow</a></li>
+                <li class="page_item page-item-170"><a href="../edit-my-raw/index.html">Edit my RAW</a></li>
+                <li class="page_item page-item-156"><a href="../tpe/index.html">Sun and Moon Calendar</a></li>
+                <li class="page_item page-item-103"><a href="../playlist/index.html">Playlist</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="widgets">
+        <aside id="siteorigin-panels-builder-3" class="widget widget_siteorigin-panels-builder">
+            <div id="pl-w57e4594d719bc">
+                <div class="panel-grid" id="pg-w57e4594d719bc-0">
+                    <div class="panel-grid-cell" id="pgc-w57e4594d719bc-0-0">
+                        <div class="so-panel widget widget_pages panel-first-child" id="panel-w57e4594d719bc-0-0-0"
+                             data-index="0"><h3 class="widget-title">Resources</h3>
+                            <ul>
+                                <li class="page_item page-item-232"><a href="../about-us/index.html">About Us</a></li>
+                                <li class="page_item page-item-391"><a href="../awesome-links/index.html">Awesome
+                                    Links</a></li>
+                                <li class="page_item page-item-37"><a href="../index.html">Home Page</a></li>
+                                <li class="page_item page-item-470"><a href="../lab-reference-chart/index.html">Lab
+                                    Color Reference Chart</a></li>
+                                <li class="page_item page-item-258"><a href="../order-prints-of-my-work/index.html">Order
+                                    Prints of My Work</a></li>
+                                <li class="page_item page-item-573"><a href="../scripts/index.html">Scripts</a></li>
+                                <li class="page_item page-item-527"><a href="../show-suggestions/index.html">Show
+                                    Suggestions</a></li>
+                                <li class="page_item page-item-172"><a href="../shoot-with-harry/index.html">Shoot with
+                                    Harry</a></li>
+                                <li class="page_item page-item-154"><a href="../patreon-support/index.html">Patreon
+                                    Support</a></li>
+                                <li class="page_item page-item-142"><a href="../my-workflow/index.html">My Workflow</a>
+                                </li>
+                                <li class="page_item page-item-170"><a href="../edit-my-raw/index.html">Edit my RAW</a>
+                                </li>
+                                <li class="page_item page-item-156"><a href="../tpe/index.html">Sun and Moon
+                                    Calendar</a></li>
+                            </ul>
+                        </div>
+                        <div class="so-panel widget widget_recent-posts widget_recent_entries"
+                             id="panel-w57e4594d719bc-0-0-1" data-index="1"><h3 class="widget-title">Recent Posts</h3>
+                            <ul>
+                                <li>
+                                    <a href="../red-hair/index.html">Red Hair</a>
+                                </li>
+                                <li>
+                                    <a href="../supermoon/index.html">Supermoon</a>
+                                </li>
+                                <li>
+                                    <a href="../lab-color-chart/index.html">Lab Color Chart</a>
+                                </li>
+                                <li>
+                                    <a href="../parametric-masks-tutorial/index.html">Parametric Masks</a>
+                                </li>
+                                <li>
+                                    <a href="../darktable-compositing-tutorial/index.html">Compositing with
+                                        Darktable</a>
+                                </li>
+                                <li>
+                                    <a href="../darktable-tone-color-1-shot-hdr/index.html">1 Shot HDR</a>
+                                </li>
+                                <li>
+                                    <a href="../darktable_process_lava_video/index.html">Ocean Entry Lava Video</a>
+                                </li>
+                                <li>
+                                    <a href="../darktable-lowpass-highpass/index.html">Lowpass, Highpass and how I use
+                                        them</a>
+                                </li>
+                                <li>
+                                    <a href="../hamakua-waterfalls/index.html">Hamakua Waterfalls</a>
+                                </li>
+                                <li>
+                                    <a href="../another-windward-sunrise/index.html">Another Windward Sunrise</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="so-panel widget widget_search panel-last-child" id="panel-w57e4594d719bc-0-0-2"
+                             data-index="2">
+                            <form method="get" id="searchform" action="../index.html" role="search">
+                                <label for="s" class="assistive-text">Search</label>
+                                <input type="text" class="field" name="s" value="" id="s" placeholder="Search"/>
+                                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+</div>
+<style type="text/css" media="all" id="siteorigin-panels-grids-wp_footer">/* Layout w57e4594d719bc */
+#pg-w57e4594d719bc-0 .panel-grid-cell {
+    float: none
+}
+
+#pl-w57e4594d719bc .panel-grid-cell .so-panel {
+    margin-bottom: 30px
+}
+
+#pl-w57e4594d719bc .panel-grid-cell .so-panel:last-child {
+    margin-bottom: 0px
+}
+
+#pg-w57e4594d719bc-0 {
+    margin-left: -15px;
+    margin-right: -15px
+}
+
+#pg-w57e4594d719bc-0 .panel-grid-cell {
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+@media (max-width: 780px) {
+    #pg-w57e4594d719bc-0 .panel-grid-cell {
+        float: none;
+        width: auto
+    }
+
+    #pl-w57e4594d719bc .panel-grid, #pl-w57e4594d719bc .panel-grid-cell {
+    }
+
+    #pl-w57e4594d719bc .panel-grid .panel-grid-cell-empty {
+        display: none
+    }
+
+    #pl-w57e4594d719bc .panel-grid .panel-grid-cell-mobile-last {
+        margin-bottom: 0px
+    }
+} </style>
+<script type='text/javascript' src='../wp-includes/js/comment-reply.min.js?ver=4.8.2'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min.js?ver=4.8.2'></script>
+
+</body>
+</html>

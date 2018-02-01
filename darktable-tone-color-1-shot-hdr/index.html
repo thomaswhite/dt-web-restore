@@ -1,0 +1,2129 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="profile" href="http://gmpg.org/xfn/11"/>
+    <link rel="pingback" href="../xmlrpc.php"/>
+
+    <title>1 shot HDR</title>
+
+    <script type='text/javascript'>
+        var ct_ajaxurl = '../wp-admin/admin-ajax.php';
+        var ct_info_flag = false;
+        var ct_set_cookies_flag = true;
+    </script>
+
+    <!-- This site is optimized with the Yoast SEO Premium plugin v4.2.1 - https://yoast.com/wordpress/plugins/seo/ -->
+    <meta name="description"
+          content="This video tutorial explores tone and color in Darktable: a survey of modules used to set exposure, gamma, color balance and saturation. Plus 1-shot HDR!"/>
+    <meta name="robots" content="noodp"/>
+    <link rel="canonical" href="../darktable-tone-color-1-shot-hdr/"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Tone, Color and A New 1-shot HDR in Darktable"/>
+    <meta property="og:description"
+          content="First, a quick and comprehensive tour of Tone and Color in Darktable. Then we get to the fun part: a sneak peek at a 1-shot HDR technique I&#039;m working on."/>
+    <meta property="og:url" content="../darktable-tone-color-1-shot-hdr/"/>
+    <meta property="og:site_name" content="Weekly Edit"/>
+    <meta property="article:tag" content="color"/>
+    <meta property="article:tag" content="Darktable"/>
+    <meta property="article:tag" content="hdr"/>
+    <meta property="article:tag" content="tone"/>
+    <meta property="article:section" content="Weekly Edits"/>
+    <meta property="article:published_time" content="2016-10-26T07:21:13+00:00"/>
+    <meta property="article:modified_time" content="2016-12-13T12:46:23+00:00"/>
+    <meta property="og:updated_time" content="2016-12-13T12:46:23+00:00"/>
+    <meta property="og:image" content="../wp-content/uploads/2016/10/2011b.jpg"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description"
+          content="This video tutorial explores tone and color in Darktable: a survey of modules used to set exposure, gamma, color balance and saturation. Plus 1-shot HDR!"/>
+    <meta name="twitter:title" content="1 shot HDR"/>
+    <meta name="twitter:image" content="../wp-content/uploads/2016/10/2011b.jpg"/>
+    <meta property="DC.date.issued" content="2016-10-26T07:21:13+00:00"/>
+    <!-- / Yoast SEO Premium plugin. -->
+
+    <link rel='dns-prefetch' href='http://fonts.googleapis.com'/>
+    <link rel='dns-prefetch' href='http://s.w.org'/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Feed" href="../feed/"/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Comments Feed"
+          href="../comments/feed/"/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; 1 Shot HDR Comments Feed"
+          href="../darktable-tone-color-1-shot-hdr/feed/"/>
+    <script type="text/javascript">
+        window._wpemojiSettings = {
+            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/",
+            "ext": ".png",
+            "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/",
+            "svgExt": ".svg",
+            "source": {"concatemoji": "http:\/\/weeklyedit.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.2"}
+        };
+        !function (a, b, c) {
+            function d(a) {
+                var b, c, d, e, f = String.fromCharCode;
+                if (!k || !k.fillText)return !1;
+                switch (k.clearRect(0, 0, j.width, j.height), k.textBaseline = "top", k.font = "600 32px Arial", a) {
+                    case"flag":
+                        return k.fillText(f(55356, 56826, 55356, 56819), 0, 0), !(j.toDataURL().length < 3e3) && (k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 65039, 8205, 55356, 57096), 0, 0), b = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 55356, 57096), 0, 0), c = j.toDataURL(), b !== c);
+                    case"emoji4":
+                        return k.fillText(f(55357, 56425, 55356, 57341, 8205, 55357, 56507), 0, 0), d = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55357, 56425, 55356, 57341, 55357, 56507), 0, 0), e = j.toDataURL(), d !== e
+                }
+                return !1
+            }
+
+            function e(a) {
+                var c = b.createElement("script");
+                c.src = a, c.defer = c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c)
+            }
+
+            var f, g, h, i, j = b.createElement("canvas"), k = j.getContext && j.getContext("2d");
+            for (i = Array("flag", "emoji4"), c.supports = {
+                everything: !0,
+                everythingExceptFlag: !0
+            }, h = 0; h < i.length; h++)c.supports[i[h]] = d(i[h]), c.supports.everything = c.supports.everything && c.supports[i[h]], "flag" !== i[h] && (c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && c.supports[i[h]]);
+            c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && !c.supports.flag, c.DOMReady = !1, c.readyCallback = function () {
+                c.DOMReady = !0
+            }, c.supports.everything || (g = function () {
+                c.readyCallback()
+            }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () {
+                "complete" === b.readyState && c.readyCallback()
+            })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji)))
+        }(window, document, window._wpemojiSettings);
+    </script>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' id='siteorigin-panels-front-css'
+          href='../wp-content/plugins/siteorigin-panels/css/front.css?ver=2.4.24' type='text/css' media='all'/>
+    <link rel='stylesheet' id='sow-image-default-3f547a15eaaa-css'
+          href='../wp-content/uploads/siteorigin-widgets/sow-image-default-3f547a15eaaa.css?ver=4.7.2' type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='siteorigin-google-web-fonts-css'
+          href='http://fonts.googleapis.com/css?family=Montserrat&#038;ver=4.7.2' type='text/css' media='all'/>
+    <link rel='stylesheet' id='influence-style-css' href='../wp-content/themes/influence/style.css?ver=4.7.2'
+          type='text/css' media='all'/>
+    <script type='text/javascript' src='../wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+    <script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+    <script type='text/javascript' src='../wp-content/themes/influence/js/jquery.fitvids.min.js?ver=1.0'></script>
+    <script type='text/javascript' src='../wp-content/themes/influence/js/jquery.theme-main.min.js?ver=1.2.1'></script>
+    <link rel='https://api.w.org/' href='../wp-json/'/>
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php?rsd"/>
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml"/>
+    <meta name="generator" content="WordPress 4.7.2"/>
+    <link rel='shortlink' href='../?p=448'/>
+    <link rel="alternate" type="application/json+oembed"
+          href="../wp-json/oembed/1.0/embed?url=http%3A%2F%2Fweeklyedit.com%2Fdarktable-tone-color-1-shot-hdr%2F"/>
+    <link rel="alternate" type="text/xml+oembed"
+          href="../wp-json/oembed/1.0/embed?url=http%3A%2F%2Fweeklyedit.com%2Fdarktable-tone-color-1-shot-hdr%2F&#038;format=xml"/>
+    <!--[if lt IE 9]>
+    <script src="../wp-content/themes/influence/js/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if (gte IE 6)&(lte IE 8)]>
+    <script type="text/javascript" src="../wp-content/themes/influence/js/selectivizr.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <style type="text/css" id="custom-background-css">
+        body.custom-background {
+            background-color: #ffffff;
+            background-image: url("../wp-content/themes/influence/images/background.png");
+            background-position: left top;
+            background-size: auto;
+            background-repeat: repeat;
+            background-attachment: scroll;
+        }
+    </style>
+    <style type="text/css" media="all" id="siteorigin-panels-grids-wp_head">/* Layout 448 */
+    #pg-448-0, #pg-448-1, #pl-448 .panel-grid-cell .so-panel {
+        margin-bottom: 30px
+    }
+
+    #pg-448-0 .panel-grid-cell, #pg-448-2 .panel-grid-cell {
+        float: none
+    }
+
+    #pgc-448-1-0 {
+        width: 40.591%
+    }
+
+    #pgc-448-1-1 {
+        width: 59.409%
+    }
+
+    #pg-448-1 .panel-grid-cell {
+        float: left
+    }
+
+    #pl-448 .panel-grid-cell .so-panel:last-child {
+        margin-bottom: 0px
+    }
+
+    #pg-448-0, #pg-448-1, #pg-448-2 {
+        margin-left: -15px;
+        margin-right: -15px
+    }
+
+    #pg-448-0 .panel-grid-cell, #pg-448-1 .panel-grid-cell, #pg-448-2 .panel-grid-cell {
+        padding-left: 15px;
+        padding-right: 15px
+    }
+
+    #panel-448-1-1-0 > .panel-widget-style {
+        padding: 0px 0px 0px 0px
+    }
+
+    @media (max-width: 780px) {
+        #pg-448-0 .panel-grid-cell, #pg-448-1 .panel-grid-cell, #pg-448-2 .panel-grid-cell {
+            float: none;
+            width: auto
+        }
+
+        #pgc-448-1-0 {
+            margin-bottom: 30px
+        }
+
+        #pl-448 .panel-grid, #pl-448 .panel-grid-cell {
+        }
+
+        #pl-448 .panel-grid .panel-grid-cell-empty {
+            display: none
+        }
+
+        #pl-448 .panel-grid .panel-grid-cell-mobile-last {
+            margin-bottom: 0px
+        }
+    } </style>
+    <style type="text/css" id="influence-footer-widgets">#footer-widgets aside {
+        width: 50%;
+    } </style>
+    <style id='influence-custom-css' class='siteorigin-custom-css' type='text/css'>
+        .post-thumbnail {
+            display: none;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        article.entry .entry-content h3 {
+            font-size: 17px;
+            text-align: left;
+            margin-left: 0px;
+            margin-top: 0em;
+            margin-bottom: 0px;
+        }
+
+        #panel-37-0-1-2.so-panel.widget.widget_recent-posts.widget_recent_entries {
+            margin-bottom: 0px;
+        }
+
+        .entry-content ul {
+            margin-left: -6px;
+        }
+
+        #topics {
+            margin-top: -30px;
+        }
+
+        #modules {
+            margin-top: -30px;
+        }
+
+        .panel-grid-cell .widget-title {
+            padding-bottom: 15px;
+        }
+
+        #main-menu .widgets aside.widget .widget-title {
+            margin-bottom: 0px;
+            margin-top: -20px;
+        }
+
+        #panel-470-0-0-0.so-panel.widget.widget_sow-image.panel-first-child.panel-last-child {
+            margin-top: -50px;
+        }
+
+        article.entry {
+            visibility: visible;
+        }
+
+        .post-text {
+            visibility: visible;
+        }
+
+        .entry-title {
+            visibility: visible;
+        }
+
+        article.entry .post-text {
+            padding-top: 0px;
+        }
+
+        #panel-72-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-75-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-131-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-133-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-135-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-137-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-140-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-177-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-278-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-354-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-430-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-448-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-475-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-488-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-518-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-550-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-575-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-599-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-625-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-664-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-682-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-704-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-722-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-736-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-757-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-765-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+    </style>
+    <style type="text/css" id="customizer-css">h1, h2, h3, h4, h5, h6 {
+        font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+        font-weight: 400
+    }
+
+    article.entry {
+        background-color: #ffffff
+    } </style>
+</head>
+
+<body class="post-template-default single single-post postid-448 single-format-standard custom-background siteorigin-panels responsive has-main-sidebar">
+
+<div id="page" class="hfeed site">
+
+
+    <header id="masthead" class="site-header has-shadow" role="banner">
+
+        <div class="container">
+
+            <div class="hgroup">
+
+                <h1 class="site-title">
+                    <a href="../index.html" title="Weekly Edit" rel="home">
+                        Weekly Edit </a>
+                </h1>
+
+
+            </div>
+
+
+            <nav role="navigation" class="site-navigation main-navigation primary">
+
+                <h1 class="assistive-text">Menu</h1>
+
+                <a href="#" class="main-menu-button">
+                    <i class="influence-icon-menu-icon"></i>
+                    Menu </a>
+
+            </nav><!-- .site-navigation .main-navigation -->
+
+
+        </div>
+
+    </header><!-- #masthead .site-header -->
+
+    <div class="site-header has-shadow site-header-sentinel">
+
+        <div class="container">
+
+            <div class="hgroup">
+
+                <h1 class="site-title">
+                    Weekly Edit </h1>
+
+
+            </div>
+
+
+            <div role="navigation" class="site-navigation main-navigation primary">
+
+                <h1 class="assistive-text">Menu</h1>
+
+                <a href="#" class="main-menu-button">
+                    <i class="influence-icon-menu-icon"></i>
+                    Menu </a>
+
+            </div><!-- .site-navigation .main-navigation -->
+
+
+        </div>
+
+    </div><!-- #masthead .site-header -->
+
+    <div id="main" class="site-main">
+
+        <section id="primary" class="content-area">
+
+            <div id="content" class="site-content" role="main">
+
+
+                <article id="post-448"
+                         class="entry post-448 post type-post status-publish format-standard has-post-thumbnail hentry category-weekly-edits tag-color tag-darktable tag-hdr tag-tone">
+
+                    <div class="post-thumbnail">
+                        <a href="../darktable-tone-color-1-shot-hdr/" title="Permalink to 1 Shot HDR" rel="bookmark">
+                            <img width="1000" height="667" src="../wp-content/uploads/2016/10/2011b-1000x667.jpg"
+                                 class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt=""
+                                 srcset="../wp-content/uploads/2016/10/2011b-1000x667.jpg 1000w, ../wp-content/uploads/2016/10/2011b-300x200.jpg 300w, ../wp-content/uploads/2016/10/2011b-768x512.jpg 768w, ../wp-content/uploads/2016/10/2011b-1024x683.jpg 1024w, ../wp-content/uploads/2016/10/2011b-272x182.jpg 272w, ../wp-content/uploads/2016/10/2011b.jpg 1280w"
+                                 sizes="(max-width: 1000px) 100vw, 1000px"/> </a>
+                    </div>
+
+
+                    <div class="post-text">
+
+                        <h1 class="entry-title"><a href="../darktable-tone-color-1-shot-hdr/"
+                                                   title="Permalink to 1 Shot HDR" rel="bookmark">1 Shot HDR</a></h1>
+
+                        <div class="entry-content">
+                            <div id="pl-448">
+                                <div class="panel-grid" id="pg-448-0">
+                                    <div class="panel-grid-cell" id="pgc-448-0-0">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-448-0-0-0" data-index="0">
+                                            <div class="textwidget">
+                                                <div id="vp">
+                                                    <iframe frameborder=0 allowfullscreen
+                                                            src="https://www.youtube.com/embed/JMclhcWRV6Y"></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-grid" id="pg-448-1">
+                                    <div class="panel-grid-cell" id="pgc-448-1-0">
+                                        <div class="so-panel widget widget_sow-image panel-first-child"
+                                             id="panel-448-1-0-0" data-index="1">
+                                            <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                                                <div class="sow-image-container">
+                                                    <a href="../wp-content/uploads/2016/10/2011a.jpg" target="_blank">
+                                                        <img src="../wp-content/uploads/2016/10/2011a.jpg" width="1280"
+                                                             height="854"
+                                                             srcset="../wp-content/uploads/2016/10/2011a.jpg 1280w, ../wp-content/uploads/2016/10/2011a-300x200.jpg 300w, ../wp-content/uploads/2016/10/2011a-768x512.jpg 768w, ../wp-content/uploads/2016/10/2011a-1024x683.jpg 1024w, ../wp-content/uploads/2016/10/2011a-1000x667.jpg 1000w, ../wp-content/uploads/2016/10/2011a-272x182.jpg 272w"
+                                                             title="Edit my RAW -Before- Scene from the South of Spain"
+                                                             alt="Sunset scene with olm oaks and mountains in Sierra Morena, Spain. RAW image before Darktable editing"
+                                                             class="so-widget-image"/>
+                                                    </a></div>
+
+                                            </div>
+                                        </div>
+                                        <div class="so-panel widget widget_sow-image panel-last-child"
+                                             id="panel-448-1-0-1" data-index="2">
+                                            <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                                                <div class="sow-image-container">
+                                                    <a href="../wp-content/uploads/2016/10/2011b.jpg" target="_blank">
+                                                        <img src="../wp-content/uploads/2016/10/2011b.jpg" width="1280"
+                                                             height="854"
+                                                             srcset="../wp-content/uploads/2016/10/2011b.jpg 1280w, ../wp-content/uploads/2016/10/2011b-300x200.jpg 300w, ../wp-content/uploads/2016/10/2011b-768x512.jpg 768w, ../wp-content/uploads/2016/10/2011b-1024x683.jpg 1024w, ../wp-content/uploads/2016/10/2011b-1000x667.jpg 1000w, ../wp-content/uploads/2016/10/2011b-272x182.jpg 272w"
+                                                             title="Edit My RAW -After- Scene from the south of Spain. Trees are olm oaks. Mountains 130 km away"
+                                                             alt="Sunset scene with olm oaks and mountains in Sierra Morena, Spain. Image after Darktable editing"
+                                                             class="so-widget-image"/>
+                                                    </a></div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-grid-cell" id="pgc-448-1-1">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-448-1-1-0" data-index="3">
+                                            <div class="panel-widget-style"><h3 class="widget-title">Quick rundown on
+                                                various methods of adjusting tone and color in Darktable. Then a sneak
+                                                peek at my 1 shot HDR technique.</h3>
+                                                <div class="textwidget"><p>In the video I start with a quick survey of
+                                                    different Darktable modules that you can use to set exposure, gamma,
+                                                    color balance and saturation.</p>
+                                                    <p>With this week's Edit My RAW I get to use an experimental
+                                                        technique I'm working on for challenging captures. It's a lot
+                                                        like a single shot HDR, but with a wide range of applications.
+                                                        The enfuse command line I use in this video is:</p>
+<pre>
+enfuse-mp -o hdr.tiff –exposure-weight=1 –entropy-weight=0 –saturation-weight=0 * 
+</pre>
+                                                    <p>The RAW files used in this video are available here<br/>
+                                                        <a target=_blank
+                                                           href="https://drive.google.com/open?id=0B7mIPRZEcQpAUmp5ZGFWN3BRaTg">Farmer's
+                                                            Market</a><br/>
+                                                        <a target=_blank
+                                                           href="https://drive.google.com/open?id=0B7mIPRZEcQpAMDRvdVhJVjNIZXc">Mountain
+                                                            in the Distance</a></p>
+                                                    <p>Thanks Juan for the RAW contribution and your translation work.
+                                                        Find Juan's blog <a target=_blank
+                                                                            href="http://www.apratizando.com/2016/10/paso-bajo-y-paso-alto-con-harry-durgin/index.html">here</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-grid" id="pg-448-2">
+                                    <div class="panel-grid-cell" id="pgc-448-2-0">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-448-2-0-0" data-index="4"><h3 class="widget-title">Complete Show
+                                            Text</h3>
+                                            <div class="textwidget"><p><a href="../annotations/JMclhcWRV6Y.txt"
+                                                                          download>Download complete text here</a></p>
+                                                <p>Aloha everybody and welcome to Weekly Edit.</p>
+                                                <p> This week I'll look at different ways of adjusting the Exposure, the
+                                                    Gamma, the Color Balance, and the Color Saturation.</p>
+                                                <p> I'll go over them quickly, touching on them lightly just to give you
+                                                    an idea of what options are out there.</p>
+                                                <p> This is my wife.</p>
+                                                <p> She is shopping for orchids at the farmers market.</p>
+                                                <p> First thing I'll do is crop this image so we just have the areas of
+                                                    interest.</p>
+                                                <p> One way to increase the exposure is to lower your White Point.</p>
+                                                <p> You can do that with this module.</p>
+                                                <p> You see that sets our Histogram White Point over.</p>
+                                                <p> Here's where we started, and here's where we ended.</p>
+                                                <p> So, that's pretty much the same as increasing your exposure.</p>
+                                                <p> It leaves your Black Point the same.</p>
+                                                <p> That's nice.</p>
+                                                <p> Another way to adjust exposure is just with the Exposure Module
+                                                    right here.</p>
+                                                <p> You can take your Exposure and turn it up.</p>
+                                                <p> That leaves your Black Point in the same place too.</p>
+                                                <p> Another way to adjust exposure is with this Contrast, Brightness and
+                                                    Saturation.</p>
+                                                <p> Watch out, though; when you increase this Brightness, it DOES change
+                                                    your Black Point.</p>
+                                                <p> See, it moved my Black Point.</p>
+                                                <p> So, you've got to mess with it and the Contrast to get it the way
+                                                    you want it.</p>
+                                                <p> It's kind of a pain.</p>
+                                                <p> It's not intuitive for me.</p>
+                                                <p> Another way is using the Tone Curve.</p>
+                                                <p> You can just take your White Point here and lower it.</p>
+                                                <p> That's much the same as the Exposure on the Exposure Module.</p>
+                                                <p> Another way is using the Levels Module.</p>
+                                                <p> If you just take the White Point here and set it lower, you get a
+                                                    lot of the same effect.</p>
+                                                <p> Let's talk about Gamma.</p>
+                                                <p> What is Gamma? When I've got this curve like this so that my White
+                                                    Point is over, the steepness of the curve is my Contrast.</p>
+                                                <p> The bend in the curve -- whether it goes down like this -- this is
+                                                    increasing the Gamma, and this is decreasing the Gamma.</p>
+                                                <p> So, how can we adjust Gamma in addition to the Tone Curve? Well,
+                                                    another way we can do it is with the Levels.</p>
+                                                <p> This middle is the Gamma.</p>
+                                                <p> Take it and move it toward the dark, and that decreases your
+                                                    Gamma.</p>
+                                                <p> Another way to adjust the Gamma -- here, we'll go back and set our
+                                                    White Point with our Raw Black-White Point -- okay.</p>
+                                                <p> Another way to change the Gamma is with this Base Curve.</p>
+                                                <p> The reason I did that was to put it in front of the Base Curve,
+                                                    because the Exposure and the Levels are after it in the pixel
+                                                    pipe.</p>
+                                                <p> This Base Curve can be a gamma adjustment also, like this.</p>
+                                                <p> There are pre-sets: Canon, and Sony, and whatnot.</p>
+                                                <p> Then, another way to adjust the Gamma is with the Unbreak Input
+                                                    Profile, which is under Color.</p>
+                                                <p> This not only has a Gamma set, it also has a Linear set.</p>
+                                                <p> If we increase our Gamma it looks like that, and if we decrease it,
+                                                    it looks like this.</p>
+                                                <p> Color Balance.</p>
+                                                <p> First off, let's get our Gamma set and our White Point set, and then
+                                                    we'll do some work with Color Balance.</p>
+                                                <p> Right back here.</p>
+                                                <p> We're cropped; we're going to set our White Point -- here.</p>
+                                                <p> I'm going to set my Gamma with my Base Curve.</p>
+                                                <p> There's our starting point.</p>
+                                                <p> Now, let's start looking at our Color Balance.</p>
+                                                <p> Let's find something that's color-neutral and start with that.</p>
+                                                <p> Then we can look at some other ways of adjusting the color too.</p>
+                                                <p> We'll look at our White Balance Module first.</p>
+                                                <p> Right here.</p>
+                                                <p> One of the ways to do it is set your Spot to the whole image.</p>
+                                                <p> Sometimes that will give you wonderful results, and other times not
+                                                    so much.</p>
+                                                <p> This time everything looks blue.</p>
+                                                <p> So, I'll find something that is pretty grey, or pretty neutral.</p>
+                                                <p> There's this post.</p>
+                                                <p> I can look at these numbers and get some idea of where we stand.</p>
+                                                <p> I've got my Tint at one and my Temperature at 4700.</p>
+                                                <p> That tape there is kind of purple.</p>
+                                                <p> Let's look at these glasses.</p>
+                                                <p> They seem like they should be black.</p>
+                                                <p> That gives us 1.04 and 4400, and that looks pretty blue too.</p>
+                                                <p> What else do we have? There are these trays.</p>
+                                                <p> Where do they put us? That looks pretty good: that's about 1, and
+                                                    5100.</p>
+                                                <p> So, it seems like we're hovering around 1 and around a little more
+                                                    than 5000 down here.</p>
+                                                <p> We can adjust our temperature so that we like it, and we can adjust
+                                                    our tint so we like it If we want a balance between these different
+                                                    potential greys, we can take samples of each.</p>
+                                                <p> Here's one.</p>
+                                                <p> And we'll add them all down here.</p>
+                                                <p> Here's another.</p>
+                                                <p> And here's another.</p>
+                                                <p> Okay, so this one's at zero-zero; that's good.</p>
+                                                <p> And this one is a little warm on both and this one is really warm on
+                                                    both.</p>
+                                                <p> So maybe we need to cool the whole image down a little.</p>
+                                                <p> Let's bring our Temperature down a little, try and even these out,
+                                                    and try and even these out.</p>
+                                                <p> Well, that kind of splits the difference.</p>
+                                                <p> Let's see: this one gives us right around 1 and 5000 again.</p>
+                                                <p> We seem to be hovering right around there.</p>
+                                                <p> So, that's one way to adjust the White Balance.</p>
+                                                <p> Another way to adjust the White Balance is with the Color
+                                                    Balance.</p>
+                                                <p> Now, Color Balance lets us adjust the Red, Green, and Blue for the
+                                                    Black Point, the White Point, and the Gamma.</p>
+                                                <p> For instance, if we wanted to make things cooler, but only in the
+                                                    highlights, we could do that here, like that.</p>
+                                                <p> We'll look at that more in depth when we're looking at the skin
+                                                    tones.</p>
+                                                <p> Another place we can adjust Color Balance is in the Color Zones.</p>
+                                                <p> You can take your Hue.</p>
+                                                <p> Go to Select by Lightness.</p>
+                                                <p> You can adjust the Color Balance for different brightnesses.</p>
+                                                <p> For instance, if I want to take the brightness of this skin tone and
+                                                    make it warmer, I could take this value and bring it down just a
+                                                    little.</p>
+                                                <p> That would bring things in this area a little more toward the
+                                                    red.</p>
+                                                <p> If I wanted to go toward the green, I could go this way.</p>
+                                                <p> We'll turn that off.</p>
+                                                <p> Color Balance: what else have we got? Tone Curves.</p>
+                                                <p> We can adjust the color balance by taking out these midpoints on the
+                                                    Tone Curve, and then you can take one end and move it.</p>
+                                                <p> That moves your midpoint.</p>
+                                                <p> So, that would make things warmer, and so would this.</p>
+                                                <p> Where else do we have it? Color Correction.</p>
+                                                <p> There are two dots here.</p>
+                                                <p> One of them is white and one is black.</p>
+                                                <p> If you move the white one where you want it, that will add that
+                                                    color to the highlights.</p>
+                                                <p> For instance, I moved it toward these warm colors here.</p>
+                                                <p> That made these areas warmer without affecting the darker areas.</p>
+                                                <p> If I want to make the darker areas cooler, I can bring this down and
+                                                    get a split-tone image.</p>
+                                                <p> If I want to make both of them warmer, I can bring both up here.</p>
+                                                <p> And, if I want to keep my highlights the same and just warm up my
+                                                    shadows, I could do it like this.</p>
+                                                <p> This lets me treat my shadows and my highlights separately, just
+                                                    like the Color Balance does, with the Lift and the Gain being
+                                                    separate.</p>
+                                                <p> There is no Gamma adjustment on the Color Correction.</p>
+                                                <p> The Channel Mixer combined with an L Mask lets you adjust the
+                                                    highlights and the shadows separately.</p>
+                                                <p> So, if I move my L Mask so that most of the effect is in the
+                                                    brighter parts of the image, then I can take my red and turn it down
+                                                    if I want.</p>
+                                                <p> That will only reduce red in the brighter parts of the image.</p>
+                                                <p> Or, I can turn it up, and it will only increase the red in the
+                                                    brighter parts of the image.</p>
+                                                <p> Let's look at skin tones.</p>
+                                                <p> Let's take some samples of skin tones.</p>
+                                                <p> We'll add them down here so we can look at them.</p>
+                                                <p> Let's look at some of these, and some of the brighter areas.</p>
+                                                <p> Now, the general rule of thumb on skin tones is you want your A
+                                                    Channel and your B Channel to both be positive, but we want our A
+                                                    Channel to be a little larger than half of the B Channel.</p>
+                                                <p> For instance, a little bit larger than half of 25 would be 14 or
+                                                    so.</p>
+                                                <p> I mean, it depends on the person's skin tone, but this is a
+                                                    ballpark.</p>
+                                                <p> On the 24 here, it should be closer to 14 or 12, instead of 18.</p>
+                                                <p> And, over here, it should be higher than nine.</p>
+                                                <p> This looks like it's about right.</p>
+                                                <p> So, it looks like, in our mid-tones here, because our L is 50, our
+                                                    skin tone is right.</p>
+                                                <p> But, on the lighter skin tones, we have too much yellow.</p>
+                                                <p> And, on the darker skin tones, we don't have enough yellow.</p>
+                                                <p> So, not enough yellow on the dark and too much yellow on the
+                                                    light.</p>
+                                                <p> How can we do that? Well, Color Balance lets us discriminate between
+                                                    light and dark.</p>
+                                                <p> So, we can increase our yellow a little for our mid-tones, and
+                                                    decrease it for our highlights.</p>
+                                                <p> Where does that get us? Pretty close here.</p>
+                                                <p> And pretty close here.</p>
+                                                <p> But, it looks like our darkest and our lightest are still off a
+                                                    bit.</p>
+                                                <p> So, let's go a little further.</p>
+                                                <p> Well, that's closer still.</p>
+                                                <p> Everything is right except for this darkest one.</p>
+                                                <p> I'll take this one, and instead of increasing the Gamma, I'll
+                                                    increase the Lift, so it affects it more in the darkest.</p>
+                                                <p> Look at our numbers now.</p>
+                                                <p> Those look a lot better.</p>
+                                                <p> Here's before, and here's after.</p>
+                                                <p> I'll use a Snapshot.</p>
+                                                <p> On the left is before.</p>
+                                                <p> That's before the adjustments.</p>
+                                                <p> On the right is after the adjustments.</p>
+                                                <p> That looks pretty subtle, but she looks a little yellow or green
+                                                    right there, and that looks more true.</p>
+                                                <p> There are lots of other ways we could do that.</p>
+                                                <p> We went over some of them for color adjustment, and I am going to
+                                                    quickly look at Color Saturation.</p>
+                                                <p> How can we increase Color Saturation? Right off the bat, we can
+                                                    increase saturation with just the Saturation Slider here.</p>
+                                                <p> I can take Saturation and increase it.</p>
+                                                <p> Now, that increases saturation in every part of the image.</p>
+                                                <p> So, some things start looking kind of neon pretty quickly.</p>
+                                                <p> Like, right here her face looks mustard-color.</p>
+                                                <p> And these purples are crazy.</p>
+                                                <p> Look at that; that's out of gamut.</p>
+                                                <p> That is about the same adjustment as taking your Tone Curve and just
+                                                    steepening them.</p>
+                                                <p> If you steepen your A and B, that's a lot like just increasing your
+                                                    saturation with the Contrast, Brightness and Saturation Slider.</p>
+                                                <p> Another way to adjust Contrast is with an S-Curve, instead of just
+                                                    steepening them.</p>
+                                                <p> Now, you can't do this with the Saturation Slider.</p>
+                                                <p> That Saturation Slider just lifts those points up and gives you a
+                                                    linear adjustment.</p>
+                                                <p> So, let's do an S-Curve and see how that affects the image.</p>
+                                                <p> Bring it up.</p>
+                                                <p> That gives us a little more punch without taking these colors out of
+                                                    gamut because we haven't brought our top all the way over.</p>
+                                                <p> Color Zones enable you to adjust contrast in specific hues.</p>
+                                                <p> So, if I change this from Lightness to Hue, I can say I want to
+                                                    increase the saturation of the greens here.</p>
+                                                <p> I'll take my Eyedropper and go to these greens, put my point in the
+                                                    middle.</p>
+                                                <p> On this tool, it's important to bring your nearest points
+                                                    equi-distant from the point you're going to adjust.</p>
+                                                <p> Make your circle small with the mouse wheel.</p>
+                                                <p> Now I can increase the Saturation and it will only work on these
+                                                    greens.</p>
+                                                <p> Now the greens are more saturated.</p>
+                                                <p> Before, and after.</p>
+                                                <p> We can pick a color with our Tone Curve just like we did with the
+                                                    Color Zone.</p>
+                                                <p> Use our Eyedropper Tool, and just pick this green.</p>
+                                                <p> Right there.</p>
+                                                <p> Then look at our graph and see where our median point is and enhance
+                                                    that.</p>
+                                                <p> That makes our greens pop more without adjusting the other colors
+                                                    too much.</p>
+                                                <p> You can see it increased the yellow on my wife a lot too, though, so
+                                                    maybe that's not the best one for this particular image.</p>
+                                                <p> Of course, I could combine it with a Drawn Mask and just use it on
+                                                    the left hand side of the image; that would be fine also.</p>
+                                                <p> How else can we do it? Well, I've got three methods I use a lot to
+                                                    increase saturation.</p>
+                                                <p> For one, I take my Blend Mode and turn it to Parametric and take my
+                                                    L Mask so that it's emphasizing the brighter parts of the image.</p>
+                                                <p> Then I take my Blend Mode and change it to Subtract.</p>
+                                                <p> I take my Opacity all the way down to zero and slowly bring it up
+                                                    because this is really powerful.</p>
+                                                <p> This adds a lot more color.</p>
+                                                <p> So, here's before and here's after.</p>
+                                                <p> It also controls highlights.</p>
+                                                <p> You can see it brought the highlights down here a lot.</p>
+                                                <p> We'll bring it up a little more so you can see what's going on.</p>
+                                                <p> I'll take a screenshot so we can compare it to a couple other
+                                                    methods.</p>
+                                                <p> Another method is instead of using Subtract, use Multiply.</p>
+                                                <p> I can do that with an S-Curve on the L Channel, but let's see what
+                                                    it looks like without the S-Curve first.</p>
+                                                <p> I bring up my Opacity slowly.</p>
+                                                <p> It seems like we get similar results to the Subtract, but things are
+                                                    a little less dark.</p>
+                                                <p> We can add some punch and still get that saturation by taking our L
+                                                    Curve and making it a little punchier like that.</p>
+                                                <p> Now, this only works with the Multiply; it doesn't do anything on
+                                                    Subtract.</p>
+                                                <p> See? Now we've got our color saturation, but we still have our
+                                                    contrast.</p>
+                                                <p> Lastly, another way I increase color saturation is to just steepen
+                                                    the A and B Channels like we talked about before.</p>
+                                                <p> Just like the saturation, and then apply this differentially to
+                                                    parts of the image that already have not much color.</p>
+                                                <p> I can do that with the Parametric Mask and the C Channel.</p>
+                                                <p> The C Channel is based on how much chromacity each pixel has.</p>
+                                                <p> So, these are the most saturated parts of the image, that are not
+                                                    showing up now.</p>
+                                                <p> I'll take this slider and move it all the way down to the
+                                                    unsaturated pixels.</p>
+                                                <p> Now this is going to be steepening the A and B Channels on the
+                                                    pixels that have the least amount of saturation.</p>
+                                                <p> It kind of equalizes the image and gives a little punch to the
+                                                    less-saturated parts.</p>
+                                                <p> Then I can attenuate that with the Opacity.</p>
+                                                <p> That's with it off; this is with it on.</p>
+                                                <p> I can pick somewhere in between.</p>
+                                                <p> I'll show you another couple of things I like to do with skin
+                                                    tones.</p>
+                                                <p> Reduce some of the contrast.</p>
+                                                <p> I can do that just with the Tone Curve by looking at some of the
+                                                    darker areas here and bringing those up a little, and taking some of
+                                                    these lighter areas here and bringing it down.</p>
+                                                <p> That decreases contrast here and gives us more smooth skin tone.</p>
+                                                <p> That's with the balancing; that's without it.</p>
+                                                <p> Sometimes you want to increase color, but the place you where you
+                                                    want to increase color has a lot of noise, and yo don't want to
+                                                    increase noise at the same time that you're increasing the
+                                                    saturation.</p>
+                                                <p> So, there's a way you can do that too.</p>
+                                                <p> Let's zoom in here.</p>
+                                                <p> Look, we've got some color noise in these flowers.</p>
+                                                <p> See that? So, instead of just increasing the color in general, I'll
+                                                    use a Guassian Blur to increase it The reason I do that -- well,
+                                                    you'll see.</p>
+                                                <p> I turn my Radius all the way down and then slowly bring my Radius
+                                                    up.</p>
+                                                <p> You'll see that these areas that were mottled get blurred out.</p>
+                                                <p> See how they get blurred out? I'll keep coming up until the blur
+                                                    looks good to me.</p>
+                                                <p> Then I'll go down here.</p>
+                                                <p> See where it says "Uniformly"? I'll change my Blend Mode to
+                                                    Color.</p>
+                                                <p> Then I can take my Saturation and raise it and it doesn't increase
+                                                    the noise.</p>
+                                                <p> If I wanted to, I could do what I did before and use a Parametric
+                                                    Mask with this also.</p>
+                                                <p> For instance, if I did it based on the C Channel, I would bring it
+                                                    like this.</p>
+                                                <p> Take my C Channel down.</p>
+                                                <p> Turn off my Mask Indicator.</p>
+                                                <p> Then I can increase my Saturation in the less-saturated areas using
+                                                    that Gaussian Blur so I don't increase noise.</p>
+                                                <p> Those are all my tricky ways of doing Exposure, Gamma, Color
+                                                    Balance, and Color Saturation.</p>
+                                                <p> I hope you have fun with them.</p>
+                                                <p> Now, before we get on to the Edit my RAW section, I want to
+                                                    introduce you to one of my friends who is a photographer on the Big
+                                                    Island and does beautiful work.</p>
+                                                <p> Her name is Mary Goodrich.</p>
+                                                <p> Real easy to find.</p>
+                                                <p> She does these beautiful pictures.</p>
+                                                <p> They have a lot of texture.</p>
+                                                <p> I find them inspiring.</p>
+                                                <p> She does a lot of work with composites and comes up with really
+                                                    interesting results.</p>
+                                                <p> Well, take some time to look at her site.</p>
+                                                <p> Maybe you'll be inspired like I am.</p>
+                                                <p> We have an Edit my RAW picture that brings a challenge.</p>
+                                                <p> Let's take a look.</p>
+                                                <p> In this shot, we have very low contrast.</p>
+                                                <p> The mountains and the sky are very close together in color and
+                                                    there's a lot of blue.</p>
+                                                <p> It looks like there was maybe a fire nearby? Or air pollution from a
+                                                    city? Not a lot of contrast down here.</p>
+                                                <p> It looks like our colors are very blue everywhere.</p>
+                                                <p> I've tried to edit this using parametric masks and isolating
+                                                    different parts of the image.</p>
+                                                <p> What a pain in the neck! I was not happy with the results.</p>
+                                                <p> So, I'm going to show you a new technique that's still in an
+                                                    experimental stage, that I've been working with.</p>
+                                                <p> I'll give you a sneak preview.</p>
+                                                <p> First thing, I'll correct the color, because this is not right.</p>
+                                                <p> We'll just brighten it a little to start.</p>
+                                                <p> Come over here and set the Black Point.</p>
+                                                <p> I'm looking at the Histogram, getting all my data on the Histogram
+                                                    there.</p>
+                                                <p> There we go; that's our starting point.</p>
+                                                <p> Now, let's figure out our White Balance.</p>
+                                                <p> What have we got? It looks like it's supposed to be sunset; look at
+                                                    these shadows.</p>
+                                                <p> They're coming in.</p>
+                                                <p> They're really long and going to the left, so it looks to me like
+                                                    the sun is over here.</p>
+                                                <p> And you see it on this cloud too.</p>
+                                                <p> So, this should be a reddish, or a yellow-red hue up here.</p>
+                                                <p> Down here, what color greens do we have? What kinds of trees are
+                                                    these? This area here looks like it should be a regular green, and
+                                                    this grass over here -- I'm not sure about these areas; they look a
+                                                    little red.</p>
+                                                <p> I'll take some samples.</p>
+                                                <p> Area.</p>
+                                                <p> So, grab this.</p>
+                                                <p> We'll add that.</p>
+                                                <p> And we'll grab this and add that.</p>
+                                                <p> And where else can we get? Oh, this looks like a good area right
+                                                    here.</p>
+                                                <p> Rule of thumb on greens: we want the A Channel to be half as much as
+                                                    the B Channel.</p>
+                                                <p> The B Channel should be positive and the A Channel should be
+                                                    negative.</p>
+                                                <p> These are way off.</p>
+                                                <p> The yellow needs to be a lot higher.</p>
+                                                <p> We can do that right here in the Color Balance.</p>
+                                                <p> Let's warm it up.</p>
+                                                <p> Well, that certainly brought up our yellow values.</p>
+                                                <p> And our green still looks a little strong, so I'll bring it
+                                                    down.</p>
+                                                <p> We still have too much green and not enough yellow.</p>
+                                                <p> I'll warm it up some more.</p>
+                                                <p> And a little more.</p>
+                                                <p> Okay, now our greens are about half our yellow all the way across
+                                                    the board.</p>
+                                                <p> Let's see what that looks like.</p>
+                                                <p> Hey, that looks better.</p>
+                                                <p> And our sky is looking like I expected too.</p>
+                                                <p> Is the blue in the sky the right blue? Let's look at that.</p>
+                                                <p> We've got pretty neutral and a little bit blue.</p>
+                                                <p> That looks good to me.</p>
+                                                <p> No; that's not blue.</p>
+                                                <p> That's positive; that's yellow.</p>
+                                                <p> Hmmm...</p>
+                                                <p>it looks like the lighter colors need a little more blue and the
+                                                    darker colors need a little less blue.</p>
+                                                <p> I can do that with my Color Balance.</p>
+                                                <p> So, ligher colors a little more blue; darker colors a little less
+                                                    blue.</p>
+                                                <p> So, that makes our sky blue and a little bit magenta.</p>
+                                                <p> I guess that's right with the sun.</p>
+                                                <p> And, our other colors didn't get out of whack.</p>
+                                                <p> Okay, that's a good starting point right there.</p>
+                                                <p> Now for the tricky technique! First, I'll make two copies of
+                                                    this.</p>
+                                                <p> I'm going to use the midtones and try to bring them out as much as I
+                                                    can.</p>
+                                                <p> Go to my Tone Curve and figure out where my midtones are.</p>
+                                                <p> Right in here.</p>
+                                                <p> Okay, we are from here to here, so I'm going to bring this end up a
+                                                    little to give me a little more contrast.</p>
+                                                <p> Bring this end down a little.</p>
+                                                <p> There we go.</p>
+                                                <p> Losing the sky, but I'm not going to worry about that.</p>
+                                                <p> Down here, these look a little dark and I don't get much definition
+                                                    in these trees.</p>
+                                                <p> Let's see where they're at.</p>
+                                                <p> Okay, I want to bring this up.</p>
+                                                <p> That looks better.</p>
+                                                <p> Over here in the mountains, very low contrast.</p>
+                                                <p> Over here and over here.</p>
+                                                <p> So I'll bring this over and bring this down.</p>
+                                                <p> There we go: look at that.</p>
+                                                <p> That's crazy.</p>
+                                                <p> Now the clouds and the mountains have a lot of contrast going
+                                                    on.</p>
+                                                <p> So, I'll take these three images and export them all I'm exporting
+                                                    them as TIFFS, 16-bit.</p>
+                                                <p>I leave my Sizes to zero; keep my Color Space to Adobe, and there we
+                                                    go.</p>
+                                                <p> Okay, they're done exporting now, so I'll open a terminal
+                                                    window.</p>
+                                                <p> There are our files.</p>
+                                                <p> I'll use enfuse and leave the exposure-weight=1.</p>
+                                                <p> What this says is 'do an HDR stack.' entropy-weight=0; that means
+                                                    'don't take into account contrast'; saturation-weight=0; that means
+                                                    'don't take into account the chromacity.' And '*' just means 'use
+                                                    every file' -- so all of these TIFFS.</p>
+                                                <p> Alright, there it goes.</p>
+                                                <p> Okay, they're done.</p>
+                                                <p> Let's see what we've got.</p>
+                                                <p> This first file was to get as much of the midtones as we could.</p>
+                                                <p> The second image was emphasizing this foreground and the darker
+                                                    parts.</p>
+                                                <p> The third image was to get the mountain.</p>
+                                                <p> Here's our stack.</p>
+                                                <p> That came out pretty sweet.</p>
+                                                <p> So we'll start with that.</p>
+                                                <p> What do we want to do first? We've got some data that's off our
+                                                    curve here.</p>
+                                                <p> And we need to set our Black Point over.</p>
+                                                <p> Maybe we can do both of those by using the Exposure control.</p>
+                                                <p> We'll bring our Exposure down a little.</p>
+                                                <p> There we go; we've recovered our highlights.</p>
+                                                <p> Then we'll bring our Black Point up a little.</p>
+                                                <p> I'm looking at this and this, and that looks good to me.</p>
+                                                <p> Now, the top of the image could use more contrast than the bottom
+                                                    part of the image, so I'll hit that first.</p>
+                                                <p> Find out what the darkest part of the top is.</p>
+                                                <p> Right about there.</p>
+                                                <p> Bring that down.</p>
+                                                <p> Okay, we're losing our White Point here, so I'll bring that up a
+                                                    little, but I'll bring it up for the whole image and brighten
+                                                    everything up.</p>
+                                                <p> There we go.</p>
+                                                <p> I'll use Lowpass Filter to add a little contour shading Bring our
+                                                    Contrast down a little.</p>
+                                                <p> Get rid of our Saturation.</p>
+                                                <p> Brightness up a little.</p>
+                                                <p> Get our Radius right, so we bring up the features we want.</p>
+                                                <p> I'm looking for relief in the trees and I'd like to see some details
+                                                    on the mountains.</p>
+                                                <p> Okay, that looks good: I'm at 11 pixels there.</p>
+                                                <p> I'll apply that with the Softlight Filter.</p>
+                                                <p> And I'm going to have to turn that down.</p>
+                                                <p> We'll turn it down to about there.</p>
+                                                <p> Nice.</p>
+                                                <p> I need a little more Gamma down here.</p>
+                                                <p> I can do that with my Unbreak Input Profile.</p>
+                                                <p> Get that to where I want it.</p>
+                                                <p> Okay, that's better.</p>
+                                                <p> We applied the Lowpass Filter and got some relief.</p>
+                                                <p> I'll do it again.</p>
+                                                <p> Set my Saturation down to zero; bring my Contrast down a little, and
+                                                    my Brightness up a little.</p>
+                                                <p> That time a little smaller Radius; this time only eight pixels.</p>
+                                                <p> I'm using the Opacity to attenuate it.</p>
+                                                <p> Perfect! That looks good.</p>
+                                                <p> Now I'm starting to see some relief in the trees and some in the
+                                                    mountains too.</p>
+                                                <p> I'll add a little contrast with the Highpass Filter this time.</p>
+                                                <p> I really want to get something out of these mountains.</p>
+                                                <p> Starting to see some shading here; that looks good.</p>
+                                                <p> Okay, now we're seeing more detail in here.</p>
+                                                <p> I'll apply this with a Parametric Mask based on the L Channel, so
+                                                    that the brighter parts of the image get more of the effect.</p>
+                                                <p> I'll apply it with a Softlight Filter.</p>
+                                                <p> There we are.</p>
+                                                <p> There's our before, and our after.</p>
+                                                <p> It seems like I need to bring that down just a little.</p>
+                                                <p> That looks good to me.</p>
+                                                <p> Let's increase the Saturation a little.</p>
+                                                <p> First I'll add more saturation to the areas that don't have
+                                                    saturated pixels now, and then I'll saturate the whole image a
+                                                    little more.</p>
+                                                <p> So, we'll use a Parametric Mask based on the C Channel.</p>
+                                                <p> First, we'll find out where our most-saturated pixels are.</p>
+                                                <p> It looks like it's down here, so I'll take the top and move it all
+                                                    the way to zero.</p>
+                                                <p> Now you see from the Mask Indicator that the areas that have the
+                                                    most color will get the least amount of the effect; the areas that
+                                                    have the least color will get the most amount of the effect.</p>
+                                                <p> And the effect I'm going to give them is I'll give my Color Curves a
+                                                    little bit of an S-Curve here.</p>
+                                                <p> So, I'll bring this down and this up, and this up and this down.</p>
+                                                <p> Now we've added some color to the flatter parts of the image.</p>
+                                                <p> This is before, and this is after.</p>
+                                                <p> It looks like we've added blue, and we already had a lot of
+                                                    blue.</p>
+                                                <p> So, I'll take my blue and move it back to where it was: right in the
+                                                    middle there.</p>
+                                                <p> So I'm going right through the middle of these points.</p>
+                                                <p> There: now I haven't added so much blue; that's good.</p>
+                                                <p> Now I'll apply color saturation to the entire image.</p>
+                                                <p> I'll do that with a method we looked at earlier.</p>
+                                                <p> Using the L Channel, bringing my Opacity all the way down, going to
+                                                    Multiply, and then I'll do a little bit of an S-Curve here.</p>
+                                                <p> Right there, and at my midpoint I bring it up, and I'll increase my
+                                                    Opacity.</p>
+                                                <p> That's looking pretty good.</p>
+                                                <p> I'll check my colors again just to be sure.</p>
+                                                <p> Let's see, our greens here: a little yellow, but that looks like it
+                                                    might be a little yellow there.</p>
+                                                <p> How about up here? That's a little green.</p>
+                                                <p> It looks like we're splitting the difference there: some areas are a
+                                                    little yellow; some are a little green.</p>
+                                                <p> I think we're right on the money.</p>
+                                                <p> And up here: how blue are we? Oh, look at this: we've got a bunch of
+                                                    green and a whole bunch of blue.</p>
+                                                <p> I think this top part might be a little overboard on the green and
+                                                    blue.</p>
+                                                <p> So: these lighter parts of the top -- I'll put a Drawn Mask here and
+                                                    then say these lighter parts are where I want to affect.</p>
+                                                <p> I'll use a Tone Curve for that so I have total control.</p>
+                                                <p> So, we want a combination of a Drawn and a Parametric Mask.</p>
+                                                <p> There we go.</p>
+                                                <p> There's our start.</p>
+                                                <p> Then we want a Parametric Mask so these don't get much effect.</p>
+                                                <p> Then starting here and up to here, we get more of the effect.</p>
+                                                <p> We'll turn on our Mask Indicator and bring our input Black Point up
+                                                    until we exclude the parts that we don't want.</p>
+                                                <p> Then I'll attenuate it by continuing up with the upper triangle.</p>
+                                                <p> There we go.</p>
+                                                <p> Now, let's look at our sky.</p>
+                                                <p> How about right in here.</p>
+                                                <p> Okay, that's an awful lot of red and not much blue, but that's not a
+                                                    bad combination for colors.</p>
+                                                <p> How about in here? What do we have there? We've got green, and blue
+                                                    instead of yellow.</p>
+                                                <p> It looks like these darker amounts here have too much blue and the
+                                                    lighter amounts have a good amount of blue.</p>
+                                                <p> I don't know what I'll do about that; this is a challenge...</p>
+                                                <p> What else have we got that separates these two besides color? Let's
+                                                    forget about the L Channel.</p>
+                                                <p> We'll re-set that.</p>
+                                                <p> I'll take an Eyedropper and look at this area.</p>
+                                                <p> On our A Channel we're at -7; on our B Channel we're at -11.</p>
+                                                <p> And up here we are at -4 instead of -11.</p>
+                                                <p> And we had -7 before; we're at 0 here.</p>
+                                                <p> Well, maybe we can use our A Channel to separate.</p>
+                                                <p> Let's do that.</p>
+                                                <p> Bring this down close to zero, and then bring this over to -7 or
+                                                    so.</p>
+                                                <p> Okay, there we go; that looks right.</p>
+                                                <p> We want to decrease the blue and increase the yellow in this
+                                                    area.</p>
+                                                <p> I'll get rid of my midpoint.</p>
+                                                <p> Get rid of my Mask Indicator.</p>
+                                                <p> We wanted to increase the yellow and decrease the blue, so we'll
+                                                    bring the blue down a little.</p>
+                                                <p> And bring our yellow up? Do we need to? Boy, that's looking pretty
+                                                    good already.</p>
+                                                <p> Here, let's remove these and take a look.</p>
+                                                <p> Okay, let's see: green -- yeah, we do need more yellow.</p>
+                                                <p> Oh, much better.</p>
+                                                <p> Well, we still have a lot of blue because this should be twice the
+                                                    green, but it gets us a lot closer.</p>
+                                                <p> That looks like an awful lot of green, so I'll bring it down.</p>
+                                                <p> Notice I didn't move my midpoint; I just decreased the amount of
+                                                    green.</p>
+                                                <p> That's all.</p>
+                                                <p> Well, that's looking pretty good.</p>
+                                                <p> I'll do some final sharpening and setting of contrast.</p>
+                                                <p> I'll export this and do that.</p>
+                                                <p> Here we are.</p>
+                                                <p>It's done exporting.</p>
+                                                <p> We'll do some final Black Point and a little color work and
+                                                    sharpening, and I'll call this good.</p>
+                                                <p> This image still seems a little dark, but we're awful light up
+                                                    here.</p>
+                                                <p> I want to brighten this lower part.</p>
+                                                <p> That looks happier.</p>
+                                                <p> And my Black Point is way off.</p>
+                                                <p> I want to set that, but not until after I sharpen because that will
+                                                    change where my Black Point is a little.</p>
+                                                <p> Okay: Sharpening.</p>
+                                                <p> You know, before I sharpen, I'll create a little more separation --
+                                                    right in here.</p>
+                                                <p> I'll use an Overlay and a Lowpass.</p>
+                                                <p> I'll take my Saturation down to zero, figure out my Radius so that
+                                                    I'm just showing the larger mountains and not the details of the
+                                                    trees -- okay, like that.</p>
+                                                <p> Now I've got separation here and along this edge, and up here.</p>
+                                                <p> I'll apply this so these brighter parts of the image get more of it,
+                                                    and I'll apply it to the upper part of the image.</p>
+                                                <p> So, we'll use a Parametric Mask combined with a Drawn Mask.</p>
+                                                <p> So, using a Fountain Fill.</p>
+                                                <p> Now we're concentrating on the upper part of the image here.</p>
+                                                <p> And with the Parametric Mask I'll base it on the L Channel so that
+                                                    the brighter parts of the image get more of the effect.</p>
+                                                <p> I'll apply it with an Overlay Filter.</p>
+                                                <p> Now, let's decide how much to use.</p>
+                                                <p> There's none of it; there's all of it.</p>
+                                                <p> There's somewhere in between.</p>
+                                                <p> Okay, before; after.</p>
+                                                <p> It gives it a little more pop and a little more separation.</p>
+                                                <p> Okay, now we're going to do our Highpass work.</p>
+                                                <p> Bring it all the way down and just get our edges; just the edges,
+                                                    especially up here.</p>
+                                                <p> Maybe we'll do two passes and concentrate on the upper part.</p>
+                                                <p> Maybe I'll be able to get by with just using a Gradient Filter; a
+                                                    Drawn Mask.</p>
+                                                <p> We'll see.</p>
+                                                <p> So, I'm bringing my Contrast and my Sharpness together in such a way
+                                                    that I'm getting the edges I want and not getting extra noise
+                                                    showing up.</p>
+                                                <p> I'll apply this with an Overlay Blend Mode.</p>
+                                                <p> I like how this looks up here.</p>
+                                                <p> But, look: I've got a halo showing up here, so I'll apply this with
+                                                    a Parametric Mask based on the L Channel.</p>
+                                                <p> Okay, that got rid of that halo and gave me sharpness up here
+                                                    still.</p>
+                                                <p> How did it do down here? Did we end up with too much? It looks like
+                                                    there's too much; it's a little crunchy down here.</p>
+                                                <p> Here's our before, and there's our after.</p>
+                                                <p> Maybe not; maybe it's okay.</p>
+                                                <p> Before and after.</p>
+                                                <p> No; I like it.</p>
+                                                <p> Okay, a little more punch to the color and I'll be ready to call it
+                                                    done.</p>
+                                                <p> Which colors do I want to hit? I'd like for these reds to be a
+                                                    little more stand-outy, so I'll pull them up just a little.</p>
+                                                <p> I think we need a little more yellow in here.</p>
+                                                <p> Bring that up just a little bit, being careful to leave my midpoint
+                                                    right where it is.</p>
+                                                <p> And, on the upper part of the image, I think I'd like a little more
+                                                    yellow to balance out the magenta.</p>
+                                                <p> So, I'll separate that.</p>
+                                                <p> As a matter of fact, this is too much yellow in here.</p>
+                                                <p> So, this one I'll apply with a Drawn Mask facing downward.</p>
+                                                <p> Make that a little smaller.</p>
+                                                <p> There we go.</p>
+                                                <p> Then, this upper half.</p>
+                                                <p> I'll give it a more sunset-y look.</p>
+                                                <p> Let's see: we would like more purple in this area and a little more
+                                                    yellow and gold up here.</p>
+                                                <p> Let's see what we've got.</p>
+                                                <p> Boy, we're right near the center, aren't we? Steepen that.</p>
+                                                <p> And a little more magenta.</p>
+                                                <p> Too much magenta.</p>
+                                                <p> Where are we at here? Way down here.</p>
+                                                <p> I think the magenta needs to go up in that area specifically.</p>
+                                                <p> Ah, there we go.</p>
+                                                <p> Let's do the same with our yellow.</p>
+                                                <p> We'll be selective about where we enhance.</p>
+                                                <p> Alright: it looks like we have a sunset scene.</p>
+                                                <p> Looking at the Histogram, it looks like I still need to set my White
+                                                    and Black Points.</p>
+                                                <p> I will do that.</p>
+                                                <p> I don't want to change any of the stuff that's been touched so
+                                                    far.</p>
+                                                <p> If I click on this a second time, it shows me the order that things
+                                                    have been put in.</p>
+                                                <p> You see the Highpass and Lowpass stuff comes after the Tone Curves,
+                                                    so I'll export it in order to change my Black and White Points.</p>
+                                                <p> Otherwise, it will change what went into the Highpass and Lowpass
+                                                    Filters.</p>
+                                                <p> We'll set our White and Black Points now, and any final Gamma
+                                                    adjustment that I want to do.</p>
+                                                <p> Okay, and no need for a final Gamma.</p>
+                                                <p> Juan, thank you so much for the RAW! Thank you so much for your
+                                                    translations.</p>
+                                                <p> Here, I want to show everybody what you've been doing.</p>
+                                                <p> Let's see: here we are.</p>
+                                                <p> Here's Juan's site.</p>
+                                                <p> He's been going through the video from last week and translating
+                                                    into Spanish, which is fantastic! I really appreciate that.</p>
+                                                <p> He probably made it clearer too.</p>
+                                                <p> Thank you Juan.</p>
+                                                <p> Thank you so much.</p>
+                                                <p> I will put a link to Juan's site in the show notes.</p>
+                                                <p> Don't forget, everybody: weeklyedit.com.</p>
+                                                <p> Weekly Edit.</p>
+                                                <p> This is the site I've been working on.</p>
+                                                <p> One of the advantages to this site is that you can set up playlists
+                                                    based on topics and on modules.</p>
+                                                <p> For instance, if I want to look at Tone Mapping, I can see all the
+                                                    places where I use Tone Mapping.</p>
+                                                <p> Here they are, right there.</p>
+                                                <p> Then it shows me that part in the video.</p>
+                                                <p> Weekly Edit.</p>
+                                                <p> It's a good place to watch the videos because you've got those
+                                                    playlists.</p>
+                                                <p> Also, the individual videos are broken up by their time.</p>
+                                                <p> Here we go.</p>
+                                                <p> By time, and what events occurred in the videos, so you can jump
+                                                    around.</p>
+                                                <p> Hey: there's Juan's site! Everybody have a great weekend, and I'll
+                                                    see you next week.</p>
+                                                <p> Bye.</p>
+                                                <p> For previews of the next week's topic, check our Patreon page.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- .entry-content -->
+
+                        <div class="entry-meta">
+                            <div class="taxonomy">
+                                <div class="tags"><span class="influence-icon-ribbon"></span><a
+                                        href="../tag/color/index.html" rel="tag">color</a>, <a
+                                        href="../tag/darktable/index.html" rel="tag">Darktable</a>, <a
+                                        href="../tag/hdr/index.html" rel="tag">hdr</a>, <a href="../tag/tone/index.html"
+                                                                                           rel="tag">tone</a></div>
+                                <div class="categories"><span class="influence-icon-layers"></span><a
+                                        href="../../category/weekly-edits/index.html" rel="tag">Weekly Edits</a></div>
+                            </div>
+
+                            <div class="posted-on">Posted on <a href="../darktable-tone-color-1-shot-hdr/"
+                                                                title="7:21 am" rel="bookmark">
+                                <time class="entry-date" datetime="2016-10-26T07:21:13+00:00">October 26, 2016</time>
+                            </a></div>
+                        </div><!-- .entry-meta -->
+
+
+                        <div id="single-comments-wrapper">
+
+
+                            <div id="comments" class="comments-area">
+
+
+                                <h2 id="comments-title">
+                                    10 thoughts on &ldquo;<span>1 Shot HDR</span>&rdquo;        </h2>
+
+
+                                <ol class="commentlist">
+                                    <li class="comment even thread-even depth-1" id="li-comment-29">
+                                        <article id="comment-29" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://2.gravatar.com/avatar/8078853e32533fb4e8eccea172f83ffc?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://2.gravatar.com/avatar/8078853e32533fb4e8eccea172f83ffc?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Aleksandr</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../darktable-tone-color-1-shot-hdr/#comment-29">
+                                                        <time datetime="2016-11-01T16:11:27+00:00">November 1, 2016 at
+                                                            4:11 pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../darktable-tone-color-1-shot-hdr/?replytocom=29#respond'
+                                   onclick='return addComment.moveForm( "comment-29", "29", "respond", "448" )'
+                                   aria-label='Reply to Aleksandr'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Harry!<br/>
+                                                King of DarktableLand!</p>
+                                                <p>YESSS!!!</p>
+                                                <p>enfuse -o hdr.tif &#8211;exposure-weight=1 &#8211;entropy-weight=0
+                                                    &#8211;saturation-weight=0 *</p>
+                                                <p>(my mistake : -entropy) </p>
+                                                <p>Thank YOU!!!</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-28">
+                                        <article id="comment-28" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://2.gravatar.com/avatar/8078853e32533fb4e8eccea172f83ffc?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://2.gravatar.com/avatar/8078853e32533fb4e8eccea172f83ffc?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Aleksandr</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../darktable-tone-color-1-shot-hdr/#comment-28">
+                                                        <time datetime="2016-11-01T10:09:59+00:00">November 1, 2016 at
+                                                            10:09 am
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../darktable-tone-color-1-shot-hdr/?replytocom=28#respond'
+                                   onclick='return addComment.moveForm( "comment-28", "28", "respond", "448" )'
+                                   aria-label='Reply to Aleksandr'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Dear Harry!<br/>
+                                                You time is gold.<br/>
+                                                Thank You!</p>
+                                                <p>Only enfuse also not work. </p>
+                                                <p>star@star:~$ cd hdr2<br/>
+                                                    star@star:~/hdr2$ ls<br/>
+                                                    _MG_2011_01.tif _MG_2011_02.tif _MG_2011.tif<br/>
+                                                    star@star:~/hdr2$ enfuse -o hdr.tif &#8211;exposure-weight=1
+                                                    -entropy-weight=0 &#8211;saturation-weight=0 *<br/>
+                                                    enfuse: unknown option &#8220;-e&#8221;<br/>
+                                                    Try &#8220;enfuse &#8211;help&#8221; for more information.<br/>
+                                                    star@star:~/hdr2$ </p>
+                                                <p>But in life there are more important issues.<br/>
+                                                    Perhaps this is the problem of my computer.<br/>
+                                                    I look forward to new lessons.</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment even thread-even depth-1" id="li-comment-26">
+                                        <article id="comment-26" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://2.gravatar.com/avatar/8078853e32533fb4e8eccea172f83ffc?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://2.gravatar.com/avatar/8078853e32533fb4e8eccea172f83ffc?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Aleksandr</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../darktable-tone-color-1-shot-hdr/#comment-26">
+                                                        <time datetime="2016-11-01T09:25:44+00:00">November 1, 2016 at
+                                                            9:25 am
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../darktable-tone-color-1-shot-hdr/?replytocom=26#respond'
+                                   onclick='return addComment.moveForm( "comment-26", "26", "respond", "448" )'
+                                   aria-label='Reply to Aleksandr'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Dear Anonymous!<br/>
+                                                Thank You!<br/>
+                                                I install sudo apt-get install enfuse.<br/>
+                                                All right.<br/>
+                                                But again does not work.</p>
+                                                <p>star@star:~$ sudo apt-get update<br/>
+                                                    [sudo] пароль до star:<br/>
+                                                    В кеші:1 <a href="http://archive.ubuntu.com/ubuntu" rel="nofollow">http://archive.ubuntu.com/ubuntu</a>
+                                                    yakkety InRelease<br/>
+                                                    В кеші:2 <a href="http://archive.canonical.com/ubuntu"
+                                                                rel="nofollow">http://archive.canonical.com/ubuntu</a>
+                                                    yakkety InRelease<br/>
+                                                    В кеші:3 <a
+                                                            href="http://ppa.launchpad.net/otto-kesselgulasch/gimp/ubuntu"
+                                                            rel="nofollow">http://ppa.launchpad.net/otto-kesselgulasch/gimp/ubuntu</a>
+                                                    yakkety InRelease<br/>
+                                                    В кеші:4 <a href="http://archive.ubuntu.com/ubuntu" rel="nofollow">http://archive.ubuntu.com/ubuntu</a>
+                                                    yakkety-updates InRelease<br/>
+                                                    В кеші:5 <a href="http://archive.ubuntu.com/ubuntu" rel="nofollow">http://archive.ubuntu.com/ubuntu</a>
+                                                    yakkety-backports InRelease<br/>
+                                                    В кеші:6 <a href="http://archive.ubuntu.com/ubuntu" rel="nofollow">http://archive.ubuntu.com/ubuntu</a>
+                                                    yakkety-security InRelease<br/>
+                                                    Зчитування переліків пакунків&#8230; Виконано<br/>
+                                                    star@star:~$ cd hdr2<br/>
+                                                    star@star:~/hdr2$ ls<br/>
+                                                    _MG_2011_01.tif _MG_2011_02.tif _MG_2011.tif<br/>
+                                                    star@star:~/hdr2$ enfuse-mp -o hdr.tif &#8211;exposure-weight=1
+                                                    &#8211;entropy-weight=0 &#8211;saturation-weight=0 *<br/>
+                                                    enfuse-mp: команду не знайдено<br/>
+                                                    star@star:~/hdr2$<br/>
+                                                    &#8220;команду не знайдено&#8221; &#8211; translate : command not
+                                                    found<br/>
+                                                    Where is problem? Where is mistake?<br/>
+                                                    Ubuntu 16.10<br/>
+                                                    Darktable 2.0.5</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                        <ul class="children">
+                                            <li class="comment byuser comment-author-harry bypostauthor odd alt depth-2"
+                                                id="li-comment-27">
+                                                <article id="comment-27" class="comment">
+                                                    <footer>
+                                                        <img alt=''
+                                                             src='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=50&#038;d=blank&#038;r=g'
+                                                             srcset='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=100&amp;d=blank&amp;r=g 2x'
+                                                             class='avatar avatar-50 photo' height='50' width='50'/>
+                                                        <div class="comment-author">
+                                                            <cite class="fn">harry</cite>
+                                                        </div><!-- .comment-author -->
+
+
+                                                        <div class="comment-meta commentmetadata">
+                                                            <a href="../darktable-tone-color-1-shot-hdr/#comment-27">
+                                                                <time datetime="2016-11-01T09:39:58+00:00">November 1,
+                                                                    2016 at 9:39 am
+                                                                </time>
+                                                            </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../darktable-tone-color-1-shot-hdr/?replytocom=27#respond'
+                                   onclick='return addComment.moveForm( "comment-27", "27", "respond", "448" )'
+                                   aria-label='Reply to harry'>Reply</a>															</span>
+                                                        </div><!-- .comment-meta .commentmetadata -->
+
+                                                    </footer>
+
+                                                    <div class="comment-content entry-content"><p>It looks like enfuse
+                                                        installed properly. Sometimes you need to type</p>
+                                                        <p>> rehash</p>
+                                                        <p>after installing a new package so that it shows up in your
+                                                            PATH. Also, maybe the package was only for enfuse and didn&#8217;t
+                                                            include enfuse-mp? You can just replace enfuse-mp with
+                                                            enfuse in the same command line.</p>
+                                                    </div>
+                                                </article><!-- #comment-## -->
+
+                                            </li><!-- #comment-## -->
+                                        </ul><!-- .children -->
+                                    </li><!-- #comment-## -->
+                                    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-22">
+                                        <article id="comment-22" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://2.gravatar.com/avatar/8078853e32533fb4e8eccea172f83ffc?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://2.gravatar.com/avatar/8078853e32533fb4e8eccea172f83ffc?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Aleksandr</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../darktable-tone-color-1-shot-hdr/#comment-22">
+                                                        <time datetime="2016-10-31T20:03:10+00:00">October 31, 2016 at
+                                                            8:03 pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../darktable-tone-color-1-shot-hdr/?replytocom=22#respond'
+                                   onclick='return addComment.moveForm( "comment-22", "22", "respond", "448" )'
+                                   aria-label='Reply to Aleksandr'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Dear King of
+                                                DarktableLand!<br/>
+                                                I cry 🙁</p>
+                                                <p>star@star:~$ cd darktable1<br/>
+                                                    star@star:~/darktable1$ ls<br/>
+                                                    _MG_2011_01.tif _MG_2011_02.tif _MG_2011.tif<br/>
+                                                    star@star:~/darktable1$ enfuse-mp -o hdr.tiff –exposure-weight=1
+                                                    –entropy-weight=0 –saturation-weight=0 *<br/>
+                                                    enfuse-mp: команду не знайдено<br/>
+                                                    star@star:~/darktable1$ enfuse-mp -o hdr.tiff –exposure-weight=1
+                                                    –entropy-weight=0 –saturation-weight=0 *<br/>
+                                                    enfuse-mp: команду не знайдено<br/>
+                                                    star@star:~/darktable1$<br/>
+                                                    (команду не знайдено translate : command not found)<br/>
+                                                    Where there is an error?<br/>
+                                                    Ubuntu 16.10</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                        <ul class="children">
+                                            <li class="comment odd alt depth-2" id="li-comment-23">
+                                                <article id="comment-23" class="comment">
+                                                    <footer>
+                                                        <img alt=''
+                                                             src='http://2.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                             srcset='http://1.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                             class='avatar avatar-50 photo avatar-default' height='50'
+                                                             width='50'/>
+                                                        <div class="comment-author">
+                                                            <cite class="fn">Anonymous</cite>
+                                                        </div><!-- .comment-author -->
+
+
+                                                        <div class="comment-meta commentmetadata">
+                                                            <a href="../darktable-tone-color-1-shot-hdr/#comment-23">
+                                                                <time datetime="2016-10-31T21:08:57+00:00">October 31,
+                                                                    2016 at 9:08 pm
+                                                                </time>
+                                                            </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../darktable-tone-color-1-shot-hdr/?replytocom=23#respond'
+                                   onclick='return addComment.moveForm( "comment-23", "23", "respond", "448" )'
+                                   aria-label='Reply to '>Reply</a>															</span>
+                                                        </div><!-- .comment-meta .commentmetadata -->
+
+                                                    </footer>
+
+                                                    <div class="comment-content entry-content"><p>Ah ha, I see that you
+                                                        don&#8217;t have enfuse-mp installed. This command will install
+                                                        it for you 🙂</p>
+                                                        <p>&gt; sudo apt-get install enfuse</p>
+                                                    </div>
+                                                </article><!-- #comment-## -->
+
+                                            </li><!-- #comment-## -->
+                                        </ul><!-- .children -->
+                                    </li><!-- #comment-## -->
+                                    <li class="comment even thread-even depth-1" id="li-comment-20">
+                                        <article id="comment-20" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://2.gravatar.com/avatar/8078853e32533fb4e8eccea172f83ffc?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://2.gravatar.com/avatar/8078853e32533fb4e8eccea172f83ffc?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Aleksandr</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../darktable-tone-color-1-shot-hdr/#comment-20">
+                                                        <time datetime="2016-10-31T15:42:40+00:00">October 31, 2016 at
+                                                            3:42 pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../darktable-tone-color-1-shot-hdr/?replytocom=20#respond'
+                                   onclick='return addComment.moveForm( "comment-20", "20", "respond", "448" )'
+                                   aria-label='Reply to Aleksandr'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Harry! Please tape all
+                                                Terminal commands in this lesson. This command don&#8217;t work in
+                                                Ubuntu 16.10 : enblend-mp -o hdr.tiff &#8211;exposure-weight=1 &#8211;entropy-weight=0
+                                                &#8211;saturation-weight=0 * 🙁</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                        <ul class="children">
+                                            <li class="comment byuser comment-author-harry bypostauthor odd alt depth-2"
+                                                id="li-comment-21">
+                                                <article id="comment-21" class="comment">
+                                                    <footer>
+                                                        <img alt=''
+                                                             src='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=50&#038;d=blank&#038;r=g'
+                                                             srcset='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=100&amp;d=blank&amp;r=g 2x'
+                                                             class='avatar avatar-50 photo' height='50' width='50'/>
+                                                        <div class="comment-author">
+                                                            <cite class="fn">harry</cite>
+                                                        </div><!-- .comment-author -->
+
+
+                                                        <div class="comment-meta commentmetadata">
+                                                            <a href="../darktable-tone-color-1-shot-hdr/#comment-21">
+                                                                <time datetime="2016-10-31T17:15:49+00:00">October 31,
+                                                                    2016 at 5:15 pm
+                                                                </time>
+                                                            </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../darktable-tone-color-1-shot-hdr/?replytocom=21#respond'
+                                   onclick='return addComment.moveForm( "comment-21", "21", "respond", "448" )'
+                                   aria-label='Reply to harry'>Reply</a>															</span>
+                                                        </div><!-- .comment-meta .commentmetadata -->
+
+                                                    </footer>
+
+                                                    <div class="comment-content entry-content"><p>Ah ha, you&#8217;re
+                                                        right I should include the terminal commands in the notes.</p>
+                                                        <p>You were close&#8230; it&#8217;s enfuse-mp instead of
+                                                            enblend-mp 😉</p>
+                                                    </div>
+                                                </article><!-- #comment-## -->
+
+                                            </li><!-- #comment-## -->
+                                        </ul><!-- .children -->
+                                    </li><!-- #comment-## -->
+                                    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-11">
+                                        <article id="comment-11" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/11dac1fa16d20ac23a0fd1a8333ec936?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/11dac1fa16d20ac23a0fd1a8333ec936?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Marcial</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../darktable-tone-color-1-shot-hdr/#comment-11">
+                                                        <time datetime="2016-10-27T09:47:27+00:00">October 27, 2016 at
+                                                            9:47 am
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../darktable-tone-color-1-shot-hdr/?replytocom=11#respond'
+                                   onclick='return addComment.moveForm( "comment-11", "11", "respond", "448" )'
+                                   aria-label='Reply to Marcial'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Hello, Harry.<br/>
+                                                Nice to greet you for the first time!<br/>
+                                                I like watching your processes. You are really conscientious and you
+                                                know in advance quite well what is what you want to do to an image. I
+                                                learn a lot.<br/>
+                                                Nonetheless, i must note that I don&#8217;t agree with you when you say
+                                                that one way of increasing the exposition is by means of tone curve or
+                                                levels. As far as I know, base curve and exposition work in RGB, whereas
+                                                tone curve and levels work in Lab. The result is quite different, mainly
+                                                in relation to the colors. I&#8217;m not sure about the difference
+                                                between base curve, raw black/white point and Exposition, but the
+                                                results using one or the other seem to be more uniform.<br/>
+                                                I may be wrong, though.<br/>
+                                                Thank you</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                        <ul class="children">
+                                            <li class="comment odd alt depth-2" id="li-comment-13">
+                                                <article id="comment-13" class="comment">
+                                                    <footer>
+                                                        <img alt=''
+                                                             src='http://0.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                             srcset='http://0.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                             class='avatar avatar-50 photo avatar-default' height='50'
+                                                             width='50'/>
+                                                        <div class="comment-author">
+                                                            <cite class="fn">Harry</cite>
+                                                        </div><!-- .comment-author -->
+
+
+                                                        <div class="comment-meta commentmetadata">
+                                                            <a href="../darktable-tone-color-1-shot-hdr/#comment-13">
+                                                                <time datetime="2016-10-28T22:11:55+00:00">October 28,
+                                                                    2016 at 10:11 pm
+                                                                </time>
+                                                            </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../darktable-tone-color-1-shot-hdr/?replytocom=13#respond'
+                                   onclick='return addComment.moveForm( "comment-13", "13", "respond", "448" )'
+                                   aria-label='Reply to Harry'>Reply</a>															</span>
+                                                        </div><!-- .comment-meta .commentmetadata -->
+
+                                                    </footer>
+
+                                                    <div class="comment-content entry-content"><p>Hello Marcial,</p>
+                                                        <p>You bring up an excellent point. And the main reason I find
+                                                            myself working in Lab. The color space is much better
+                                                            preserved (with scale-chroma: automatic), than in the RBG
+                                                            model.</p>
+                                                        <p>The base curve and exposure seem to work in a similar way,
+                                                            except the base curve allows for fine tuning a gamma
+                                                            component. You can try this out by comparing a snapshot of
+                                                            lowering the white point on the base curve, to increasing
+                                                            the exposure. The results on the screen and in the histogram
+                                                            are the same.</p>
+                                                        <p>It&#8217;s nice to meet you too 🙂</p>
+                                                    </div>
+                                                </article><!-- #comment-## -->
+
+                                            </li><!-- #comment-## -->
+                                        </ul><!-- .children -->
+                                    </li><!-- #comment-## -->
+                                </ol><!-- .commentlist -->
+
+
+                                <div id="respond" class="comment-respond">
+                                    <h3 id="reply-title" class="comment-reply-title">Leave a Reply
+                                        <small><a rel="nofollow" id="cancel-comment-reply-link"
+                                                  href="/darktable-tone-color-1-shot-hdr/#respond"
+                                                  style="display:none;">Cancel reply</a></small>
+                                    </h3>
+                                    <form action="../wp-comments-post.php" method="post" id="commentform"
+                                          class="comment-form">
+                                        <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span>
+                                        </p>
+                                        <p class="comment-form-comment"><textarea id="comment" name="comment" rows="8"
+                                                                                  aria-required="true"></textarea></p>
+                                        <p class="comment-form-author"><label for="author">Name</label> <input
+                                                id="author" name="author" type="text" value="" size="30"
+                                                maxlength="245"/></p>
+                                        <p class="comment-form-email"><label for="email">Email</label> <input id="email"
+                                                                                                              name="email"
+                                                                                                              type="text"
+                                                                                                              value=""
+                                                                                                              size="30"
+                                                                                                              maxlength="100"
+                                                                                                              aria-describedby="email-notes"/>
+                                        </p>
+                                        <p class="comment-form-url"><label for="url">Website</label> <input id="url"
+                                                                                                            name="url"
+                                                                                                            type="text"
+                                                                                                            value=""
+                                                                                                            size="30"
+                                                                                                            maxlength="200"/>
+                                        </p>
+                                        <p class="form-submit"><input name="submit" type="submit" id="submit"
+                                                                      class="submit" value="Post Comment"/> <input
+                                                type='hidden' name='comment_post_ID' value='448' id='comment_post_ID'/>
+                                            <input type='hidden' name='comment_parent' id='comment_parent' value='0'/>
+                                        </p><input type="hidden" id="ct_checkjs_c5ab0bc60ac7929182aadd08703f1ec6"
+                                                   name="ct_checkjs" value="0"/>
+                                        <script type="text/javascript">setTimeout(function () {
+                                            var ct_input_name = 'ct_checkjs_c5ab0bc60ac7929182aadd08703f1ec6';
+                                            if (document.getElementById(ct_input_name) !== null) {
+                                                var ct_input_value = document.getElementById(ct_input_name).value;
+                                                document.getElementById(ct_input_name).value = document.getElementById(ct_input_name).value.replace(ct_input_value, '754191685');
+                                            }
+                                        }, 1000);</script>
+                                    </form>
+                                </div><!-- #respond -->
+
+                            </div><!-- #comments .comments-area -->
+                        </div><!-- #single-comments-wrapper -->
+
+
+                        <nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+                            <h1 class="assistive-text">Post navigation</h1>
+
+
+                            <div class="nav-previous"><a href="../darktable_process_lava_video/index.html"
+                                                         rel="prev"><span
+                                    class="meta-nav influence-icon-arrow-left"></span> Ocean Entry Lava Video</a></div>
+                            <div class="nav-next"><a href="../darktable-compositing-tutorial/index.html" rel="next">Compositing
+                                with Darktable <span class="meta-nav influence-icon-arrow-right"></span></a></div>
+
+                        </nav><!-- #nav-below -->
+
+                    </div>
+
+                </article><!-- #post-448 -->
+
+
+            </div><!-- #content .site-content -->
+
+        </section><!-- #primary .content-area -->
+
+
+        <div id="secondary">
+
+            <div class="widgets">
+                <aside id="sow-image-2" class="widget widget_sow-image">
+                    <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                        <div class="sow-image-container">
+                            <a href="../index.html"> <img src="../wp-content/uploads/2016/10/logo512-1.jpg" width="512"
+                                                          height="512"
+                                                          srcset="../wp-content/uploads/2016/10/logo512-1.jpg 512w, ../wp-content/uploads/2016/10/logo512-1-150x150.jpg 150w, ../wp-content/uploads/2016/10/logo512-1-300x300.jpg 300w"
+                                                          title="logo512" class="so-widget-image"/>
+                            </a></div>
+
+                    </div>
+                </aside>
+                <aside id="search-2" class="widget widget_search">
+                    <form method="get" id="searchform" action="../index.html" role="search">
+                        <label for="s" class="assistive-text">Search</label>
+                        <input type="text" class="field" name="s" value="" id="s" placeholder="Search"/>
+                        <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search"/>
+                    </form>
+                </aside>
+                <aside id="text-2" class="widget widget_text">
+                    <div class="textwidget">
+                        <script type='text/javascript' src="../cgi/build_links.js">
+                        </script>
+                    </div>
+                </aside>
+                <aside id="text-3" class="widget widget_text">
+                    <div class="textwidget">
+                        <div id='results'></div>
+                    </div>
+                </aside>
+            </div>
+
+        </div>
+
+
+    </div><!-- #main .site-main -->
+
+    <footer id="colophon" class="site-footer" role="contentinfo">
+
+        <div class="container">
+
+            <div id="footer-widgets">
+                <aside id="meta-3" class="widget widget_meta"><h3 class="widget-title">Meta</h3>
+                    <ul>
+                        <li><a rel="nofollow" href="../wp-login.php">Log in</a></li>
+                        <li><a href="../feed/index.html">Entries <abbr title="Really Simple Syndication">RSS</abbr></a>
+                        </li>
+                        <li><a href="../comments/feed/index.html">Comments <abbr
+                                title="Really Simple Syndication">RSS</abbr></a></li>
+                        <li><a href="https://wordpress.org/"
+                               title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a>
+                        </li>
+                    </ul>
+                </aside>
+                <aside id="text-4" class="widget widget_text">
+                    <div class="textwidget"><a href="stats">Stats</a></div>
+                </aside>
+            </div><!-- #footer-widgets -->
+
+
+        </div>
+
+    </footer><!-- #colophon .site-footer -->
+</div><!-- #page .hfeed .site -->
+
+
+<div id="main-menu">
+
+    <a href="#" class="influence-icon influence-icon-cross main-menu-close"></a>
+
+    <div class="menu">
+        <div class="menu">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li class="page_item page-item-232"><a href="../about-us/index.html">About Us</a></li>
+                <li class="page_item page-item-391"><a href="../awesome-links/index.html">Awesome Links</a></li>
+                <li class="page_item page-item-470"><a href="../lab-reference-chart/index.html">Lab Color Reference
+                    Chart</a></li>
+                <li class="page_item page-item-258"><a href="../order-prints-of-my-work/index.html">Order Prints of My
+                    Work</a></li>
+                <li class="page_item page-item-573"><a href="../scripts/index.html">Scripts</a></li>
+                <li class="page_item page-item-527"><a href="../show-suggestions/index.html">Show Suggestions</a></li>
+                <li class="page_item page-item-172"><a href="../shoot-with-harry/index.html">Shoot with Harry</a></li>
+                <li class="page_item page-item-154"><a href="../support-weekly-edit/index.html">Donate to the Show</a>
+                </li>
+                <li class="page_item page-item-142"><a href="../my-workflow/index.html">My Workflow</a></li>
+                <li class="page_item page-item-170"><a href="../edit-my-raw/index.html">Edit my RAW</a></li>
+                <li class="page_item page-item-156"><a href="../tpe/index.html">Sun and Moon Calendar</a></li>
+                <li class="page_item page-item-103"><a href="../playlist/index.html">Playlist</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="widgets">
+        <aside id="siteorigin-panels-builder-3" class="widget widget_siteorigin-panels-builder">
+            <div id="pl-w57e4594d719bc">
+                <div class="panel-grid" id="pg-w57e4594d719bc-0">
+                    <div class="panel-grid-cell" id="pgc-w57e4594d719bc-0-0">
+                        <div class="so-panel widget widget_pages panel-first-child" id="panel-w57e4594d719bc-0-0-0"
+                             data-index="0"><h3 class="widget-title">Resources</h3>
+                            <ul>
+                                <li class="page_item page-item-232"><a href="../about-us/index.html">About Us</a></li>
+                                <li class="page_item page-item-391"><a href="../awesome-links/index.html">Awesome
+                                    Links</a></li>
+                                <li class="page_item page-item-37"><a href="../index.html">Home Page</a></li>
+                                <li class="page_item page-item-470"><a href="../lab-reference-chart/index.html">Lab
+                                    Color Reference Chart</a></li>
+                                <li class="page_item page-item-258"><a href="../order-prints-of-my-work/index.html">Order
+                                    Prints of My Work</a></li>
+                                <li class="page_item page-item-573"><a href="../scripts/index.html">Scripts</a></li>
+                                <li class="page_item page-item-527"><a href="../show-suggestions/index.html">Show
+                                    Suggestions</a></li>
+                                <li class="page_item page-item-172"><a href="../shoot-with-harry/index.html">Shoot with
+                                    Harry</a></li>
+                                <li class="page_item page-item-154"><a href="../support-weekly-edit/index.html">Donate
+                                    to the Show</a></li>
+                                <li class="page_item page-item-142"><a href="../my-workflow/index.html">My Workflow</a>
+                                </li>
+                                <li class="page_item page-item-170"><a href="../edit-my-raw/index.html">Edit my RAW</a>
+                                </li>
+                                <li class="page_item page-item-156"><a href="../tpe/index.html">Sun and Moon
+                                    Calendar</a></li>
+                            </ul>
+                        </div>
+                        <div class="so-panel widget widget_recent-posts widget_recent_entries"
+                             id="panel-w57e4594d719bc-0-0-1" data-index="1"><h3 class="widget-title">Recent Posts</h3>
+                            <ul>
+                                <li>
+                                    <a href="../advancetown-lake/index.html">Advancetown Lake</a>
+                                </li>
+                                <li>
+                                    <a href="../lucky-shot/index.html">Lucky Shot</a>
+                                </li>
+                                <li>
+                                    <a href="../now-quicker-edits/index.html">Now with Quicker Edits</a>
+                                </li>
+                                <li>
+                                    <a href="../thinking-differently/index.html">Thinking Differently</a>
+                                </li>
+                                <li>
+                                    <a href="../stacking-by-hand/index.html">Stacking by Hand</a>
+                                </li>
+                                <li>
+                                    <a href="../shot-year-2016/index.html">Shot of the Year 2016</a>
+                                </li>
+                                <li>
+                                    <a href="../story-telling-panoramas/index.html">Story Telling with Panoramas</a>
+                                </li>
+                                <li>
+                                    <a href="../lets-add-grain/index.html">Let&#8217;s Add Grain</a>
+                                </li>
+                                <li>
+                                    <a href="../mask-manager/index.html">Mask Manager</a>
+                                </li>
+                                <li>
+                                    <a href="../timelapse-bash-script/index.html">Timelapse Bash Script</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="so-panel widget widget_search panel-last-child" id="panel-w57e4594d719bc-0-0-2"
+                             data-index="2">
+                            <form method="get" id="searchform" action="../index.html" role="search">
+                                <label for="s" class="assistive-text">Search</label>
+                                <input type="text" class="field" name="s" value="" id="s" placeholder="Search"/>
+                                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+</div>
+<script async type='text/javascript'
+        src='../wp-content/plugins/cleantalk-spam-protect/inc/cleantalk_nocache.js?random=5.57.1'></script>
+<script type="text/javascript">function ctSetCookie(c_name, value, def_value) {
+    document.cookie = c_name + "=" + escape(value) + "; path=/";
+}
+ctSetCookie("ct_checkjs", "754191685", "0");</script>
+<style type="text/css" media="all" id="siteorigin-panels-grids-wp_footer">/* Layout w57e4594d719bc */
+#pg-w57e4594d719bc-0 .panel-grid-cell {
+    float: none
+}
+
+#pl-w57e4594d719bc .panel-grid-cell .so-panel {
+    margin-bottom: 30px
+}
+
+#pl-w57e4594d719bc .panel-grid-cell .so-panel:last-child {
+    margin-bottom: 0px
+}
+
+#pg-w57e4594d719bc-0 {
+    margin-left: -15px;
+    margin-right: -15px
+}
+
+#pg-w57e4594d719bc-0 .panel-grid-cell {
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+@media (max-width: 780px) {
+    #pg-w57e4594d719bc-0 .panel-grid-cell {
+        float: none;
+        width: auto
+    }
+
+    #pl-w57e4594d719bc .panel-grid, #pl-w57e4594d719bc .panel-grid-cell {
+    }
+
+    #pl-w57e4594d719bc .panel-grid .panel-grid-cell-empty {
+        display: none
+    }
+
+    #pl-w57e4594d719bc .panel-grid .panel-grid-cell-mobile-last {
+        margin-bottom: 0px
+    }
+} </style>
+<script type='text/javascript' src='../wp-includes/js/comment-reply.min.js?ver=4.7.2'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min.js?ver=4.7.2'></script>
+
+<script async type='text/javascript'
+        src='../wp-content/plugins/cleantalk-spam-protect/inc/cleantalk_nocache.js?random=5.57.1'></script>
+</body>
+</html>

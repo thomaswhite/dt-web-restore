@@ -1,0 +1,33 @@
+
+find . -type f -name *.html -exec sed -i 's,"http://weeklyedit.com/","../index.html",g' {} +
+find . -type f -name *.html -exec sed -i 's,http://weeklyedit.com/,../,g' {} +
+find . -type f -name *.html -exec sed -i 's,/">,/index.html">,g' {} +
+find . -type f -name *.html -exec sed -i 's,./page/2/,./page/2/index.html">,g' {} +
+find . -type f -name *.html -exec sed -i 's,/">,/index.html">,g' {} +
+find . -type f -name *.html -exec sed -i 's,/" rel,/index.html" rel ,g' {} +
+find . -type f -name *.html -exec sed -i 's,"./about-harry-mouse-durgin,"../about",g' {} +
+find . -type f -name *.html -exec sed -i 's,../about"/,../about/>,g' {} +
+find . -type f -name *.html -exec sed -i 's,../about/>,../about/,g' {} +
+find . -type f -name *.html -exec sed -i 's,../about/,../about-us/,g' {} +
+
+<script async type='text/javascript' src='wp-content/plugins/cleantalk-spam-protect/inc/cleantalk_nocache.js?random=5.58'></script>
+
+find . -type f -name *.html -exec sed -i 's,<script async type='text/javascript' src='wp-content/plugins/cleantalk-spam-protect/inc/cleantalk_nocache.js?random=5.58'></script>,,g' {} +
+find . -type f -name *.html -exec sed -i 's,'//fonts,'http://fonts,g' {} +
+
+
+find . -type f -name *.html -exec sed -i 's,href="../category,href="../../category,g' {} +
+
+find . -type f -name *.html -exec sed -i 's,about-harry-mouse-durgin,about-us,g' {} +
+find . -type f -name *.html -exec sed -i 's,'//s.w.org','http://s.w.org',g' {} +
+find . -type f -name *.html -exec sed -i 's,,,g' {} +
+find . -type f -name *.html -exec sed -i 's,,,g' {} +
+find . -type f -name *.html -exec sed -i 's,,,g' {} +
+find . -type f -name *.html -exec sed -i 's,,,g' {} +
+find . -type f -name *.html -exec sed -i 's,,,g' {} +
+find . -type f -name *.html -exec sed -i 's,,,g' {} +
+find . -type f -name *.html -exec sed -i 's,,,g' {} +
+
+
+
+

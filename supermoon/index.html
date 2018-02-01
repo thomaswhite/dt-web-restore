@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="profile" href="http://gmpg.org/xfn/11"/>
+    <link rel="pingback" href="../xmlrpc.php"/>
+
+    <title>Supermoon</title>
+
+    <script type='text/javascript'>
+        var ct_ajaxurl = '../wp-admin/admin-ajax.php';
+        var ct_info_flag = false;
+        var ct_set_cookies_flag = true;
+    </script>
+
+    <!-- This site is optimized with the Yoast SEO Premium plugin v4.2.1 - https://yoast.com/wordpress/plugins/seo/ -->
+    <meta name="description"
+          content="In this Darktable photo editing tutorial, photographer Harry Durgin edits a Supermoon to explore the nuances of his watermarks module compositing technique"/>
+    <meta name="robots" content="noodp"/>
+    <link rel="canonical" href="../supermoon/"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Supermoon Meets Darktable"/>
+    <meta property="og:description"
+          content="In Weekly Edit&#039;s Supermoon edition, photographer Harry Durgin explores nuances of his compositing technique in the Watermark Module, including a playful edit of a Super Super Supermoon at the end."/>
+    <meta property="og:url" content="../supermoon/"/>
+    <meta property="og:site_name" content="Weekly Edit"/>
+    <meta property="article:tag" content="compositing"/>
+    <meta property="article:tag" content="Darktable"/>
+    <meta property="article:tag" content="tutorial"/>
+    <meta property="article:section" content="Weekly Edits"/>
+    <meta property="article:published_time" content="2016-11-23T11:55:42+00:00"/>
+    <meta property="article:modified_time" content="2017-01-04T09:38:23+00:00"/>
+    <meta property="og:updated_time" content="2017-01-04T09:38:23+00:00"/>
+    <meta property="og:image" content="../wp-content/uploads/2016/11/2016-11-14-18-24-48-0_01.jpg"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description"
+          content="In this Darktable photo editing tutorial, photographer Harry Durgin edits a Supermoon to explore the nuances of his watermarks module compositing technique"/>
+    <meta name="twitter:title" content="Supermoon"/>
+    <meta name="twitter:image" content="../wp-content/uploads/2016/11/2016-11-14-18-24-48-0_01.jpg"/>
+    <meta property="DC.date.issued" content="2016-11-23T11:55:42+00:00"/>
+    <!-- / Yoast SEO Premium plugin. -->
+
+    <link rel='dns-prefetch' href='http://fonts.googleapis.com'/>
+    <link rel='dns-prefetch' href='http://s.w.org'/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Feed" href="../feed/"/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Comments Feed"
+          href="../comments/feed/"/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Supermoon Comments Feed"
+          href="../supermoon/feed/"/>
+    <script type="text/javascript">
+        window._wpemojiSettings = {
+            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/",
+            "ext": ".png",
+            "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/",
+            "svgExt": ".svg",
+            "source": {"concatemoji": "http:\/\/weeklyedit.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.2"}
+        };
+        !function (a, b, c) {
+            function d(a) {
+                var b, c, d, e, f = String.fromCharCode;
+                if (!k || !k.fillText)return !1;
+                switch (k.clearRect(0, 0, j.width, j.height), k.textBaseline = "top", k.font = "600 32px Arial", a) {
+                    case"flag":
+                        return k.fillText(f(55356, 56826, 55356, 56819), 0, 0), !(j.toDataURL().length < 3e3) && (k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 65039, 8205, 55356, 57096), 0, 0), b = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 55356, 57096), 0, 0), c = j.toDataURL(), b !== c);
+                    case"emoji4":
+                        return k.fillText(f(55357, 56425, 55356, 57341, 8205, 55357, 56507), 0, 0), d = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55357, 56425, 55356, 57341, 55357, 56507), 0, 0), e = j.toDataURL(), d !== e
+                }
+                return !1
+            }
+
+            function e(a) {
+                var c = b.createElement("script");
+                c.src = a, c.defer = c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c)
+            }
+
+            var f, g, h, i, j = b.createElement("canvas"), k = j.getContext && j.getContext("2d");
+            for (i = Array("flag", "emoji4"), c.supports = {
+                everything: !0,
+                everythingExceptFlag: !0
+            }, h = 0; h < i.length; h++)c.supports[i[h]] = d(i[h]), c.supports.everything = c.supports.everything && c.supports[i[h]], "flag" !== i[h] && (c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && c.supports[i[h]]);
+            c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && !c.supports.flag, c.DOMReady = !1, c.readyCallback = function () {
+                c.DOMReady = !0
+            }, c.supports.everything || (g = function () {
+                c.readyCallback()
+            }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () {
+                "complete" === b.readyState && c.readyCallback()
+            })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji)))
+        }(window, document, window._wpemojiSettings);
+    </script>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' id='siteorigin-panels-front-css'
+          href='../wp-content/plugins/siteorigin-panels/css/front.css?ver=2.4.24' type='text/css' media='all'/>
+    <link rel='stylesheet' id='sow-image-default-3f547a15eaaa-css'
+          href='../wp-content/uploads/siteorigin-widgets/sow-image-default-3f547a15eaaa.css?ver=4.7.2' type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='siteorigin-google-web-fonts-css'
+          href='http://fonts.googleapis.com/css?family=Montserrat&#038;ver=4.7.2' type='text/css' media='all'/>
+    <link rel='stylesheet' id='influence-style-css' href='../wp-content/themes/influence/style.css?ver=4.7.2'
+          type='text/css' media='all'/>
+    <script type='text/javascript' src='../wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+    <script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+    <script type='text/javascript' src='../wp-content/themes/influence/js/jquery.fitvids.min.js?ver=1.0'></script>
+    <script type='text/javascript' src='../wp-content/themes/influence/js/jquery.theme-main.min.js?ver=1.2.1'></script>
+    <link rel='https://api.w.org/' href='../wp-json/'/>
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php?rsd"/>
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml"/>
+    <meta name="generator" content="WordPress 4.7.2"/>
+    <link rel='shortlink' href='../?p=550'/>
+    <link rel="alternate" type="application/json+oembed"
+          href="../wp-json/oembed/1.0/embed?url=http%3A%2F%2Fweeklyedit.com%2Fsupermoon%2F"/>
+    <link rel="alternate" type="text/xml+oembed"
+          href="../wp-json/oembed/1.0/embed?url=http%3A%2F%2Fweeklyedit.com%2Fsupermoon%2F&#038;format=xml"/>
+    <!--[if lt IE 9]>
+    <script src="../wp-content/themes/influence/js/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if (gte IE 6)&(lte IE 8)]>
+    <script type="text/javascript" src="../wp-content/themes/influence/js/selectivizr.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <style type="text/css" id="custom-background-css">
+        body.custom-background {
+            background-color: #ffffff;
+            background-image: url("../wp-content/themes/influence/images/background.png");
+            background-position: left top;
+            background-size: auto;
+            background-repeat: repeat;
+            background-attachment: scroll;
+        }
+    </style>
+    <style type="text/css" media="all" id="siteorigin-panels-grids-wp_head">/* Layout 550 */
+    #pg-550-0, #pg-550-1, #pl-550 .panel-grid-cell .so-panel {
+        margin-bottom: 30px
+    }
+
+    #pg-550-0 .panel-grid-cell, #pg-550-2 .panel-grid-cell {
+        float: none
+    }
+
+    #pgc-550-1-0 {
+        width: 40.591%
+    }
+
+    #pgc-550-1-1 {
+        width: 59.409%
+    }
+
+    #pg-550-1 .panel-grid-cell {
+        float: left
+    }
+
+    #pl-550 .panel-grid-cell .so-panel:last-child {
+        margin-bottom: 0px
+    }
+
+    #pg-550-0, #pg-550-1, #pg-550-2 {
+        margin-left: -15px;
+        margin-right: -15px
+    }
+
+    #pg-550-0 .panel-grid-cell, #pg-550-1 .panel-grid-cell, #pg-550-2 .panel-grid-cell {
+        padding-left: 15px;
+        padding-right: 15px
+    }
+
+    #panel-550-1-1-0 > .panel-widget-style {
+        padding: 0px 0px 0px 0px
+    }
+
+    @media (max-width: 780px) {
+        #pg-550-0 .panel-grid-cell, #pg-550-1 .panel-grid-cell, #pg-550-2 .panel-grid-cell {
+            float: none;
+            width: auto
+        }
+
+        #pgc-550-1-0 {
+            margin-bottom: 30px
+        }
+
+        #pl-550 .panel-grid, #pl-550 .panel-grid-cell {
+        }
+
+        #pl-550 .panel-grid .panel-grid-cell-empty {
+            display: none
+        }
+
+        #pl-550 .panel-grid .panel-grid-cell-mobile-last {
+            margin-bottom: 0px
+        }
+    } </style>
+    <style type="text/css" id="influence-footer-widgets">#footer-widgets aside {
+        width: 50%;
+    } </style>
+    <style id='influence-custom-css' class='siteorigin-custom-css' type='text/css'>
+        .post-thumbnail {
+            display: none;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        article.entry .entry-content h3 {
+            font-size: 17px;
+            text-align: left;
+            margin-left: 0px;
+            margin-top: 0em;
+            margin-bottom: 0px;
+        }
+
+        #panel-37-0-1-2.so-panel.widget.widget_recent-posts.widget_recent_entries {
+            margin-bottom: 0px;
+        }
+
+        .entry-content ul {
+            margin-left: -6px;
+        }
+
+        #topics {
+            margin-top: -30px;
+        }
+
+        #modules {
+            margin-top: -30px;
+        }
+
+        .panel-grid-cell .widget-title {
+            padding-bottom: 15px;
+        }
+
+        #main-menu .widgets aside.widget .widget-title {
+            margin-bottom: 0px;
+            margin-top: -20px;
+        }
+
+        #panel-470-0-0-0.so-panel.widget.widget_sow-image.panel-first-child.panel-last-child {
+            margin-top: -50px;
+        }
+
+        article.entry {
+            visibility: visible;
+        }
+
+        .post-text {
+            visibility: visible;
+        }
+
+        .entry-title {
+            visibility: visible;
+        }
+
+        article.entry .post-text {
+            padding-top: 0px;
+        }
+
+        #panel-72-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-75-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-131-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-133-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-135-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-137-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-140-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-177-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-278-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-354-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-430-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-448-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-475-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-488-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-518-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-550-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-575-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-599-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-625-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-664-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-682-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-704-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-722-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-736-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-757-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-765-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+    </style>
+    <style type="text/css" id="customizer-css">h1, h2, h3, h4, h5, h6 {
+        font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+        font-weight: 400
+    }
+
+    article.entry {
+        background-color: #ffffff
+    } </style>
+</head>
+
+<body class="post-template-default single single-post postid-550 single-format-standard custom-background siteorigin-panels responsive has-main-sidebar">
+
+<div id="page" class="hfeed site">
+
+
+    <header id="masthead" class="site-header has-shadow" role="banner">
+
+        <div class="container">
+
+            <div class="hgroup">
+
+                <h1 class="site-title">
+                    <a href="../index.html" title="Weekly Edit" rel="home">
+                        Weekly Edit </a>
+                </h1>
+
+
+            </div>
+
+
+            <nav role="navigation" class="site-navigation main-navigation primary">
+
+                <h1 class="assistive-text">Menu</h1>
+
+                <a href="#" class="main-menu-button">
+                    <i class="influence-icon-menu-icon"></i>
+                    Menu </a>
+
+            </nav><!-- .site-navigation .main-navigation -->
+
+
+        </div>
+
+    </header><!-- #masthead .site-header -->
+
+    <div class="site-header has-shadow site-header-sentinel">
+
+        <div class="container">
+
+            <div class="hgroup">
+
+                <h1 class="site-title">
+                    Weekly Edit </h1>
+
+
+            </div>
+
+
+            <div role="navigation" class="site-navigation main-navigation primary">
+
+                <h1 class="assistive-text">Menu</h1>
+
+                <a href="#" class="main-menu-button">
+                    <i class="influence-icon-menu-icon"></i>
+                    Menu </a>
+
+            </div><!-- .site-navigation .main-navigation -->
+
+
+        </div>
+
+    </div><!-- #masthead .site-header -->
+
+    <div id="main" class="site-main">
+
+        <section id="primary" class="content-area">
+
+            <div id="content" class="site-content" role="main">
+
+
+                <article id="post-550"
+                         class="entry post-550 post type-post status-publish format-standard hentry category-weekly-edits tag-compositing tag-darktable tag-tutorial">
+
+
+                    <div class="post-text">
+
+                        <h1 class="entry-title"><a href="../supermoon/" title="Permalink to Supermoon" rel="bookmark">Supermoon</a>
+                        </h1>
+
+                        <div class="entry-content">
+                            <div id="pl-550">
+                                <div class="panel-grid" id="pg-550-0">
+                                    <div class="panel-grid-cell" id="pgc-550-0-0">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-550-0-0-0" data-index="0">
+                                            <div class="textwidget">
+                                                <div id="vp">
+                                                    <iframe frameborder=0 allowfullscreen
+                                                            src="https://www.youtube.com/embed/JQtpQw5eevM"></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-grid" id="pg-550-1">
+                                    <div class="panel-grid-cell" id="pgc-550-1-0">
+                                        <div class="so-panel widget widget_sow-image panel-first-child"
+                                             id="panel-550-1-0-0" data-index="1">
+                                            <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                                                <div class="sow-image-container">
+                                                    <a href="../wp-content/uploads/2016/11/20151130175702_Ko-Lanta-und-Koh-Phi-Phi_014.jpg"
+                                                       target="_blank"> <img
+                                                            src="../wp-content/uploads/2016/11/20151130175702_Ko-Lanta-und-Koh-Phi-Phi_014.jpg"
+                                                            width="1280" height="853"
+                                                            srcset="../wp-content/uploads/2016/11/20151130175702_Ko-Lanta-und-Koh-Phi-Phi_014.jpg 1280w, ../wp-content/uploads/2016/11/20151130175702_Ko-Lanta-und-Koh-Phi-Phi_014-300x200.jpg 300w, ../wp-content/uploads/2016/11/20151130175702_Ko-Lanta-und-Koh-Phi-Phi_014-768x512.jpg 768w, ../wp-content/uploads/2016/11/20151130175702_Ko-Lanta-und-Koh-Phi-Phi_014-1024x682.jpg 1024w, ../wp-content/uploads/2016/11/20151130175702_Ko-Lanta-und-Koh-Phi-Phi_014-1000x666.jpg 1000w, ../wp-content/uploads/2016/11/20151130175702_Ko-Lanta-und-Koh-Phi-Phi_014-272x182.jpg 272w"
+                                                            title="viewer-contributed edit of Thailand sunset. Thanks Norman!"
+                                                            alt="Thailand sunset edited in Darktable, with ocean, rocks, and clouds"
+                                                            class="so-widget-image"/>
+                                                    </a></div>
+
+                                            </div>
+                                        </div>
+                                        <div class="so-panel widget widget_sow-image" id="panel-550-1-0-1"
+                                             data-index="2">
+                                            <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                                                <div class="sow-image-container">
+                                                    <a href="../wp-content/uploads/2016/11/2016-11-14-18-24-48-0_01.jpg"
+                                                       target="_blank"> <img
+                                                            src="../wp-content/uploads/2016/11/2016-11-14-18-24-48-0_01.jpg"
+                                                            width="1191" height="1280"
+                                                            srcset="../wp-content/uploads/2016/11/2016-11-14-18-24-48-0_01.jpg 1191w, ../wp-content/uploads/2016/11/2016-11-14-18-24-48-0_01-279x300.jpg 279w, ../wp-content/uploads/2016/11/2016-11-14-18-24-48-0_01-768x825.jpg 768w, ../wp-content/uploads/2016/11/2016-11-14-18-24-48-0_01-953x1024.jpg 953w, ../wp-content/uploads/2016/11/2016-11-14-18-24-48-0_01-930x1000.jpg 930w"
+                                                            title="Supermoon HDR - after editing"
+                                                            alt="Supermoon HDR after editing in a Darktable tutorial by Harry Durgin, ocean and clouds in Hawaii"
+                                                            class="so-widget-image"/>
+                                                    </a></div>
+
+                                            </div>
+                                        </div>
+                                        <div class="so-panel widget widget_sow-image" id="panel-550-1-0-2"
+                                             data-index="3">
+                                            <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                                                <div class="sow-image-container">
+                                                    <a href="../wp-content/uploads/2016/11/2016-11-14-18-24-48-0.jpg"
+                                                       target="_blank"> <img
+                                                            src="../wp-content/uploads/2016/11/2016-11-14-18-24-48-0.jpg"
+                                                            width="1068" height="1280"
+                                                            srcset="../wp-content/uploads/2016/11/2016-11-14-18-24-48-0.jpg 1068w, ../wp-content/uploads/2016/11/2016-11-14-18-24-48-0-250x300.jpg 250w, ../wp-content/uploads/2016/11/2016-11-14-18-24-48-0-768x920.jpg 768w, ../wp-content/uploads/2016/11/2016-11-14-18-24-48-0-854x1024.jpg 854w, ../wp-content/uploads/2016/11/2016-11-14-18-24-48-0-834x1000.jpg 834w"
+                                                            title="Supermoon composite background image"
+                                                            alt="Supermoon composite background image for use in Darktable photo edit by Harry Durgin"
+                                                            class="so-widget-image"/>
+                                                    </a></div>
+
+                                            </div>
+                                        </div>
+                                        <div class="so-panel widget widget_sow-image panel-last-child"
+                                             id="panel-550-1-0-3" data-index="4">
+                                            <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                                                <div class="sow-image-container">
+                                                    <a href="../wp-content/uploads/2016/11/2016-11-14-18-24-53-0.jpg"
+                                                       target="_blank"> <img
+                                                            src="../wp-content/uploads/2016/11/2016-11-14-18-24-53-0.jpg"
+                                                            width="602" height="514"
+                                                            srcset="../wp-content/uploads/2016/11/2016-11-14-18-24-53-0.jpg 602w, ../wp-content/uploads/2016/11/2016-11-14-18-24-53-0-300x256.jpg 300w"
+                                                            title="Supermoon composite moon image"
+                                                            alt="Supermoon composite moon image for use, cropped, in Darktable photo edit by Harry Durgin"
+                                                            class="so-widget-image"/>
+                                                    </a></div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-grid-cell" id="pgc-550-1-1">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-550-1-1-0" data-index="5">
+                                            <div class="panel-widget-style"><h3 class="widget-title">Getting more
+                                                nuanced with compositing</h3>
+                                                <div class="textwidget"><p>In this week's edits I look at some trickier
+                                                    blends while compositing with the watermark module. I use a 15
+                                                    second and a 1/4 second exposure of the supermoon rising and create
+                                                    an HDR image with parametric blending. I discuss some considerations
+                                                    involved in this composite in an attempt to show more nuance
+                                                    associated with the process.</p>
+                                                    <p>The Edit My RAW this week is a shot from Thailand that was
+                                                        previously processed with beautiful results. I attempt to
+                                                        compliment the photographer's work with a few of my own
+                                                        touches.</p>
+                                                    <p>The RAW files used in this video are available here<br/>
+                                                        <a target=_blank
+                                                           href="https://drive.google.com/open?id=0B7mIPRZEcQpANktFNjFpVEJ4Q3c">Supermoon
+                                                            (15 second)</a><br/>
+                                                        <a target=_blank
+                                                           href="https://drive.google.com/open?id=0B7mIPRZEcQpANXA2dlRTVllZNzg">Supermoon
+                                                            (1/4 second)</a><br/>
+                                                        <a target=_blank
+                                                           href="https://drive.google.com/open?id=0B7mIPRZEcQpAUk0yTG9KYnF0ejQ">Thailand</a><br/>
+                                                        Thank you for the contribution Norman 🙂</p>
+                                                    <p>Here is my latest version of my compositing script:</p>
+<pre>#!/bin/zsh
+
+ls -t .config/darktable/watermarks/tmp* |grep -v svg |head -n1 |read file
+inkscape -f "$file" -l '.config/darktable/watermarks/tmp.svg'
+ls -l '.config/darktable/watermarks/tmp.svg' |cut -d' ' -f5 |read size_n
+ls -lh '.config/darktable/watermarks/tmp.svg' |cut -d' ' -f5 |read size_h
+[ $size_n -gt 8000000 ] && echo "File too large. Size $size_h, but needs to be smaller than 8M." || echo "File size okay $size_h"
+</pre>
+                                                    <p>I set it up with a hotkey sequence and use it often now.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-grid" id="pg-550-2">
+                                    <div class="panel-grid-cell" id="pgc-550-2-0">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-550-2-0-0" data-index="6"><h3 class="widget-title">Complete Show
+                                            Text</h3>
+                                            <div class="textwidget"><p><a href="../annotations/JQtpQw5eevM.txt"
+                                                                          download>Download complete text here</a></p>
+                                                <p>Aloha everybody, and welcome to Weekly Edit.</p>
+                                                <p> This was the week of the Super Moon.</p>
+                                                <p> We were concerned we weren't going to be able to see it both nights
+                                                    because we had lots of clouds and rain, but right at the last
+                                                    minute, it cleared up.</p>
+                                                <p> This time-lapse is from the first night.</p>
+                                                <p> It was beautiful seeing the moon come up behind the clouds.</p>
+                                                <p> We didn't think we'd get as lucky the second night, but we got the
+                                                    same show with the moon rising from behind the clouds just over the
+                                                    horizon, over the ocean.</p>
+                                                <p> Here are our Super Moon shots.</p>
+                                                <p> We've got two of them.</p>
+                                                <p> The first one is 15 seconds to catch as much detail as I can in
+                                                    these dark areas.</p>
+                                                <p> I don't know how much we'll be able to pull out of the ocean.</p>
+                                                <p> The second one is a quarter of a second to try and keep the moon
+                                                    from blowing out.</p>
+                                                <p> Let's zoom in a little bit.</p>
+                                                <p> See this fringing we've got? This will be a challenge.</p>
+                                                <p> This is the light bending around the edge of the clouds.</p>
+                                                <p> I want to pull out more detail in here.</p>
+                                                <p> Let's see what we can do.</p>
+                                                <p> Maybe if I bring this down a little.</p>
+                                                <p> Does that help? Yes, a little.</p>
+                                                <p> Okay.</p>
+                                                <p> Boy, there isn't much there.</p>
+                                                <p> Can I get something with the Highpass? Maybe.</p>
+                                                <p> If I use a Parametric Mask based on the L Channel and Soft Blend
+                                                    Mode, sometimes I can pick up some highlight details that I can't
+                                                    get otherwise.</p>
+                                                <p> Oh, yeah; that helped a little.</p>
+                                                <p> Okay, that's our moon part.</p>
+                                                <p> I'll crop this.</p>
+                                                <p> Because we just want the moon; we don't need all that other
+                                                    stuff.</p>
+                                                <p> Okay.</p>
+                                                <p> I'll save this.</p>
+                                                <p> Now, I want to combine this with this one, so I'll save it as an
+                                                    image file, then convert it to a vector-based format, SVG, in the
+                                                    Darktable Watermarks directory.</p>
+                                                <p> Then I'll import it into this one under the Watermark Module so I
+                                                    can paste it over the existing moon.</p>
+                                                <p> When I'm saving an image that I'll be importing into another image
+                                                    like this one, I save this image as large as I can, so that when
+                                                    it's converted to a vector-based format, SVG, it stays under
+                                                    8mb.</p>
+                                                <p> I set up a pre-set for Watermark.</p>
+                                                <p> This makes it easy for me.</p>
+                                                <p> I just call it tmp because it's my temporary watermark file.</p>
+                                                <p> I store it here: .config/darktable/watermarks Now, I can use a
+                                                    variety of extensions.</p>
+                                                <p>I can use JPG; I can use PNG...</p>
+                                                <p> This one has been cropped so heavily, I'll save it as a PNG at
+                                                    16-bit.</p>
+                                                <p> I like to over-write my old files so that I don't have the time of
+                                                    these temp files in there, and I'll hit Export.</p>
+                                                <p> I've been working on my script.</p>
+                                                <p> Here it is.</p>
+                                                <p> I added a couple of things.</p>
+                                                <p> One: I put in an 'ls' with a time order to it so that when it looks
+                                                    for tmp files, it just picks the most recent one.</p>
+                                                <p> So, if I store it as a JPG or a PNG, it doesn't matter; it will just
+                                                    find the most recent one and use that name.</p>
+                                                <p> This script just calls Inkscape.</p>
+                                                <p> The '-f' is the name of the file.</p>
+                                                <p> That name comes from up here.</p>
+                                                <p> I'll post this script on my show notes.</p>
+                                                <p> The '-l' says: what should we save it as? So, all I'm doing is using
+                                                    Inkscape to convert either a PNG or a JPG to an SVG.</p>
+                                                <p> Here I have it save it to that folder I was telling you about:
+                                                    .config/darktable/watermarks/ and I call it tmp.svg so it just
+                                                    over-writes it each time.</p>
+                                                <p> If I want to save a file so I can do non-destructive editing and use
+                                                    it again, I'll have to save this file with the original RAW image
+                                                    files or TIF that I'm working on, and the additional sidecar XMP
+                                                    files.</p>
+                                                <p> Then, when I'm working on it, put it back in the watermark directory
+                                                    or put a copy there.</p>
+                                                <p> Anyway, you'd have to save more than one file if you're doing
+                                                    compositing.</p>
+                                                <p> Next, I check the size of that SVG file.</p>
+                                                <p> If it's over 8 mb, I just tell myself 'file too large' and needs to
+                                                    be smaller.</p>
+                                                <p> Then I can make an adjustment.</p>
+                                                <p> And, if it's okay, it says 'file size okay' So, I already saved
+                                                    it.</p>
+                                                <p> It tells me that even as a PNG, the SVG it formed was only 426K, so
+                                                    that is fine; that's well under 8mb.</p>
+                                                <p> I can just open it here now.</p>
+                                                <p> First, let's do some corrections.</p>
+                                                <p> We'll do Demosaic-ing and Chromatic Aberrations and Denoising, and
+                                                    all that stuff.</p>
+                                                <p> So, this is what PPG looks like, and here's Amaze, and VNG.</p>
+                                                <p> Speaking of Demosaic-ing, Alex wrote in and suggested doing
+                                                    Demosaic-ing before Denoising.</p>
+                                                <p> He is right.</p>
+                                                <p> I'll try to remember to Demosaic before I Denoise in future.</p>
+                                                <p> So, the VNG seems to help with the fringing a little.</p>
+                                                <p> Not too much, but it's better than the Amaze.</p>
+                                                <p> How about a little Color Smoothing? Does that help? That doesn't
+                                                    hurt either.</p>
+                                                <p> Okay, I'll go with the VNG.</p>
+                                                <p> It's a little soft, but I want to get rid of this fringing, so:
+                                                    wonderful.</p>
+                                                <p> I'll correct for Chromatic Aberrations, but I'll do that after
+                                                    Denoising because, if I zoom in and I have Chromatic Aberrations on,
+                                                    I'll get the wrong information about what fringing is actually
+                                                    there.</p>
+                                                <p> First: Denoising.</p>
+                                                <p> I'll just use the Equalizer on this.</p>
+                                                <p> It's all nice, fine grain.</p>
+                                                <p> 800 ISO is not that high of gain, so it came out nice.</p>
+                                                <p> I'll work on the Chroma color first.</p>
+                                                <p> This bottom row denoises; this top row enhances contrast
+                                                    locally.</p>
+                                                <p> I'll bring up these two.</p>
+                                                <p> Okay, that color noise is gone.</p>
+                                                <p> Then I'll try to bring these sliders over to the right as far as I
+                                                    can before I introduce noise.</p>
+                                                <p> Oh, I can see a little color noise there.</p>
+                                                <p> And this one -- right about there.</p>
+                                                <p> Because I want to be as efficient as possible, I'll do the same
+                                                    thing with the L Channel.</p>
+                                                <p> I'll bring this one up.</p>
+                                                <p> That got rid of a lot of it.</p>
+                                                <p> There's still this larger-scale noise, though, so I'll bring this
+                                                    one up.</p>
+                                                <p> That will probably get rid of it.</p>
+                                                <p> It does, but it gets rid of it more than we need.</p>
+                                                <p> So, I'll bring this over.</p>
+                                                <p> And this one.</p>
+                                                <p> I'll try to get as efficient an area under this curve as I can to
+                                                    get rid of that noise.</p>
+                                                <p> I'll do a crop so I can see what I'm looking at, but I'm going to
+                                                    rotate this.</p>
+                                                <p> I don't want to do that until I rotate it after it's been
+                                                    composited, so I'll just give it a quickie crop here and leave some
+                                                    extra so I can rotate it later.</p>
+                                                <p> It makes it easier to work if I crop it, especially when I'm working
+                                                    with compositing.</p>
+                                                <p> If I import my image, I can scale that image, and I have more
+                                                    control over scaling it if I crop my original first.</p>
+                                                <p> I'll show you because this can be confusing.</p>
+                                                <p> So, there's that tmp.svg file that was created by the script I
+                                                    wrote.</p>
+                                                <p> And there's the moon.</p>
+                                                <p> We'll make the Opacity small so we can see both things at the same
+                                                    time.</p>
+                                                <p> This moon turned out really large because we used a cropped
+                                                    image.</p>
+                                                <p> I can control its size with Scale here, but we want a size around
+                                                    20%, according to this.</p>
+                                                <p> So, if I didn't crop this and it was full size, then when I import
+                                                    this SVG, I have to bring it down to 12% in order to overlay it.</p>
+                                                <p> Now, that's fine; I don't have lower quality, but I don't think I
+                                                    can put in 11.5 here, see? So, I can only do 12 or 11.</p>
+                                                <p> See how much it changes? That's quite a bit.</p>
+                                                <p> So, if I want to have more fine-tuned control over the size, I'll
+                                                    crop my back image prior to compositing.</p>
+                                                <p> But, like I say, it's tilted, so I can't do a full crop.</p>
+                                                <p> I've got to leave enough extra so that when I de-rotate later, I
+                                                    have enough edges to lose some.</p>
+                                                <p> My goal is for this crop to be something like this, approximately,
+                                                    maybe a little taller.</p>
+                                                <p> About like that.</p>
+                                                <p> So, I'll give it just a little space on all sides and crop it
+                                                    there.</p>
+                                                <p> Let's see if we can gain a little with our Shadows and Highlights
+                                                    Module.</p>
+                                                <p> Turn that on.</p>
+                                                <p> Okay, that gave us halos around the sides, which we can get rid of
+                                                    with the Bilateral Filter.</p>
+                                                <p> Oh, that made a difference.</p>
+                                                <p> See that? Look at this edge, when I change it from Bilateral to
+                                                    Gaussian.</p>
+                                                <p> That's Gaussian, and there's a halo around the edge.</p>
+                                                <p> Now I'll change it to Bilateral.</p>
+                                                <p> Bingo! It's gone.</p>
+                                                <p> So, these default settings have gotten us this far.</p>
+                                                <p> Oh, good; we can see a lot more detail in these clouds and the tree
+                                                    looks good.</p>
+                                                <p> I won't get any detail out of this tree, and I don't even want to
+                                                    try.</p>
+                                                <p> For one, it was incredibly dark, and secondly, it was moving, so
+                                                    everything is blurred.</p>
+                                                <p> Now we'll composite that first image with this one using the
+                                                    Watermark Module.</p>
+                                                <p> This is the file I want: tmp.svg This is the one I created with that
+                                                    script, and you can see that makes it large.</p>
+                                                <p> We're going to want to make it smaller.</p>
+                                                <p> In order to place it properly, I'll just change the Opacity so we
+                                                    can see what's behind it.</p>
+                                                <p> There we go.</p>
+                                                <p> Move it over and down.</p>
+                                                <p> Make it smaller.</p>
+                                                <p> I'll use the Parametric Mask to get it placed right.</p>
+                                                <p> I want to get rid of the dark parts in the sky.</p>
+                                                <p> Let's see what that looks like.</p>
+                                                <p> There's the moon over this part that is blown out.</p>
+                                                <p> Now I want the moon to go out a little farther, so maybe I can
+                                                    feather this a little.</p>
+                                                <p> Now I'm getting these darker parts here, so maybe I can use this
+                                                    Output Control to eliminate output that's dark, like that.</p>
+                                                <p> Okay, and I can feather both this Output Control and this Input
+                                                    Control to get the moon so it fills just where I want it.</p>
+                                                <p> I'll move it to the right a little.</p>
+                                                <p> Oh, it doesn't go all the way.</p>
+                                                <p> I'll make it a little larger.</p>
+                                                <p> And, down here, it looks like the moon is coming over the top of the
+                                                    clouds.</p>
+                                                <p> I'll change the Input to eliminate that to some extent.</p>
+                                                <p> Oh, that will be tough to do, won't it? Oh, that's not SO bad.</p>
+                                                <p> There we go.</p>
+                                                <p> A little Mask Blur.</p>
+                                                <p> Let's see: a little over a pixel; I've got 1.4 pixels here.</p>
+                                                <p> I'll lower the Opacity just a tiny bit.</p>
+                                                <p> I just took it down to 96.</p>
+                                                <p> Now, the background is a little bright.</p>
+                                                <p> I'll use the Tone Curve to adjust the background.</p>
+                                                <p> Let's see what we've got.</p>
+                                                <p> We're like, right around there.</p>
+                                                <p> Let's bring that down to see if we can get a better match.</p>
+                                                <p> I don't want to bring down the darkness from this Tone Curve
+                                                    everywhere; I want to do it close to the moon, so I'll use a Drawn
+                                                    Mask.</p>
+                                                <p> That brightened everything right back up again.</p>
+                                                <p> How do the edges look? I don't like this dark part here.</p>
+                                                <p> Let's see if I can tweak these values a little more.</p>
+                                                <p> There we go.</p>
+                                                <p> That helped a little.</p>
+                                                <p> And so does that.</p>
+                                                <p> There we go.</p>
+                                                <p> We've got most of it gone.</p>
+                                                <p> Oh, I love that; that really turned out sweet.</p>
+                                                <p> I'll save this, but before I do, I'll do Chromatic Aberration
+                                                    Control and Hot Pixels.</p>
+                                                <p> Since it was a 15 second exposure, it will have hot pixels.</p>
+                                                <p> It says 65; I bet there's a few more than that.</p>
+                                                <p> I'll turn my Threshold down.</p>
+                                                <p> No, it's not going up very much; just some.</p>
+                                                <p> Okay, we already denoised with the Equalizer, so: Chromatic
+                                                    Aberrations, and let's save it.</p>
+                                                <p> Here we are.</p>
+                                                <p> First: de-rotate it.</p>
+                                                <p> I like the water down here, and I like to see the bottom part of the
+                                                    palm tree, so I'll leave as much of the bottom as possible.</p>
+                                                <p> I'd like for the moon to look large, so I'll do an aggressive
+                                                    crop.</p>
+                                                <p> And I want to still be able to tell that it's a palm tree, so let's
+                                                    try this.</p>
+                                                <p> Yeah.</p>
+                                                <p> I want to bring out some brightness in the water so I can discern it
+                                                    from the palm tree.</p>
+                                                <p> Let's just look at what tone this is and bring that up.</p>
+                                                <p> Okay.</p>
+                                                <p> That seems to work pretty well.</p>
+                                                <p> I don't want it up here.</p>
+                                                <p> Maybe I can use a drawn mask? Reverse the direction.</p>
+                                                <p> Give it a little bit of a feather.</p>
+                                                <p> Make this just a little larger.</p>
+                                                <p> There we go.</p>
+                                                <p> Okay.</p>
+                                                <p> Now I can tell the difference between the tree and the water.</p>
+                                                <p> I'd like a little deeper color here.</p>
+                                                <p> I can do that with a Multiply method.</p>
+                                                <p> First, I'll apply it with an L Channel.</p>
+                                                <p> I'll bring my Opacity all the way down to start because it comes on
+                                                    a little strong.</p>
+                                                <p> I'll give it a little bit of an S curve and bring up the Opacity
+                                                    slowly.</p>
+                                                <p> This is giving me a lot richer colors.</p>
+                                                <p> So I'm around 15%.</p>
+                                                <p> That's before, and that's after; that looks great.</p>
+                                                <p> It's a little coppery or green here.</p>
+                                                <p> Oh, look: I've got a line from that file.</p>
+                                                <p> One of the nice things when you're working between versions is that
+                                                    you don't have to lose your XMP file.</p>
+                                                <p> You can just make a change to one.</p>
+                                                <p> I'll come in here, and see: I've got this little line on my
+                                                    watermark.</p>
+                                                <p> I'll add a Drawn Mask to it so it's both a Drawn and a Parametric
+                                                    Mask.</p>
+                                                <p> There we go.</p>
+                                                <p>Wonderful.</p>
+                                                <p> I'll save that and make sure that I over-write.</p>
+                                                <p> Remove this one, because it will use the cached version for the
+                                                    thumbnail.</p>
+                                                <p> When I re-open the directory, it will keep the old XMP file that we
+                                                    were working on, see? But now our square is gone from around the
+                                                    edges.</p>
+                                                <p> So, that makes it possible to bounce back and forth between
+                                                    versions.</p>
+                                                <p> I wonder what that dot is from.</p>
+                                                <p> Oh, those are stars! Right: because it was night.</p>
+                                                <p> What else? It looks a little green here, and I want it to look more
+                                                    copper.</p>
+                                                <p> Let's see: Color Zones.</p>
+                                                <p> We'll take some samples.</p>
+                                                <p> Okay.</p>
+                                                <p> We're over here: right there with that black line.</p>
+                                                <p> And if I go up here, ah: we're over here.</p>
+                                                <p> I'll take this slider and move it right where the offending colors
+                                                    are, then bracket it with two other control points.</p>
+                                                <p> Using the mouse wheel, make the circle smaller so I have finer
+                                                    control.</p>
+                                                <p> Then, I want to go from this line over to here, so I'll go down a
+                                                    little.</p>
+                                                <p> There we go.</p>
+                                                <p> Okay.</p>
+                                                <p> It was a little green or blue, and now it's the same color as the
+                                                    rest of it.</p>
+                                                <p> Okay, what else do we need? Let's get these clouds to pop a little
+                                                    bit from the sky.</p>
+                                                <p> I can do that with an Overlay method on a Lowpass Filter.</p>
+                                                <p> I'll turn my Saturation down to zero, then set my Radius so that the
+                                                    clouds and not the details show up.</p>
+                                                <p> Okay, I can see my individual clouds here.</p>
+                                                <p> That was at 16 pixels.</p>
+                                                <p> I'll change my Blend Mode to Overlay.</p>
+                                                <p> I'll probably have to take my Contrast down a little bit, but first
+                                                    I'll just take my Opacity down and see what I want to do.</p>
+                                                <p> That's not so bad.</p>
+                                                <p> So, around 24%.</p>
+                                                <p> It gives me a little separation on these clouds.</p>
+                                                <p> Let's see if I can do it a little more.</p>
+                                                <p> Okay, I'm up to 31%.</p>
+                                                <p> I want to bring out some of these highlight details.</p>
+                                                <p> My favorite method for doing that is with the Highpass Filter.</p>
+                                                <p> Try and find a ratio of my Sharpness and Contrast to bring out the
+                                                    details I want.</p>
+                                                <p> I'm looking for some of these details in these clouds.</p>
+                                                <p> Look at all of these stars: that's crazy 🙂 Alright; just like
+                                                    that.</p>
+                                                <p> I'll apply this with the L Channel, Parametric Mask and Softlight
+                                                    Blend Mode.</p>
+                                                <p> That's without it and that's with it.</p>
+                                                <p> It's giving me a little detail in here, but I'm getting this dark
+                                                    ring around the moon, so I'll exclude the moon from this.</p>
+                                                <p> Combine it with a Drawn Mask and draw a circle around the moon, and
+                                                    reverse the Polarity so it happens everywhere but there.</p>
+                                                <p> Alright, what have we got? Like that, and like that.</p>
+                                                <p> I think that's it.</p>
+                                                <p> It looks good to me.</p>
+                                                <p> While we're dealing with Super Moons...</p>
+                                                <p> I had this shot I did.</p>
+                                                <p> It's a panorama.</p>
+                                                <p> I shot the bottom third first when the wave was coming in, then
+                                                    panned up to catch these clouds, and panned up one more time to
+                                                    catch the moon.</p>
+                                                <p> But, it's such a wide angle that the moon looks tiny.</p>
+                                                <p> I'll crop this and get myself a version of this moon, then put it
+                                                    back in the same picture, but place it in a different location and
+                                                    make it a different size.</p>
+                                                <p> I'll save this to the directory that we've been saving them to.</p>
+                                                <p> Since it's being cropped, I'll change it to a PNG.</p>
+                                                <p> And I've got my Watermark Script.</p>
+                                                <p> It says my file is only 300K, so I don't have any problem with
+                                                    that.</p>
+                                                <p> Un-crop it.</p>
+                                                <p> Go to my Watermark Module.</p>
+                                                <p> Look for tmp.svg And there's our moon.</p>
+                                                <p> Alright.</p>
+                                                <p> Let's put the moon behind this cloud and make it nice and big.</p>
+                                                <p> Why not? This is fun stuff, right? We'll move it up.</p>
+                                                <p> And over.</p>
+                                                <p> And use a Parametric Mask.</p>
+                                                <p> Not have it post in the darker clouds, but have it post in the
+                                                    lighter sky.</p>
+                                                <p> Let's see.</p>
+                                                <p> The lighter sky is around 190, so I'll put one mark there.</p>
+                                                <p> And I'll bring this one up.</p>
+                                                <p> There we go.</p>
+                                                <p> Now we can move the moon wherever we want.</p>
+                                                <p> There's a lot of extraneous stuff that came with it.</p>
+                                                <p> So, I can take a Drawn Mask and add it to the equation.</p>
+                                                <p> I've got a little color mis-match here.</p>
+                                                <p> I could do a tighter circle.</p>
+                                                <p> I need to work on my Parametric Mask numbers here a little bit too,
+                                                    so the clouds cover the moon better.</p>
+                                                <p> There we go.</p>
+                                                <p> There we are.</p>
+                                                <p> And we'll get rid of the old moon.</p>
+                                                <p> That looks good.</p>
+                                                <p> Alright.</p>
+                                                <p> I've got a couple of things I want to show you on the Interwebs.</p>
+                                                <p> One of them is Alex here had asked on pixls.us about saving for
+                                                    Facebook.</p>
+                                                <p> He did some research and tried a bunch of different methods.</p>
+                                                <p> He says the hot ticket is to go 2048 px for your longest length,
+                                                    regardless of if it's portrait or landscape.</p>
+                                                <p> You just make 2048 px your longest length and save it as a PNG.</p>
+                                                <p> Yay! Now we all know.</p>
+                                                <p> Thank you.</p>
+                                                <p> Also, I want to show you Daniel Kordon's site.</p>
+                                                <p> This guy is amazing.</p>
+                                                <p> He's got this style that's kind of like a soft focus or low contrast
+                                                    in areas.</p>
+                                                <p> It gives a dreamlike appearance.</p>
+                                                <p> If everything is sharp, then nothing appears sharp.</p>
+                                                <p> It's these contrasts.</p>
+                                                <p> He gets contrasts between areas that have some aspects, like a lot
+                                                    of contrast and a lot of sharpness, and other areas that have lower
+                                                    amounts.</p>
+                                                <p> It makes it really pop.</p>
+                                                <p> I love his choice of colors too.</p>
+                                                <p> Inspirational.</p>
+                                                <p> Yes: Daniel Kordon.</p>
+                                                <p> Come here and look around.</p>
+                                                <p> The guy is great.</p>
+                                                <p> This week's Edit my RAW is from Norman.</p>
+                                                <p> He sent us a beautiful picture from Thailand that he took -- and
+                                                    processed.</p>
+                                                <p> Look at this! You did a great job, Norman; this is beautiful.</p>
+                                                <p> I showed my wife and she was impressed with how gorgeous it is.</p>
+                                                <p> So, I don't want to re-do it; I mean, look at these colors! This is
+                                                    fantastic.</p>
+                                                <p> I love what you did with the shading here on the sand and the relief
+                                                    that you get from the rock.</p>
+                                                <p> There are a couple things that might make it even better.</p>
+                                                <p> The blown-out sun here: it's hard to get a visual sense of where the
+                                                    sun is because it's all blown out.</p>
+                                                <p> We can use the Color Reconstruction Module to fill in the color.</p>
+                                                <p> See, like that? We can use the Threshold Adjustment and the Spatial
+                                                    Extent to try and get the best effect we can.</p>
+                                                <p> I'll apply this with a circular Drawn Mask to try and draw your eye
+                                                    to where the sun should be.</p>
+                                                <p> If I follow this line, I'm assuming the sun should be right
+                                                    here.</p>
+                                                <p> So, if I make a circle there and have this feathered edge like
+                                                    this...</p>
+                                                <p> Here, I'll turn on my Mask Indicator.</p>
+                                                <p> See where that circle is? I'll reverse it so now all of the picture
+                                                    gets the effect, but just not this one area.</p>
+                                                <p> I'll make it a little smaller and feather this a little more.</p>
+                                                <p> There we go.</p>
+                                                <p> Okay.</p>
+                                                <p> So, now the Color Reconstruction happens over here and over here,
+                                                    but not right in the middle.</p>
+                                                <p> That helps draw your eye up here, to see where this is.</p>
+                                                <p> I love your saturated colors; those are gorgeous.</p>
+                                                <p> We can get a little bit more saturation by doing a Subtract.</p>
+                                                <p> One of the nice things about a Subtract is that it gives you some
+                                                    really nice solids too.</p>
+                                                <p> There are a couple ways we can do a Subtract.</p>
+                                                <p> One of them is to just take a straight Tone Curve and do a
+                                                    Subtract.</p>
+                                                <p> I like to use a Parametric Mask because I want to protect my shadows
+                                                    some, and the Subtract won't.</p>
+                                                <p> Multiply will protect your shadows, but the Multiply doesn't give
+                                                    quite the depth of colors that a Subtract does.</p>
+                                                <p> I'll take my Opacity and turn it all the way down, because when I
+                                                    turn this on, it's way overboard.</p>
+                                                <p> You can only apply like 4-5% of it.</p>
+                                                <p> Okay, so I'm changing my Blend Mode to Subtract, and I'll slowly
+                                                    bring up my Opacity.</p>
+                                                <p> Now, don't forget: I've used an L-mask here.</p>
+                                                <p> That's important.</p>
+                                                <p> Without that, our shadows get black real fast.</p>
+                                                <p> And I'll slowly bring up the Opacity.</p>
+                                                <p> You can see that the saturation really kicks in to gear.</p>
+                                                <p> Like that, and like that.</p>
+                                                <p> See what a nice effect that has on these rocks too? And these deep,
+                                                    deep colors.</p>
+                                                <p> So, this is what the Subtract looks like with the Tone Curve.</p>
+                                                <p> But, I wanted to also try it with something that protects our
+                                                    dynamic range a little more.</p>
+                                                <p> So I'll take a Snapshot and then look at the same idea, but with the
+                                                    Global Tone Map Module.</p>
+                                                <p> If I turn on the Global Tone Mapping, you can see that it pushes my
+                                                    information toward the middle.</p>
+                                                <p> So, now we've got all these beautiful mid-tones.</p>
+                                                <p> Once again, a Parametric Mask based on the L Channel.</p>
+                                                <p> Then I'll change my Blend Mode to Subtract, take my Opacity all the
+                                                    way down, and slowly bring it up.</p>
+                                                <p> Get my nice deep colors.</p>
+                                                <p> See those nice deep colors you're getting? And these nice darks,
+                                                    too? Let's compare it with what we got off the Tone Curve.</p>
+                                                <p> It looks pretty similar in a lot of it.</p>
+                                                <p> But, off the Tone Curve, we've got these really solid blacks, and
+                                                    the sand is a little bright relative to that.</p>
+                                                <p> With the Tone Mapping, our solids didn't get any more solid.</p>
+                                                <p> We've got the same amount of solids.</p>
+                                                <p> But our mid-tones are a little richer.</p>
+                                                <p> You get a little more discrimination up here too, in these
+                                                    clouds.</p>
+                                                <p> And I don't see any difference here in these clouds.</p>
+                                                <p> It looks like the tones are a little richer in the water too, with
+                                                    the Global Tone Mapping.</p>
+                                                <p> Yeah, this looks a little washed-out.</p>
+                                                <p> And this is nice and rich, too.</p>
+                                                <p> So, I think I get a little better effect using the Global Tone Map
+                                                    with the Subtract, and it gives me beautiful colors too.</p>
+                                                <p> There's only one other thing I was looking at.</p>
+                                                <p> I want to see more detail in these clouds.</p>
+                                                <p> When I like to get more highlight detail, I usually use a Highpass
+                                                    Filter.</p>
+                                                <p> I'll take my Sharpness and my Contrast and play with them to try and
+                                                    get those nice details in the clouds.</p>
+                                                <p> Let's see.</p>
+                                                <p> Like that; that looks good.</p>
+                                                <p> Oh, yeah; look at all of those details: nice.</p>
+                                                <p> I'll take a Parametric Mask based on the L Channel and apply this
+                                                    with the Softlight Blend Mode.</p>
+                                                <p> It had an effect on the water too.</p>
+                                                <p> I'll take a Snapshot here.</p>
+                                                <p> So, the idea of this module would be to give me more detail in my
+                                                    highlights.</p>
+                                                <p> On the water, we had low contrast.</p>
+                                                <p> Now we're getting some nice pop.</p>
+                                                <p> Getting some nice pop here along the shore with these rocks too.</p>
+                                                <p> And we're really getting more detail in these clouds.</p>
+                                                <p> But since we based that on the L Channel, we didn't lose any
+                                                    shadows; they didn't get too dark.</p>
+                                                <p> Those are pretty subtle changes.</p>
+                                                <p> I just brought out the clouds a little more, deepened the colors a
+                                                    little, and drew your eye to the middle of the sun.</p>
+                                                <p> Other than that, I don't have anything to say.</p>
+                                                <p> Thailand, eh? Okay; I want to go to Thailand now.</p>
+                                                <p> (laughter) Thank you so much, Norman, for your contribution.</p>
+                                                <p> I hope you enjoyed this week's edit.</p>
+                                                <p> I'd like to take this opportunity to show you around my website.</p>
+                                                <p> It's called Weekly Edit.</p>
+                                                <p> If you go here, you can find my most recent videos.</p>
+                                                <p> The videos are broken up by what occurs at what time.</p>
+                                                <p> You can jump ahead, which is really nice.</p>
+                                                <p> I've got it broken up by which topics I went over and by which
+                                                    modules I used.</p>
+                                                <p> There's also lots of show notes every week, and you can download the
+                                                    RAW files that I used to do the edit.</p>
+                                                <p> You can edit along at the same time if you'd like.</p>
+                                                <p> There's space here to upload your own RAW file.</p>
+                                                <p> See where it says 'Edit my RAW'? You can click on that and upload
+                                                    your files.</p>
+                                                <p> If I select yours to edit on the show, I'll send you a souvenir
+                                                    print, signed and matted, as a thank-you for your contribution.</p>
+                                                <p> I really appreciate that.</p>
+                                                <p> We have three Patrons now on patreon.com/weekly_edit It's exciting;
+                                                    every week we're getting positive support.</p>
+                                                <p> My wife and I really enjoy that.</p>
+                                                <p> Thank you so much, for everybody that participates, and thank you
+                                                    for watching along on the videos, and thank you for contributing
+                                                    your comments and suggestions.</p>
+                                                <p> And a big thank-you to our Patrons.</p>
+                                                <p> Alright everybody, have a good weekend, and I'll see you next
+                                                    week.</p>
+                                                <p> Bye.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- .entry-content -->
+
+                        <div class="entry-meta">
+                            <div class="taxonomy">
+                                <div class="tags"><span class="influence-icon-ribbon"></span><a
+                                        href="../tag/compositing/index.html" rel="tag">compositing</a>, <a
+                                        href="../tag/darktable/index.html" rel="tag">Darktable</a>, <a
+                                        href="../tag/tutorial/index.html" rel="tag">tutorial</a></div>
+                                <div class="categories"><span class="influence-icon-layers"></span><a
+                                        href="../../category/weekly-edits/index.html" rel="tag">Weekly Edits</a></div>
+                            </div>
+
+                            <div class="posted-on">Posted on <a href="../supermoon/" title="11:55 am" rel="bookmark">
+                                <time class="entry-date" datetime="2016-11-23T11:55:42+00:00">November 23, 2016</time>
+                            </a></div>
+                        </div><!-- .entry-meta -->
+
+
+                        <div id="single-comments-wrapper">
+
+
+                            <div id="comments" class="comments-area">
+
+
+                                <h2 id="comments-title">
+                                    One thought on &ldquo;<span>Supermoon</span>&rdquo;        </h2>
+
+
+                                <ol class="commentlist">
+                                    <li class="post pingback">
+                                        <p>Pingback: <a href='http://shootwithharry.com/chasing-supermoon/'
+                                                        rel='external nofollow' class='url'>Chasing the Supermoon! Come
+                                            to Hawaii and shoot with Harry Durgin</a></p>
+                                    </li><!-- #comment-## -->
+                                </ol><!-- .commentlist -->
+
+
+                                <div id="respond" class="comment-respond">
+                                    <h3 id="reply-title" class="comment-reply-title">Leave a Reply
+                                        <small><a rel="nofollow" id="cancel-comment-reply-link"
+                                                  href="/supermoon/#respond" style="display:none;">Cancel reply</a>
+                                        </small>
+                                    </h3>
+                                    <form action="../wp-comments-post.php" method="post" id="commentform"
+                                          class="comment-form">
+                                        <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span>
+                                        </p>
+                                        <p class="comment-form-comment"><textarea id="comment" name="comment" rows="8"
+                                                                                  aria-required="true"></textarea></p>
+                                        <p class="comment-form-author"><label for="author">Name</label> <input
+                                                id="author" name="author" type="text" value="" size="30"
+                                                maxlength="245"/></p>
+                                        <p class="comment-form-email"><label for="email">Email</label> <input id="email"
+                                                                                                              name="email"
+                                                                                                              type="text"
+                                                                                                              value=""
+                                                                                                              size="30"
+                                                                                                              maxlength="100"
+                                                                                                              aria-describedby="email-notes"/>
+                                        </p>
+                                        <p class="comment-form-url"><label for="url">Website</label> <input id="url"
+                                                                                                            name="url"
+                                                                                                            type="text"
+                                                                                                            value=""
+                                                                                                            size="30"
+                                                                                                            maxlength="200"/>
+                                        </p>
+                                        <p class="form-submit"><input name="submit" type="submit" id="submit"
+                                                                      class="submit" value="Post Comment"/> <input
+                                                type='hidden' name='comment_post_ID' value='550' id='comment_post_ID'/>
+                                            <input type='hidden' name='comment_parent' id='comment_parent' value='0'/>
+                                        </p><input type="hidden" id="ct_checkjs_8f14e45fceea167a5a36dedd4bea2543"
+                                                   name="ct_checkjs" value="0"/>
+                                        <script type="text/javascript">setTimeout(function () {
+                                            var ct_input_name = 'ct_checkjs_8f14e45fceea167a5a36dedd4bea2543';
+                                            if (document.getElementById(ct_input_name) !== null) {
+                                                var ct_input_value = document.getElementById(ct_input_name).value;
+                                                document.getElementById(ct_input_name).value = document.getElementById(ct_input_name).value.replace(ct_input_value, '754191685');
+                                            }
+                                        }, 1000);</script>
+                                    </form>
+                                </div><!-- #respond -->
+
+                            </div><!-- #comments .comments-area -->
+                        </div><!-- #single-comments-wrapper -->
+
+
+                        <nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+                            <h1 class="assistive-text">Post navigation</h1>
+
+
+                            <div class="nav-previous"><a href="../lab-color-chart/index.html" rel="prev"><span
+                                    class="meta-nav influence-icon-arrow-left"></span> Lab Color Chart</a></div>
+                            <div class="nav-next"><a href="../red-hair/index.html" rel="next">Red Hair <span
+                                    class="meta-nav influence-icon-arrow-right"></span></a></div>
+
+                        </nav><!-- #nav-below -->
+
+                    </div>
+
+                </article><!-- #post-550 -->
+
+
+            </div><!-- #content .site-content -->
+
+        </section><!-- #primary .content-area -->
+
+
+        <div id="secondary">
+
+            <div class="widgets">
+                <aside id="sow-image-2" class="widget widget_sow-image">
+                    <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                        <div class="sow-image-container">
+                            <a href="../index.html"> <img src="../wp-content/uploads/2016/10/logo512-1.jpg" width="512"
+                                                          height="512"
+                                                          srcset="../wp-content/uploads/2016/10/logo512-1.jpg 512w, ../wp-content/uploads/2016/10/logo512-1-150x150.jpg 150w, ../wp-content/uploads/2016/10/logo512-1-300x300.jpg 300w"
+                                                          title="logo512" class="so-widget-image"/>
+                            </a></div>
+
+                    </div>
+                </aside>
+                <aside id="search-2" class="widget widget_search">
+                    <form method="get" id="searchform" action="../index.html" role="search">
+                        <label for="s" class="assistive-text">Search</label>
+                        <input type="text" class="field" name="s" value="" id="s" placeholder="Search"/>
+                        <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search"/>
+                    </form>
+                </aside>
+                <aside id="text-2" class="widget widget_text">
+                    <div class="textwidget">
+                        <script type='text/javascript' src="../cgi/build_links.js">
+                        </script>
+                    </div>
+                </aside>
+                <aside id="text-3" class="widget widget_text">
+                    <div class="textwidget">
+                        <div id='results'></div>
+                    </div>
+                </aside>
+            </div>
+
+        </div>
+
+
+    </div><!-- #main .site-main -->
+
+    <footer id="colophon" class="site-footer" role="contentinfo">
+
+        <div class="container">
+
+            <div id="footer-widgets">
+                <aside id="meta-3" class="widget widget_meta"><h3 class="widget-title">Meta</h3>
+                    <ul>
+                        <li><a rel="nofollow" href="../wp-login.php">Log in</a></li>
+                        <li><a href="../feed/index.html">Entries <abbr title="Really Simple Syndication">RSS</abbr></a>
+                        </li>
+                        <li><a href="../comments/feed/index.html">Comments <abbr
+                                title="Really Simple Syndication">RSS</abbr></a></li>
+                        <li><a href="https://wordpress.org/"
+                               title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a>
+                        </li>
+                    </ul>
+                </aside>
+                <aside id="text-4" class="widget widget_text">
+                    <div class="textwidget"><a href="stats">Stats</a></div>
+                </aside>
+            </div><!-- #footer-widgets -->
+
+
+        </div>
+
+    </footer><!-- #colophon .site-footer -->
+</div><!-- #page .hfeed .site -->
+
+
+<div id="main-menu">
+
+    <a href="#" class="influence-icon influence-icon-cross main-menu-close"></a>
+
+    <div class="menu">
+        <div class="menu">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li class="page_item page-item-232"><a href="../about-us/index.html">About Us</a></li>
+                <li class="page_item page-item-391"><a href="../awesome-links/index.html">Awesome Links</a></li>
+                <li class="page_item page-item-470"><a href="../lab-reference-chart/index.html">Lab Color Reference
+                    Chart</a></li>
+                <li class="page_item page-item-258"><a href="../order-prints-of-my-work/index.html">Order Prints of My
+                    Work</a></li>
+                <li class="page_item page-item-573"><a href="../scripts/index.html">Scripts</a></li>
+                <li class="page_item page-item-527"><a href="../show-suggestions/index.html">Show Suggestions</a></li>
+                <li class="page_item page-item-172"><a href="../shoot-with-harry/index.html">Shoot with Harry</a></li>
+                <li class="page_item page-item-154"><a href="../support-weekly-edit/index.html">Donate to the Show</a>
+                </li>
+                <li class="page_item page-item-142"><a href="../my-workflow/index.html">My Workflow</a></li>
+                <li class="page_item page-item-170"><a href="../edit-my-raw/index.html">Edit my RAW</a></li>
+                <li class="page_item page-item-156"><a href="../tpe/index.html">Sun and Moon Calendar</a></li>
+                <li class="page_item page-item-103"><a href="../playlist/index.html">Playlist</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="widgets">
+        <aside id="siteorigin-panels-builder-3" class="widget widget_siteorigin-panels-builder">
+            <div id="pl-w57e4594d719bc">
+                <div class="panel-grid" id="pg-w57e4594d719bc-0">
+                    <div class="panel-grid-cell" id="pgc-w57e4594d719bc-0-0">
+                        <div class="so-panel widget widget_pages panel-first-child" id="panel-w57e4594d719bc-0-0-0"
+                             data-index="0"><h3 class="widget-title">Resources</h3>
+                            <ul>
+                                <li class="page_item page-item-232"><a href="../about-us/index.html">About Us</a></li>
+                                <li class="page_item page-item-391"><a href="../awesome-links/index.html">Awesome
+                                    Links</a></li>
+                                <li class="page_item page-item-37"><a href="../index.html">Home Page</a></li>
+                                <li class="page_item page-item-470"><a href="../lab-reference-chart/index.html">Lab
+                                    Color Reference Chart</a></li>
+                                <li class="page_item page-item-258"><a href="../order-prints-of-my-work/index.html">Order
+                                    Prints of My Work</a></li>
+                                <li class="page_item page-item-573"><a href="../scripts/index.html">Scripts</a></li>
+                                <li class="page_item page-item-527"><a href="../show-suggestions/index.html">Show
+                                    Suggestions</a></li>
+                                <li class="page_item page-item-172"><a href="../shoot-with-harry/index.html">Shoot with
+                                    Harry</a></li>
+                                <li class="page_item page-item-154"><a href="../support-weekly-edit/index.html">Donate
+                                    to the Show</a></li>
+                                <li class="page_item page-item-142"><a href="../my-workflow/index.html">My Workflow</a>
+                                </li>
+                                <li class="page_item page-item-170"><a href="../edit-my-raw/index.html">Edit my RAW</a>
+                                </li>
+                                <li class="page_item page-item-156"><a href="../tpe/index.html">Sun and Moon
+                                    Calendar</a></li>
+                            </ul>
+                        </div>
+                        <div class="so-panel widget widget_recent-posts widget_recent_entries"
+                             id="panel-w57e4594d719bc-0-0-1" data-index="1"><h3 class="widget-title">Recent Posts</h3>
+                            <ul>
+                                <li>
+                                    <a href="../basic-stacking-orion/index.html">Basic Stacking &#8211; Orion</a>
+                                </li>
+                                <li>
+                                    <a href="../advancetown-lake/index.html">Advancetown Lake</a>
+                                </li>
+                                <li>
+                                    <a href="../lucky-shot/index.html">Lucky Shot</a>
+                                </li>
+                                <li>
+                                    <a href="../now-quicker-edits/index.html">Now with Quicker Edits</a>
+                                </li>
+                                <li>
+                                    <a href="../thinking-differently/index.html">Thinking Differently</a>
+                                </li>
+                                <li>
+                                    <a href="../stacking-by-hand/index.html">Stacking by Hand</a>
+                                </li>
+                                <li>
+                                    <a href="../shot-year-2016/index.html">Shot of the Year 2016</a>
+                                </li>
+                                <li>
+                                    <a href="../story-telling-panoramas/index.html">Story Telling with Panoramas</a>
+                                </li>
+                                <li>
+                                    <a href="../lets-add-grain/index.html">Let&#8217;s Add Grain</a>
+                                </li>
+                                <li>
+                                    <a href="../mask-manager/index.html">Mask Manager</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="so-panel widget widget_search panel-last-child" id="panel-w57e4594d719bc-0-0-2"
+                             data-index="2">
+                            <form method="get" id="searchform" action="../index.html" role="search">
+                                <label for="s" class="assistive-text">Search</label>
+                                <input type="text" class="field" name="s" value="" id="s" placeholder="Search"/>
+                                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+</div>
+<script async type='text/javascript'
+        src='../wp-content/plugins/cleantalk-spam-protect/inc/cleantalk_nocache.js?random=5.58'></script>
+<script type="text/javascript">function ctSetCookie(c_name, value, def_value) {
+    document.cookie = c_name + "=" + escape(value) + "; path=/";
+}
+ctSetCookie("ct_checkjs", "754191685", "0");</script>
+<style type="text/css" media="all" id="siteorigin-panels-grids-wp_footer">/* Layout w57e4594d719bc */
+#pg-w57e4594d719bc-0 .panel-grid-cell {
+    float: none
+}
+
+#pl-w57e4594d719bc .panel-grid-cell .so-panel {
+    margin-bottom: 30px
+}
+
+#pl-w57e4594d719bc .panel-grid-cell .so-panel:last-child {
+    margin-bottom: 0px
+}
+
+#pg-w57e4594d719bc-0 {
+    margin-left: -15px;
+    margin-right: -15px
+}
+
+#pg-w57e4594d719bc-0 .panel-grid-cell {
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+@media (max-width: 780px) {
+    #pg-w57e4594d719bc-0 .panel-grid-cell {
+        float: none;
+        width: auto
+    }
+
+    #pl-w57e4594d719bc .panel-grid, #pl-w57e4594d719bc .panel-grid-cell {
+    }
+
+    #pl-w57e4594d719bc .panel-grid .panel-grid-cell-empty {
+        display: none
+    }
+
+    #pl-w57e4594d719bc .panel-grid .panel-grid-cell-mobile-last {
+        margin-bottom: 0px
+    }
+} </style>
+<script type='text/javascript' src='../wp-includes/js/comment-reply.min.js?ver=4.7.2'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min.js?ver=4.7.2'></script>
+
+<script async type='text/javascript'
+        src='../wp-content/plugins/cleantalk-spam-protect/inc/cleantalk_nocache.js?random=5.58'></script>
+</body>
+</html>

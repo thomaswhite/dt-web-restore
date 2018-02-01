@@ -1,0 +1,2509 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="profile" href="http://gmpg.org/xfn/11"/>
+    <link rel="pingback" href="../xmlrpc.php"/>
+
+    <title>Animate your edit</title>
+
+    <script type='text/javascript'>
+        var ct_ajaxurl = '../wp-admin/admin-ajax.php';
+        var ct_info_flag = false;
+        var ct_set_cookies_flag = true;
+    </script>
+
+    <!-- This site is optimized with the Yoast SEO Premium plugin v4.2.1 - https://yoast.com/wordpress/plugins/seo/ -->
+    <meta name="description"
+          content="Harry Durgin&#039;s weekly Darktable tutorial: tips and tricks 3-step Milky Way image editing technique; plus a bash script to animate your Darktable edit"/>
+    <meta name="robots" content="noodp"/>
+    <link rel="canonical" href="../animate-your-edit/"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Milky Way Tips and Tricks - and a little script"/>
+    <meta property="og:description"
+          content="Harry reveals his process for processing night shots in Darktable: a 3-step guide to better Milky Way images. Plus a bonus bash script - animate your Darktable edit from start to finish!"/>
+    <meta property="og:url" content="../animate-your-edit/"/>
+    <meta property="og:site_name" content="Weekly Edit"/>
+    <meta property="article:section" content="Uncategorized"/>
+    <meta property="article:published_time" content="2017-06-01T10:26:09+00:00"/>
+    <meta property="article:modified_time" content="2017-06-06T16:13:03+00:00"/>
+    <meta property="og:updated_time" content="2017-06-06T16:13:03+00:00"/>
+    <meta property="og:image" content="../wp-content/uploads/2017/06/animate_your_edit.jpg"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description"
+          content="Harry Durgin&#039;s weekly Darktable tutorial: tips and tricks 3-step Milky Way image editing technique; plus a bash script to animate your Darktable edit"/>
+    <meta name="twitter:title" content="Animate your edit"/>
+    <meta name="twitter:image" content="../wp-content/uploads/2017/06/animate_your_edit.jpg"/>
+    <meta property="DC.date.issued" content="2017-06-01T10:26:09+00:00"/>
+    <!-- / Yoast SEO Premium plugin. -->
+
+    <link rel='dns-prefetch' href='http://fonts.googleapis.com'/>
+    <link rel='dns-prefetch' href='http://s.w.org'/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Feed" href="../feed/"/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Comments Feed"
+          href="../comments/feed/"/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Animate your edit Comments Feed"
+          href="../animate-your-edit/feed/"/>
+    <script type="text/javascript">
+        window._wpemojiSettings = {
+            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/",
+            "ext": ".png",
+            "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/",
+            "svgExt": ".svg",
+            "source": {"concatemoji": "http:\/\/weeklyedit.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.5"}
+        };
+        !function (a, b, c) {
+            function d(a) {
+                var b, c, d, e, f = String.fromCharCode;
+                if (!k || !k.fillText)return !1;
+                switch (k.clearRect(0, 0, j.width, j.height), k.textBaseline = "top", k.font = "600 32px Arial", a) {
+                    case"flag":
+                        return k.fillText(f(55356, 56826, 55356, 56819), 0, 0), !(j.toDataURL().length < 3e3) && (k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 65039, 8205, 55356, 57096), 0, 0), b = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 55356, 57096), 0, 0), c = j.toDataURL(), b !== c);
+                    case"emoji4":
+                        return k.fillText(f(55357, 56425, 55356, 57341, 8205, 55357, 56507), 0, 0), d = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55357, 56425, 55356, 57341, 55357, 56507), 0, 0), e = j.toDataURL(), d !== e
+                }
+                return !1
+            }
+
+            function e(a) {
+                var c = b.createElement("script");
+                c.src = a, c.defer = c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c)
+            }
+
+            var f, g, h, i, j = b.createElement("canvas"), k = j.getContext && j.getContext("2d");
+            for (i = Array("flag", "emoji4"), c.supports = {
+                everything: !0,
+                everythingExceptFlag: !0
+            }, h = 0; h < i.length; h++)c.supports[i[h]] = d(i[h]), c.supports.everything = c.supports.everything && c.supports[i[h]], "flag" !== i[h] && (c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && c.supports[i[h]]);
+            c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && !c.supports.flag, c.DOMReady = !1, c.readyCallback = function () {
+                c.DOMReady = !0
+            }, c.supports.everything || (g = function () {
+                c.readyCallback()
+            }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () {
+                "complete" === b.readyState && c.readyCallback()
+            })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji)))
+        }(window, document, window._wpemojiSettings);
+    </script>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' id='siteorigin-panels-front-css'
+          href='../wp-content/plugins/siteorigin-panels/css/front.css?ver=2.4.24' type='text/css' media='all'/>
+    <link rel='stylesheet' id='sow-image-default-3f547a15eaaa-css'
+          href='../wp-content/uploads/siteorigin-widgets/sow-image-default-3f547a15eaaa.css?ver=4.7.5' type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='siteorigin-google-web-fonts-css'
+          href='http://fonts.googleapis.com/css?family=Montserrat&#038;ver=4.7.5' type='text/css' media='all'/>
+    <link rel='stylesheet' id='influence-style-css' href='../wp-content/themes/influence/style.css?ver=4.7.5'
+          type='text/css' media='all'/>
+    <script type='text/javascript' src='../wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+    <script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+    <script type='text/javascript' src='../wp-content/themes/influence/js/jquery.fitvids.min.js?ver=1.0'></script>
+    <script type='text/javascript' src='../wp-content/themes/influence/js/jquery.theme-main.min.js?ver=1.2.1'></script>
+    <link rel='https://api.w.org/' href='../wp-json/'/>
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php?rsd"/>
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml"/>
+    <meta name="generator" content="WordPress 4.7.5"/>
+    <link rel='shortlink' href='../?p=940'/>
+    <link rel="alternate" type="application/json+oembed"
+          href="../wp-json/oembed/1.0/embed?url=http%3A%2F%2Fweeklyedit.com%2Fanimate-your-edit%2F"/>
+    <link rel="alternate" type="text/xml+oembed"
+          href="../wp-json/oembed/1.0/embed?url=http%3A%2F%2Fweeklyedit.com%2Fanimate-your-edit%2F&#038;format=xml"/>
+    <!--[if lt IE 9]>
+    <script src="../wp-content/themes/influence/js/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if (gte IE 6)&(lte IE 8)]>
+    <script type="text/javascript" src="../wp-content/themes/influence/js/selectivizr.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <style type="text/css" id="custom-background-css">
+        body.custom-background {
+            background-color: #ffffff;
+            background-image: url("../wp-content/themes/influence/images/background.png");
+            background-position: left top;
+            background-size: auto;
+            background-repeat: repeat;
+            background-attachment: scroll;
+        }
+    </style>
+    <style type="text/css" media="all" id="siteorigin-panels-grids-wp_head">/* Layout 940 */
+    #pg-940-0, #pg-940-1, #pl-940 .panel-grid-cell .so-panel {
+        margin-bottom: 30px
+    }
+
+    #pg-940-0 .panel-grid-cell, #pg-940-1 .panel-grid-cell, #pg-940-2 .panel-grid-cell {
+        float: none
+    }
+
+    #pl-940 .panel-grid-cell .so-panel:last-child {
+        margin-bottom: 0px
+    }
+
+    #pg-940-0, #pg-940-1, #pg-940-2 {
+        margin-left: -15px;
+        margin-right: -15px
+    }
+
+    #pg-940-0 .panel-grid-cell, #pg-940-1 .panel-grid-cell, #pg-940-2 .panel-grid-cell {
+        padding-left: 15px;
+        padding-right: 15px
+    }
+
+    @media (max-width: 780px) {
+        #pg-940-0 .panel-grid-cell, #pg-940-1 .panel-grid-cell, #pg-940-2 .panel-grid-cell {
+            float: none;
+            width: auto
+        }
+
+        #pl-940 .panel-grid, #pl-940 .panel-grid-cell {
+        }
+
+        #pl-940 .panel-grid .panel-grid-cell-empty {
+            display: none
+        }
+
+        #pl-940 .panel-grid .panel-grid-cell-mobile-last {
+            margin-bottom: 0px
+        }
+    } </style>
+    <style type="text/css" id="influence-footer-widgets">#footer-widgets aside {
+        width: 50%;
+    } </style>
+    <style id='influence-custom-css' class='siteorigin-custom-css' type='text/css'>
+        .post-thumbnail {
+            display: none;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        article.entry .entry-content h3 {
+            font-size: 17px;
+            text-align: left;
+            margin-left: 0px;
+            margin-top: 0em;
+            margin-bottom: 0px;
+        }
+
+        #panel-37-0-1-2.so-panel.widget.widget_recent-posts.widget_recent_entries {
+            margin-bottom: 0px;
+        }
+
+        .entry-content ul {
+            margin-left: -6px;
+        }
+
+        #topics {
+            margin-top: -30px;
+        }
+
+        #modules {
+            margin-top: -30px;
+        }
+
+        .panel-grid-cell .widget-title {
+            padding-bottom: 15px;
+        }
+
+        #main-menu .widgets aside.widget .widget-title {
+            margin-bottom: 0px;
+            margin-top: -20px;
+        }
+
+        #panel-470-0-0-0.so-panel.widget.widget_sow-image.panel-first-child.panel-last-child {
+            margin-top: -50px;
+        }
+
+        article.entry {
+            visibility: visible;
+        }
+
+        .post-text {
+            visibility: visible;
+        }
+
+        .entry-title {
+            visibility: visible;
+        }
+
+        article.entry .post-text {
+            padding-top: 0px;
+        }
+
+        #panel-72-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-75-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-131-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-133-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-135-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-137-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-140-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-177-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-278-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-354-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-430-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-448-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-475-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-488-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-518-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-550-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-575-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-599-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-625-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-664-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-682-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-704-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-722-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-736-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-757-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-765-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-903-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+    </style>
+    <style type="text/css" id="customizer-css">h1, h2, h3, h4, h5, h6 {
+        font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+        font-weight: 400
+    }
+
+    article.entry {
+        background-color: #ffffff
+    } </style>
+</head>
+
+<body class="post-template-default single single-post postid-940 single-format-standard custom-background siteorigin-panels responsive has-main-sidebar">
+
+<div id="page" class="hfeed site">
+
+
+    <header id="masthead" class="site-header has-shadow" role="banner">
+
+        <div class="container">
+
+            <div class="hgroup">
+
+                <h1 class="site-title">
+                    <a href="../index.html" title="Weekly Edit" rel="home">
+                        Weekly Edit </a>
+                </h1>
+
+
+            </div>
+
+
+            <nav role="navigation" class="site-navigation main-navigation primary">
+
+                <h1 class="assistive-text">Menu</h1>
+
+                <a href="#" class="main-menu-button">
+                    <i class="influence-icon-menu-icon"></i>
+                    Menu </a>
+
+            </nav><!-- .site-navigation .main-navigation -->
+
+
+        </div>
+
+    </header><!-- #masthead .site-header -->
+
+    <div class="site-header has-shadow site-header-sentinel">
+
+        <div class="container">
+
+            <div class="hgroup">
+
+                <h1 class="site-title">
+                    Weekly Edit </h1>
+
+
+            </div>
+
+
+            <div role="navigation" class="site-navigation main-navigation primary">
+
+                <h1 class="assistive-text">Menu</h1>
+
+                <a href="#" class="main-menu-button">
+                    <i class="influence-icon-menu-icon"></i>
+                    Menu </a>
+
+            </div><!-- .site-navigation .main-navigation -->
+
+
+        </div>
+
+    </div><!-- #masthead .site-header -->
+
+    <div id="main" class="site-main">
+
+        <section id="primary" class="content-area">
+
+            <div id="content" class="site-content" role="main">
+
+
+                <article id="post-940"
+                         class="entry post-940 post type-post status-publish format-standard hentry category-uncategorized category-weekly-edits">
+
+
+                    <div class="post-text">
+
+                        <h1 class="entry-title"><a href="../animate-your-edit/" title="Permalink to Animate your edit"
+                                                   rel="bookmark">Animate your edit</a></h1>
+
+                        <div class="entry-content">
+                            <div id="pl-940">
+                                <div class="panel-grid" id="pg-940-0">
+                                    <div class="panel-grid-cell" id="pgc-940-0-0">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-940-0-0-0" data-index="0">
+                                            <div class="textwidget">
+                                                <div id="vp">
+                                                    <iframe frameborder=0 allowfullscreen
+                                                            src="https://www.youtube.com/embed/6y3-ESiyUpM"></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-grid" id="pg-940-1">
+                                    <div class="panel-grid-cell" id="pgc-940-1-0">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-940-1-0-0" data-index="1"><h3 class="widget-title">A script and
+                                            some simple Milky Way techniques this week</h3>
+                                            <div class="textwidget"><p>I've been doing a lot of Milky Way shooting
+                                                recently and have developed some quick techniques for getting consistent
+                                                results in Darktable. In this episode, I share my night photography
+                                                processing tips and tricks. I also share with you my script to create a
+                                                slideshow video from your sidecar XMP files. My script can accept
+                                                multiple file inputs, so it can follow an edit through various saved
+                                                points along the way.</p>
+                                                <p>This video is the latest in our faster format but packed with
+                                                    information. It builds on knowledge from previous videos, running
+                                                    full-tilt through tools and methods to achieve the goals. For fuller
+                                                    explanations, return to the <a href=../ target=_blank> Home Page</a>
+                                                    and scroll down to Topics Discussed or Modules Used on the
+                                                    right-hand bar. Click on any of these, and we assemble a complete
+                                                    playlist of every instance from a knowledge base of our first 27
+                                                    videos for quick review right here on the site.<br/>
+                                                    Thank you for watching!</p>
+                                                <p><a target=_blank
+                                                      href="https://drive.google.com/open?id=0B7mIPRZEcQpAQXoyVWMycDI0RTQ">Milky
+                                                    Way RAW</a><br/>
+                                                    <a target=_blank
+                                                       href="https://drive.google.com/open?id=0B7mIPRZEcQpAQWstYm5zZkNRZk0">Milky
+                                                        Way RAW XMP</a><br/>
+                                                    <a target=_blank
+                                                       href="https://drive.google.com/open?id=0B7mIPRZEcQpAVFVWYmRMbTRBNzQ">Milky
+                                                        Way TIF</a><br/>
+                                                    <a target=_blank
+                                                       href="https://drive.google.com/open?id=0B7mIPRZEcQpAcHVqZzBRNmN4TUk">Milky
+                                                        Way TIF XMP</a><br/>
+                                                    <a target=_blank
+                                                       href="https://drive.google.com/open?id=0B7mIPRZEcQpAWjdWeWxoV2xtMXM">Milky
+                                                        Way final JPG</a><br/>
+                                                    <a target=_blank
+                                                       href="https://drive.google.com/open?id=0B7mIPRZEcQpAa2ZPUzV6NU1tOFU">Milky
+                                                        Way slideshow of edit</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-grid" id="pg-940-2">
+                                    <div class="panel-grid-cell" id="pgc-940-2-0">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-940-2-0-0" data-index="2"><h3 class="widget-title">Script to make
+                                            slideshow from sidecar files</h3>
+                                            <div class="textwidget"><pre>
+#!/bin/zsh
+
+# usage: dt_movie.zsh file1.RAW file2.tif etc
+# requires the use of sidecar xmp files
+# make sure Darktable isn't running because only 1 instance is allowed at a time
+
+frame_seconds=2.5
+frame_width=1920
+frame_height=1080
+font_size=24
+extra_frames=10
+rm -fr /tmp/dt_movie*
+mkdir /tmp/dt_movie &> /dev/null
+typeset -Z4 index1 movie_index hist_index frame
+index1=0; movie_index=1
+first=$1
+echo
+echo "index /t hist /t enabled /t operation /t filename" |expand -t16
+echo "---"
+for file in "$@"; do
+  index2=0
+  grep -B1 'enabled=' $file.xmp |tr 'n' ' ' |sed -e 's/-- */!/g' |tr '!' 'n' |cut -d'"' -f2,4 |tr '"' ' ' |while read operation enabled; do
+    echo "$index1 t $index2 t $enabled t $operation t $file" |expand -t16 >>/tmp/dt_movie.list
+    ((index1++))
+    ((index2++))
+  done
+done
+((index1--))
+cat /tmp/dt_movie.list
+echo
+echo -n "starting point (1): "
+read starting_point
+echo
+[ -z $starting_point ] && starting_point=0
+seq $starting_point $index1 |while read hist_index; do
+  grep "^$hist_index" /tmp/dt_movie.list |read a b c d e
+  if [ $c -eq 1 ]; then
+    ((index2++))
+    rm /tmp/dt_movie.jpg &> /dev/null
+    cp $e.xmp /tmp/dt_movie.xmp
+    sed -i "s/darktable:history_end.*$/darktable:history_end="$b">/" /tmp/dt_movie.xmp
+    darktable-cli "$e" /tmp/dt_movie.xmp /tmp/dt_movie.jpg --width $frame_width --height $frame_height &> /dev/null
+    echo "$a"/"$index1" $d |read text
+    echo $text
+    convert /tmp/dt_movie.jpg -pointsize $font_size -fill "#FFFFFF" -draw "text 10,32 '$text'" -background black -gravity center -extent "$frame_width"x"$frame_height" /tmp/dt_movie/$movie_index.jpg &> /dev/null
+    ((movie_index++))
+  fi
+done
+seq 1 $extra_frames |while read frame; do
+  convert /tmp/dt_movie.jpg -pointsize $font_size -fill "#FFFFFF" -draw "text 10,32 '$text - finished'" -background black -gravity center -extent "$frame_width"x"$frame_height" /tmp/dt_movie/$movie_index.jpg &> /dev/null
+  ((movie_index++))
+  echo $frame
+done
+avconv -f image2 -r $((1/$frame_seconds)) -i /tmp/dt_movie/%04d.jpg -aspect 16:9 -b:v 15000k -y $first.avi &> /dev/null
+rm -fr /tmp/dt_movie*
+</pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- .entry-content -->
+
+                        <div class="entry-meta">
+                            <div class="taxonomy">
+                                <div class="categories"><span class="influence-icon-layers"></span><a
+                                        href="../../category/uncategorized/index.html" rel="tag">Uncategorized</a>, <a
+                                        href="../../category/weekly-edits/index.html" rel="tag">Weekly Edits</a></div>
+                            </div>
+
+                            <div class="posted-on">Posted on <a href="../animate-your-edit/" title="10:26 am"
+                                                                rel="bookmark">
+                                <time class="entry-date" datetime="2017-06-01T10:26:09+00:00">June 1, 2017</time>
+                            </a></div>
+                        </div><!-- .entry-meta -->
+
+
+                        <div id="single-comments-wrapper">
+
+
+                            <div id="comments" class="comments-area">
+
+
+                                <h2 id="comments-title">
+                                    36 thoughts on &ldquo;<span>Animate your edit</span>&rdquo;        </h2>
+
+
+                                <ol class="commentlist">
+                                    <li class="comment even thread-even depth-1" id="li-comment-649">
+                                        <article id="comment-649" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://0.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://2.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Nicolás Pasini</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-649">
+                                                        <time datetime="2017-06-15T12:37:41+00:00">June 15, 2017 at
+                                                            12:37 pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=649#respond'
+                                   onclick='return addComment.moveForm( "comment-649", "649", "respond", "940" )'
+                                   aria-label='Reply to Nicolás Pasini'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Hi Mouse, Harry</p>
+                                                <p>That&#8217;s fine, I&#8217;ve got the script running with a few
+                                                    modifications. I just wanted to let you know about those little
+                                                    issues.</p>
+                                                <p>Thank you both,<br/>
+                                                    Regards,<br/>
+                                                    Nicolás</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment byuser comment-author-harry bypostauthor odd alt thread-odd thread-alt depth-1"
+                                        id="li-comment-647">
+                                        <article id="comment-647" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">harry</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-647">
+                                                        <time datetime="2017-06-14T06:55:22+00:00">June 14, 2017 at 6:55
+                                                            am
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=647#respond'
+                                   onclick='return addComment.moveForm( "comment-647", "647", "respond", "940" )'
+                                   aria-label='Reply to harry'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>That was Mouse responding,
+                                                cause I&#8217;ve been buried in work the past couple of days. Sorry for
+                                                the confusion. I&#8217;ll have a look later today.</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="post pingback">
+                                        <p>Pingback: <a
+                                                href='https://darktable.fr/2017/06/weekly-edit-40-animate-your-edit/'
+                                                rel='external nofollow' class='url'>Weekly Edit 40: Animate your edit
+                                            &#8211; darktable FR</a></p>
+                                    </li><!-- #comment-## -->
+                                    <li class="comment even thread-even depth-1" id="li-comment-645">
+                                        <article id="comment-645" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://2.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Nicolás Pasini</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-645">
+                                                        <time datetime="2017-06-13T12:20:36+00:00">June 13, 2017 at
+                                                            12:20 pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=645#respond'
+                                   onclick='return addComment.moveForm( "comment-645", "645", "respond", "940" )'
+                                   aria-label='Reply to Nicolás Pasini'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Dear Mouse and Harry,</p>
+                                                <p>I mean the text on the dt_movie. The resultant .avi file.</p>
+                                                <p>Thank you both for your time.<br/>
+                                                    Regards,<br/>
+                                                    Nicolás</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-643">
+                                        <article id="comment-643" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://0.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Nicolás Pasini</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-643">
+                                                        <time datetime="2017-06-10T13:50:46+00:00">June 10, 2017 at 1:50
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=643#respond'
+                                   onclick='return addComment.moveForm( "comment-643", "643", "respond", "940" )'
+                                   aria-label='Reply to Nicolás Pasini'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Harry,</p>
+                                                <p>I forgot to mention that the overlay text is not synchronized with
+                                                    the right frame.</p>
+                                                <p>e.g : When it says &#8220;Clipping&#8221;, the video is showing the
+                                                    &#8220;watermark&#8221; frame.</p>
+                                                <p>Regards,<br/>
+                                                    Nicolás</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                        <ul class="children">
+                                            <li class="comment byuser comment-author-harry bypostauthor even depth-2"
+                                                id="li-comment-644">
+                                                <article id="comment-644" class="comment">
+                                                    <footer>
+                                                        <img alt=''
+                                                             src='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=50&#038;d=blank&#038;r=g'
+                                                             srcset='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=100&amp;d=blank&amp;r=g 2x'
+                                                             class='avatar avatar-50 photo' height='50' width='50'/>
+                                                        <div class="comment-author">
+                                                            <cite class="fn">harry</cite>
+                                                        </div><!-- .comment-author -->
+
+
+                                                        <div class="comment-meta commentmetadata">
+                                                            <a href="../animate-your-edit/#comment-644">
+                                                                <time datetime="2017-06-13T11:09:32+00:00">June 13, 2017
+                                                                    at 11:09 am
+                                                                </time>
+                                                            </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=644#respond'
+                                   onclick='return addComment.moveForm( "comment-644", "644", "respond", "940" )'
+                                   aria-label='Reply to harry'>Reply</a>															</span>
+                                                        </div><!-- .comment-meta .commentmetadata -->
+
+                                                    </footer>
+
+                                                    <div class="comment-content entry-content"><p>Ah, yes &#8211; the
+                                                        transcription is an auto-transcribe feature from YouTube these
+                                                        days. In all of the earliest episodes, plus one or two more (the
+                                                        C-LUT one for sure), Mouse transcribed and synchronized the text
+                                                        so it was nearly perfectly accurate. But as our gallery took
+                                                        over our time, we&#8217;ve just let YouTube do its automatic
+                                                        text. Certainly not perfect, but they do surprisingly well for
+                                                        the most part.<br/>
+                                                        &#8211;Mouse and Harry</p>
+                                                    </div>
+                                                </article><!-- #comment-## -->
+
+                                            </li><!-- #comment-## -->
+                                        </ul><!-- .children -->
+                                    </li><!-- #comment-## -->
+                                    <li class="comment odd alt thread-even depth-1" id="li-comment-642">
+                                        <article id="comment-642" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://2.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://0.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Anonymous</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-642">
+                                                        <time datetime="2017-06-10T13:42:02+00:00">June 10, 2017 at 1:42
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=642#respond'
+                                   onclick='return addComment.moveForm( "comment-642", "642", "respond", "940" )'
+                                   aria-label='Reply to '>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Hi Harry</p>
+                                                <p>1)<br/>
+                                                    [export_job] exported to `/tmp/dt_movieIMG_8478.jpg&#8217;<br/>
+                                                    0000/0003 watermark<br/>
+                                                    convert: unable to open image `/tmp/dt_movie.jpg&#8217;: No such
+                                                    file or directory @ error/blob.c/OpenBlob/2712.<br/>
+                                                    convert: no images defined `/tmp/dt_movie/0001.jpg&#8217; @
+                                                    error/convert.c/ConvertImageCommand/3210.<br/>
+                                                    rm: cannot remove &#8216;/tmp/dt_movie.jpg&#8217;: No such file or
+                                                    directory<br/>
+                                                    [export_job] exported to `/tmp/dt_movieIMG_8478_01.jpg&#8217;</p>
+                                                <p>So I replaced /tmp/dt_movie.jpg for /tmp/dt_movie_.jpg (note the
+                                                    underscore) . After this change the script started to work.</p>
+                                                <p>2) It seems that the script is not processing the last module of the
+                                                    list.<br/>
+                                                    Let&#8217;s say that the .xmp has 4 modules to be applied </p>
+                                                <p>watermark<br/>
+                                                    clipping<br/>
+                                                    tonecurve<br/>
+                                                    colorcorrection</p>
+                                                <p>The script is processing watermark, clipping and tonecurve but is
+                                                    missing the colorcorrection module.</p>
+                                                <p>The xmp :<br/>
+                                                    watermark hist = 1<br/>
+                                                    clipping hist = 2<br/>
+                                                    tonecurve hist = 3<br/>
+                                                    colorcorrection hist = 4</p>
+                                                <p>In the dt_movie.list you have</p>
+                                                <p>0000 0 1 watermark IMG_8478.CR2<br/>
+                                                    0001 1 1 clipping IMG_8478.CR2<br/>
+                                                    0002 2 1 tonecurve IMG_8478.CR2<br/>
+                                                    0003 3 1 colorcorrection IMG_8478.CR2</p>
+                                                <p>Hist number 3 (colorcorrection) is preventing the hist 4 of the
+                                                    original .xmp.</p>
+                                                <p>Thank you for sharing! Saved me from using screenshot !!!<br/>
+                                                    Regards,<br/>
+                                                    Nicolás</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-640">
+                                        <article id="comment-640" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://2.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Nicolás Pasini</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-640">
+                                                        <time datetime="2017-06-06T18:49:26+00:00">June 6, 2017 at 6:49
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=640#respond'
+                                   onclick='return addComment.moveForm( "comment-640", "640", "respond", "940" )'
+                                   aria-label='Reply to Nicolás Pasini'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Sent.<br/>
+                                                Thank you for your time.</p>
+                                                <p>I&#8217;m out for a while.</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment byuser comment-author-harry bypostauthor odd alt thread-even depth-1"
+                                        id="li-comment-639">
+                                        <article id="comment-639" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">harry</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-639">
+                                                        <time datetime="2017-06-06T18:09:27+00:00">June 6, 2017 at 6:09
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=639#respond'
+                                   onclick='return addComment.moveForm( "comment-639", "639", "respond", "940" )'
+                                   aria-label='Reply to harry'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>i&#8217;d love for you to put
+                                                this line at the top the script, right after #!/bin/zsh</p>
+                                                <p>set -x</p>
+                                                <p>and please send me the output to <a
+                                                        href="mailto:durgin.harry@gmail.com">durgin.harry@gmail.com</a>
+                                                </p>
+                                                <p>thanks, harry</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-638">
+                                        <article id="comment-638" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://0.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Nicolás Pasini</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-638">
+                                                        <time datetime="2017-06-06T18:02:24+00:00">June 6, 2017 at 6:02
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=638#respond'
+                                   onclick='return addComment.moveForm( "comment-638", "638", "respond", "940" )'
+                                   aria-label='Reply to Nicolás Pasini'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>The script is exporting a file
+                                                called dt_movieIMG_8563_03.jpg<br/>
+                                                Then is asking for dt_movie.jpg&#8217;<br/>
+                                                is this ok ?</p>
+                                                <p>[export_job] exported to `dt_movieIMG_8563_03.jpg&#8217;<br/>
+                                                    0028/0028 shadhi<br/>
+                                                    convert: unable to open image `dt_movie.jpg&#8217;: No such file or
+                                                    directory @ error/blob.c/OpenBlob/2712.</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment odd alt thread-even depth-1" id="li-comment-637">
+                                        <article id="comment-637" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://2.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://0.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Nicolás Pasini</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-637">
+                                                        <time datetime="2017-06-06T17:56:24+00:00">June 6, 2017 at 5:56
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=637#respond'
+                                   onclick='return addComment.moveForm( "comment-637", "637", "respond", "940" )'
+                                   aria-label='Reply to Nicolás Pasini'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>nicolas@osiris:/tmp$
+                                                darktable-cli<br/>
+                                                usage: darktable-cli [] [&#8211;width ,&#8211;height ,&#8211;bpp ,&#8211;hq
+                                                ,&#8211;upscale ,&#8211;verbose] [&#8211;core ]<br/>
+                                                nicolas@osiris:/tmp$</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment byuser comment-author-harry bypostauthor even thread-odd thread-alt depth-1"
+                                        id="li-comment-636">
+                                        <article id="comment-636" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">harry</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-636">
+                                                        <time datetime="2017-06-06T17:55:37+00:00">June 6, 2017 at 5:55
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=636#respond'
+                                   onclick='return addComment.moveForm( "comment-636", "636", "respond", "940" )'
+                                   aria-label='Reply to harry'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>is darktable-cli in your
+                                                path?</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment odd alt thread-even depth-1" id="li-comment-635">
+                                        <article id="comment-635" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://0.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Nicolás Pasini</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-635">
+                                                        <time datetime="2017-06-06T17:52:36+00:00">June 6, 2017 at 5:52
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=635#respond'
+                                   onclick='return addComment.moveForm( "comment-635", "635", "respond", "940" )'
+                                   aria-label='Reply to Nicolás Pasini'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>I suppose selecting 28 as
+                                                &#8220;starting point&#8221; shouldn&#8217;t be an issue ..</p>
+                                                <p>Result:<br/>
+                                                    &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+                                                </p>
+                                                <p>starting point (1): 28</p>
+                                                <p>[export_job] exported to `/tmp/dt_movieIMG_8563.jpg&#8217;<br/>
+                                                    0028/0028 shadhi<br/>
+                                                    convert: unable to open image `/tmp/dt_movie.jpg&#8217;: No such
+                                                    file or directory @ error/blob.c/OpenBlob/2712.<br/>
+                                                    convert: no images defined `/tmp/dt_movie/0001.jpg&#8217; @
+                                                    error/convert.c/ConvertImageCommand/3210.<br/>
+                                                    convert: unable to open image `/tmp/dt_movie.jpg&#8217;: No such
+                                                    file or directory @ error/blob.c/OpenBlob/2712.<br/>
+                                                    convert: no images defined `/tmp/dt_movie/0002.jpg&#8217; @
+                                                    error/convert.c/ConvertImageCommand/3210.<br/>
+                                                    0001<br/>
+                                                    convert: unable to open image `/tmp/dt_movie.jpg&#8217;: No such
+                                                    file or directory @ error/blob.c/OpenBlob/2712.<br/>
+                                                    convert: no images defined `/tmp/dt_movie/0003.jpg&#8217; @
+                                                    error/convert.c/ConvertImageCommand/3210.<br/>
+                                                    0002<br/>
+                                                    convert: unable to open image `/tmp/dt_movie.jpg&#8217;: No such
+                                                    file or directory @ error/blob.c/OpenBlob/2712.<br/>
+                                                    convert: no images defined `/tmp/dt_movie/0004.jpg&#8217; @
+                                                    error/convert.c/ConvertImageCommand/3210.<br/>
+                                                    0003<br/>
+                                                    convert: unable to open image `/tmp/dt_movie.jpg&#8217;: No such
+                                                    file or directory @ error/blob.c/OpenBlob/2712.<br/>
+                                                    convert: no images defined `/tmp/dt_movie/0005.jpg&#8217; @
+                                                    error/convert.c/ConvertImageCommand/3210.<br/>
+                                                    0004<br/>
+                                                    convert: unable to open image `/tmp/dt_movie.jpg&#8217;: No such
+                                                    file or directory @ error/blob.c/OpenBlob/2712.<br/>
+                                                    convert: no images defined `/tmp/dt_movie/0006.jpg&#8217; @
+                                                    error/convert.c/ConvertImageCommand/3210.<br/>
+                                                    0005<br/>
+                                                    convert: unable to open image `/tmp/dt_movie.jpg&#8217;: No such
+                                                    file or directory @ error/blob.c/OpenBlob/2712.<br/>
+                                                    convert: no images defined `/tmp/dt_movie/0007.jpg&#8217; @
+                                                    error/convert.c/ConvertImageCommand/3210.<br/>
+                                                    0006<br/>
+                                                    convert: unable to open image `/tmp/dt_movie.jpg&#8217;: No such
+                                                    file or directory @ error/blob.c/OpenBlob/2712.<br/>
+                                                    convert: no images defined `/tmp/dt_movie/0008.jpg&#8217; @
+                                                    error/convert.c/ConvertImageCommand/3210.<br/>
+                                                    0007<br/>
+                                                    convert: unable to open image `/tmp/dt_movie.jpg&#8217;: No such
+                                                    file or directory @ error/blob.c/OpenBlob/2712.<br/>
+                                                    convert: no images defined `/tmp/dt_movie/0009.jpg&#8217; @
+                                                    error/convert.c/ConvertImageCommand/3210.<br/>
+                                                    0008<br/>
+                                                    convert: unable to open image `/tmp/dt_movie.jpg&#8217;: No such
+                                                    file or directory @ error/blob.c/OpenBlob/2712.<br/>
+                                                    convert: no images defined `/tmp/dt_movie/0010.jpg&#8217; @
+                                                    error/convert.c/ConvertImageCommand/3210.<br/>
+                                                    0009<br/>
+                                                    convert: unable to open image `/tmp/dt_movie.jpg&#8217;: No such
+                                                    file or directory @ error/blob.c/OpenBlob/2712.<br/>
+                                                    convert: no images defined `/tmp/dt_movie/0011.jpg&#8217; @
+                                                    error/convert.c/ConvertImageCommand/3210.<br/>
+                                                    0010<br/>
+                                                    ffmpeg version 2.8.11-0ubuntu0.16.04.1 Copyright (c) 2000-2017 the
+                                                    FFmpeg developers<br/>
+                                                    built with gcc 5.4.0 (Ubuntu 5.4.0-6ubuntu1~16.04.4) 20160609<br/>
+                                                    configuration: &#8211;prefix=/usr &#8211;extra-version=0ubuntu0.16.04.1
+                                                    &#8211;build-suffix=-ffmpeg &#8211;toolchain=hardened &#8211;libdir=/usr/lib/x86_64-linux-gnu
+                                                    &#8211;incdir=/usr/include/x86_64-linux-gnu &#8211;cc=cc &#8211;cxx=g++
+                                                    &#8211;enable-gpl &#8211;enable-shared &#8211;disable-stripping
+                                                    &#8211;disable-decoder=libopenjpeg &#8211;disable-decoder=libschroedinger
+                                                    &#8211;enable-avresample &#8211;enable-avisynth &#8211;enable-gnutls
+                                                    &#8211;enable-ladspa &#8211;enable-libass &#8211;enable-libbluray
+                                                    &#8211;enable-libbs2b &#8211;enable-libcaca &#8211;enable-libcdio
+                                                    &#8211;enable-libflite &#8211;enable-libfontconfig &#8211;enable-libfreetype
+                                                    &#8211;enable-libfribidi &#8211;enable-libgme &#8211;enable-libgsm
+                                                    &#8211;enable-libmodplug &#8211;enable-libmp3lame &#8211;enable-libopenjpeg
+                                                    &#8211;enable-libopus &#8211;enable-libpulse &#8211;enable-librtmp
+                                                    &#8211;enable-libschroedinger &#8211;enable-libshine &#8211;enable-libsnappy
+                                                    &#8211;enable-libsoxr &#8211;enable-libspeex &#8211;enable-libssh
+                                                    &#8211;enable-libtheora &#8211;enable-libtwolame &#8211;enable-libvorbis
+                                                    &#8211;enable-libvpx &#8211;enable-libwavpack &#8211;enable-libwebp
+                                                    &#8211;enable-libx265 &#8211;enable-libxvid &#8211;enable-libzvbi
+                                                    &#8211;enable-openal &#8211;enable-opengl &#8211;enable-x11grab
+                                                    &#8211;enable-libdc1394 &#8211;enable-libiec61883 &#8211;enable-libzmq
+                                                    &#8211;enable-frei0r &#8211;enable-libx264
+                                                    &#8211;enable-libopencv<br/>
+                                                    WARNING: library configuration mismatch<br/>
+                                                    avcodec configuration: &#8211;prefix=/usr &#8211;extra-version=0ubuntu0.16.04.1
+                                                    &#8211;build-suffix=-ffmpeg &#8211;toolchain=hardened &#8211;libdir=/usr/lib/x86_64-linux-gnu
+                                                    &#8211;incdir=/usr/include/x86_64-linux-gnu &#8211;cc=cc &#8211;cxx=g++
+                                                    &#8211;enable-gpl &#8211;enable-shared &#8211;disable-stripping
+                                                    &#8211;disable-decoder=libopenjpeg &#8211;disable-decoder=libschroedinger
+                                                    &#8211;enable-avresample &#8211;enable-avisynth &#8211;enable-gnutls
+                                                    &#8211;enable-ladspa &#8211;enable-libass &#8211;enable-libbluray
+                                                    &#8211;enable-libbs2b &#8211;enable-libcaca &#8211;enable-libcdio
+                                                    &#8211;enable-libflite &#8211;enable-libfontconfig &#8211;enable-libfreetype
+                                                    &#8211;enable-libfribidi &#8211;enable-libgme &#8211;enable-libgsm
+                                                    &#8211;enable-libmodplug &#8211;enable-libmp3lame &#8211;enable-libopenjpeg
+                                                    &#8211;enable-libopus &#8211;enable-libpulse &#8211;enable-librtmp
+                                                    &#8211;enable-libschroedinger &#8211;enable-libshine &#8211;enable-libsnappy
+                                                    &#8211;enable-libsoxr &#8211;enable-libspeex &#8211;enable-libssh
+                                                    &#8211;enable-libtheora &#8211;enable-libtwolame &#8211;enable-libvorbis
+                                                    &#8211;enable-libvpx &#8211;enable-libwavpack &#8211;enable-libwebp
+                                                    &#8211;enable-libx265 &#8211;enable-libxvid &#8211;enable-libzvbi
+                                                    &#8211;enable-openal &#8211;enable-opengl &#8211;enable-x11grab
+                                                    &#8211;enable-libdc1394 &#8211;enable-libiec61883 &#8211;enable-libzmq
+                                                    &#8211;enable-frei0r &#8211;enable-libx264 &#8211;enable-libopencv
+                                                    &#8211;enable-version3 &#8211;disable-doc &#8211;disable-programs
+                                                    &#8211;disable-avdevice &#8211;disable-avfilter &#8211;disable-avformat
+                                                    &#8211;disable-avresample &#8211;disable-postproc &#8211;disable-swscale
+                                                    &#8211;enable-libopencore_amrnb &#8211;enable-libopencore_amrwb
+                                                    &#8211;enable-libvo_aacenc &#8211;enable-libvo_amrwbenc<br/>
+                                                    libavutil 54. 31.100 / 54. 31.100<br/>
+                                                    libavcodec 56. 60.100 / 56. 60.100<br/>
+                                                    libavformat 56. 40.101 / 56. 40.101<br/>
+                                                    libavdevice 56. 4.100 / 56. 4.100<br/>
+                                                    libavfilter 5. 40.101 / 5. 40.101<br/>
+                                                    libavresample 2. 1. 0 / 2. 1. 0<br/>
+                                                    libswscale 3. 1.101 / 3. 1.101<br/>
+                                                    libswresample 1. 2.101 / 1. 2.101<br/>
+                                                    libpostproc 53. 3.100 / 53. 3.100<br/>
+                                                    [image2 @ 0x1c89ea0] Could find no file with path &#8216;/tmp/dt_movie/%04d.jpg&#8217;
+                                                    and index in the range 0-4<br/>
+                                                    /tmp/dt_movie/%04d.jpg: No such file or directory<br/>
+                                                    nicolas@osiris:~/Herramientas/mycommands/dt_movie$</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-634">
+                                        <article id="comment-634" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://2.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Nicolás Pasini</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-634">
+                                                        <time datetime="2017-06-06T17:40:59+00:00">June 6, 2017 at 5:40
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=634#respond'
+                                   onclick='return addComment.moveForm( "comment-634", "634", "respond", "940" )'
+                                   aria-label='Reply to Nicolás Pasini'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>ok, </p>
+                                                <p>removing &amp;&gt; /dev/null</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment odd alt thread-even depth-1" id="li-comment-633">
+                                        <article id="comment-633" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Nicolás Pasini</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-633">
+                                                        <time datetime="2017-06-06T17:39:51+00:00">June 6, 2017 at 5:39
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=633#respond'
+                                   onclick='return addComment.moveForm( "comment-633", "633", "respond", "940" )'
+                                   aria-label='Reply to Nicolás Pasini'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>LoL<br/>
+                                                sudo apt-get install libav-tools</p>
+                                                <p>Convert it was already installed .</p>
+                                                <p>I&#8217;ve select 20 as &#8220;starting point&#8221; , but not
+                                                    resultant file was found &#8230; let me try the whole process again
+                                                    from Starting point : 1 &#8230;. just in case..</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment byuser comment-author-harry bypostauthor even thread-odd thread-alt depth-1"
+                                        id="li-comment-632">
+                                        <article id="comment-632" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">harry</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-632">
+                                                        <time datetime="2017-06-06T17:29:52+00:00">June 6, 2017 at 5:29
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=632#respond'
+                                   onclick='return addComment.moveForm( "comment-632", "632", "respond", "940" )'
+                                   aria-label='Reply to harry'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>you can take off the &#8216;
+                                                &#038;> /dev/null&#8217; to see errors</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment byuser comment-author-harry bypostauthor odd alt thread-even depth-1"
+                                        id="li-comment-631">
+                                        <article id="comment-631" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">harry</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-631">
+                                                        <time datetime="2017-06-06T17:29:02+00:00">June 6, 2017 at 5:29
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=631#respond'
+                                   onclick='return addComment.moveForm( "comment-631", "631", "respond", "940" )'
+                                   aria-label='Reply to harry'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>do you have convert and avconv
+                                                installed?</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-630">
+                                        <article id="comment-630" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://2.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Nicolás Pasini</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-630">
+                                                        <time datetime="2017-06-06T17:18:31+00:00">June 6, 2017 at 5:18
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=630#respond'
+                                   onclick='return addComment.moveForm( "comment-630", "630", "respond", "940" )'
+                                   aria-label='Reply to Nicolás Pasini'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Well, the process finished ,
+                                                but I can&#8217;t see any resultant file.</p>
+                                                <p>you sure &#8220;rm -rf /tmp/dt_movie&#8221; is mandatory? Or the
+                                                    resultant file should be found where I run the script?</p>
+                                                <p>This is the output</p>
+                                                <p>nicolas@osiris:~/Herramientas/mycommands/dt_movie$ ./dt_movie.zsh
+                                                    IMG_8563.CR2</p>
+                                                <p>index hist enabled operation filename<br/>
+                                                    &#8212;<br/>
+                                                    0000 0 1 monochrome IMG_8563.CR2<br/>
+                                                    0001 1 1 colisa IMG_8563.CR2<br/>
+                                                    0002 2 1 colisa IMG_8563.CR2<br/>
+                                                    0003 3 1 monochrome IMG_8563.CR2<br/>
+                                                    0004 4 1 highpass IMG_8563.CR2<br/>
+                                                    0005 5 1 highpass IMG_8563.CR2<br/>
+                                                    0006 6 0 bilat IMG_8563.CR2<br/>
+                                                    0007 7 1 tonecurve IMG_8563.CR2<br/>
+                                                    0008 8 1 colisa IMG_8563.CR2<br/>
+                                                    0009 9 0 colisa IMG_8563.CR2<br/>
+                                                    0010 10 1 colisa IMG_8563.CR2<br/>
+                                                    0011 11 1 shadhi IMG_8563.CR2<br/>
+                                                    0012 12 1 shadhi IMG_8563.CR2<br/>
+                                                    0013 13 1 colorcorrection IMG_8563.CR2<br/>
+                                                    0014 14 1 clipping IMG_8563.CR2<br/>
+                                                    0015 15 1 tonecurve IMG_8563.CR2<br/>
+                                                    0016 16 1 tonecurve IMG_8563.CR2<br/>
+                                                    0017 17 1 tonecurve IMG_8563.CR2<br/>
+                                                    0018 18 1 tonecurve IMG_8563.CR2<br/>
+                                                    0019 19 1 tonecurve IMG_8563.CR2<br/>
+                                                    0020 20 1 monochrome IMG_8563.CR2<br/>
+                                                    0021 21 1 clipping IMG_8563.CR2<br/>
+                                                    0022 22 1 defringe IMG_8563.CR2<br/>
+                                                    0023 23 1 denoiseprofile IMG_8563.CR2<br/>
+                                                    0024 24 1 clipping IMG_8563.CR2<br/>
+                                                    0025 25 1 monochrome IMG_8563.CR2<br/>
+                                                    0026 26 1 shadhi IMG_8563.CR2<br/>
+                                                    0027 27 1 shadhi IMG_8563.CR2<br/>
+                                                    0028 28 1 shadhi IMG_8563.CR2</p>
+                                                <p>starting point (1): </p>
+                                                <p>0000/0028 monochrome<br/>
+                                                    0001/0028 colisa<br/>
+                                                    0002/0028 colisa<br/>
+                                                    0003/0028 monochrome<br/>
+                                                    0004/0028 highpass<br/>
+                                                    0005/0028 highpass<br/>
+                                                    0007/0028 tonecurve<br/>
+                                                    0008/0028 colisa<br/>
+                                                    0010/0028 colisa<br/>
+                                                    0011/0028 shadhi<br/>
+                                                    0012/0028 shadhi<br/>
+                                                    0013/0028 colorcorrection<br/>
+                                                    0014/0028 clipping<br/>
+                                                    0015/0028 tonecurve<br/>
+                                                    0016/0028 tonecurve<br/>
+                                                    0017/0028 tonecurve<br/>
+                                                    0018/0028 tonecurve<br/>
+                                                    0019/0028 tonecurve<br/>
+                                                    0020/0028 monochrome<br/>
+                                                    0021/0028 clipping<br/>
+                                                    0022/0028 defringe<br/>
+                                                    0023/0028 denoiseprofile<br/>
+                                                    0024/0028 clipping<br/>
+                                                    0025/0028 monochrome<br/>
+                                                    0026/0028 shadhi<br/>
+                                                    0027/0028 shadhi<br/>
+                                                    0028/0028 shadhi<br/>
+                                                    0001<br/>
+                                                    0002<br/>
+                                                    0003<br/>
+                                                    0004<br/>
+                                                    0005<br/>
+                                                    0006<br/>
+                                                    0007<br/>
+                                                    0008<br/>
+                                                    0009<br/>
+                                                    0010<br/>
+                                                    nicolas@osiris:~/Herramientas/mycommands/dt_movie$</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment odd alt thread-even depth-1" id="li-comment-629">
+                                        <article id="comment-629" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://0.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://0.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Nicolás Pasini</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-629">
+                                                        <time datetime="2017-06-06T17:09:13+00:00">June 6, 2017 at 5:09
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=629#respond'
+                                   onclick='return addComment.moveForm( "comment-629", "629", "respond", "940" )'
+                                   aria-label='Reply to Nicolás Pasini'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>it is still processing.</p>
+                                                <p>You should compare the original file and the one you uploaded on
+                                                    wordpress , with and hexa tool. Or maybe using some editor with the
+                                                    &#8220;view all symbols&#8221; enabled.</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment byuser comment-author-harry bypostauthor even thread-odd thread-alt depth-1"
+                                        id="li-comment-628">
+                                        <article id="comment-628" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">harry</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-628">
+                                                        <time datetime="2017-06-06T17:04:25+00:00">June 6, 2017 at 5:04
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=628#respond'
+                                   onclick='return addComment.moveForm( "comment-628", "628", "respond", "940" )'
+                                   aria-label='Reply to harry'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Good, let me know</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment odd alt thread-even depth-1" id="li-comment-627">
+                                        <article id="comment-627" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://2.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Nicolás Pasini</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-627">
+                                                        <time datetime="2017-06-06T17:03:22+00:00">June 6, 2017 at 5:03
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=627#respond'
+                                   onclick='return addComment.moveForm( "comment-627", "627", "respond", "940" )'
+                                   aria-label='Reply to Nicolás Pasini'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>hmm &#8230;is doing something
+                                                &#8230;. cross your fingers.</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment byuser comment-author-harry bypostauthor even thread-odd thread-alt depth-1"
+                                        id="li-comment-626">
+                                        <article id="comment-626" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">harry</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-626">
+                                                        <time datetime="2017-06-06T17:02:16+00:00">June 6, 2017 at 5:02
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=626#respond'
+                                   onclick='return addComment.moveForm( "comment-626", "626", "respond", "940" )'
+                                   aria-label='Reply to harry'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>and here&#8217;s the tar
+                                                version</p>
+                                                <p>
+                                                    <a href="https://drive.google.com/open?id=0B7mIPRZEcQpAR25WR3dLa200X0U"
+                                                       rel="nofollow">https://drive.google.com/open?id=0B7mIPRZEcQpAR25WR3dLa200X0U</a>
+                                                </p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment byuser comment-author-harry bypostauthor odd alt thread-even depth-1"
+                                        id="li-comment-625">
+                                        <article id="comment-625" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">harry</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-625">
+                                                        <time datetime="2017-06-06T17:00:56+00:00">June 6, 2017 at 5:00
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=625#respond'
+                                   onclick='return addComment.moveForm( "comment-625", "625", "respond", "940" )'
+                                   aria-label='Reply to harry'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p><a
+                                                    href="https://drive.google.com/open?id=0B7mIPRZEcQpAS1N3QUlnWENLNjg"
+                                                    rel="nofollow">https://drive.google.com/open?id=0B7mIPRZEcQpAS1N3QUlnWENLNjg</a>
+                                            </p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-624">
+                                        <article id="comment-624" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://2.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://0.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Nicolás Pasini</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-624">
+                                                        <time datetime="2017-06-06T16:52:44+00:00">June 6, 2017 at 4:52
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=624#respond'
+                                   onclick='return addComment.moveForm( "comment-624", "624", "respond", "940" )'
+                                   aria-label='Reply to Nicolás Pasini'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Sorry no, not working. Same
+                                                result. </p>
+                                                <p>Please, send me the original file as a tar file or zip</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment byuser comment-author-harry bypostauthor odd alt thread-even depth-1"
+                                        id="li-comment-623">
+                                        <article id="comment-623" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">harry</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-623">
+                                                        <time datetime="2017-06-06T16:46:36+00:00">June 6, 2017 at 4:46
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=623#respond'
+                                   onclick='return addComment.moveForm( "comment-623", "623", "respond", "940" )'
+                                   aria-label='Reply to harry'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>is it working now?</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-622">
+                                        <article id="comment-622" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://0.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Nicolás Pasini</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-622">
+                                                        <time datetime="2017-06-06T16:41:30+00:00">June 6, 2017 at 4:41
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=622#respond'
+                                   onclick='return addComment.moveForm( "comment-622", "622", "respond", "940" )'
+                                   aria-label='Reply to Nicolás Pasini'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>yes,</p>
+                                                <p>For some reason the &#8220;post box&#8221; didn&#8217;t show both
+                                                    lines.</p>
+                                                <p>$ diff dt_movie.zsh dt_movie.zsh.old<br/>
+                                                    echo &#8220;index /t hist /t enabled /t operation /t filename&#8221;
+                                                    |expand -t16<br/>
+                                                    echo &#8220;index t hist t enabled t operation t filename&#8221;
+                                                    |expand -t16</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment byuser comment-author-harry bypostauthor odd alt thread-even depth-1"
+                                        id="li-comment-621">
+                                        <article id="comment-621" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">harry</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-621">
+                                                        <time datetime="2017-06-06T16:38:19+00:00">June 6, 2017 at 4:38
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=621#respond'
+                                   onclick='return addComment.moveForm( "comment-621", "621", "respond", "940" )'
+                                   aria-label='Reply to harry'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>yes, those t&#8217;s are tabs
+                                                and are supposed to be backslashed like this /t</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-620">
+                                        <article id="comment-620" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://2.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://0.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Nicolás Pasini</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-620">
+                                                        <time datetime="2017-06-06T16:37:12+00:00">June 6, 2017 at 4:37
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=620#respond'
+                                   onclick='return addComment.moveForm( "comment-620", "620", "respond", "940" )'
+                                   aria-label='Reply to Nicolás Pasini'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>$ diff dt_movie.zsh
+                                                dt_movie.zsh.old<br/>
+                                                18c18<br/>
+                                                echo &#8220;index t hist t enabled t operation t filename&#8221; |expand
+                                                -t16</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment odd alt thread-even depth-1" id="li-comment-619">
+                                        <article id="comment-619" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://2.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://2.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Nicolás Pasini</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-619">
+                                                        <time datetime="2017-06-06T16:25:07+00:00">June 6, 2017 at 4:25
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=619#respond'
+                                   onclick='return addComment.moveForm( "comment-619", "619", "respond", "940" )'
+                                   aria-label='Reply to Nicolás Pasini'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Sorry, same result. </p>
+                                                <p>Please, could you send me you script as a .tar or .zip file? I am
+                                                    using sublimetext and gedit to create the file. I would like to try
+                                                    the original script file.</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment byuser comment-author-harry bypostauthor even thread-odd thread-alt depth-1"
+                                        id="li-comment-618">
+                                        <article id="comment-618" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">harry</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-618">
+                                                        <time datetime="2017-06-06T16:14:16+00:00">June 6, 2017 at 4:14
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=618#respond'
+                                   onclick='return addComment.moveForm( "comment-618", "618", "respond", "940" )'
+                                   aria-label='Reply to harry'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>WordPress had stripped the
+                                                backslashes off my echo. It is repaired. Please try the new version.
+                                                Thanks for helping me.</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment odd alt thread-even depth-1" id="li-comment-617">
+                                        <article id="comment-617" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://0.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://0.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Nicolás Pasini</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-617">
+                                                        <time datetime="2017-06-06T16:07:53+00:00">June 6, 2017 at 4:07
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=617#respond'
+                                   onclick='return addComment.moveForm( "comment-617", "617", "respond", "940" )'
+                                   aria-label='Reply to Nicolás Pasini'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>hmm, zsh is already
+                                                installed.</p>
+                                                <p>nicolas@osiris:/mycommands$ ./dt_movie.zsh IMG_8563.CR2</p>
+                                                <p>or<br/>
+                                                    osiris% ./dt_movie.zsh IMG_8563.CR2</p>
+                                                <p>I will dig into the script a bit more .</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment byuser comment-author-harry bypostauthor even thread-odd thread-alt depth-1"
+                                        id="li-comment-616">
+                                        <article id="comment-616" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">harry</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-616">
+                                                        <time datetime="2017-06-06T15:23:59+00:00">June 6, 2017 at 3:23
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=616#respond'
+                                   onclick='return addComment.moveForm( "comment-616", "616", "respond", "940" )'
+                                   aria-label='Reply to harry'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Okay, found it. Install zsh on
+                                                your computer. It&#8217;s the shell I use and it parses the output
+                                                differently.</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment odd alt thread-even depth-1" id="li-comment-615">
+                                        <article id="comment-615" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://2.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Nicolás Pasini</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-615">
+                                                        <time datetime="2017-06-06T14:53:21+00:00">June 6, 2017 at 2:53
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=615#respond'
+                                   onclick='return addComment.moveForm( "comment-615", "615", "respond", "940" )'
+                                   aria-label='Reply to Nicolás Pasini'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Yes, maybe the script is not
+                                                able to find an item within the .xmp file, probably due to the DT
+                                                version.<br/>
+                                                I am running DT 2.2.4</p>
+                                                <p>I&#8217;ve sent you the file,<br/>
+                                                    Thank you.</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment byuser comment-author-harry bypostauthor even thread-odd thread-alt depth-1"
+                                        id="li-comment-614">
+                                        <article id="comment-614" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">harry</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-614">
+                                                        <time datetime="2017-06-06T14:30:20+00:00">June 6, 2017 at 2:30
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=614#respond'
+                                   onclick='return addComment.moveForm( "comment-614", "614", "respond", "940" )'
+                                   aria-label='Reply to harry'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>can you send me your xmp file&#8230;
+                                                maybe it looks different than mine</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment odd alt thread-even depth-1" id="li-comment-613">
+                                        <article id="comment-613" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://1.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://2.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Nicolás Pasini</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-613">
+                                                        <time datetime="2017-06-06T14:17:42+00:00">June 6, 2017 at 2:17
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=613#respond'
+                                   onclick='return addComment.moveForm( "comment-613", "613", "respond", "940" )'
+                                   aria-label='Reply to Nicolás Pasini'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Hmm ..<br/>
+                                                cp: cannot stat &#8216;t 1 t IMG_8563.CR2.xmp&#8217;: No such file or
+                                                directory<br/>
+                                                sed: can&#8217;t read dt_movie.xmp: No such file or directory</p>
+                                                <p>Part of my dt_movie.list:</p>
+                                                <p>0000 t 0 t ochrome t mo t IMG_8563.CR2<br/>
+                                                    0001 t 1 t t 1 t IMG_8563.CR2<br/>
+                                                    0002 t 2 t t n t IMG_8563.CR2<br/>
+                                                    0003 t 3 t t colisa t IMG_8563.CR2<br/>
+                                                    0004 t 4 t t 1 t IMG_8563.CR2<br/>
+                                                    0005 t 5 t t n t IMG_8563.CR2<br/>
+                                                    0006 t 6 t t colisa t IMG_8563.CR2<br/>
+                                                    0007 t 7 t t 1 t IMG_8563.CR2<br/>
+                                                    0008 t 8 t t n t IMG_8563.CR2<br/>
+                                                    0009 t 9 t ochrome t mo t IMG_8563.CR2<br/>
+                                                    0010 t 10 t t 1 t IMG_8563.CR2<br/>
+                                                    0011 t 11 t t n t IMG_8563.CR2<br/>
+                                                    0012 t 12 t t highpass t IMG_8563.CR2<br/>
+                                                    0013 t 13 t t 1 t IMG_8563.CR2<br/>
+                                                    0014 t 14 t t n t IMG_8563.CR2</p>
+                                                <p>The folder in which I am running the script contains two files:<br/>
+                                                    IMG_8563.CR2 and IMG_8563.CR2.xmp</p>
+                                                <p>Not a permission issue..</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-612">
+                                        <article id="comment-612" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://0.gravatar.com/avatar/?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://0.gravatar.com/avatar/?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo avatar-default' height='50'
+                                                     width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn">Nicolás Pasini</cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../animate-your-edit/#comment-612">
+                                                        <time datetime="2017-06-06T13:33:32+00:00">June 6, 2017 at 1:33
+                                                            pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../animate-your-edit/?replytocom=612#respond'
+                                   onclick='return addComment.moveForm( "comment-612", "612", "respond", "940" )'
+                                   aria-label='Reply to Nicolás Pasini'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>Wow, I&#8217;ve to try this
+                                                out. Thank you.</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                </ol><!-- .commentlist -->
+
+
+                                <div id="respond" class="comment-respond">
+                                    <h3 id="reply-title" class="comment-reply-title">Leave a Reply
+                                        <small><a rel="nofollow" id="cancel-comment-reply-link"
+                                                  href="/animate-your-edit/#respond" style="display:none;">Cancel
+                                            reply</a></small>
+                                    </h3>
+                                    <form action="../wp-comments-post.php" method="post" id="commentform"
+                                          class="comment-form">
+                                        <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span>
+                                        </p>
+                                        <p class="comment-form-comment"><textarea id="comment" name="comment" rows="8"
+                                                                                  aria-required="true"></textarea></p>
+                                        <p class="comment-form-author"><label for="author">Name</label> <input
+                                                id="author" name="author" type="text" value="" size="30"
+                                                maxlength="245"/></p>
+                                        <p class="comment-form-email"><label for="email">Email</label> <input id="email"
+                                                                                                              name="email"
+                                                                                                              type="text"
+                                                                                                              value=""
+                                                                                                              size="30"
+                                                                                                              maxlength="100"
+                                                                                                              aria-describedby="email-notes"/>
+                                        </p>
+                                        <p class="comment-form-url"><label for="url">Website</label> <input id="url"
+                                                                                                            name="url"
+                                                                                                            type="text"
+                                                                                                            value=""
+                                                                                                            size="30"
+                                                                                                            maxlength="200"/>
+                                        </p>
+                                        <p class="form-submit"><input name="submit" type="submit" id="submit"
+                                                                      class="submit" value="Post Comment"/> <input
+                                                type='hidden' name='comment_post_ID' value='940' id='comment_post_ID'/>
+                                            <input type='hidden' name='comment_parent' id='comment_parent' value='0'/>
+                                        </p><input type="hidden" id="ct_checkjs_847cc55b7032108eee6dd897f3bca8a5"
+                                                   name="ct_checkjs" value="0"/>
+                                        <script type="text/javascript">setTimeout(function () {
+                                            var ct_input_name = 'ct_checkjs_847cc55b7032108eee6dd897f3bca8a5';
+                                            if (document.getElementById(ct_input_name) !== null) {
+                                                var ct_input_value = document.getElementById(ct_input_name).value;
+                                                document.getElementById(ct_input_name).value = document.getElementById(ct_input_name).value.replace(ct_input_value, '866971275');
+                                            }
+                                        }, 1000);</script>
+                                    </form>
+                                </div><!-- #respond -->
+
+                            </div><!-- #comments .comments-area -->
+                        </div><!-- #single-comments-wrapper -->
+
+
+                        <nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+                            <h1 class="assistive-text">Post navigation</h1>
+
+
+                            <div class="nav-previous"><a href="../senja-peninsula/index.html" rel="prev"><span
+                                    class="meta-nav influence-icon-arrow-left"></span> Senja Peninsula</a></div>
+                            <div class="nav-next"><a href="../pineapples/index.html" rel="next">Pineapples <span
+                                    class="meta-nav influence-icon-arrow-right"></span></a></div>
+
+                        </nav><!-- #nav-below -->
+
+                    </div>
+
+                </article><!-- #post-940 -->
+
+
+            </div><!-- #content .site-content -->
+
+        </section><!-- #primary .content-area -->
+
+
+        <div id="secondary">
+
+            <div class="widgets">
+                <aside id="sow-image-2" class="widget widget_sow-image">
+                    <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                        <div class="sow-image-container">
+                            <a href="../index.html"> <img src="../wp-content/uploads/2016/10/logo512-1.jpg" width="512"
+                                                          height="512"
+                                                          srcset="../wp-content/uploads/2016/10/logo512-1.jpg 512w, ../wp-content/uploads/2016/10/logo512-1-150x150.jpg 150w, ../wp-content/uploads/2016/10/logo512-1-300x300.jpg 300w"
+                                                          title="logo512" class="so-widget-image"/>
+                            </a></div>
+
+                    </div>
+                </aside>
+                <aside id="search-2" class="widget widget_search">
+                    <form method="get" id="searchform" action="../index.html" role="search">
+                        <label for="s" class="assistive-text">Search</label>
+                        <input type="text" class="field" name="s" value="" id="s" placeholder="Search"/>
+                        <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search"/>
+                    </form>
+                </aside>
+                <aside id="text-2" class="widget widget_text">
+                    <div class="textwidget">
+                        <script type='text/javascript' src="../cgi/build_links.js">
+                        </script>
+                    </div>
+                </aside>
+                <aside id="text-3" class="widget widget_text">
+                    <div class="textwidget">
+                        <div id='results'></div>
+                    </div>
+                </aside>
+            </div>
+
+        </div>
+
+
+    </div><!-- #main .site-main -->
+
+    <footer id="colophon" class="site-footer" role="contentinfo">
+
+        <div class="container">
+
+            <div id="footer-widgets">
+                <aside id="meta-3" class="widget widget_meta"><h3 class="widget-title">Meta</h3>
+                    <ul>
+                        <li><a rel="nofollow" href="../wp-login.php">Log in</a></li>
+                        <li><a href="../feed/index.html">Entries <abbr title="Really Simple Syndication">RSS</abbr></a>
+                        </li>
+                        <li><a href="../comments/feed/index.html">Comments <abbr
+                                title="Really Simple Syndication">RSS</abbr></a></li>
+                        <li><a href="https://wordpress.org/"
+                               title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a>
+                        </li>
+                    </ul>
+                </aside>
+                <aside id="text-4" class="widget widget_text">
+                    <div class="textwidget"><a href="stats">Stats</a></div>
+                </aside>
+            </div><!-- #footer-widgets -->
+
+
+        </div>
+
+    </footer><!-- #colophon .site-footer -->
+</div><!-- #page .hfeed .site -->
+
+
+<div id="main-menu">
+
+    <a href="#" class="influence-icon influence-icon-cross main-menu-close"></a>
+
+    <div class="menu">
+        <div class="menu">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li class="page_item page-item-232"><a href="../about-us/index.html">About Us</a></li>
+                <li class="page_item page-item-391"><a href="../awesome-links/index.html">Awesome Links</a></li>
+                <li class="page_item page-item-470"><a href="../lab-reference-chart/index.html">Lab Color Reference
+                    Chart</a></li>
+                <li class="page_item page-item-258"><a href="../order-prints-of-my-work/index.html">Order Prints of My
+                    Work</a></li>
+                <li class="page_item page-item-573"><a href="../scripts/index.html">Scripts</a></li>
+                <li class="page_item page-item-527"><a href="../show-suggestions/index.html">Show Suggestions</a></li>
+                <li class="page_item page-item-172"><a href="../shoot-with-harry/index.html">Shoot with Harry</a></li>
+                <li class="page_item page-item-154"><a href="../support-weekly-edit/index.html">Donate to the Show</a>
+                </li>
+                <li class="page_item page-item-142"><a href="../my-workflow/index.html">My Workflow</a></li>
+                <li class="page_item page-item-170"><a href="../edit-my-raw/index.html">Edit my RAW</a></li>
+                <li class="page_item page-item-156"><a href="../tpe/index.html">Sun and Moon Calendar</a></li>
+                <li class="page_item page-item-103"><a href="../playlist/index.html">Playlist</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="widgets">
+        <aside id="siteorigin-panels-builder-3" class="widget widget_siteorigin-panels-builder">
+            <div id="pl-w57e4594d719bc">
+                <div class="panel-grid" id="pg-w57e4594d719bc-0">
+                    <div class="panel-grid-cell" id="pgc-w57e4594d719bc-0-0">
+                        <div class="so-panel widget widget_pages panel-first-child" id="panel-w57e4594d719bc-0-0-0"
+                             data-index="0"><h3 class="widget-title">Resources</h3>
+                            <ul>
+                                <li class="page_item page-item-232"><a href="../about-us/index.html">About Us</a></li>
+                                <li class="page_item page-item-391"><a href="../awesome-links/index.html">Awesome
+                                    Links</a></li>
+                                <li class="page_item page-item-37"><a href="../index.html">Home Page</a></li>
+                                <li class="page_item page-item-470"><a href="../lab-reference-chart/index.html">Lab
+                                    Color Reference Chart</a></li>
+                                <li class="page_item page-item-258"><a href="../order-prints-of-my-work/index.html">Order
+                                    Prints of My Work</a></li>
+                                <li class="page_item page-item-573"><a href="../scripts/index.html">Scripts</a></li>
+                                <li class="page_item page-item-527"><a href="../show-suggestions/index.html">Show
+                                    Suggestions</a></li>
+                                <li class="page_item page-item-172"><a href="../shoot-with-harry/index.html">Shoot with
+                                    Harry</a></li>
+                                <li class="page_item page-item-154"><a href="../support-weekly-edit/index.html">Donate
+                                    to the Show</a></li>
+                                <li class="page_item page-item-142"><a href="../my-workflow/index.html">My Workflow</a>
+                                </li>
+                                <li class="page_item page-item-170"><a href="../edit-my-raw/index.html">Edit my RAW</a>
+                                </li>
+                                <li class="page_item page-item-156"><a href="../tpe/index.html">Sun and Moon
+                                    Calendar</a></li>
+                            </ul>
+                        </div>
+                        <div class="so-panel widget widget_recent-posts widget_recent_entries"
+                             id="panel-w57e4594d719bc-0-0-1" data-index="1"><h3 class="widget-title">Recent Posts</h3>
+                            <ul>
+                                <li>
+                                    <a href="../pineapples/index.html">Pineapples</a>
+                                </li>
+                                <li>
+                                    <a href="../animate-your-edit/index.html">Animate your edit</a>
+                                </li>
+                                <li>
+                                    <a href="../senja-peninsula/index.html">Senja Peninsula</a>
+                                </li>
+                                <li>
+                                    <a href="../boiling-pots/index.html">Boiling Pots</a>
+                                </li>
+                                <li>
+                                    <a href="../additional-thoughts-camera-profiling/index.html">Additional thoughts on
+                                        camera profiling</a>
+                                </li>
+                                <li>
+                                    <a href="../camera-profiling-darktable-chart/index.html">Camera Profiling with
+                                        Darktable-chart</a>
+                                </li>
+                                <li>
+                                    <a href="../facebook-360-view/index.html">Facebook 360 View</a>
+                                </li>
+                                <li>
+                                    <a href="../antelope-canyon/index.html">Antelope Canyon</a>
+                                </li>
+                                <li>
+                                    <a href="../basecurves/index.html">Basecurves</a>
+                                </li>
+                                <li>
+                                    <a href="../tiny-planet/index.html">Tiny Planet</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="so-panel widget widget_search panel-last-child" id="panel-w57e4594d719bc-0-0-2"
+                             data-index="2">
+                            <form method="get" id="searchform" action="../index.html" role="search">
+                                <label for="s" class="assistive-text">Search</label>
+                                <input type="text" class="field" name="s" value="" id="s" placeholder="Search"/>
+                                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+</div>
+<script async type='text/javascript'
+        src='../wp-content/plugins/cleantalk-spam-protect/inc/cleantalk_nocache.js?random=5.58'></script>
+<script type="text/javascript">function ctSetCookie(c_name, value, def_value) {
+    document.cookie = c_name + "=" + escape(value) + "; path=/";
+}
+ctSetCookie("ct_checkjs", "866971275", "0");</script>
+<style type="text/css" media="all" id="siteorigin-panels-grids-wp_footer">/* Layout w57e4594d719bc */
+#pg-w57e4594d719bc-0 .panel-grid-cell {
+    float: none
+}
+
+#pl-w57e4594d719bc .panel-grid-cell .so-panel {
+    margin-bottom: 30px
+}
+
+#pl-w57e4594d719bc .panel-grid-cell .so-panel:last-child {
+    margin-bottom: 0px
+}
+
+#pg-w57e4594d719bc-0 {
+    margin-left: -15px;
+    margin-right: -15px
+}
+
+#pg-w57e4594d719bc-0 .panel-grid-cell {
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+@media (max-width: 780px) {
+    #pg-w57e4594d719bc-0 .panel-grid-cell {
+        float: none;
+        width: auto
+    }
+
+    #pl-w57e4594d719bc .panel-grid, #pl-w57e4594d719bc .panel-grid-cell {
+    }
+
+    #pl-w57e4594d719bc .panel-grid .panel-grid-cell-empty {
+        display: none
+    }
+
+    #pl-w57e4594d719bc .panel-grid .panel-grid-cell-mobile-last {
+        margin-bottom: 0px
+    }
+} </style>
+<script type='text/javascript' src='../wp-includes/js/comment-reply.min.js?ver=4.7.5'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min.js?ver=4.7.5'></script>
+
+<script async type='text/javascript'
+        src='../wp-content/plugins/cleantalk-spam-protect/inc/cleantalk_nocache.js?random=5.58'></script>
+</body>
+</html>

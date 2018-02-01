@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="profile" href="http://gmpg.org/xfn/11"/>
+    <link rel="pingback" href="../xmlrpc.php"/>
+
+    <title>Camera Profiling with Darktable-chart</title>
+
+    <script type='text/javascript'>
+        var ct_ajaxurl = '../wp-admin/admin-ajax.php';
+        var ct_info_flag = false;
+        var ct_set_cookies_flag = true;
+    </script>
+
+    <!-- This site is optimized with the Yoast SEO Premium plugin v4.2.1 - https://yoast.com/wordpress/plugins/seo/ -->
+    <meta name="description"
+          content="Color profile your camera: a Harry Durgin Darktable tutorial. How to use an it8 color chart and darktable-chart to match RAW with in-camera jpg. CLUT"/>
+    <meta name="robots" content="noodp"/>
+    <link rel="canonical" href="../camera-profiling-darktable-chart/"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Color Profile Your Camera"/>
+    <meta property="og:description"
+          content="Match your RAW to your in-camera JPG! In this wonky companion to the Basecurves episode, Harry walks us through using an it8 color target and darktable-chart to color profile your camera. Careful subtitles included in the video :)"/>
+    <meta property="og:url" content="../camera-profiling-darktable-chart/"/>
+    <meta property="og:site_name" content="Weekly Edit"/>
+    <meta property="article:tag" content="base-curve"/>
+    <meta property="article:tag" content="CLUT"/>
+    <meta property="article:tag" content="color-profile"/>
+    <meta property="article:tag" content="colorchecker"/>
+    <meta property="article:tag" content="darktable-chart"/>
+    <meta property="article:section" content="Uncategorized"/>
+    <meta property="article:published_time" content="2017-04-19T12:00:13+00:00"/>
+    <meta property="article:modified_time" content="2017-04-19T11:34:23+00:00"/>
+    <meta property="og:updated_time" content="2017-04-19T11:34:23+00:00"/>
+    <meta property="og:image" content="../wp-content/uploads/2017/04/2017-04-18-14-39-25-0.jpg"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description"
+          content="Color profile your camera: a Harry Durgin Darktable tutorial. How to use an it8 color chart and darktable-chart to match RAW with in-camera jpg. CLUT"/>
+    <meta name="twitter:title" content="Camera Profiling with Darktable-chart"/>
+    <meta name="twitter:image" content="../wp-content/uploads/2017/04/2017-04-18-14-39-25-0.jpg"/>
+    <meta property="DC.date.issued" content="2017-04-19T12:00:13+00:00"/>
+    <!-- / Yoast SEO Premium plugin. -->
+
+    <link rel='dns-prefetch' href='http://fonts.googleapis.com'/>
+    <link rel='dns-prefetch' href='http://s.w.org'/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Feed" href="../feed/"/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Comments Feed"
+          href="../comments/feed/"/>
+    <link rel="alternate" type="application/rss+xml"
+          title="Weekly Edit &raquo; Camera Profiling with Darktable-chart Comments Feed"
+          href="../camera-profiling-darktable-chart/feed/"/>
+    <script type="text/javascript">
+        window._wpemojiSettings = {
+            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/",
+            "ext": ".png",
+            "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/",
+            "svgExt": ".svg",
+            "source": {"concatemoji": "http:\/\/weeklyedit.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.5"}
+        };
+        !function (a, b, c) {
+            function d(a) {
+                var b, c, d, e, f = String.fromCharCode;
+                if (!k || !k.fillText)return !1;
+                switch (k.clearRect(0, 0, j.width, j.height), k.textBaseline = "top", k.font = "600 32px Arial", a) {
+                    case"flag":
+                        return k.fillText(f(55356, 56826, 55356, 56819), 0, 0), !(j.toDataURL().length < 3e3) && (k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 65039, 8205, 55356, 57096), 0, 0), b = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 55356, 57096), 0, 0), c = j.toDataURL(), b !== c);
+                    case"emoji4":
+                        return k.fillText(f(55357, 56425, 55356, 57341, 8205, 55357, 56507), 0, 0), d = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55357, 56425, 55356, 57341, 55357, 56507), 0, 0), e = j.toDataURL(), d !== e
+                }
+                return !1
+            }
+
+            function e(a) {
+                var c = b.createElement("script");
+                c.src = a, c.defer = c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c)
+            }
+
+            var f, g, h, i, j = b.createElement("canvas"), k = j.getContext && j.getContext("2d");
+            for (i = Array("flag", "emoji4"), c.supports = {
+                everything: !0,
+                everythingExceptFlag: !0
+            }, h = 0; h < i.length; h++)c.supports[i[h]] = d(i[h]), c.supports.everything = c.supports.everything && c.supports[i[h]], "flag" !== i[h] && (c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && c.supports[i[h]]);
+            c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && !c.supports.flag, c.DOMReady = !1, c.readyCallback = function () {
+                c.DOMReady = !0
+            }, c.supports.everything || (g = function () {
+                c.readyCallback()
+            }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () {
+                "complete" === b.readyState && c.readyCallback()
+            })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji)))
+        }(window, document, window._wpemojiSettings);
+    </script>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' id='siteorigin-panels-front-css'
+          href='../wp-content/plugins/siteorigin-panels/css/front.css?ver=2.4.24' type='text/css' media='all'/>
+    <link rel='stylesheet' id='sow-image-default-3f547a15eaaa-css'
+          href='../wp-content/uploads/siteorigin-widgets/sow-image-default-3f547a15eaaa.css?ver=4.7.5' type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='siteorigin-google-web-fonts-css'
+          href='http://fonts.googleapis.com/css?family=Montserrat&#038;ver=4.7.5' type='text/css' media='all'/>
+    <link rel='stylesheet' id='influence-style-css' href='../wp-content/themes/influence/style.css?ver=4.7.5'
+          type='text/css' media='all'/>
+    <script type='text/javascript' src='../wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+    <script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+    <script type='text/javascript' src='../wp-content/themes/influence/js/jquery.fitvids.min.js?ver=1.0'></script>
+    <script type='text/javascript' src='../wp-content/themes/influence/js/jquery.theme-main.min.js?ver=1.2.1'></script>
+    <link rel='https://api.w.org/' href='../wp-json/'/>
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php?rsd"/>
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml"/>
+    <meta name="generator" content="WordPress 4.7.5"/>
+    <link rel='shortlink' href='../?p=903'/>
+    <link rel="alternate" type="application/json+oembed"
+          href="../wp-json/oembed/1.0/embed?url=http%3A%2F%2Fweeklyedit.com%2Fcamera-profiling-darktable-chart%2F"/>
+    <link rel="alternate" type="text/xml+oembed"
+          href="../wp-json/oembed/1.0/embed?url=http%3A%2F%2Fweeklyedit.com%2Fcamera-profiling-darktable-chart%2F&#038;format=xml"/>
+    <!--[if lt IE 9]>
+    <script src="../wp-content/themes/influence/js/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if (gte IE 6)&(lte IE 8)]>
+    <script type="text/javascript" src="../wp-content/themes/influence/js/selectivizr.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <style type="text/css" id="custom-background-css">
+        body.custom-background {
+            background-color: #ffffff;
+            background-image: url("../wp-content/themes/influence/images/background.png");
+            background-position: left top;
+            background-size: auto;
+            background-repeat: repeat;
+            background-attachment: scroll;
+        }
+    </style>
+    <style type="text/css" media="all" id="siteorigin-panels-grids-wp_head">/* Layout 903 */
+    #pg-903-0, #pg-903-1, #pl-903 .panel-grid-cell .so-panel {
+        margin-bottom: 30px
+    }
+
+    #pg-903-0 .panel-grid-cell, #pg-903-1 .panel-grid-cell, #pg-903-2 .panel-grid-cell {
+        float: none
+    }
+
+    #pl-903 .panel-grid-cell .so-panel:last-child {
+        margin-bottom: 0px
+    }
+
+    #pg-903-0, #pg-903-1, #pg-903-2 {
+        margin-left: -15px;
+        margin-right: -15px
+    }
+
+    #pg-903-0 .panel-grid-cell, #pg-903-1 .panel-grid-cell, #pg-903-2 .panel-grid-cell {
+        padding-left: 15px;
+        padding-right: 15px
+    }
+
+    @media (max-width: 780px) {
+        #pg-903-0 .panel-grid-cell, #pg-903-1 .panel-grid-cell, #pg-903-2 .panel-grid-cell {
+            float: none;
+            width: auto
+        }
+
+        #pl-903 .panel-grid, #pl-903 .panel-grid-cell {
+        }
+
+        #pl-903 .panel-grid .panel-grid-cell-empty {
+            display: none
+        }
+
+        #pl-903 .panel-grid .panel-grid-cell-mobile-last {
+            margin-bottom: 0px
+        }
+    } </style>
+    <style type="text/css" id="influence-footer-widgets">#footer-widgets aside {
+        width: 50%;
+    } </style>
+    <style id='influence-custom-css' class='siteorigin-custom-css' type='text/css'>
+        .post-thumbnail {
+            display: none;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        article.entry .entry-content h3 {
+            font-size: 17px;
+            text-align: left;
+            margin-left: 0px;
+            margin-top: 0em;
+            margin-bottom: 0px;
+        }
+
+        #panel-37-0-1-2.so-panel.widget.widget_recent-posts.widget_recent_entries {
+            margin-bottom: 0px;
+        }
+
+        .entry-content ul {
+            margin-left: -6px;
+        }
+
+        #topics {
+            margin-top: -30px;
+        }
+
+        #modules {
+            margin-top: -30px;
+        }
+
+        .panel-grid-cell .widget-title {
+            padding-bottom: 15px;
+        }
+
+        #main-menu .widgets aside.widget .widget-title {
+            margin-bottom: 0px;
+            margin-top: -20px;
+        }
+
+        #panel-470-0-0-0.so-panel.widget.widget_sow-image.panel-first-child.panel-last-child {
+            margin-top: -50px;
+        }
+
+        article.entry {
+            visibility: visible;
+        }
+
+        .post-text {
+            visibility: visible;
+        }
+
+        .entry-title {
+            visibility: visible;
+        }
+
+        article.entry .post-text {
+            padding-top: 0px;
+        }
+
+        #panel-72-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-75-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-131-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-133-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-135-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-137-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-140-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-177-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-278-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-354-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-430-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-448-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-475-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-488-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-518-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-550-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-575-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-599-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-625-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-664-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-682-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-704-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-722-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-736-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-757-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-765-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-903-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+    </style>
+    <style type="text/css" id="customizer-css">h1, h2, h3, h4, h5, h6 {
+        font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+        font-weight: 400
+    }
+
+    article.entry {
+        background-color: #ffffff
+    } </style>
+</head>
+
+<body class="post-template-default single single-post postid-903 single-format-standard custom-background siteorigin-panels responsive has-main-sidebar">
+
+<div id="page" class="hfeed site">
+
+
+    <header id="masthead" class="site-header has-shadow" role="banner">
+
+        <div class="container">
+
+            <div class="hgroup">
+
+                <h1 class="site-title">
+                    <a href="../index.html" title="Weekly Edit" rel="home">
+                        Weekly Edit </a>
+                </h1>
+
+
+            </div>
+
+
+            <nav role="navigation" class="site-navigation main-navigation primary">
+
+                <h1 class="assistive-text">Menu</h1>
+
+                <a href="#" class="main-menu-button">
+                    <i class="influence-icon-menu-icon"></i>
+                    Menu </a>
+
+            </nav><!-- .site-navigation .main-navigation -->
+
+
+        </div>
+
+    </header><!-- #masthead .site-header -->
+
+    <div class="site-header has-shadow site-header-sentinel">
+
+        <div class="container">
+
+            <div class="hgroup">
+
+                <h1 class="site-title">
+                    Weekly Edit </h1>
+
+
+            </div>
+
+
+            <div role="navigation" class="site-navigation main-navigation primary">
+
+                <h1 class="assistive-text">Menu</h1>
+
+                <a href="#" class="main-menu-button">
+                    <i class="influence-icon-menu-icon"></i>
+                    Menu </a>
+
+            </div><!-- .site-navigation .main-navigation -->
+
+
+        </div>
+
+    </div><!-- #masthead .site-header -->
+
+    <div id="main" class="site-main">
+
+        <section id="primary" class="content-area">
+
+            <div id="content" class="site-content" role="main">
+
+
+                <article id="post-903"
+                         class="entry post-903 post type-post status-publish format-standard hentry category-uncategorized category-weekly-edits tag-base-curve tag-clut tag-color-profile tag-colorchecker tag-darktable-chart">
+
+
+                    <div class="post-text">
+
+                        <h1 class="entry-title"><a href="../camera-profiling-darktable-chart/"
+                                                   title="Permalink to Camera Profiling with Darktable-chart"
+                                                   rel="bookmark">Camera Profiling with Darktable-chart</a></h1>
+
+                        <div class="entry-content">
+                            <div id="pl-903">
+                                <div class="panel-grid" id="pg-903-0">
+                                    <div class="panel-grid-cell" id="pgc-903-0-0">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-903-0-0-0" data-index="0">
+                                            <div class="textwidget">
+                                                <div id="vp">
+                                                    <iframe frameborder=0 allowfullscreen
+                                                            src="https://www.youtube.com/embed/11nInNWJHWk"></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-grid" id="pg-903-1">
+                                    <div class="panel-grid-cell" id="pgc-903-1-0">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-903-1-0-0" data-index="1"><h3 class="widget-title">Matching RAW
+                                            to in camera JPG</h3>
+                                            <div class="textwidget"><p>In a previous episode I used dt-curve-tool to
+                                                build basecurves that match up the tone of your RAW with the in-camera
+                                                JPG. In this episode I use an it8 color chart and darktable-chart to add
+                                                color to the equation. I show how you can build a database of ISO
+                                                settings for your camera body to generate a starting point for
+                                                processing that closely approximates the in-camera JPG. You're going to
+                                                need a color target to do this. Here is the <a target=_blank
+                                                                                               href="https://drive.google.com/open?id=0B7mIPRZEcQpAU05Nb0YzblY1THc">cht
+                                                    file</a> I used in this video.</p>
+                                                <p>This is an advanced concept, like the Base Curves episode, so we've
+                                                    provided a carefully transcribed and matched version of the text in
+                                                    subtitles on the video.</p>
+                                                <p>This video is the latest in our faster format but packed with
+                                                    information. It builds on knowledge from previous videos, running
+                                                    full-tilt through tools and methods to achieve the goals. For fuller
+                                                    explanations, return to the <a href=../ target=_blank> Home Page</a>
+                                                    and scroll down to Topics Discussed or Modules Used on the
+                                                    right-hand bar. Click on any of these, and we assemble a complete
+                                                    playlist of every instance from a knowledge base of our first 27
+                                                    videos for quick review right here on the site.<br/>
+                                                    Thank you for watching!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-grid" id="pg-903-2">
+                                    <div class="panel-grid-cell" id="pgc-903-2-0">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-903-2-0-0" data-index="2"><h3 class="widget-title">Complete show
+                                            text</h3>
+                                            <div class="textwidget"><p><a href="../annotations/11nInNWJHWk.txt"
+                                                                          download>Download complete text here</a></p>
+                                                <p>Aloha and welcome to another episode of Weekly Edit.</p>
+                                                <p> Things have been getting a little busy around here.</p>
+                                                <p> I wasn't able to get to an episode last week, but I've got a good
+                                                    one this week.</p>
+                                                <p> I'm looking at color profiling my camera.</p>
+                                                <p> A couple episodes ago I looked at making Base Curves, which
+                                                    basically tries to match your RAW image to your in-camera jpg in
+                                                    terms of the L Channel, the luminosity.</p>
+                                                <p> This week I'm using an it8 target, which is a color chart, and I'll
+                                                    use an application called darktable-chart to map the color patches
+                                                    on the RAW image out of my camera with the in-camera jpg.</p>
+                                                <p> There are a couple things we need to do in order to make this
+                                                    happen.</p>
+                                                <p> You'll have to pay the money and get a good target.</p>
+                                                <p> There are some cheap ones out there and they have terrible
+                                                    reviews.</p>
+                                                <p> People say they just don't work.</p>
+                                                <p> Evidently the inks on this target are supposed to be such that they
+                                                    maintain their reference proportionality to each other under a
+                                                    variety of lighting conditions, but nonetheless, they recommend that
+                                                    you shoot this target in mid-day sunny conditions.</p>
+                                                <p> It was a little cloudy, and it's hard to get a sunny day around
+                                                    here, so we're doing this episode with the best I have.</p>
+                                                <p> I've noticed that I get better results if I match the ISO.</p>
+                                                <p> My color profiling changes a little bit with ISO, so I'm going to
+                                                    take the time personally and shoot at different ISOs and make color
+                                                    mappings for each ISO, just like I did with base curves.</p>
+                                                <p> What we want to do is have a RAW and a jpg of our color target, so
+                                                    you'll have to change in your camera to do that.</p>
+                                                <p> And I want to have the white swatch down here be around an L92.</p>
+                                                <p> So, I shot at a variety of exposures and then I'll use the Color
+                                                    Picker tool on Mean and look at the luminosity.</p>
+                                                <p> This one is around 90 and I shot this one at 1/20th of a second.</p>
+                                                <p> This one here I shot at 1/15 second.</p>
+                                                <p> Let's see what the L value is on that one.</p>
+                                                <p> That's 98; that's a little hot.</p>
+                                                <p> I'm not going to use that one; I'll use the previous one.</p>
+                                                <p> Now, notice my History is blank: SUPER-IMPORTANT.</p>
+                                                <p> So, we'll use this one and the matching jpg.</p>
+                                                <p> This is ISO 100.</p>
+                                                <p> We'll generate a Color Lookup Table mapping that will match these
+                                                    two, so I'll label this when I'm done with the name of the camera
+                                                    body, so that profile is determinate, and the ISO.</p>
+                                                <p> Then, when I'm done with this big project, I'll have made a value
+                                                    for each camera body and each ISO that I shoot at.</p>
+                                                <p> Maybe I'll break it up a little bit, but I want to have various
+                                                    values; I don't want to just have a couple.</p>
+                                                <p> Okay, I'll crop this.</p>
+                                                <p> I don't have to, but I find it easier to work in darktable-chart if
+                                                    this is cropped a bit first.</p>
+                                                <p> I don't need to worry about keystoning here; I can fix it later.</p>
+                                                <p> I want to apply a similar crop to my jpg so I'll copy and paste this
+                                                    over all of these.</p>
+                                                <p> There we go.</p>
+                                                <p> Now there are two places I can set the Output Color Profile.</p>
+                                                <p> I'm going to want to do that because I was getting indeterminate
+                                                    results when I only set it at the Export function.</p>
+                                                <p> So, I'm setting this in Output Color Profile to Lab and I'm setting
+                                                    it in the Export Settings to Lab.</p>
+                                                <p> So, File Format is .pfm The reason we're converting this and the jpg
+                                                    to pfm is that's the file format the darktable-chart program wants
+                                                    to see the files in.</p>
+                                                <p> Profile is Lab; Intent is Image Settings.</p>
+                                                <p> I'll Export that one.</p>
+                                                <p> Then I'll take this jpg and set it up as Lab, and set its Export to
+                                                    Lab also.</p>
+                                                <p> Okay, something I forgot to go over: there's an rc file associated
+                                                    with Darktable that requires an entry in order for that pfm output
+                                                    using the Lab color space to work properly.</p>
+                                                <p> That's located in .config/darktable/darktablerc and it's this line
+                                                    right here: allow lab_output=true If you put this line in this file
+                                                    while Darktable is open, then Darktable will over-write this rc file
+                                                    when Darktable closes.</p>
+                                                <p> That's how it stores whatever session options you set.</p>
+                                                <p> So, you need to make sure you close Darktable first, open this rc
+                                                    file, add that line, close it, and then you can open Darktable
+                                                    again.</p>
+                                                <p> This part here, where I exported these as a PFM only worked because
+                                                    I had added that line previously.</p>
+                                                <p> This is the one I ended up buying.</p>
+                                                <p> I got this one in the little plastic case because I could include it
+                                                    in my camera bag.</p>
+                                                <p> I found that, if I took a shot of this and used it with my
+                                                    white-balance tool, I got pretty good results for adjusting my white
+                                                    balance.</p>
+                                                <p> So, it seemed like it was convenient to take with me.</p>
+                                                <p> There's also an 18% grey card on the next page over, and it's all
+                                                    plastic, so that seemed like the best one.</p>
+                                                <p> Okay, I'm going to need this .cht file.</p>
+                                                <p> What the .cht file is, is it's information about what colors are
+                                                    located where on that Color Checker Passport.</p>
+                                                <p> I'll include a link to this file in my webpage at weeklyedit.com
+                                                    Also, you can just look around the internet and get it.</p>
+                                                <p> Okay, now we'll open darktable-chart.</p>
+                                                <p> This has three tabs: Source Image, Reference Values, and Process
+                                                    means make the mappings.</p>
+                                                <p> So, on the first tab there's two places: image and chart.</p>
+                                                <p> And it's a little different on the Reference Values; you'll see.</p>
+                                                <p> Okay, so we made those pfm files.</p>
+                                                <p> This was the first one.</p>
+                                                <p> This was my RAW image.</p>
+                                                <p> Then I'm going to apply that chart file.</p>
+                                                <p> See, it's just got these squares and it's got reference colors.</p>
+                                                <p> We grab the corner and align it so that the little squares inside
+                                                    the bigger squares only touch the colors that they're supposed to;
+                                                    they don't touch any of the edges.</p>
+                                                <p> That is pretty important.</p>
+                                                <p> If you need to, to get it to work, you can adjust the Size of the
+                                                    squares.</p>
+                                                <p> This is a little backwards: the lower you make this Size, the bigger
+                                                    the squares, and the larger the Size, the smaller the squares.</p>
+                                                <p> You pretty much want to make the squares be as big as possible but
+                                                    not have them touch any of the edges.</p>
+                                                <p> That looks pretty good.</p>
+                                                <p> I'm good and safe there.</p>
+                                                <p> Then, on this next tab, Reference Values, here is where we align the
+                                                    jpg.</p>
+                                                <p> So, where it says Mode, we have to change this.</p>
+                                                <p> We go to 'color chart image'.</p>
+                                                <p> Then this time we select the file on the right-hand side instead of
+                                                    the left.</p>
+                                                <p> So, under Reference Image, we'll pick the pfm of the jpg.</p>
+                                                <p> Then we have to align this one too.</p>
+                                                <p> There we go.</p>
+                                                <p> I'm double-checking all my squares.</p>
+                                                <p> Look at them and make sure none of them -- like, see, this one is on
+                                                    the edge and that one is on the edge, but they look okay.</p>
+                                                <p> Then I go to Process: 'patches with gray ramp' There we go.</p>
+                                                <p> I like this one: SAT1...SAT8.</p>
+                                                <p>'number of final patches' - I did not get good results at 24; I
+                                                    thought 48 was much better.</p>
+                                                <p> And then 'process', and it goes.</p>
+                                                <p> And now 'export' We'll save these.</p>
+                                                <p> and they save them as 'styles' Now we can go into Darktable.</p>
+                                                <p> Under Styles in the Lighttable view, Import, and there we are.</p>
+                                                <p> There's our style.</p>
+                                                <p> Now we'll apply that style to an image.</p>
+                                                <p> This one was shot at 100 ISO.</p>
+                                                <p> Okay, so we click on the image and we double-click on the style.</p>
+                                                <p> Alternatively, you can open the image and go down here and select
+                                                    the style, and it will apply it.</p>
+                                                <p> See what it applied here? It applied a color lookup table entry and
+                                                    a Tone Curve entry.</p>
+                                                <p> Let's look at the jpgs right next to it.</p>
+                                                <p> Here's the jpg, okay, and here's the RAW with the changes made.</p>
+                                                <p> It looks pretty good.</p>
+                                                <p> It looks kindof close; it's not perfect.</p>
+                                                <p> The L Channel looks like it could use a little work, but the colors
+                                                    are close, and it's a lot better than the original RAW.</p>
+                                                <p> There's the original RAW and the jpg, and here's with the
+                                                    changes.</p>
+                                                <p> So, here's what we can do.</p>
+                                                <p> We can come over here to Color Look Up Table and we can say 'store
+                                                    new preset' I'll call it my camera body name and the ISO.</p>
+                                                <p> Then it will auto-apply this each time.</p>
+                                                <p> Oops - one change there: only RAW images.</p>
+                                                <p> There we go.</p>
+                                                <p> There's also an entry here under Tone Curve, and I would do the same
+                                                    thing: I would set a pre-set and tell it to auto-apply.</p>
+                                                <p> You can see this one didn't use the Base Curve, because the Base
+                                                    Curve is specifically set (off) and it makes the changes in the Tone
+                                                    Curve instead.</p>
+                                                <p> Okay, that was at 100 ISO; let's find one at 3200 ISO, because I
+                                                    said I wanted to do these for various ISOs.</p>
+                                                <p> This should go a lot quicker.</p>
+                                                <p> Now, we're looking for the white here to be around 92, so I take my
+                                                    Color Picker and I check it.</p>
+                                                <p> That one's at 73; that's not even close.</p>
+                                                <p> Okay, this one was shot at 1/1000 second and this one at 1/800, this
+                                                    one at a 1/640.</p>
+                                                <p> Oh, that's better; it's up to 87.</p>
+                                                <p> This next one here was shot at 1/500 second.</p>
+                                                <p> Let's see that one.</p>
+                                                <p> These are generally going to run around +1 to +2 on your
+                                                    exposure.</p>
+                                                <p> That one's at 95; I think that's fine.</p>
+                                                <p> Let's use that one.</p>
+                                                <p> Don't forget: we've got to go in here and change our Output color
+                                                    Profile to Lab, and same thing with the adjacent jpg.</p>
+                                                <p> We'll take these two and make a .pfm So: PFM; Lab; Image Settings:
+                                                    go! Okay.</p>
+                                                <p> Now we'll change this pfm image to this new one we just did.</p>
+                                                <p> I know this is silly, but you've got to re-select this.</p>
+                                                <p> If you don't, at least on my version, it won't give you this option
+                                                    at the end to 'process' So, I re-select it, and then re-align
+                                                    it.</p>
+                                                <p> I make those squares a little bigger by pulling this slider
+                                                    down.</p>
+                                                <p> Make sure I'm not over the edge anywhere; this is a little close, so
+                                                    I'll pull this end up a little.</p>
+                                                <p> Check all your squares.</p>
+                                                <p> Make sure they're all good.</p>
+                                                <p> Okay, we're good.</p>
+                                                <p> Now we go on to the second one, which is the one we made from the
+                                                    jpg, and then align this again.</p>
+                                                <p> We'll make these squares a little bigger too.</p>
+                                                <p> Are they all good? Everything's good? Oh, that one's close; let's
+                                                    pull that up a little.</p>
+                                                <p> Okay, we're good everywhere.</p>
+                                                <p> Then we go to Process: SAT1...SAT8; 48; hit 'process' and then
+                                                    'export' Okay.</p>
+                                                <p> Now we'll come in here in Darktable.</p>
+                                                <p> Go to Styles; Import, and our new style should be there.</p>
+                                                <p> This is the one for 3200 ISO so we'll apply it to this image here
+                                                    which was shot at 3200 ISO.</p>
+                                                <p> Then when we look at it and the jpg, they look pretty close too.</p>
+                                                <p> Here was our original and that's the jpg.</p>
+                                                <p> Here's with the changes made, and there's the jpg; that's pretty
+                                                    close too.</p>
+                                                <p> But, I have found that I can get even closer.</p>
+                                                <p> The way I can get even closer is by applying the custom Base Curves
+                                                    that I built in a previous episode, before I export this RAW as a
+                                                    pfm.</p>
+                                                <p> So, let's give that a shot.</p>
+                                                <p> I want to warn you, it specifically says that you're not supposed to
+                                                    do this in the Darktable manual.</p>
+                                                <p> But I get better results, and I'm interested in results, so that's
+                                                    what I'm going to do.</p>
+                                                <p> We'll change this back to RGB and we're going to apply the Base
+                                                    Curve to this that's appropriate for 3200.</p>
+                                                <p> I think 5000 is probably the right one.</p>
+                                                <p> Okay.</p>
+                                                <p> Now, this is important: you've got to re-check your L level after
+                                                    the Base Curve.</p>
+                                                <p> And look: we're up at 99.</p>
+                                                <p> Not good! Okay, so we've got to go back to one that had a faster
+                                                    shutter speed because we're applying the Base Curve now.</p>
+                                                <p> So, the previous one was shot at 1/640 second.</p>
+                                                <p> Let's apply that Base Curve again and check it.</p>
+                                                <p> 97: we're still way up there.</p>
+                                                <p> So, let's go way back to this one.</p>
+                                                <p> Here we are: 1/1000 second.</p>
+                                                <p> Apply our Base Curve and check it: 92; that's pretty close.</p>
+                                                <p> So, we're going to take this one, we're going to change the Color
+                                                    Output to Lab.</p>
+                                                <p> We're going to go to the next image, which is the corresponding jpg;
+                                                    we're going to change it to Lab.</p>
+                                                <p> We're going to take this two, export them as pfms.</p>
+                                                <p> There we go: Bingo! Go into this program, and we'll knock this thing
+                                                    out.</p>
+                                                <p> Source Image.</p>
+                                                <p> There we go.</p>
+                                                <p> Oh, I forgot: I've got to re-import this.</p>
+                                                <p> Otherwise, I will just be wasting my time.</p>
+                                                <p> Okay, now don't forget: what's different with this one is we started
+                                                    by applying a Base Curve image to it.</p>
+                                                <p> I'm checking all of my squares.</p>
+                                                <p> Okay, now the corresponding jpg to this one.</p>
+                                                <p> I'm checking all my squares to make sure they're exclusively on the
+                                                    color I want.</p>
+                                                <p> Okay, that all looks good.</p>
+                                                <p> Now: Process.</p>
+                                                <p> There we go, and 'process' and 'export' Now we're going to take the
+                                                    shot at 3200 ISO and apply that style to it.</p>
+                                                <p> So, we'll need to import it and we need to apply it by
+                                                    double-clicking on it.</p>
+                                                <p> Now, this time, remember we added the Base Curve before we exported
+                                                    it as a pfm, so we need to re-add that Base Curve to complete the
+                                                    calculations here.</p>
+                                                <p> There we go.</p>
+                                                <p> That's the jpg and that's the RAW with the Base Curve applied
+                                                    first.</p>
+                                                <p> They are very, very close.</p>
+                                                <p> Wow, that was a lot.</p>
+                                                <p> Everybody, have a great week.</p>
+                                                <p> You can refer to the show notes, and I'll try to include relevant
+                                                    information there.</p>
+                                                <p> See you all later.</p>
+                                                <p> Bye.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- .entry-content -->
+
+                        <div class="entry-meta">
+                            <div class="taxonomy">
+                                <div class="tags"><span class="influence-icon-ribbon"></span><a
+                                        href="../tag/base-curve/index.html" rel="tag">base-curve</a>, <a
+                                        href="../tag/clut/index.html" rel="tag">CLUT</a>, <a
+                                        href="../tag/color-profile/index.html" rel="tag">color-profile</a>, <a
+                                        href="../tag/colorchecker/index.html" rel="tag">colorchecker</a>, <a
+                                        href="../tag/darktable-chart/index.html" rel="tag">darktable-chart</a></div>
+                                <div class="categories"><span class="influence-icon-layers"></span><a
+                                        href="../../category/uncategorized/index.html" rel="tag">Uncategorized</a>, <a
+                                        href="../../category/weekly-edits/index.html" rel="tag">Weekly Edits</a></div>
+                            </div>
+
+                            <div class="posted-on">Posted on <a href="../camera-profiling-darktable-chart/"
+                                                                title="12:00 pm" rel="bookmark">
+                                <time class="entry-date" datetime="2017-04-19T12:00:13+00:00">April 19, 2017</time>
+                            </a></div>
+                        </div><!-- .entry-meta -->
+
+
+                        <div id="single-comments-wrapper">
+
+
+                            <div id="comments" class="comments-area">
+
+
+                                <h2 id="comments-title">
+                                    4 thoughts on &ldquo;<span>Camera Profiling with Darktable-chart</span>&rdquo;</h2>
+
+
+                                <ol class="commentlist">
+                                    <li class="post pingback">
+                                        <p>Pingback: <a
+                                                href='https://darktable.fr/2017/04/weekly-edit-35-camera-profiling-with-darktable-chart/'
+                                                rel='external nofollow' class='url'>Weekly Edit 35: Camera Profiling
+                                            with Darktable-chart &#8211; darktable FR</a></p>
+                                    </li><!-- #comment-## -->
+                                    <li class="comment even thread-even depth-1" id="li-comment-573">
+                                        <article id="comment-573" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://2.gravatar.com/avatar/be167d80fc8cd775cf3ce88dfcfc5d77?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://2.gravatar.com/avatar/be167d80fc8cd775cf3ce88dfcfc5d77?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn"><a
+                                                            href='https://www.flickr.com/photos/113336874@N07/'
+                                                            rel='external nofollow' class='url'>Jean-Paul
+                                                        GAUCHE</a></cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../camera-profiling-darktable-chart/#comment-573">
+                                                        <time datetime="2017-04-21T22:02:10+00:00">April 21, 2017 at
+                                                            10:02 pm
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../camera-profiling-darktable-chart/?replytocom=573#respond'
+                                   onclick='return addComment.moveForm( "comment-573", "573", "respond", "903" )'
+                                   aria-label='Reply to Jean-Paul GAUCHE'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>I was interested in Hald-CLUT
+                                                and when I saw a proposal for a module for darktable, I was interested.
+                                                Unfortunately, it seems that the module will not be implanted. I saw
+                                                that they prefer to switch the Hald-CLUT to DStyles. I saw a tutorial:
+                                                <a href="https://discuss.pixls.us/t/howto-use-the-new-clut-module/1870"
+                                                   rel="nofollow">https://discuss.pixls.us/t/howto-use-the-new-clut-module/1870</a>
+                                                I am only a francophone and I did not quite understand his approach. I
+                                                had also seen: <a href="https://www.youtube.com/watch?v=GkBgFaSv1kE"
+                                                                  rel="nofollow">https://www.youtube.com/watch?v=GkBgFaSv1kE</a>:
+                                                same.<br/>
+                                                I go through a translator to write to you.<br/>
+                                                Thank you again for your tutorials. Have a nice week end. Best regards.
+                                            </p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                    </li><!-- #comment-## -->
+                                    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-571">
+                                        <article id="comment-571" class="comment">
+                                            <footer>
+                                                <img alt=''
+                                                     src='http://2.gravatar.com/avatar/be167d80fc8cd775cf3ce88dfcfc5d77?s=50&#038;d=blank&#038;r=g'
+                                                     srcset='http://2.gravatar.com/avatar/be167d80fc8cd775cf3ce88dfcfc5d77?s=100&amp;d=blank&amp;r=g 2x'
+                                                     class='avatar avatar-50 photo' height='50' width='50'/>
+                                                <div class="comment-author">
+                                                    <cite class="fn"><a
+                                                            href='https://www.flickr.com/photos/113336874@N07/'
+                                                            rel='external nofollow' class='url'>Jean-Paul
+                                                        GAUCHE</a></cite>
+                                                </div><!-- .comment-author -->
+
+
+                                                <div class="comment-meta commentmetadata">
+                                                    <a href="../camera-profiling-darktable-chart/#comment-571">
+                                                        <time datetime="2017-04-21T09:53:47+00:00">April 21, 2017 at
+                                                            9:53 am
+                                                        </time>
+                                                    </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../camera-profiling-darktable-chart/?replytocom=571#respond'
+                                   onclick='return addComment.moveForm( "comment-571", "571", "respond", "903" )'
+                                   aria-label='Reply to Jean-Paul GAUCHE'>Reply</a>															</span>
+                                                </div><!-- .comment-meta .commentmetadata -->
+
+                                            </footer>
+
+                                            <div class="comment-content entry-content"><p>I will finally understand how
+                                                to use darktable-chart. Thanks Harry.<br/>
+                                                Cordially.</p>
+                                            </div>
+                                        </article><!-- #comment-## -->
+
+                                        <ul class="children">
+                                            <li class="comment byuser comment-author-harry bypostauthor even depth-2"
+                                                id="li-comment-572">
+                                                <article id="comment-572" class="comment">
+                                                    <footer>
+                                                        <img alt=''
+                                                             src='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=50&#038;d=blank&#038;r=g'
+                                                             srcset='http://1.gravatar.com/avatar/dc0e1c099cd9845ce759977ce0b21f3d?s=100&amp;d=blank&amp;r=g 2x'
+                                                             class='avatar avatar-50 photo' height='50' width='50'/>
+                                                        <div class="comment-author">
+                                                            <cite class="fn">harry</cite>
+                                                        </div><!-- .comment-author -->
+
+
+                                                        <div class="comment-meta commentmetadata">
+                                                            <a href="../camera-profiling-darktable-chart/#comment-572">
+                                                                <time datetime="2017-04-21T10:29:18+00:00">April 21,
+                                                                    2017 at 10:29 am
+                                                                </time>
+                                                            </a>
+
+							<span class="support">
+								<a rel='nofollow' class='comment-reply-link'
+                                   href='../camera-profiling-darktable-chart/?replytocom=572#respond'
+                                   onclick='return addComment.moveForm( "comment-572", "572", "respond", "903" )'
+                                   aria-label='Reply to harry'>Reply</a>															</span>
+                                                        </div><!-- .comment-meta .commentmetadata -->
+
+                                                    </footer>
+
+                                                    <div class="comment-content entry-content"><p>Thank you for writing
+                                                        Jean-Paul. You made me smile. Aloha</p>
+                                                    </div>
+                                                </article><!-- #comment-## -->
+
+                                            </li><!-- #comment-## -->
+                                        </ul><!-- .children -->
+                                    </li><!-- #comment-## -->
+                                </ol><!-- .commentlist -->
+
+
+                                <div id="respond" class="comment-respond">
+                                    <h3 id="reply-title" class="comment-reply-title">Leave a Reply
+                                        <small><a rel="nofollow" id="cancel-comment-reply-link"
+                                                  href="/camera-profiling-darktable-chart/#respond"
+                                                  style="display:none;">Cancel reply</a></small>
+                                    </h3>
+                                    <form action="../wp-comments-post.php" method="post" id="commentform"
+                                          class="comment-form">
+                                        <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span>
+                                        </p>
+                                        <p class="comment-form-comment"><textarea id="comment" name="comment" rows="8"
+                                                                                  aria-required="true"></textarea></p>
+                                        <p class="comment-form-author"><label for="author">Name</label> <input
+                                                id="author" name="author" type="text" value="" size="30"
+                                                maxlength="245"/></p>
+                                        <p class="comment-form-email"><label for="email">Email</label> <input id="email"
+                                                                                                              name="email"
+                                                                                                              type="text"
+                                                                                                              value=""
+                                                                                                              size="30"
+                                                                                                              maxlength="100"
+                                                                                                              aria-describedby="email-notes"/>
+                                        </p>
+                                        <p class="comment-form-url"><label for="url">Website</label> <input id="url"
+                                                                                                            name="url"
+                                                                                                            type="text"
+                                                                                                            value=""
+                                                                                                            size="30"
+                                                                                                            maxlength="200"/>
+                                        </p>
+                                        <p class="form-submit"><input name="submit" type="submit" id="submit"
+                                                                      class="submit" value="Post Comment"/> <input
+                                                type='hidden' name='comment_post_ID' value='903' id='comment_post_ID'/>
+                                            <input type='hidden' name='comment_parent' id='comment_parent' value='0'/>
+                                        </p><input type="hidden" id="ct_checkjs_0e65972dce68dad4d52d063967f0a705"
+                                                   name="ct_checkjs" value="0"/>
+                                        <script type="text/javascript">setTimeout(function () {
+                                            var ct_input_name = 'ct_checkjs_0e65972dce68dad4d52d063967f0a705';
+                                            if (document.getElementById(ct_input_name) !== null) {
+                                                var ct_input_value = document.getElementById(ct_input_name).value;
+                                                document.getElementById(ct_input_name).value = document.getElementById(ct_input_name).value.replace(ct_input_value, '866971275');
+                                            }
+                                        }, 1000);</script>
+                                    </form>
+                                </div><!-- #respond -->
+
+                            </div><!-- #comments .comments-area -->
+                        </div><!-- #single-comments-wrapper -->
+
+
+                        <nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+                            <h1 class="assistive-text">Post navigation</h1>
+
+
+                            <div class="nav-previous"><a href="../facebook-360-view/index.html" rel="prev"><span
+                                    class="meta-nav influence-icon-arrow-left"></span> Facebook 360 View</a></div>
+                            <div class="nav-next"><a href="../additional-thoughts-camera-profiling/index.html"
+                                                     rel="next">Additional thoughts on camera profiling <span
+                                    class="meta-nav influence-icon-arrow-right"></span></a></div>
+
+                        </nav><!-- #nav-below -->
+
+                    </div>
+
+                </article><!-- #post-903 -->
+
+
+            </div><!-- #content .site-content -->
+
+        </section><!-- #primary .content-area -->
+
+
+        <div id="secondary">
+
+            <div class="widgets">
+                <aside id="sow-image-2" class="widget widget_sow-image">
+                    <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                        <div class="sow-image-container">
+                            <a href="../index.html"> <img src="../wp-content/uploads/2016/10/logo512-1.jpg" width="512"
+                                                          height="512"
+                                                          srcset="../wp-content/uploads/2016/10/logo512-1.jpg 512w, ../wp-content/uploads/2016/10/logo512-1-150x150.jpg 150w, ../wp-content/uploads/2016/10/logo512-1-300x300.jpg 300w"
+                                                          title="logo512" class="so-widget-image"/>
+                            </a></div>
+
+                    </div>
+                </aside>
+                <aside id="search-2" class="widget widget_search">
+                    <form method="get" id="searchform" action="../index.html" role="search">
+                        <label for="s" class="assistive-text">Search</label>
+                        <input type="text" class="field" name="s" value="" id="s" placeholder="Search"/>
+                        <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search"/>
+                    </form>
+                </aside>
+                <aside id="text-2" class="widget widget_text">
+                    <div class="textwidget">
+                        <script type='text/javascript' src="../cgi/build_links.js">
+                        </script>
+                    </div>
+                </aside>
+                <aside id="text-3" class="widget widget_text">
+                    <div class="textwidget">
+                        <div id='results'></div>
+                    </div>
+                </aside>
+            </div>
+
+        </div>
+
+
+    </div><!-- #main .site-main -->
+
+    <footer id="colophon" class="site-footer" role="contentinfo">
+
+        <div class="container">
+
+            <div id="footer-widgets">
+                <aside id="meta-3" class="widget widget_meta"><h3 class="widget-title">Meta</h3>
+                    <ul>
+                        <li><a rel="nofollow" href="../wp-login.php">Log in</a></li>
+                        <li><a href="../feed/index.html">Entries <abbr title="Really Simple Syndication">RSS</abbr></a>
+                        </li>
+                        <li><a href="../comments/feed/index.html">Comments <abbr
+                                title="Really Simple Syndication">RSS</abbr></a></li>
+                        <li><a href="https://wordpress.org/"
+                               title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a>
+                        </li>
+                    </ul>
+                </aside>
+                <aside id="text-4" class="widget widget_text">
+                    <div class="textwidget"><a href="stats">Stats</a></div>
+                </aside>
+            </div><!-- #footer-widgets -->
+
+
+        </div>
+
+    </footer><!-- #colophon .site-footer -->
+</div><!-- #page .hfeed .site -->
+
+
+<div id="main-menu">
+
+    <a href="#" class="influence-icon influence-icon-cross main-menu-close"></a>
+
+    <div class="menu">
+        <div class="menu">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li class="page_item page-item-232"><a href="../about-us/index.html">About Us</a></li>
+                <li class="page_item page-item-391"><a href="../awesome-links/index.html">Awesome Links</a></li>
+                <li class="page_item page-item-470"><a href="../lab-reference-chart/index.html">Lab Color Reference
+                    Chart</a></li>
+                <li class="page_item page-item-258"><a href="../order-prints-of-my-work/index.html">Order Prints of My
+                    Work</a></li>
+                <li class="page_item page-item-573"><a href="../scripts/index.html">Scripts</a></li>
+                <li class="page_item page-item-527"><a href="../show-suggestions/index.html">Show Suggestions</a></li>
+                <li class="page_item page-item-172"><a href="../shoot-with-harry/index.html">Shoot with Harry</a></li>
+                <li class="page_item page-item-154"><a href="../support-weekly-edit/index.html">Donate to the Show</a>
+                </li>
+                <li class="page_item page-item-142"><a href="../my-workflow/index.html">My Workflow</a></li>
+                <li class="page_item page-item-170"><a href="../edit-my-raw/index.html">Edit my RAW</a></li>
+                <li class="page_item page-item-156"><a href="../tpe/index.html">Sun and Moon Calendar</a></li>
+                <li class="page_item page-item-103"><a href="../playlist/index.html">Playlist</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="widgets">
+        <aside id="siteorigin-panels-builder-3" class="widget widget_siteorigin-panels-builder">
+            <div id="pl-w57e4594d719bc">
+                <div class="panel-grid" id="pg-w57e4594d719bc-0">
+                    <div class="panel-grid-cell" id="pgc-w57e4594d719bc-0-0">
+                        <div class="so-panel widget widget_pages panel-first-child" id="panel-w57e4594d719bc-0-0-0"
+                             data-index="0"><h3 class="widget-title">Resources</h3>
+                            <ul>
+                                <li class="page_item page-item-232"><a href="../about-us/index.html">About Us</a></li>
+                                <li class="page_item page-item-391"><a href="../awesome-links/index.html">Awesome
+                                    Links</a></li>
+                                <li class="page_item page-item-37"><a href="../index.html">Home Page</a></li>
+                                <li class="page_item page-item-470"><a href="../lab-reference-chart/index.html">Lab
+                                    Color Reference Chart</a></li>
+                                <li class="page_item page-item-258"><a href="../order-prints-of-my-work/index.html">Order
+                                    Prints of My Work</a></li>
+                                <li class="page_item page-item-573"><a href="../scripts/index.html">Scripts</a></li>
+                                <li class="page_item page-item-527"><a href="../show-suggestions/index.html">Show
+                                    Suggestions</a></li>
+                                <li class="page_item page-item-172"><a href="../shoot-with-harry/index.html">Shoot with
+                                    Harry</a></li>
+                                <li class="page_item page-item-154"><a href="../support-weekly-edit/index.html">Donate
+                                    to the Show</a></li>
+                                <li class="page_item page-item-142"><a href="../my-workflow/index.html">My Workflow</a>
+                                </li>
+                                <li class="page_item page-item-170"><a href="../edit-my-raw/index.html">Edit my RAW</a>
+                                </li>
+                                <li class="page_item page-item-156"><a href="../tpe/index.html">Sun and Moon
+                                    Calendar</a></li>
+                            </ul>
+                        </div>
+                        <div class="so-panel widget widget_recent-posts widget_recent_entries"
+                             id="panel-w57e4594d719bc-0-0-1" data-index="1"><h3 class="widget-title">Recent Posts</h3>
+                            <ul>
+                                <li>
+                                    <a href="../pineapples/index.html">Pineapples</a>
+                                </li>
+                                <li>
+                                    <a href="../animate-your-edit/index.html">Animate your edit</a>
+                                </li>
+                                <li>
+                                    <a href="../senja-peninsula/index.html">Senja Peninsula</a>
+                                </li>
+                                <li>
+                                    <a href="../boiling-pots/index.html">Boiling Pots</a>
+                                </li>
+                                <li>
+                                    <a href="../additional-thoughts-camera-profiling/index.html">Additional thoughts on
+                                        camera profiling</a>
+                                </li>
+                                <li>
+                                    <a href="../camera-profiling-darktable-chart/index.html">Camera Profiling with
+                                        Darktable-chart</a>
+                                </li>
+                                <li>
+                                    <a href="../facebook-360-view/index.html">Facebook 360 View</a>
+                                </li>
+                                <li>
+                                    <a href="../antelope-canyon/index.html">Antelope Canyon</a>
+                                </li>
+                                <li>
+                                    <a href="../basecurves/index.html">Basecurves</a>
+                                </li>
+                                <li>
+                                    <a href="../tiny-planet/index.html">Tiny Planet</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="so-panel widget widget_search panel-last-child" id="panel-w57e4594d719bc-0-0-2"
+                             data-index="2">
+                            <form method="get" id="searchform" action="../index.html" role="search">
+                                <label for="s" class="assistive-text">Search</label>
+                                <input type="text" class="field" name="s" value="" id="s" placeholder="Search"/>
+                                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+</div>
+<script async type='text/javascript'
+        src='../wp-content/plugins/cleantalk-spam-protect/inc/cleantalk_nocache.js?random=5.58'></script>
+<script type="text/javascript">function ctSetCookie(c_name, value, def_value) {
+    document.cookie = c_name + "=" + escape(value) + "; path=/";
+}
+ctSetCookie("ct_checkjs", "866971275", "0");</script>
+<style type="text/css" media="all" id="siteorigin-panels-grids-wp_footer">/* Layout w57e4594d719bc */
+#pg-w57e4594d719bc-0 .panel-grid-cell {
+    float: none
+}
+
+#pl-w57e4594d719bc .panel-grid-cell .so-panel {
+    margin-bottom: 30px
+}
+
+#pl-w57e4594d719bc .panel-grid-cell .so-panel:last-child {
+    margin-bottom: 0px
+}
+
+#pg-w57e4594d719bc-0 {
+    margin-left: -15px;
+    margin-right: -15px
+}
+
+#pg-w57e4594d719bc-0 .panel-grid-cell {
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+@media (max-width: 780px) {
+    #pg-w57e4594d719bc-0 .panel-grid-cell {
+        float: none;
+        width: auto
+    }
+
+    #pl-w57e4594d719bc .panel-grid, #pl-w57e4594d719bc .panel-grid-cell {
+    }
+
+    #pl-w57e4594d719bc .panel-grid .panel-grid-cell-empty {
+        display: none
+    }
+
+    #pl-w57e4594d719bc .panel-grid .panel-grid-cell-mobile-last {
+        margin-bottom: 0px
+    }
+} </style>
+<script type='text/javascript' src='../wp-includes/js/comment-reply.min.js?ver=4.7.5'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min.js?ver=4.7.5'></script>
+
+<script async type='text/javascript'
+        src='../wp-content/plugins/cleantalk-spam-protect/inc/cleantalk_nocache.js?random=5.58'></script>
+</body>
+</html>

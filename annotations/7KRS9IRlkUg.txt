@@ -1,0 +1,510 @@
+1  (music)  (Banyan Drive, Hilo)  (along 4 Mile Beaches road, Hilo)  (Pahoa shoreline)  (up Mauna Loa, looking toward Mauna Kea)  (Mouse's voice) Aloha.
+
+ Welcome to Weekly Edit for Wednesday, February 1, 2017.
+
+ So, you're lucky enough to catch a falling star, lucky enough to catch it in an image even  -- but: oops!  Well, I'll let Harry tell you the story.
+
+ (Harry's voice) Oh, boy, did I get lucky.
+
+ I got a shooting star right in the middle of Andromeda.
+
+ I was doing an image stack.
+
+ My idea was to make 150 images of Andromeda and then stack them together to get a beautiful  shot of Andromeda.
+
+ I don't have much of a long lens: I've got 100mm.
+
+ My camera is full frame, so I don't have a lot of magnification there.
+
+ Lucky for me, Andromeda is huge.
+
+ We were up on the mountain at around 7000 feet (2133 meters) and it was a very clear night,  so it looked like things were going to work out pretty well.
+
+ But, I blew it.
+
+ I did not align my tracker properly, or maybe I bumped my tripod.
+
+ I don't know.
+
+ I've got these star trails.
+
+ Normally, I'd just ditch the whole stack because I messed it up.
+
+ But I'm not going to ditch this!  I've got a freaking shooting star going through Andromeda!  So I need to salvage this.
+
+ Let's see what we can do to fix this.
+
+ Alright, the first thing I'll do is crop it because I don't want the whole thing.
+
+ Let's see: get our aspect ratio and bring in our sides.
+
+ Let's fill the frame with the shooting star.
+
+ That looks pretty good.
+
+ I want to bring out more of Andromeda.
+
+ Let's see if we can get a little more by using the Exposure Fusion.
+
+ Oh, yeah.
+
+ Look at that; that does a great job.
+
+ It really brings things out.
+
+ That's a good start.
+
+ Another place to look is Global Tonemap.
+
+ Look at that: now we're starting to see stuff.
+
+ We've got a lot of stars; we've got a big Andromeda...
+
+ This makes me happy.
+
+ I'd like to bring out this area more.
+
+ I'll use the Equalizer for that.
+
+ I don't want to make the stars brighter, but Andromeda is a different size than the stars.
+
+ I can use the size specifications of the Equalizer to enhance Andromeda  without making the stars brighter.
+
+ I can bring this up a little.
+
+ There we go.
+
+ Look, it's making it really bright right in the middle, so I'll use this with a Parametric Mask  and bring that down a little so the center doesn't get so bright.
+
+ The stars are awful bright, though, and we've got some noise.
+
+ On the noise, this Non-Local Means works great for night shots,  but it's actually stronger than I need.
+
+ I'll turn down the Strength down.
+
+ Sometimes I can get good results by turning down the Patch Size too.
+
+ That seems to be the case this time.
+
+ Let's see: move the Patch Size up one or down one.
+
+ Yeah, down one is better.
+
+ Oh, look at that; there's another shooting star.
+
+ There are tons of shooting stars out there.
+
+ Another thing I can do is take my Lowpass Filter and make a really small Radius, like  a little less than one pixel, and apply a Darken only Blend Mode.
+
+ That gets rid of some of this fringing and brings the color into the middle of these stars.
+
+ I'll do a couple corrections: Hot Pixels -- Detect by 3 Neighbors is good  -- and correct for Chromatic Aberrations.
+
+ Then I'll export this into the GIMP to work on the star trails.
+
+ I'm exporting it as a TIFF.
+
+ TIFF, 16-bit.
+
+ I like to work in Adobe.
+
+ Here we are in the GIMP.
+
+ Open.
+
+ Lucky Shot.
+
+ There's our TIFF.
+
+ Wonderful.
+
+ Now we need a nice big star to work with.
+
+ Here we go.
+
+ My idea for reducing the star trails is to take a duplicate of this image and bring it down  this way so that it overlaps the current image.
+
+ That will produce an overlapping area that is just this little ball here.
+
+ I'll use the Darken Only Blend Mode so this darker part of the sky over-writes the star trail,  leaving me with just this little ball right here.
+
+ Let's try that and see how it goes.
+
+ Duplicate Layer.
+
+ Then change my Opacity and move this down.
+
+ See, it creates a little ball right there.
+
+ If I bring my Opacity back and go to Darken Only, I've got these nice little balls.
+
+ But, now I've got these lines.
+
+ See these lines?  There's a line here too.
+
+ It's because I didn't cover it up exactly when I moved it.
+
+ I don't think there's a way to cover it up exactly, so I'll do it twice.
+
+ One will be just a tiny bit to that side and one a tiny bit to this side.
+
+ Then I can get the two sides.
+
+ These pixels are really big.
+
+ In order to do that maneuver, I'll need to re-sample it first to make it bigger.
+
+ So, let's start over again.
+
+ First I'll re-sample this layer.
+
+ Scale Image, and let's make it 5000px.
+
+ Where did our big star go?  Let's find it.
+
+ There it is.
+
+ Now we can see what we're doing.
+
+ Now we've got more to work with.
+
+ First I'll make a Duplicate Layer of this and store it down here.
+
+ I'll use that later.
+
+ I'll show you why later on.
+
+ Then I'll make another Duplicate Layer of this one and change its Opacity  so I can see what I'm doing.
+
+ Then I'll do what I did before: move it down here to make this little ball area, but I'll  move it just a tiny bit to the left this time.
+
+ Then I'll turn that off.
+
+ I'll make another Duplicate Layer and do the same thing again: change the Opacity  and move it down.
+
+ But this time I'll move it just a tiny bit to the right.
+
+ Then the area where all three come together will be my star area.
+
+ Change its Opacity back.
+
+ Take this one: Blend Mode -- Darken Only.
+
+ And this one: Blend Mode -- Darken Only.
+
+ Okay, that turned out better.
+
+ We still have a little edge here, and it looks like we're not going to get it perfect, but  I think things are looking much better.
+
+ EXCEPT we've lost our shooting star.
+
+ See that?  Now, if we move our last Duplicate that we made to the top and turn it on, we have our shooting star.
+
+ So, I can make this one have a Layer Mask.
+
+ Then I can Paint.
+
+ We want this to show up.
+
+ Let's put it on the bottom.
+
+ Merge Down this one.
+
+ Merge Down this one.
+
+ I've got the Layer Mask on the wrong part.
+
+ Let's see: Delete Layer Mask.
+
+ We'll put the Layer Mask on this one, and then Paint through  right here on my shooting star, and maybe on Andromeda-- we'll see.
+
+ I'll make my Pencil a little larger and paint down the shooting star.
+
+ Now let's see what our original Andromeda looks like versus the one  with the Darken Only Blend Modes applied.
+
+ That's the original,  and this is the one with the Darken Blend Modes.
+
+ I like the original better, so I'll paint that area too.
+
+ This time I'll use the Paintbrush so we have feathered edges.
+
+ I'll turn down my Hardness, turn my Size up, and turn my Opacity down and do a couple passes.
+
+ Let's see what our Layer Mask looks like.
+
+ Okay; I want to fill this in a little better.
+
+ Right in here we've got a better Andromeda, but we've got smeared-out stars.
+
+ Now I need to come in with the Eraser Tool and do some fine-tuning.
+
+ I'll turn my size down...
+
+ ...oh, down further than that,  and just a little smaller.
+
+ Then we can get each of these little stars right here.
+
+ Then we can come back with a Paintbrush and fix any last ones we need to.
+
+ It's a little tedious, but it goes quickly.
+
+ That's starting to look better.
+
+ I've got a little edge right here where it was darker.
+
+ I will go back to my Paint tool and bring back that one.
+
+ That looks good.
+
+ Now I can see some star trails along the shooting star, so I'll go along that edge with the  Eraser Tool and knock down some of those.
+
+ There we go.
+
+ I can't get them all, but I can get a lot of them.
+
+ We've still got some leftovers where things didn't line up quite right, and we've lost  some of the stars, but I think overall we've got a massive improvement.
+
+ Let's look at our original.
+
+ Yeah, that is a big improvement.
+
+ We'll merge these two down and we'll Save this.
+
+ Now we can open it in Darktable and finish up this edit.
+
+ We've got smaller stars now.
+
+ But, I want to bring out the stars more now.
+
+(laughing)  There are a couple ways to do that.
+
+ We can use the Equalizer to bring up the size of the stars that we want, like this.
+
+ And maybe not the bigger ones.
+
+ And we can change this to Lighten only.
+
+ Hey, we got some stars back: nice.
+
+ And I want to bring back Andromeda.
+
+ Once again, we're running into this problem where, when it's too bright, it's just too much.
+
+ We'll use a Parametric Mask to bring that down a little so it doesn't affect  the brighter areas as much.
+
+ And I think we can bring out a little more detail in Andromeda.
+
+ Let's try doing that with a Lowpass Filter.
+
+ Turn our Saturation all the way down; bring our Radius down  so we can see some details in here.
+
+ There we go: we can see some dark and light areas now.
+
+ Maybe just a little less?  Yeah, right around there, and I'll use a Softlight Blend Mode.
+
+ I can bring that down a little bit, like that.
+
+ I want to bring up some of this lighter area with a Tone Curve.
+
+ This looks like a bit much too.
+
+ It looks burned-in.
+
+ Once again, let's use the Lowpass, give it a small Radius -- enough to make it look better,  like that -- then I'll use the Darken only Blend Mode.
+
+ That fills in the inside of this a little.
+
+ I don't want that everywhere because I'm actually knocking down my stars with it too much, so  I'll Paint that on.
+
+ We'll give it a little Mask Blur.
+
+ That's looking better.
+
+ This is catching my eye, up here, so I'll Crop that out.
+
+ I don't want it to be distracting.
+
+ There we go.
+
+ Okay, I want more color.
+
+ We'll steepen our channels a little.
+
+ Let's see what color Andromeda is.
+
+ A little bit to the magenta here.
+
+ And a little bit to the yellow.
+
+ Alright, now I've got a little more color.
+
+ We've got too much green and red color noise in here.
+
+ Look at that.
+
+ I want to get rid of that some.We'll try a couple different methods to see what's best.
+
+ We'll try Wavelets.
+
+ We'll go down here to HSV Color and move this over to Wavelets.
+
+ We still have some blotches here, even if I bring this up.
+
+ I have to bring this all the way up to really knock it down, and it still isn't knocked  down all the way.
+
+ That's not too bad, though, and Andromeda is looking pretty good.
+
+ Another way we can do this is with Equalizers.
+
+ So, let's open another instance of the Equalizer and go to the color.
+
+ We'll bring up the noise reduction side.
+
+ That gives us some results.
+
+ We can also do it by bringing down the contrast side.
+
+ Now, these blotchy areas are bigger than the stars, so we can actually leave the smaller  one and just work on these larger sizes of color.
+
+ There we go.
+
+ So, reducing color contrast in the larger sizes.
+
+ is our best bet.
+
+ There we go.
+
+ This side of the image is a little darker than this side.
+
+ I wonder if that had to do with my lens.
+
+ I'll bring that up just a little.
+
+ Oh, it came up quite a bit.
+
+ Then I want to get all the stars to pop a little more.
+
+ I'll use the Highpass Filter.
+
+ We'll go down and get the size of the stars we want.
+
+ This will give them nice round edges too,  instead of all that noise from my star trail  subtraction.
+
+ There we go.
+
+ Then I'll use an Overlay Blend Mode for this.
+
+ That makes our stars a little brighter and the sky a little darker.
+
+ We don't need 100%; we'll do it right around 50%  When we first started, this end of the tail was much lighter and this end of the tail was darker.
+
+ Let's look at that.
+
+ See?  We seem to have lost some of that with all of our work.
+
+ I want to bring it back to finish up.
+
+ We'll use a Tone Curve.
+
+ First, we'll Paint the area we want to work on.
+
+ Then I'll combine it with a gradient.
+
+ Let's turn on our indicator.
+
+ We need to use our Mask Manager.
+
+ Here we are: Tone Group.
+
+ Go to the first one, set it to Union; go to the second one and set it to Intersection.
+
+ Okay, now it has more of an effect as it goes out.
+
+ We've got these sharp edges, so I want to Mask Blur those.
+
+ There we go.
+
+ Turn off our Mask Indicator.
+
+ Then we can take down  our highlights and get closer to the original.
+
+ It looks like we've got a lot of noise and it's pretty bright on this side.
+
+ I want to take a quick stab at that and then export this and set my Blackpoint.
+
+ That looks like the right thing to do.
+
+ that matches a little better.
+
+ There is a lot of color over there too.
+
+ This whole side of the image has a lot of color.
+
+ Final adjustments.
+
+ There we go.
+
+ Now, I'm going to export this and set my Blackpoint, do a little final sharpening,  and that should do it.
+
+ Alright: Blackpoint.
+
+ Down we come.
+
+ Nice, that looks better.
+
+ And bring that up a little.
+
+ And a little final sharpening.
+
+ I'm not sure what I can do about all that.
+
+ Maybe I can use a Parametric Mask with a Gaussian Blur and just pick the darker parts.
+
+ A tiny bit of a Mask Blur there.
+
+ I've got little halos everywhere now.
+
+ Hmmm.
+
+ Bring my Brightness down?  Ah, there we go; that cleaned things up.
+
+ I want to exclude this area because I don't see how that's helping things.
+
+ Oh, one last thing: I've still got this little bit up here.
+
+ Okay, (laughing) there we go.
+
+ Alright everybody.
+
+ Hey, have a great week.
+
+ I'll see you next week.
+
+ Bye.
+
+ (Mouse's voice) Darktable and the GIMP: powerful allies in the fight against star trails!  Well, that falling star wasn't the only lucky thing about our week.
+
+ We got a new patron!  Thank you Michael, for supporting us on Patreon!  We now have four patrons.
+
+ Thank you to all of you.
+
+ You are inspiring and encouraging us to keep making Weekly Edits.
+
+ 'But how do I get to Patreon?' you might ask.
+
+ Well, let me show you.
+
+ We have a link right here on our home page.
+
+ If you scroll down past Recent Posts to Resources, here, hidden in there is Patreon Support.
+
+ You see the cute picture of our puppy and click right through to our Patreon page  where it is super-easy to become a patron.
+
+ Choose a reward or choose your own amount, and just click the Continue button.
+
+ Everyone, thanks for watching; thanks for being with us.
+
+ I hope you enjoy your week.
+
+ Until next week, a hui hou.
+

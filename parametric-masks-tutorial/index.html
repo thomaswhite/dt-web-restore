@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="profile" href="http://gmpg.org/xfn/11"/>
+    <link rel="pingback" href="../xmlrpc.php"/>
+
+    <title>Parametric Masks</title>
+
+    <script type='text/javascript'>
+        var ct_ajaxurl = '../wp-admin/admin-ajax.php';
+        var ct_info_flag = false;
+        var ct_set_cookies_flag = true;
+    </script>
+
+    <!-- This site is optimized with the Yoast SEO Premium plugin v4.2.1 - https://yoast.com/wordpress/plugins/seo/ -->
+    <meta name="description"
+          content="Oh, the mighty and powerful Sliders! Those mysterious Triangles! And the secrets of changing fonts and panel width in Darktable. All this, plus my handy new LAB color tool and another round of compositing."/>
+    <meta name="robots" content="noodp"/>
+    <link rel="canonical" href="../parametric-masks-tutorial/"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Parametric Masks in Darktable"/>
+    <meta property="og:description"
+          content="Oh, the mighty and powerful Sliders! Those mysterious Triangles! And the secrets of changing fonts and panel width in Darktable... All this, plus another round of compositing and my handy new LAB color tool."/>
+    <meta property="og:url" content="../parametric-masks-tutorial/"/>
+    <meta property="og:site_name" content="Weekly Edit"/>
+    <meta property="article:tag" content="compositing"/>
+    <meta property="article:tag" content="Darktable"/>
+    <meta property="article:tag" content="parametric mask"/>
+    <meta property="article:section" content="Weekly Edits"/>
+    <meta property="article:published_time" content="2016-11-07T04:53:22+00:00"/>
+    <meta property="article:modified_time" content="2016-12-13T12:50:29+00:00"/>
+    <meta property="og:updated_time" content="2016-12-13T12:50:29+00:00"/>
+    <meta property="og:image" content="../wp-content/uploads/2016/11/DSCF0135.jpg"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description"
+          content="Oh, the mighty and powerful Sliders! Those mysterious Triangles! And the secrets of changing fonts and panel width in Darktable. All this, plus my handy new LAB color tool and another round of compositing."/>
+    <meta name="twitter:title" content="Parametric Masks"/>
+    <meta name="twitter:image" content="../wp-content/uploads/2016/11/DSCF0135.jpg"/>
+    <meta property="DC.date.issued" content="2016-11-07T04:53:22+00:00"/>
+    <!-- / Yoast SEO Premium plugin. -->
+
+    <link rel='dns-prefetch' href='http://fonts.googleapis.com'/>
+    <link rel='dns-prefetch' href='http://s.w.org'/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Feed" href="../feed/"/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Comments Feed"
+          href="../comments/feed/"/>
+    <link rel="alternate" type="application/rss+xml" title="Weekly Edit &raquo; Parametric Masks Comments Feed"
+          href="../parametric-masks-tutorial/feed/"/>
+    <script type="text/javascript">
+        window._wpemojiSettings = {
+            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/",
+            "ext": ".png",
+            "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/",
+            "svgExt": ".svg",
+            "source": {"concatemoji": "http:\/\/weeklyedit.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.2"}
+        };
+        !function (a, b, c) {
+            function d(a) {
+                var b, c, d, e, f = String.fromCharCode;
+                if (!k || !k.fillText)return !1;
+                switch (k.clearRect(0, 0, j.width, j.height), k.textBaseline = "top", k.font = "600 32px Arial", a) {
+                    case"flag":
+                        return k.fillText(f(55356, 56826, 55356, 56819), 0, 0), !(j.toDataURL().length < 3e3) && (k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 65039, 8205, 55356, 57096), 0, 0), b = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 55356, 57096), 0, 0), c = j.toDataURL(), b !== c);
+                    case"emoji4":
+                        return k.fillText(f(55357, 56425, 55356, 57341, 8205, 55357, 56507), 0, 0), d = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55357, 56425, 55356, 57341, 55357, 56507), 0, 0), e = j.toDataURL(), d !== e
+                }
+                return !1
+            }
+
+            function e(a) {
+                var c = b.createElement("script");
+                c.src = a, c.defer = c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c)
+            }
+
+            var f, g, h, i, j = b.createElement("canvas"), k = j.getContext && j.getContext("2d");
+            for (i = Array("flag", "emoji4"), c.supports = {
+                everything: !0,
+                everythingExceptFlag: !0
+            }, h = 0; h < i.length; h++)c.supports[i[h]] = d(i[h]), c.supports.everything = c.supports.everything && c.supports[i[h]], "flag" !== i[h] && (c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && c.supports[i[h]]);
+            c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && !c.supports.flag, c.DOMReady = !1, c.readyCallback = function () {
+                c.DOMReady = !0
+            }, c.supports.everything || (g = function () {
+                c.readyCallback()
+            }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () {
+                "complete" === b.readyState && c.readyCallback()
+            })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji)))
+        }(window, document, window._wpemojiSettings);
+    </script>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' id='siteorigin-panels-front-css'
+          href='../wp-content/plugins/siteorigin-panels/css/front.css?ver=2.4.24' type='text/css' media='all'/>
+    <link rel='stylesheet' id='sow-image-default-3f547a15eaaa-css'
+          href='../wp-content/uploads/siteorigin-widgets/sow-image-default-3f547a15eaaa.css?ver=4.7.2' type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='siteorigin-google-web-fonts-css'
+          href='http://fonts.googleapis.com/css?family=Montserrat&#038;ver=4.7.2' type='text/css' media='all'/>
+    <link rel='stylesheet' id='influence-style-css' href='../wp-content/themes/influence/style.css?ver=4.7.2'
+          type='text/css' media='all'/>
+    <script type='text/javascript' src='../wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+    <script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+    <script type='text/javascript' src='../wp-content/themes/influence/js/jquery.fitvids.min.js?ver=1.0'></script>
+    <script type='text/javascript' src='../wp-content/themes/influence/js/jquery.theme-main.min.js?ver=1.2.1'></script>
+    <link rel='https://api.w.org/' href='../wp-json/'/>
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php?rsd"/>
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml"/>
+    <meta name="generator" content="WordPress 4.7.2"/>
+    <link rel='shortlink' href='../?p=488'/>
+    <link rel="alternate" type="application/json+oembed"
+          href="../wp-json/oembed/1.0/embed?url=http%3A%2F%2Fweeklyedit.com%2Fparametric-masks-tutorial%2F"/>
+    <link rel="alternate" type="text/xml+oembed"
+          href="../wp-json/oembed/1.0/embed?url=http%3A%2F%2Fweeklyedit.com%2Fparametric-masks-tutorial%2F&#038;format=xml"/>
+    <!--[if lt IE 9]>
+    <script src="../wp-content/themes/influence/js/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if (gte IE 6)&(lte IE 8)]>
+    <script type="text/javascript" src="../wp-content/themes/influence/js/selectivizr.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <style type="text/css" id="custom-background-css">
+        body.custom-background {
+            background-color: #ffffff;
+            background-image: url("../wp-content/themes/influence/images/background.png");
+            background-position: left top;
+            background-size: auto;
+            background-repeat: repeat;
+            background-attachment: scroll;
+        }
+    </style>
+    <style type="text/css" media="all" id="siteorigin-panels-grids-wp_head">/* Layout 488 */
+    #pg-488-0, #pg-488-1, #pl-488 .panel-grid-cell .so-panel {
+        margin-bottom: 30px
+    }
+
+    #pg-488-0 .panel-grid-cell, #pg-488-2 .panel-grid-cell {
+        float: none
+    }
+
+    #pgc-488-1-0 {
+        width: 40.591%
+    }
+
+    #pgc-488-1-1 {
+        width: 59.409%
+    }
+
+    #pg-488-1 .panel-grid-cell {
+        float: left
+    }
+
+    #pl-488 .panel-grid-cell .so-panel:last-child {
+        margin-bottom: 0px
+    }
+
+    #pg-488-0, #pg-488-1, #pg-488-2 {
+        margin-left: -15px;
+        margin-right: -15px
+    }
+
+    #pg-488-0 .panel-grid-cell, #pg-488-1 .panel-grid-cell, #pg-488-2 .panel-grid-cell {
+        padding-left: 15px;
+        padding-right: 15px
+    }
+
+    #panel-488-1-1-0 > .panel-widget-style {
+        padding: 0px 0px 0px 0px
+    }
+
+    @media (max-width: 780px) {
+        #pg-488-0 .panel-grid-cell, #pg-488-1 .panel-grid-cell, #pg-488-2 .panel-grid-cell {
+            float: none;
+            width: auto
+        }
+
+        #pgc-488-1-0 {
+            margin-bottom: 30px
+        }
+
+        #pl-488 .panel-grid, #pl-488 .panel-grid-cell {
+        }
+
+        #pl-488 .panel-grid .panel-grid-cell-empty {
+            display: none
+        }
+
+        #pl-488 .panel-grid .panel-grid-cell-mobile-last {
+            margin-bottom: 0px
+        }
+    } </style>
+    <style type="text/css" id="influence-footer-widgets">#footer-widgets aside {
+        width: 50%;
+    } </style>
+    <style id='influence-custom-css' class='siteorigin-custom-css' type='text/css'>
+        .post-thumbnail {
+            display: none;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        article.entry .entry-content h3 {
+            font-size: 17px;
+            text-align: left;
+            margin-left: 0px;
+            margin-top: 0em;
+            margin-bottom: 0px;
+        }
+
+        #panel-37-0-1-2.so-panel.widget.widget_recent-posts.widget_recent_entries {
+            margin-bottom: 0px;
+        }
+
+        .entry-content ul {
+            margin-left: -6px;
+        }
+
+        #topics {
+            margin-top: -30px;
+        }
+
+        #modules {
+            margin-top: -30px;
+        }
+
+        .panel-grid-cell .widget-title {
+            padding-bottom: 15px;
+        }
+
+        #main-menu .widgets aside.widget .widget-title {
+            margin-bottom: 0px;
+            margin-top: -20px;
+        }
+
+        #panel-470-0-0-0.so-panel.widget.widget_sow-image.panel-first-child.panel-last-child {
+            margin-top: -50px;
+        }
+
+        article.entry {
+            visibility: visible;
+        }
+
+        .post-text {
+            visibility: visible;
+        }
+
+        .entry-title {
+            visibility: visible;
+        }
+
+        article.entry .post-text {
+            padding-top: 0px;
+        }
+
+        #panel-72-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-75-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-131-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-133-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-135-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-137-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-140-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-177-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-278-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-354-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-430-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-448-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-475-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-488-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-518-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-550-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-575-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-599-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-625-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-664-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-682-3-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-704-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-722-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-736-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-757-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+
+        #panel-765-2-0-0.so-panel.widget.widget_text.panel-first-child.panel-last-child {
+            height: 200px;
+            overflow: scroll;
+            background-color: #F0F0F0;
+        }
+    </style>
+    <style type="text/css" id="customizer-css">h1, h2, h3, h4, h5, h6 {
+        font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+        font-weight: 400
+    }
+
+    article.entry {
+        background-color: #ffffff
+    } </style>
+</head>
+
+<body class="post-template-default single single-post postid-488 single-format-standard custom-background siteorigin-panels responsive has-main-sidebar">
+
+<div id="page" class="hfeed site">
+
+
+    <header id="masthead" class="site-header has-shadow" role="banner">
+
+        <div class="container">
+
+            <div class="hgroup">
+
+                <h1 class="site-title">
+                    <a href="../index.html" title="Weekly Edit" rel="home">
+                        Weekly Edit </a>
+                </h1>
+
+
+            </div>
+
+
+            <nav role="navigation" class="site-navigation main-navigation primary">
+
+                <h1 class="assistive-text">Menu</h1>
+
+                <a href="#" class="main-menu-button">
+                    <i class="influence-icon-menu-icon"></i>
+                    Menu </a>
+
+            </nav><!-- .site-navigation .main-navigation -->
+
+
+        </div>
+
+    </header><!-- #masthead .site-header -->
+
+    <div class="site-header has-shadow site-header-sentinel">
+
+        <div class="container">
+
+            <div class="hgroup">
+
+                <h1 class="site-title">
+                    Weekly Edit </h1>
+
+
+            </div>
+
+
+            <div role="navigation" class="site-navigation main-navigation primary">
+
+                <h1 class="assistive-text">Menu</h1>
+
+                <a href="#" class="main-menu-button">
+                    <i class="influence-icon-menu-icon"></i>
+                    Menu </a>
+
+            </div><!-- .site-navigation .main-navigation -->
+
+
+        </div>
+
+    </div><!-- #masthead .site-header -->
+
+    <div id="main" class="site-main">
+
+        <section id="primary" class="content-area">
+
+            <div id="content" class="site-content" role="main">
+
+
+                <article id="post-488"
+                         class="entry post-488 post type-post status-publish format-standard has-post-thumbnail hentry category-weekly-edits tag-compositing tag-darktable tag-parametric-mask">
+
+                    <div class="post-thumbnail">
+                        <a href="../parametric-masks-tutorial/" title="Permalink to Parametric Masks" rel="bookmark">
+                            <img width="1000" height="668" src="../wp-content/uploads/2016/11/DSCF0135-1000x668.jpg"
+                                 class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt=""
+                                 srcset="../wp-content/uploads/2016/11/DSCF0135-1000x668.jpg 1000w, ../wp-content/uploads/2016/11/DSCF0135-300x200.jpg 300w, ../wp-content/uploads/2016/11/DSCF0135-768x513.jpg 768w, ../wp-content/uploads/2016/11/DSCF0135-1024x684.jpg 1024w, ../wp-content/uploads/2016/11/DSCF0135-272x182.jpg 272w, ../wp-content/uploads/2016/11/DSCF0135.jpg 1280w"
+                                 sizes="(max-width: 1000px) 100vw, 1000px"/> </a>
+                    </div>
+
+
+                    <div class="post-text">
+
+                        <h1 class="entry-title"><a href="../parametric-masks-tutorial/"
+                                                   title="Permalink to Parametric Masks" rel="bookmark">Parametric
+                            Masks</a></h1>
+
+                        <div class="entry-content">
+                            <div id="pl-488">
+                                <div class="panel-grid" id="pg-488-0">
+                                    <div class="panel-grid-cell" id="pgc-488-0-0">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-488-0-0-0" data-index="0">
+                                            <div class="textwidget">
+                                                <div id="vp">
+                                                    <iframe frameborder=0 allowfullscreen
+                                                            src="https://www.youtube.com/embed/x1RRaXbnixQ"></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-grid" id="pg-488-1">
+                                    <div class="panel-grid-cell" id="pgc-488-1-0">
+                                        <div class="so-panel widget widget_sow-image panel-first-child"
+                                             id="panel-488-1-0-0" data-index="1">
+                                            <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                                                <div class="sow-image-container">
+                                                    <a href="../wp-content/uploads/2016/11/DSCF0135.jpg"
+                                                       target="_blank"> <img
+                                                            src="../wp-content/uploads/2016/11/DSCF0135.jpg"
+                                                            width="1280" height="855"
+                                                            srcset="../wp-content/uploads/2016/11/DSCF0135.jpg 1280w, ../wp-content/uploads/2016/11/DSCF0135-300x200.jpg 300w, ../wp-content/uploads/2016/11/DSCF0135-768x513.jpg 768w, ../wp-content/uploads/2016/11/DSCF0135-1024x684.jpg 1024w, ../wp-content/uploads/2016/11/DSCF0135-1000x668.jpg 1000w, ../wp-content/uploads/2016/11/DSCF0135-272x182.jpg 272w"
+                                                            title="Edit My RAW -After-"
+                                                            alt="Northwest USA fall scene with trees, pond, and field, after editing in Darktable"
+                                                            class="so-widget-image"/>
+                                                    </a></div>
+
+                                            </div>
+                                        </div>
+                                        <div class="so-panel widget widget_sow-image panel-last-child"
+                                             id="panel-488-1-0-1" data-index="2">
+                                            <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                                                <div class="sow-image-container">
+                                                    <a href="../wp-content/uploads/2016/11/DSCF0135_01.jpg"
+                                                       target="_blank"> <img
+                                                            src="../wp-content/uploads/2016/11/DSCF0135_01.jpg"
+                                                            width="1280" height="855"
+                                                            srcset="../wp-content/uploads/2016/11/DSCF0135_01.jpg 1280w, ../wp-content/uploads/2016/11/DSCF0135_01-300x200.jpg 300w, ../wp-content/uploads/2016/11/DSCF0135_01-768x513.jpg 768w, ../wp-content/uploads/2016/11/DSCF0135_01-1024x684.jpg 1024w, ../wp-content/uploads/2016/11/DSCF0135_01-1000x668.jpg 1000w, ../wp-content/uploads/2016/11/DSCF0135_01-272x182.jpg 272w"
+                                                            title="Edit my RAW -Before-"
+                                                            alt="Northwest USA fall scene with trees, pond, and field, RAW file before editing in Darktable"
+                                                            class="so-widget-image"/>
+                                                    </a></div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-grid-cell" id="pgc-488-1-1">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-488-1-1-0" data-index="3">
+                                            <div class="panel-widget-style"><h3 class="widget-title">Parametric
+                                                Masks</h3>
+                                                <div class="textwidget"><p>In this video I demonstrate the functioning
+                                                    of the parametric mask sliders in Darktable, use my new <a
+                                                            href=../compositing-with-darktable/ target=_blank>
+                                                        compositing </a> functionality on a contributed RAW file, and
+                                                    introduce my <a href=../lab-reference-chart/ target=_blank> Lab
+                                                        color reference chart</a>.<br/>
+                                                    Along the way, there are quick tips on Inkscape and on adjusting
+                                                    panel width and font size in Darktable. I use compositing in
+                                                    Darktable like an old hand now, but here's a quick reminder from
+                                                    last week: Keep your SVG file under 8mb; use Inkscape to convert it
+                                                    from a bitmap like this:</p>
+<pre>
+inkscape -f filename.jpg -l filename.svg
+</pre>
+                                                    <p>and put your SVG file here</p>
+<pre>
+.config/darktable/watermarks/
+</pre>
+                                                    <p>The RAW file used in this video is available <a target=_blank
+                                                                                                       href="https://drive.google.com/open?id=0B7mIPRZEcQpAWXNfUnREY1JqV00">here</a>.
+                                                        Thank you Jack for the contribution 🙂</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-grid" id="pg-488-2">
+                                    <div class="panel-grid-cell" id="pgc-488-2-0">
+                                        <div class="so-panel widget widget_text panel-first-child panel-last-child"
+                                             id="panel-488-2-0-0" data-index="4"><h3 class="widget-title">Complete Show
+                                            Text</h3>
+                                            <div class="textwidget"><p><a href="../annotations/x1RRaXbnixQ.txt"
+                                                                          download>Download complete text here</a></p>
+                                                <p>Aloha everybody, and welcome to Weekly Edit.</p>
+                                                <p> Today I will use an Edit My RAW that Jack sent me.</p>
+                                                <p> I'm excited to be using my compositing method on it.</p>
+                                                <p> It's become a normal part of my workflow now.</p>
+                                                <p> I wanted to show you a website every week that I'm really interested
+                                                    in.</p>
+                                                <p> This one you have to go to! It's pixels.us There are fantastic
+                                                    articles in here: everything from technical to artistic.</p>
+                                                <p> The blog posts are great.</p>
+                                                <p> A lot of it is specific to Darktable, but it's not all about
+                                                    Darktable.</p>
+                                                <p> You could easily spend the whole evening here.</p>
+                                                <p> This is an awesome website.</p>
+                                                <p> I want to talk about parametric masks today, and what those crazy
+                                                    little triangles under the Settings do.</p>
+                                                <p> Before I do that, I want to use Inkscape to make an image we can
+                                                    work with.</p>
+                                                <p> This will make it easier to visualize how the Parametric Masks
+                                                    work.</p>
+                                                <p> If I hold down the CTRL key as I pull a rectangle, it makes it a
+                                                    square.</p>
+                                                <p> I want to give this square a gradient fill from one side to the
+                                                    other.</p>
+                                                <p> I'll use this button here.</p>
+                                                <p> See: Linear Gradient.</p>
+                                                <p> See, I have an alpha on this side.</p>
+                                                <p> Here's how you change these gradient fills in Inkscape.</p>
+                                                <p> You click on this little pencil down here and it says "edit gradient
+                                                    fill" Then up here are the gradient fills and the stops.</p>
+                                                <p> So, I go to the stop with the alpha.</p>
+                                                <p> There it is.</p>
+                                                <p> See, my Alpha is at zero.</p>
+                                                <p> I'll turn that all the way up and set it to White.</p>
+                                                <p> Now it goes from red to white.</p>
+                                                <p> I want a second one too.</p>
+                                                <p> I want to go from top to bottom with dark on the bottom and light on
+                                                    top.</p>
+                                                <p> So, I'll duplicate this square and rotate it around itself.</p>
+                                                <p> Then I'll adjust the Gradient Fill here.</p>
+                                                <p> Oh, you've got to go to 1 and then back; there you go.</p>
+                                                <p> Okay, like that.</p>
+                                                <p> I'll set its alpha so I can see through it.</p>
+                                                <p> Got to set it for both stops.</p>
+                                                <p> 57 and 57, so I've got the same alpha on both.</p>
+                                                <p> So, I go from red to light red to white to dark, and that's two
+                                                    Gradient fills on top of each other with alpha blending.</p>
+                                                <p> I'll export these two as a PNG.</p>
+                                                <p> I can open this in Darktable.</p>
+                                                <p> There we go.</p>
+                                                <p> Here's our darker and our lighter sides and our red and our not-red
+                                                    side, so we've got two parameters.</p>
+                                                <p> This is what we're going to work with here: the Parametric Mask.</p>
+                                                <p> This is all so small, it's the perfect opportunity for me to show
+                                                    you how to change the panel width and the size of the font in
+                                                    Darktable.</p>
+                                                <p> Let's leave Darktable and do that.</p>
+                                                <p> I'll open either a text editor or just a terminal window, and this
+                                                    is just a text file, so you can edit it with anything that doesn't
+                                                    do formatting.</p>
+                                                <p> First, we'll make a backup copy of the RC file.</p>
+                                                <p> We'll go to the directory that contains the RC file.</p>
+                                                <p> That's in .config/darktable If I look at this, you'll see that
+                                                    there's darktablerc, and it's small; it's just a text file.</p>
+                                                <p> Let's look at it, but before we do anything with it, let's make a
+                                                    backup.</p>
+                                                <p> I'll cp that to itself with just a backup extension: cp darktablerc
+                                                    darktablerc.bak Now here's my original and here's my backup.</p>
+                                                <p> I'll edit darktablerc You'll see that it's set up where there's a
+                                                    key value pair, so there are these keys, and then there's an equal
+                                                    sign, then there are values after them.</p>
+                                                <p> We're looking for "panel".</p>
+                                                <p> If I look for panel, I finally find it at the third one down:
+                                                    panel_width=300 Let's change that to 370.</p>
+                                                <p> So, now when I open Darktable, I see my original image, and now my
+                                                    panel is wider.</p>
+                                                <p> But it didn't change the size of the little triangles or the
+                                                    fonts.</p>
+                                                <p> So, I'm going to change that.</p>
+                                                <p> But before I change that, I want to show you something about editing
+                                                    this rc file.</p>
+                                                <p> If I go in here and I edit this rc file, and change my screen dpi
+                                                    to, let's say, 140.</p>
+                                                <p> Then, when I look at Darktable there's no change.</p>
+                                                <p> If I exit Darktable and open it again, you'll see there's still no
+                                                    change.</p>
+                                                <p> The reason for that is that Darktable over-writes this file every
+                                                    time it closes, so that any changes you make to the GUI or core
+                                                    options get saved.</p>
+                                                <p> So, make sure Darktable is closed before you go edit.</p>
+                                                <p> We'll go to "screen"; see it set that back to 100.</p>
+                                                <p> We'll change it to 130.</p>
+                                                <p> There we go.</p>
+                                                <p> So here we are, and we've got the right size panel and the right
+                                                    size fonts.</p>
+                                                <p> Wonderful.</p>
+                                                <p> We'll open our image here.</p>
+                                                <p> I want to do something so that you can see the difference between
+                                                    the part we're working on and the part we aren't working on, so I'll
+                                                    just make everything blue.</p>
+                                                <p> I'll do that by just bringing this down.</p>
+                                                <p> There we go.</p>
+                                                <p> So, this part was red...</p>
+                                                <p> I'll take a Screenshot.</p>
+                                                <p> There we go.</p>
+                                                <p> So, this added blue to the whole image.</p>
+                                                <p> This line here, between the Screenshot and the working area can be
+                                                    rotated by clicking on this.</p>
+                                                <p> It can only go in 90 degree increments, though; you can't do
+                                                    diagonal.</p>
+                                                <p> So, this on the right is the part we're working on, and on the left
+                                                    is the original.</p>
+                                                <p> It made everything blue, so it made the parts that had red in it a
+                                                    little purple, and the parts without color became blue.</p>
+                                                <p> This part had a little red in it, so it's a little purple.</p>
+                                                <p> This part had no red, so it's just blue.</p>
+                                                <p> It goes from with the black or grey added to just the white added
+                                                    down here.</p>
+                                                <p> So, we've got four different colors.</p>
+                                                <p> If we look at our Parametric Mask, there are two different
+                                                    sliders.</p>
+                                                <p> One says Output and one says Input.</p>
+                                                <p> For right now, I'll just worry about the Input because it's the real
+                                                    workhorse here.</p>
+                                                <p> You'll see some indicators up here.</p>
+                                                <p> These are different tabs.</p>
+                                                <p> They are different channels.</p>
+                                                <p> Some of the modules have even more channels.This one just has
+                                                    five.</p>
+                                                <p> There's an A Channel, which goes from green to magenta.</p>
+                                                <p> B Channel is blue to yellow.</p>
+                                                <p> Chromacity is basically the amount of saturation.</p>
+                                                <p> And Hue.</p>
+                                                <p> I'll just deal with the L Channel to demonstrate this to start.</p>
+                                                <p> What these sliders do: if I move both of them, it makes it easier to
+                                                    visualize what's happening.</p>
+                                                <p> They say everything on the outside of these triangles -- everything
+                                                    on this side -- 'don't apply any of this effect.' Whatever I did up
+                                                    here, and it doesn't matter what I did -- don't apply any of it.</p>
+                                                <p> And the stuff on the right-hand side: apply the effect.</p>
+                                                <p> In this case, making everything blue.</p>
+                                                <p> So, if I move these to the right, we'll start to exclude certain
+                                                    parts of the image from being adjusted.</p>
+                                                <p> These parts here are in this darker area.</p>
+                                                <p> That's why they don't get any of the blue.</p>
+                                                <p> Likewise, if I pull these in, the lighter parts of the image won't
+                                                    get any blue either.</p>
+                                                <p> Now, why are there two triangles? Well, the top triangle is where
+                                                    all of the blue is being affected, and the bottom triangle is kind
+                                                    of a ramp.</p>
+                                                <p> It says, all of the effect, wherever the top triangle is, and go
+                                                    down so that none of the effect happens where the bottom triangle
+                                                    is.</p>
+                                                <p> Then, everything to the right of the bottom triangle gets none of
+                                                    the effect.</p>
+                                                <p> So, here we go.</p>
+                                                <p> We'll move this one over and you'll see we get a fuzzy line here
+                                                    now.</p>
+                                                <p> This is the point, right here, where THIS triangle is.</p>
+                                                <p> When I move this triangle to the right -- over here.</p>
+                                                <p> That's where this triangle is.</p>
+                                                <p> So, if I take this top triangle and move it on top of this triangle,
+                                                    it will make that dividing line right there.</p>
+                                                <p> Watch.</p>
+                                                <p> Like that.</p>
+                                                <p> So, if I want the transition to be from here to here, I could look
+                                                    at this and say, "oh look; that one's at 91" and move both of them
+                                                    over to where I want it to stop and say, "oh, that one's at 81" and
+                                                    take one of them and move it to 91 and the other and move it to
+                                                    81.</p>
+                                                <p> Then I have that exact transition.</p>
+                                                <p> I can do the same thing up here by taking this triangle and moving
+                                                    it out to the side.</p>
+                                                <p> So, if I put them close together, the transition area is short
+                                                    because they're right next to each other.</p>
+                                                <p> The difference is only between 40 and 43, in terms of how bright it
+                                                    is.</p>
+                                                <p> So, if I take this bottom triangle and move it over, eventually this
+                                                    is going to fade out to nothing.</p>
+                                                <p> Then the blue will go all the way to the end and stop being affected
+                                                    right there.</p>
+                                                <p> So, if I turn this like this, I can kind of see what's going on, but
+                                                    not really.</p>
+                                                <p> Well, there's this Mask Indicator, and this makes a huge
+                                                    difference.</p>
+                                                <p> What this does is paint yellow -- bright yellow-- everywhere where
+                                                    there's a mask.</p>
+                                                <p> So, let's move this one back and turn on our Mask Indicator.</p>
+                                                <p> Now, this says "where is this effect being applied?" On this side,
+                                                    you see a sharp edge.</p>
+                                                <p> That's because these two triangles are lined up right over each
+                                                    other.</p>
+                                                <p> On this side, it's really diffuse.</p>
+                                                <p> It goes from here to here because our triangles are separated.</p>
+                                                <p> So, if I want to know what point to put my triangles at so I get a
+                                                    smooth gradation from none to here, I can remember where I am
+                                                    here.</p>
+                                                <p> I'm at 43.</p>
+                                                <p> Then I'll take both sliders and move them both until I get just to
+                                                    the end there.</p>
+                                                <p> There we go: at 20.</p>
+                                                <p> Okay, so if I take the top one and move it back to 43, I will get my
+                                                    nice smooth transition that I was talking about.</p>
+                                                <p> So, the blue is being applied fully in this area and fades out so
+                                                    there is no blue at all being applied here.</p>
+                                                <p> Okay.</p>
+                                                <p> So, this was our original.</p>
+                                                <p> It was all red, and we're adding blue.</p>
+                                                <p> You can see that there's no blue being applied here because this red
+                                                    and this red are exactly the same Likewise, when we get down here to
+                                                    this end, you can see there's no blue being applied here because
+                                                    this white and this white are exactly the same.</p>
+                                                <p> Okay, let's apply a second mask and we can combine these.</p>
+                                                <p> I'm going to put these over each other because I think it will make
+                                                    it easier to visualize.</p>
+                                                <p> And that gives us these sharp lines.</p>
+                                                <p> Now, let's look at our Chromacity channel.</p>
+                                                <p> Once again, I'll turn on my Mask Indicator.</p>
+                                                <p> I'll bring down these two.</p>
+                                                <p> This has to do with how saturated it is.</p>
+                                                <p> I want to be able to visualize the whole thing, so I'll turn off my
+                                                    L Channel.</p>
+                                                <p> Okay.</p>
+                                                <p> Go to my Chromacity, and bring this down.</p>
+                                                <p> I see that, at 30, it's the most saturated pixels right here.</p>
+                                                <p> The least saturated pixels are down here at zero.</p>
+                                                <p> So, if I want to apply more of the blue to the most-saturated
+                                                    pixels, I'll have it be that this number 30 is where this triangle
+                                                    needs to be.</p>
+                                                <p> Let me explain why.</p>
+                                                <p> Where this gets applied is between the two triangles.</p>
+                                                <p> So, I want to apply a maximum amount at 30 and a minimum amount at
+                                                    zero.</p>
+                                                <p> So, I can take these two and move them all the way over here.</p>
+                                                <p> And take this one and move it over to 30.</p>
+                                                <p> Now, what this says is between these two triangles gets the full
+                                                    effect, and on the outside of those two triangles, not between them,
+                                                    gets no effect.</p>
+                                                <p> So, this gives us a nice ramp here.</p>
+                                                <p> We can see our Mask Indicator, this yellow, showing us not being
+                                                    applied at all in the unsaturated pixels and being applied fully in
+                                                    the most-saturated pixels.</p>
+                                                <p> If I combine that with where we had our L Mask...</p>
+                                                <p> I'll make this not a smooth ramp but a sharp line, like we did last
+                                                    time, by putting these two triangles right over each other.</p>
+                                                <p> There we go.</p>
+                                                <p> If I bring these in and these in, you'll see that we can combine
+                                                    masks.</p>
+                                                <p> So, this is saying that everything that is brighter than this number
+                                                    and everything that is darker than this number doesn't get it.</p>
+                                                <p> And, on the C Channel, everything that is less saturated than this
+                                                    amount doesn't get it.</p>
+                                                <p> So, only this amount here will get blue.</p>
+                                                <p> So, let's turn off our Mask Indicator and see where our blue is
+                                                    applied.</p>
+                                                <p> There it is.</p>
+                                                <p> Now, if I wanted to make just these pixels get the most, I could
+                                                    take this and ramp it up to 30, and that down.</p>
+                                                <p> And I can take my L.</p>
+                                                <p>And these pixels here -- this is the Eyedropper tool -- will indicate
+                                                    where a particular area is on this chart.</p>
+                                                <p> So, I want the maximum effect right here at 20.7.</p>
+                                                <p> That's where this little Eyedropper bullseye is.</p>
+                                                <p>So, I'll move these over and I'll say "maximum effect right there."
+                                                    Oh, it gets brighter as I go away.</p>
+                                                <p> Well, I can go like this and create a double-pyramid that maxes out
+                                                    right there at that level.</p>
+                                                <p> That gets the maximum amount of blue right there in that corner.</p>
+                                                <p> I can reverse polarities of individual masks with these little
+                                                    pluses.</p>
+                                                <p> And, I can reverse the polarity of all the masks with this.</p>
+                                                <p> This re-sets all the masks back to their original values.</p>
+                                                <p> Okay: Mask Blur.</p>
+                                                <p> Let's talk about that.</p>
+                                                <p> Let's say we've got a mask that goes from the darkest to the
+                                                    lightest, so that the lightest parts of the image are getting the
+                                                    full effect and the darkest parts are getting less of the
+                                                    effect.</p>
+                                                <p> But, let's say I wanted that to have a sharp dividing line.</p>
+                                                <p> So, I line up my triangles.</p>
+                                                <p> Now I've got this edge.</p>
+                                                <p> I don't want that edge; I want it to be smoother.</p>
+                                                <p> So, I can use a Gaussian Blur.</p>
+                                                <p> I assume it's a Gaussian Blur -- on this Mask Blur.</p>
+                                                <p> That makes my mask have a blurred edge.</p>
+                                                <p> In this particular instance, it's about the same as doing this, but
+                                                    that's not always the case.</p>
+                                                <p> for instance, this has some cross-hatching, so the Mask Blur is much
+                                                    more applicable.</p>
+                                                <p> If you've got trees and stuff, it can get really complex and you'll
+                                                    use a combination of different things to see what's going on.</p>
+                                                <p> So, what do the top triangles do? Well, this is Output.</p>
+                                                <p> It's a lot like the Input.</p>
+                                                <p> The triangles on the left and the triangles on the right work the
+                                                    same.</p>
+                                                <p> But, it has to do with what comes out of the module, not what comes
+                                                    into it.</p>
+                                                <p> Once again I can limit the output by -- if I turn on my Mask
+                                                    Indicator here I can see what I'm doing -- by moving these
+                                                    sliders.</p>
+                                                <p> Then I can see that it won't apply any of the effect to these
+                                                    brighter ones.</p>
+                                                <p> I can use that to protect highlights; I can use it if I'm darkening
+                                                    up the scene to reduce the effect in the shadows; I could feather
+                                                    the shadows like this so that a little bit of the effect goes to the
+                                                    darkest, but it won't let me get all the way to the black, because
+                                                    as it gets darker and darker, there's less and less of the effect --
+                                                    so I can protect my highlights and my shadows, like this.</p>
+                                                <p> So, if I'm extending contrast, I might want to do this on my output,
+                                                    just by default, to make sure that, as I extend my contrast -- let's
+                                                    say I do a Contrast Curve, but I don't want my whites to get all the
+                                                    way white, and I don't want my blacks to get all the way black --
+                                                    so, this protects me.</p>
+                                                <p> Okay, that's mostly Parametric Masks.</p>
+                                                <p> They can be combined with Drawn Masks in complex ways.</p>
+                                                <p> We'll discuss that in another video.</p>
+                                                <p> Alright, here we are.</p>
+                                                <p> Now, on this one, I really want to get rid of the haze.</p>
+                                                <p> I've got some interesting ideas for how to do that.</p>
+                                                <p> I want to split the picture into two parts and deal with the sky
+                                                    separately from the bottom.</p>
+                                                <p> So, on the sky, let's see what colors we've got first.</p>
+                                                <p> Well, that looks pretty neutral: a little blue.</p>
+                                                <p> Then down here? Oh, that's very blue.</p>
+                                                <p> Okay, well let's store that there, and this, so that we stay pretty
+                                                    neutral there.</p>
+                                                <p> And it looks like we need more contrast and more blue-reduction as
+                                                    we go down on the screen.</p>
+                                                <p> Well, we can use that to our advantage and use a Drawn Mask.</p>
+                                                <p> So, Drawn Mask, Fountain Fill.</p>
+                                                <p> Okay.</p>
+                                                <p> Let's make that larger.</p>
+                                                <p> So, I want it to have a little bit of effect up here and a lot of
+                                                    effect down here.</p>
+                                                <p> I'll turn on my Mask Indicator.</p>
+                                                <p> I can see that it's reversed, so I'll hit this minus here.</p>
+                                                <p>That toggles the polarity.</p>
+                                                <p> Alright, I can turn off my Mask Indicator and turn off the indicator
+                                                    for my line.</p>
+                                                <p> Now, I said I wanted to increase the contrast and get rid of the
+                                                    blue, and -- oh, we've got minus colors here: minus four, so we've
+                                                    got green in there too.</p>
+                                                <p> I want to get rid of that.</p>
+                                                <p> The sky should be a little bit magenta, and blue, but certainly not
+                                                    green.</p>
+                                                <p> Okay, I'll get rid of these midpoints.</p>
+                                                <p> Since I'm reducing color, I'll take my curves and move them toward
+                                                    the middle.</p>
+                                                <p> So, we've got a little green here.</p>
+                                                <p> I want to get rid of that.</p>
+                                                <p> Very carefully bring this down.</p>
+                                                <p> I'm watching this number as I go.</p>
+                                                <p> That's -1.4 now.</p>
+                                                <p> If I just put my mouse over an area where there's a pull point --
+                                                    these little white circles -- I can use the mouse wheel to move it
+                                                    up and down.</p>
+                                                <p> That's really cool.</p>
+                                                <p> Okay, so now we're at +0.5; that looks good.</p>
+                                                <p> That's an awful lot of blue though: -10.</p>
+                                                <p> So, I'll go over here to the B and do the same thing.</p>
+                                                <p> Use my mouse wheel to give me fine control.</p>
+                                                <p> And we're down to -5, -3.</p>
+                                                <p> Right there at -3.</p>
+                                                <p> A little bit of magenta.</p>
+                                                <p> So, that's going to be a lot less blue.</p>
+                                                <p> I want more contrast on the L Channel, so I'll open up a new Tone
+                                                    Curve.</p>
+                                                <p> I'll use the same mask.</p>
+                                                <p> So, if I go to Drawn Mask, it gives me the option here of selecting
+                                                    that mask that I just used.</p>
+                                                <p> Here it is: Tone Curve.</p>
+                                                <p> Once again, I need to reverse it.</p>
+                                                <p> Now I want to increase the contrast down here.</p>
+                                                <p> So, I'll use my Eyedropper Tool and change it to an Area.</p>
+                                                <p> Then pick that area -- that's from here to here.</p>
+                                                <p> It's the pink, not the green; the green is these points.</p>
+                                                <p> Okay, so I'll take my pink and increase one side of it and decrease
+                                                    the other side thereby giving me a little more contrast in
+                                                    there.</p>
+                                                <p> I'll give myself a lot of contrast.</p>
+                                                <p> There we go.</p>
+                                                <p> Let's see: I don't want to come down too far.</p>
+                                                <p> Before, and after.</p>
+                                                <p> Well, we got rid of a lot of the haze.</p>
+                                                <p> We certainly didn't get rid of all of it, but we want it to look
+                                                    believable.</p>
+                                                <p> I'd like to concentrate on this separation in here, and be able to
+                                                    see more of that.</p>
+                                                <p> I wonder if that's possible.</p>
+                                                <p> I'll open a new Tone Curve.</p>
+                                                <p> Once again, I'll use the same mask.</p>
+                                                <p> Reverse it.</p>
+                                                <p> Okay, my Eyedropper Tool.</p>
+                                                <p> Change it to Area.</p>
+                                                <p> We'll look at the difference between these two tones.</p>
+                                                <p> There it is.</p>
+                                                <p> I'll bring up one side, bring down the other side to give me a
+                                                    little more tonal relief.</p>
+                                                <p> That made a big difference.</p>
+                                                <p> See this line of clouds? It separates from the background better
+                                                    like that.</p>
+                                                <p> I like it.</p>
+                                                <p> Okay, I usually use Lowpass and Highpass Filters to do a lot of
+                                                    work, but I like to use different modules.</p>
+                                                <p> I want to show you guys how to use the Equalizer.</p>
+                                                <p>-- or ways I use the Equalizer-- One of the things I want is to be
+                                                    able to see the clouds pop from the background more.</p>
+                                                <p> So, I want to find the right size on the Equalizer with the Luma
+                                                    Channel to give me that kind of separation.</p>
+                                                <p> I like to open a Tone Curve and give yourself an artificially large
+                                                    Gamma.</p>
+                                                <p> You won't know how big to make it until you start working with the
+                                                    Equalizer, but then you'll see, and you can go back and forth and
+                                                    adjust.</p>
+                                                <p> I use the Blend Operator Difference.</p>
+                                                <p> It shows me any changes I make.</p>
+                                                <p> So, if I pull up one end, I can see where the differences are.</p>
+                                                <p> So this is the size that the Equalizer is dealing with: things this
+                                                    big.</p>
+                                                <p> And if I bring up another one, it gets to a little bit smaller
+                                                    size.</p>
+                                                <p> Once again, and smaller.</p>
+                                                <p> And smaller still.</p>
+                                                <p> I want to separate these clouds, so it looks like I need the largest
+                                                    size.</p>
+                                                <p> Like that? Okay, let's try that.</p>
+                                                <p> So, I've got to go back and turn off my Gamma, then go back to my
+                                                    Equalizer.</p>
+                                                <p> Instead of Difference, I'll put it on Normal.</p>
+                                                <p> Let's see what that looks like.</p>
+                                                <p> From that, to that.</p>
+                                                <p> Well, it actually looks a little heavy, so I'll pull it down a
+                                                    little.</p>
+                                                <p> Now, see this up here? It's starting to clip these highlights --
+                                                    because the Equalizer increases contrast.</p>
+                                                <p> So, it doesn't really just increase the darks darker to increase
+                                                    contrast; it also makes the lights lighter.</p>
+                                                <p> We'll probably need to bring down our Exposure a little to
+                                                    compensate for that.</p>
+                                                <p> We're getting a little bit of red fringing in here.</p>
+                                                <p> So, my Highlight Reconstruction -- I want to bring my Clipping
+                                                    Threshold down a little.</p>
+                                                <p> There we go; it went away.</p>
+                                                <p> Now, what that does is say "how bright do I make all the colors
+                                                    equal so that it looks white and we don't get color tingeing?" I
+                                                    brought that down from a full value of 1, down to a little bit lower
+                                                    value: this time 0.92 I want to add a little detail in the clouds
+                                                    and get more separation in these brighter areas.</p>
+                                                <p> I'll use the Equalizer again.</p>
+                                                <p> Make a new instance.</p>
+                                                <p> This time I'll use the Darken Mode.</p>
+                                                <p> Zoom in here.</p>
+                                                <p> And I'll start pulling up the contrast until I get to the point
+                                                    where I'm starting to see the kind of details I want.</p>
+                                                <p> That looks good.</p>
+                                                <p> That makes these clouds more 3-dimensional.</p>
+                                                <p> Now I can start pulling these down until that goes away.</p>
+                                                <p> Oh, a little bit there! Come back up.</p>
+                                                <p> And there we go.</p>
+                                                <p> So, that's a different way of doing that from using the Difference
+                                                    with the Tone -- where you set a Gamma and then you put your
+                                                    Equalizer on Difference.</p>
+                                                <p> What I did was set it to the mode I was going to use: Darken in this
+                                                    case or Normal in most cases -- then I brought my levels up without
+                                                    bringing down the other ones -- kept bringing them up until I got
+                                                    the effect I wanted, and then started bringing them down until I
+                                                    stopped getting the effect.</p>
+                                                <p> Then I knew what range I wanted to be in.</p>
+                                                <p> So, there are two different techniques.</p>
+                                                <p> Alright, there are our clouds.</p>
+                                                <p> Oh, they look so much more 3-dimensional now.</p>
+                                                <p> And I think they look a little overboard.</p>
+                                                <p> I'll bring down the equalizers a little with the Opacity.</p>
+                                                <p> Bring that one down a little and bring this one down a little.</p>
+                                                <p> Oops, not Mix; Opacity.</p>
+                                                <p> There we go.</p>
+                                                <p> I'm much happier with the sky now.</p>
+                                                <p> Alright, I'll save the sky and work on the bottom.</p>
+                                                <p> The way I save the sky is I've got a little pre-set here that I did,
+                                                    where it saves it to .config/darktable/watermarks So here's the
+                                                    directory structure: .config/darktable/watermarks I save it as
+                                                    tmp.jpg and I have a little script that just converts it into
+                                                    tmp.svg And I just keep re-using these two files.</p>
+                                                <p> So, the thing I have to remember is to move this from Create Unique
+                                                    Filename to Overwrite.</p>
+                                                <p> When you save a pre-set, (Store New Pre-set), it doesn't let you
+                                                    save on Conflict Overwrite.</p>
+                                                <p> So, you have to remember to do that each time.</p>
+                                                <p> So, my magic formula is a JPG at a quality of 93; that seems to
+                                                    yield me the largest possible file size that still functions with
+                                                    the Watermark Module.</p>
+                                                <p> I'll use the Watermark Module for compositing this with the
+                                                    bottom.</p>
+                                                <p> I'm doing all my work in SRGB.</p>
+                                                <p> I got tired of switching back and forth between web-based content
+                                                    and my screen, so I'm just doing all my work in SRGB now.</p>
+                                                <p> There we go; I'm exporting it.</p>
+                                                <p> Then, I've written a script.</p>
+                                                <p> It's quite simple.</p>
+                                                <p> Let's see.</p>
+                                                <p> cat bin/watermark.zsh And it just says -- it calls inkscape with a
+                                                    '-f' and says 'take tmp.jpg -l and save it as tmp.svg' So, I can
+                                                    just run that script.</p>
+                                                <p> And it runs, and that's it.</p>
+                                                <p> Now, I can take this, go to my History, and ditch everything.</p>
+                                                <p> There we go.</p>
+                                                <p> Now, let's work on the bottom.</p>
+                                                <p> Here's our original.</p>
+                                                <p> we want to work on the bottom.</p>
+                                                <p> We're not going to worry about the sky at all because we've already
+                                                    done that.</p>
+                                                <p> So, I'm looking at this grass, and it looks like there's some
+                                                    fringing, but I notice that there's no option for Chromatic
+                                                    Aberration Controls on Fujifilm.</p>
+                                                <p> I think it uses a different sensor.</p>
+                                                <p> So, let's look at our Demosaic-ing options.</p>
+                                                <p> Oh, look at that: these are different.</p>
+                                                <p> Okay, well, there are three options here: VNG...</p>
+                                                <p> Oh, I like that third one.</p>
+                                                <p> It got rid of almost all of that fringing.</p>
+                                                <p> What happens if we add a little color smoothing? I think that
+                                                    helps.</p>
+                                                <p> If we go all the way to the other side? Oh, it looks fine to me that
+                                                    way too.</p>
+                                                <p> Well, let's do that.</p>
+                                                <p> This has an awful lot of green.</p>
+                                                <p> And the green is -- it looks like it's too much brighter than the
+                                                    yellows.</p>
+                                                <p> I'd like for these fall colors to really pop.</p>
+                                                <p> I mean, it's a fall day.</p>
+                                                <p> These are brightly-colored trees, right? So, the first thing I want
+                                                    to do is look at replacing the L Channel with a different one.</p>
+                                                <p> I'll take a Screenshot so I can compare.</p>
+                                                <p> First I'll look at the least-likely suspect, which would be the
+                                                    blue.</p>
+                                                <p> That gives me quite a bit of separation back here.</p>
+                                                <p> Okay; it looks horrible up front, though.</p>
+                                                <p> Look how contrast-y it is.</p>
+                                                <p> Then the green: I expect that'll make the greens too much.</p>
+                                                <p> Yeah; wow! Those greens are really a lot.</p>
+                                                <p> Yikes.</p>
+                                                <p> Okay, how about our red? Oh, that looks more pleasant doesn't it?
+                                                    Let's make it the same as the one on the left.</p>
+                                                <p> Oh, I like that better.</p>
+                                                <p> Nice.</p>
+                                                <p> It looks like we're losing a little detail.</p>
+                                                <p> Yeah.</p>
+                                                <p> Do we need to add some of the blue in to get some more of the detail
+                                                    back? Oh, that seems to help.</p>
+                                                <p> Okay.</p>
+                                                <p> Look, we're getting this fringing here.</p>
+                                                <p> And up here too.</p>
+                                                <p> Look.</p>
+                                                <p> Little spots of it, these little yellow dots.</p>
+                                                <p> Now, this happens some times with this Lightness.</p>
+                                                <p> I find I can get just about the same effect if, instead of using
+                                                    Lightness, -- What have I got here? I've got 1/4 blue: 3/4 red.</p>
+                                                <p> Okay, let's see.</p>
+                                                <p> Move all that back to normal.</p>
+                                                <p> Re-set back to normal; there we go.</p>
+                                                <p> And go to the Grey.</p>
+                                                <p> And this will make a grey image.</p>
+                                                <p> Let's see: this was 3/4 red and 1/4 blue, my formula.</p>
+                                                <p> Then just apply this to the L Channel only.</p>
+                                                <p> And we're not getting those yellow dots.</p>
+                                                <p> Okay.</p>
+                                                <p> Oh, I do like that better.</p>
+                                                <p> But I don't think I want it to be exclusively that.</p>
+                                                <p> So, I'll take my Opacity and turn it down a little so it blends in
+                                                    with the original.</p>
+                                                <p> Okay, now I've got detail and I like my L Channel a lot better.</p>
+                                                <p> My trees are separating from the background better too, and
+                                                    lightening up a little.</p>
+                                                <p> Good.</p>
+                                                <p> What else do we want to do? There's a lot of blue back here; I think
+                                                    I want to pull that blue out.</p>
+                                                <p> Okay, what kind of colors do we have here? Well, we should be yellow
+                                                    and green, because it's trees.</p>
+                                                <p> I see here that we're a little into the blue territory, and we've
+                                                    got a little bit of green.</p>
+                                                <p> Okay.</p>
+                                                <p> So all we've got to do is switch our blue to yellow and we'll be all
+                                                    set.</p>
+                                                <p> So I'll take out that midpoint and bring down the blue until this
+                                                    midpoint here is up into the yellow a little.</p>
+                                                <p> Much nicer.</p>
+                                                <p> I'd also like to increase the contrast a little as I go back.</p>
+                                                <p> I don't want it to necessarily get darker, so I'll work on the
+                                                    contrast.</p>
+                                                <p> I want this to be the brightest and this to be the darkest, and I'll
+                                                    try to emphasize the contrast between these two.</p>
+                                                <p> Once again with the Drawn Mask.</p>
+                                                <p> I don't want much of this contrast in front, so I'll make it a
+                                                    little smaller.</p>
+                                                <p> I can use my Eyedropper.</p>
+                                                <p> In this area I'm up around here.</p>
+                                                <p> Bring that up a little.</p>
+                                                <p> And over here, I'm down there; I'll bring that down a little.</p>
+                                                <p> That gives me a little more contrast.</p>
+                                                <p> That makes the background pop better.</p>
+                                                <p> What else? Well, we were working on the Equalizer; let's keep
+                                                    working on the Equalizer.</p>
+                                                <p> I want to separate some of these items, like these trees and these
+                                                    trees from each other, maybe make this pond here a little more
+                                                    separate.</p>
+                                                <p> So, let's use the Gamma trick again.</p>
+                                                <p> Come up with the Tone Curve.</p>
+                                                <p> Give it a huge amount of Gamma.</p>
+                                                <p> Then go to my Equalizer.</p>
+                                                <p> Change my Blend Mode to Difference and start messing with these
+                                                    things.</p>
+                                                <p> Now, see: I'm trying to see these trees from the background.</p>
+                                                <p> Now, that starts getting complex.</p>
+                                                <p> It's not SO bad.</p>
+                                                <p> Let's see if I take this and slide it over a little, towards the
+                                                    larger side -- that looks a little better.</p>
+                                                <p> Okay, so I'll try to stay away from over here, because I don't want
+                                                    to add a lot of detail contrast.</p>
+                                                <p> Then I'll bring all of these up.</p>
+                                                <p> There we go; they're all up.</p>
+                                                <p> Now I can see these trees popping from the background.</p>
+                                                <p> And this is going to look a little clumpy up here, so I might have
+                                                    to use a Drawn Mask.</p>
+                                                <p> We'll see.</p>
+                                                <p> Okay, take my Gamma and turn it off.</p>
+                                                <p> Take my Equalizer and change it to Normal.</p>
+                                                <p> Then use the Opacity to figure out how much of it I want.</p>
+                                                <p> Alright, I'm looking back here to see how much of it I want, then
+                                                    I'll look at the front and see if I want to turn it down or not.</p>
+                                                <p> That looks pretty good, and it looks pretty good up here too; I
+                                                    think I can just use it like that.</p>
+                                                <p> Alright, I want some color too.</p>
+                                                <p> So, same thing with the Chroma.</p>
+                                                <p> I'll go with the same sizes.</p>
+                                                <p> Bring them up.</p>
+                                                <p> Ah, yes; now the trees are starting to separate from each other.</p>
+                                                <p> The nice thing about adding color with the Equalizer tool is you get
+                                                    spatial contrast in color, which is nice.</p>
+                                                <p> I'd like for the front to be more colorful, but I can deal with that
+                                                    later after I combine these images.</p>
+                                                <p> I'm just dealing with the things near this transition zone now.</p>
+                                                <p> Maybe a little more detail back here.</p>
+                                                <p> Just like last time, I'll do my detail with an L Mask.</p>
+                                                <p> I'll bring up my levels until I find the ones I want there and
+                                                    there, and then bring them down a little.</p>
+                                                <p> Use a Parametric Mask so that the darker areas get less of it and
+                                                    the lighter areas get more.</p>
+                                                <p> Before, and after.</p>
+                                                <p> That's exactly what I wanted.</p>
+                                                <p> It looks like it's time to add the sky.</p>
+                                                <p> We'll go to the Watermark Module and select tmp.svg This is that
+                                                    file we made.</p>
+                                                <p> Okay, there's our sky: nice.</p>
+                                                <p> How do we want to apply it? Well, I can't use the L Mask because
+                                                    I've got things that are bright and things that are not-bright in
+                                                    the sky.</p>
+                                                <p> And I've got things that are bright and not-bright down here.</p>
+                                                <p> But there is an awful lot of blue in the sky.</p>
+                                                <p> So, let's see if we can use the B Channel on the Parametric
+                                                    Mask.</p>
+                                                <p> Let's see: tmp.svg We go to Blend; we select Parametric Mask.</p>
+                                                <p> And let's go the the B Channel.</p>
+                                                <p> We'll use our Mask Indicator to see if that makes a difference.</p>
+                                                <p> I'll bring up these levels until I start...</p>
+                                                <p> Ah! There we go.</p>
+                                                <p> Okay.</p>
+                                                <p> Oh, I'm getting into the sky here.</p>
+                                                <p> I'm looking at these two numbers to see how high I can still be and
+                                                    not get into the sky.</p>
+                                                <p> 99.</p>
+                                                <p> Okay, so we'll start there.</p>
+                                                <p> Then I can bring this bottom one down.</p>
+                                                <p>99.</p>
+                                                <p>Okay.</p>
+                                                <p> Bring this bottom one over to feather this edge.</p>
+                                                <p> There we go.</p>
+                                                <p> Maybe a little Mask Blur too.</p>
+                                                <p> Not much; maybe 2 pixels or so.</p>
+                                                <p> Okay, let's see what that looks like.</p>
+                                                <p> Well we've got a little bit of an edge here; let's see if we can
+                                                    bring the blue down some more.</p>
+                                                <p> Ah, that feathers it.</p>
+                                                <p> Alright.</p>
+                                                <p> It comes down here, though; I don't want that.</p>
+                                                <p> So, let's combine our Parametric Mask with a Drawn Mask.</p>
+                                                <p> Use my mouse wheel to make the transition smaller.</p>
+                                                <p> Okay, let's see what that looks like.</p>
+                                                <p> Before, and after.</p>
+                                                <p> Hey, that's pretty good.</p>
+                                                <p> How about where these trees are? Before and after.</p>
+                                                <p> That's not bad.</p>
+                                                <p> Okay.</p>
+                                                <p> This is a little bright here compared to the background.</p>
+                                                <p> So, I think if I make a fountain fill that goes from here up to
+                                                    here, and just tries to match that tone a little, that will help
+                                                    things.</p>
+                                                <p> Tone Curve.</p>
+                                                <p> Drawn Mask.</p>
+                                                <p> And, like that.</p>
+                                                <p> Okay, I'll get in there.</p>
+                                                <p> Using the Eyedropper Tool with Area.</p>
+                                                <p> Now, these dark parts here are the parts that I want to get
+                                                    darker.</p>
+                                                <p> But these light parts here I don't want to get darker.</p>
+                                                <p> So, first thing, I'll pin this point so it doesn't get darker.</p>
+                                                <p> Then I'll take these darker parts, figure out where they are, and
+                                                    bring that down to get a better match.</p>
+                                                <p> Ah, yes; there we go.</p>
+                                                <p> Then, last but not least, I'll take my Watermark.</p>
+                                                <p> Instead of applying it at 100%, I'll bring it down maybe to 75% or
+                                                    so.</p>
+                                                <p> 79%.</p>
+                                                <p> I was having some blown out areas up here, but by bringing down my
+                                                    Opacity, I picked those up.</p>
+                                                <p> My transition looks really good.</p>
+                                                <p> There are no halos or anything.</p>
+                                                <p> That looks really good.</p>
+                                                <p> Okay, last trick when you're applying Compositing this way: You can
+                                                    take your Y Alignment and just move it a little bit.</p>
+                                                <p> See how I did that? It moved down.</p>
+                                                <p> That gets rid of any kind of border you might have had.</p>
+                                                <p> Hey, that looks great.</p>
+                                                <p> Now I'll save this.</p>
+                                                <p> Then I'll add some more color and brighten up the front.</p>
+                                                <p> Let's do that.</p>
+                                                <p> I want that.</p>
+                                                <p> There we go.</p>
+                                                <p> I'll save this as a TIF, because that way it doesn't lose any
+                                                    information.</p>
+                                                <p> Okay, now we're done exporting.</p>
+                                                <p> There's our TIF.</p>
+                                                <p> Now: increasing the color and brightening up the front a little.</p>
+                                                <p> I'll brighten the front first, then adjust it as I increase the
+                                                    color.</p>
+                                                <p> I don't know where I'll increase it.</p>
+                                                <p> This will be a matter of taste, so I'll slide around.</p>
+                                                <p> Oh, my direction was backwards; there we go.</p>
+                                                <p> Alright; I think that's what I'm looking for, but I'll have to
+                                                    change it when I start applying color with another Tone Module.</p>
+                                                <p> I'll apply color with the Multiply, based on the L Channel --
+                                                    because I think that will look good for this.</p>
+                                                <p> I'll give it a little punch by giving it a little bit of an S
+                                                    curve.</p>
+                                                <p> Bring my Opacity down to zero to start, because it comes on so
+                                                    strong.</p>
+                                                <p> Change my Blend Mode to Multiply.</p>
+                                                <p> As I increase my Opacity, the color will get richer and richer.</p>
+                                                <p> I can go back to my Gamma Curve and try to keep pace by not letting
+                                                    things get too dark.</p>
+                                                <p> I'm up to 45%; that's too much.</p>
+                                                <p> I'll bring it back down.</p>
+                                                <p> Hey, that gives it a little punch.</p>
+                                                <p> This looks a little blue in front...? I'll take a look.</p>
+                                                <p> What have we got? Not too much.</p>
+                                                <p> It probably should be a little more yellow.</p>
+                                                <p> Well, let's add that and give it some final touches.</p>
+                                                <p> You know, instead of adding yellow everywhere, I think I want the
+                                                    lighter parts to be more yellow because that's how it looks when the
+                                                    sun is shining on things.</p>
+                                                <p> So, let's use the Color Correction Module.</p>
+                                                <p> The way that works is the white dot is for highlights and the blue
+                                                    dot is for shadows.</p>
+                                                <p> So, if I get my sunny spot here, and find my highlight color that
+                                                    looks good, I can apply that with a Drawn Mask so that the front,
+                                                    towards me, is getting the most of it.</p>
+                                                <p> There we go.</p>
+                                                <p> Now it looks more like the sun ish shining here.</p>
+                                                <p> That makes me happier.</p>
+                                                <p> What do our numbers look like here? We're more yellow.</p>
+                                                <p> Maybe a little too much yellow.</p>
+                                                <p> So, I'll use my Opacity to bring that down just a little.</p>
+                                                <p> I'm looking at these numbers here.</p>
+                                                <p> I'd like for this number to be twice this one, but not
+                                                    crazy-twice.</p>
+                                                <p> This is 13; twice would be 26.</p>
+                                                <p> I'm up to 30, so that's a little yellow -- but I wanted a little of
+                                                    a sunny feel, so I think I'm right there.</p>
+                                                <p> Is there anything else I'd like to do? Some final sharpening.</p>
+                                                <p> once again, we'll use the Equalizer.</p>
+                                                <p> Let's go in and see if we can do a little bit with the clouds.</p>
+                                                <p> That's a little contrast there.</p>
+                                                <p> And so is that.</p>
+                                                <p> Yeah, we want these lower numbers right here.</p>
+                                                <p> And then we can apply our edges.</p>
+                                                <p> Can't apply edges if you don't apply the Luma Channel, because the
+                                                    Edges just adjusts over how much distance the contrast is
+                                                    enhanced.</p>
+                                                <p> So, that shortens it up and gives us some nice edges there.</p>
+                                                <p> I don't want that everywhere, because, look; we're getting some
+                                                    halos here.</p>
+                                                <p> So, I'll say only do that Darken, and do it mostly on the lighter
+                                                    images.</p>
+                                                <p> Okay, so we've got a Parametric Mask and we changed our Blend Mode
+                                                    to Darken.</p>
+                                                <p> That gives us more definition here, and doesn't give us the halos
+                                                    here.</p>
+                                                <p> I think the whole scene is a little dark.</p>
+                                                <p> That's easy enough to fix.</p>
+                                                <p> A little final contrast adjustment there.</p>
+                                                <p> We still look good on our colors.</p>
+                                                <p> Okay.</p>
+                                                <p> That's it.</p>
+                                                <p> I hope you like it, Jack.</p>
+                                                <p> I wanted to show you a couple new things I've been working on.</p>
+                                                <p> One of them is this Lab Color Reference Chart.</p>
+                                                <p> It's a work in progress.</p>
+                                                <p> I've been going through images on Google Images and my own images,
+                                                    and finding instances where I find that colors are indicative, and
+                                                    then coming up with numerous -- like a dozen-- instances of each and
+                                                    looking for statistical correlations.</p>
+                                                <p> I've mapped them.</p>
+                                                <p> There's one on Skin here.</p>
+                                                <p> I go from pale to dark, and these are all in LAB.</p>
+                                                <p> I've got a Foliage one.</p>
+                                                <p> The Sky.</p>
+                                                <p> I'll do additional ones, probably the Sun and maybe Concrete and
+                                                    Asphalt colors.</p>
+                                                <p> These obviously would vary based on lighting, but they're good
+                                                    places to get a starting point.</p>
+                                                <p> If you're working on somebody, and you say the color just doesn't
+                                                    seem right, you can look and see where you stand in reference to a
+                                                    lot of samples that I looked at.</p>
+                                                <p> I use these foliage ratios a lot for setting my White Balance.</p>
+                                                <p> And this really helps with the sky; I've used it a few times
+                                                    myself.</p>
+                                                <p> Yay! We got our first Patreon contributor this week!!!!! My wife and
+                                                    I celebrated.</p>
+                                                <p> There's a Patreon Support button here.</p>
+                                                <p> If you have free time in your life and you want to do something
+                                                    really fun, come out here and shoot with me.</p>
+                                                <p> We can go shooting together.</p>
+                                                <p> I've got this Shoot With Harry page you can go to:
+                                                    shootwithharry.com It explains how you can book time to come and
+                                                    shoot with me.</p>
+                                                <p> We can go see lava, and we can go up to the mountains and stuff like
+                                                    that.</p>
+                                                <p> I can teach you a lot about photography; I can teach you stuff I
+                                                    know; I can teach you stuff about post-processing.</p>
+                                                <p> We can work on the computer together here.</p>
+                                                <p> You can enjoy Hawaii and I can make a little money, so it's good for
+                                                    everybody.</p>
+                                                <p> Everybody, I'm having a great time.</p>
+                                                <p> Please send me your RAW contributions so I can do them in Edit My
+                                                    RAW.</p>
+                                                <p> I will see you all next week.</p>
+                                                <p> Have a great week.</p>
+                                                <p> Bye.</p>
+                                                <p> Thanks for the RAW file Jack! shoothwithharry.com
+                                                    patreon.com/weekly-edit</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- .entry-content -->
+
+                        <div class="entry-meta">
+                            <div class="taxonomy">
+                                <div class="tags"><span class="influence-icon-ribbon"></span><a
+                                        href="../tag/compositing/index.html" rel="tag">compositing</a>, <a
+                                        href="../tag/darktable/index.html" rel="tag">Darktable</a>, <a
+                                        href="../tag/parametric-mask/index.html" rel="tag">parametric mask</a></div>
+                                <div class="categories"><span class="influence-icon-layers"></span><a
+                                        href="../../category/weekly-edits/index.html" rel="tag">Weekly Edits</a></div>
+                            </div>
+
+                            <div class="posted-on">Posted on <a href="../parametric-masks-tutorial/" title="4:53 am"
+                                                                rel="bookmark">
+                                <time class="entry-date" datetime="2016-11-07T04:53:22+00:00">November 7, 2016</time>
+                            </a></div>
+                        </div><!-- .entry-meta -->
+
+
+                        <div id="single-comments-wrapper">
+
+
+                            <div id="comments" class="comments-area">
+
+
+                                <div id="respond" class="comment-respond">
+                                    <h3 id="reply-title" class="comment-reply-title">Leave a Reply
+                                        <small><a rel="nofollow" id="cancel-comment-reply-link"
+                                                  href="/parametric-masks-tutorial/#respond" style="display:none;">Cancel
+                                            reply</a></small>
+                                    </h3>
+                                    <form action="../wp-comments-post.php" method="post" id="commentform"
+                                          class="comment-form">
+                                        <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span>
+                                        </p>
+                                        <p class="comment-form-comment"><textarea id="comment" name="comment" rows="8"
+                                                                                  aria-required="true"></textarea></p>
+                                        <p class="comment-form-author"><label for="author">Name</label> <input
+                                                id="author" name="author" type="text" value="" size="30"
+                                                maxlength="245"/></p>
+                                        <p class="comment-form-email"><label for="email">Email</label> <input id="email"
+                                                                                                              name="email"
+                                                                                                              type="text"
+                                                                                                              value=""
+                                                                                                              size="30"
+                                                                                                              maxlength="100"
+                                                                                                              aria-describedby="email-notes"/>
+                                        </p>
+                                        <p class="comment-form-url"><label for="url">Website</label> <input id="url"
+                                                                                                            name="url"
+                                                                                                            type="text"
+                                                                                                            value=""
+                                                                                                            size="30"
+                                                                                                            maxlength="200"/>
+                                        </p>
+                                        <p class="form-submit"><input name="submit" type="submit" id="submit"
+                                                                      class="submit" value="Post Comment"/> <input
+                                                type='hidden' name='comment_post_ID' value='488' id='comment_post_ID'/>
+                                            <input type='hidden' name='comment_parent' id='comment_parent' value='0'/>
+                                        </p><input type="hidden" id="ct_checkjs_6cdd60ea0045eb7a6ec44c54d29ed402"
+                                                   name="ct_checkjs" value="0"/>
+                                        <script type="text/javascript">setTimeout(function () {
+                                            var ct_input_name = 'ct_checkjs_6cdd60ea0045eb7a6ec44c54d29ed402';
+                                            if (document.getElementById(ct_input_name) !== null) {
+                                                var ct_input_value = document.getElementById(ct_input_name).value;
+                                                document.getElementById(ct_input_name).value = document.getElementById(ct_input_name).value.replace(ct_input_value, '754191685');
+                                            }
+                                        }, 1000);</script>
+                                    </form>
+                                </div><!-- #respond -->
+
+                            </div><!-- #comments .comments-area -->
+                        </div><!-- #single-comments-wrapper -->
+
+
+                        <nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+                            <h1 class="assistive-text">Post navigation</h1>
+
+
+                            <div class="nav-previous"><a href="../darktable-compositing-tutorial/index.html" rel="prev"><span
+                                    class="meta-nav influence-icon-arrow-left"></span> Compositing with Darktable</a>
+                            </div>
+                            <div class="nav-next"><a href="../lab-color-chart/index.html" rel="next">Lab Color Chart
+                                <span class="meta-nav influence-icon-arrow-right"></span></a></div>
+
+                        </nav><!-- #nav-below -->
+
+                    </div>
+
+                </article><!-- #post-488 -->
+
+
+            </div><!-- #content .site-content -->
+
+        </section><!-- #primary .content-area -->
+
+
+        <div id="secondary">
+
+            <div class="widgets">
+                <aside id="sow-image-2" class="widget widget_sow-image">
+                    <div class="so-widget-sow-image so-widget-sow-image-default-3f547a15eaaa">
+
+                        <div class="sow-image-container">
+                            <a href="../index.html"> <img src="../wp-content/uploads/2016/10/logo512-1.jpg" width="512"
+                                                          height="512"
+                                                          srcset="../wp-content/uploads/2016/10/logo512-1.jpg 512w, ../wp-content/uploads/2016/10/logo512-1-150x150.jpg 150w, ../wp-content/uploads/2016/10/logo512-1-300x300.jpg 300w"
+                                                          title="logo512" class="so-widget-image"/>
+                            </a></div>
+
+                    </div>
+                </aside>
+                <aside id="search-2" class="widget widget_search">
+                    <form method="get" id="searchform" action="../index.html" role="search">
+                        <label for="s" class="assistive-text">Search</label>
+                        <input type="text" class="field" name="s" value="" id="s" placeholder="Search"/>
+                        <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search"/>
+                    </form>
+                </aside>
+                <aside id="text-2" class="widget widget_text">
+                    <div class="textwidget">
+                        <script type='text/javascript' src="../cgi/build_links.js">
+                        </script>
+                    </div>
+                </aside>
+                <aside id="text-3" class="widget widget_text">
+                    <div class="textwidget">
+                        <div id='results'></div>
+                    </div>
+                </aside>
+            </div>
+
+        </div>
+
+
+    </div><!-- #main .site-main -->
+
+    <footer id="colophon" class="site-footer" role="contentinfo">
+
+        <div class="container">
+
+            <div id="footer-widgets">
+                <aside id="meta-3" class="widget widget_meta"><h3 class="widget-title">Meta</h3>
+                    <ul>
+                        <li><a rel="nofollow" href="../wp-login.php">Log in</a></li>
+                        <li><a href="../feed/index.html">Entries <abbr title="Really Simple Syndication">RSS</abbr></a>
+                        </li>
+                        <li><a href="../comments/feed/index.html">Comments <abbr
+                                title="Really Simple Syndication">RSS</abbr></a></li>
+                        <li><a href="https://wordpress.org/"
+                               title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a>
+                        </li>
+                    </ul>
+                </aside>
+                <aside id="text-4" class="widget widget_text">
+                    <div class="textwidget"><a href="stats">Stats</a></div>
+                </aside>
+            </div><!-- #footer-widgets -->
+
+
+        </div>
+
+    </footer><!-- #colophon .site-footer -->
+</div><!-- #page .hfeed .site -->
+
+
+<div id="main-menu">
+
+    <a href="#" class="influence-icon influence-icon-cross main-menu-close"></a>
+
+    <div class="menu">
+        <div class="menu">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li class="page_item page-item-232"><a href="../about-us/index.html">About Us</a></li>
+                <li class="page_item page-item-391"><a href="../awesome-links/index.html">Awesome Links</a></li>
+                <li class="page_item page-item-470"><a href="../lab-reference-chart/index.html">Lab Color Reference
+                    Chart</a></li>
+                <li class="page_item page-item-258"><a href="../order-prints-of-my-work/index.html">Order Prints of My
+                    Work</a></li>
+                <li class="page_item page-item-573"><a href="../scripts/index.html">Scripts</a></li>
+                <li class="page_item page-item-527"><a href="../show-suggestions/index.html">Show Suggestions</a></li>
+                <li class="page_item page-item-172"><a href="../shoot-with-harry/index.html">Shoot with Harry</a></li>
+                <li class="page_item page-item-154"><a href="../support-weekly-edit/index.html">Donate to the Show</a>
+                </li>
+                <li class="page_item page-item-142"><a href="../my-workflow/index.html">My Workflow</a></li>
+                <li class="page_item page-item-170"><a href="../edit-my-raw/index.html">Edit my RAW</a></li>
+                <li class="page_item page-item-156"><a href="../tpe/index.html">Sun and Moon Calendar</a></li>
+                <li class="page_item page-item-103"><a href="../playlist/index.html">Playlist</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="widgets">
+        <aside id="siteorigin-panels-builder-3" class="widget widget_siteorigin-panels-builder">
+            <div id="pl-w57e4594d719bc">
+                <div class="panel-grid" id="pg-w57e4594d719bc-0">
+                    <div class="panel-grid-cell" id="pgc-w57e4594d719bc-0-0">
+                        <div class="so-panel widget widget_pages panel-first-child" id="panel-w57e4594d719bc-0-0-0"
+                             data-index="0"><h3 class="widget-title">Resources</h3>
+                            <ul>
+                                <li class="page_item page-item-232"><a href="../about-us/index.html">About Us</a></li>
+                                <li class="page_item page-item-391"><a href="../awesome-links/index.html">Awesome
+                                    Links</a></li>
+                                <li class="page_item page-item-37"><a href="../index.html">Home Page</a></li>
+                                <li class="page_item page-item-470"><a href="../lab-reference-chart/index.html">Lab
+                                    Color Reference Chart</a></li>
+                                <li class="page_item page-item-258"><a href="../order-prints-of-my-work/index.html">Order
+                                    Prints of My Work</a></li>
+                                <li class="page_item page-item-573"><a href="../scripts/index.html">Scripts</a></li>
+                                <li class="page_item page-item-527"><a href="../show-suggestions/index.html">Show
+                                    Suggestions</a></li>
+                                <li class="page_item page-item-172"><a href="../shoot-with-harry/index.html">Shoot with
+                                    Harry</a></li>
+                                <li class="page_item page-item-154"><a href="../support-weekly-edit/index.html">Donate
+                                    to the Show</a></li>
+                                <li class="page_item page-item-142"><a href="../my-workflow/index.html">My Workflow</a>
+                                </li>
+                                <li class="page_item page-item-170"><a href="../edit-my-raw/index.html">Edit my RAW</a>
+                                </li>
+                                <li class="page_item page-item-156"><a href="../tpe/index.html">Sun and Moon
+                                    Calendar</a></li>
+                            </ul>
+                        </div>
+                        <div class="so-panel widget widget_recent-posts widget_recent_entries"
+                             id="panel-w57e4594d719bc-0-0-1" data-index="1"><h3 class="widget-title">Recent Posts</h3>
+                            <ul>
+                                <li>
+                                    <a href="../advancetown-lake/index.html">Advancetown Lake</a>
+                                </li>
+                                <li>
+                                    <a href="../lucky-shot/index.html">Lucky Shot</a>
+                                </li>
+                                <li>
+                                    <a href="../now-quicker-edits/index.html">Now with Quicker Edits</a>
+                                </li>
+                                <li>
+                                    <a href="../thinking-differently/index.html">Thinking Differently</a>
+                                </li>
+                                <li>
+                                    <a href="../stacking-by-hand/index.html">Stacking by Hand</a>
+                                </li>
+                                <li>
+                                    <a href="../shot-year-2016/index.html">Shot of the Year 2016</a>
+                                </li>
+                                <li>
+                                    <a href="../story-telling-panoramas/index.html">Story Telling with Panoramas</a>
+                                </li>
+                                <li>
+                                    <a href="../lets-add-grain/index.html">Let&#8217;s Add Grain</a>
+                                </li>
+                                <li>
+                                    <a href="../mask-manager/index.html">Mask Manager</a>
+                                </li>
+                                <li>
+                                    <a href="../timelapse-bash-script/index.html">Timelapse Bash Script</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="so-panel widget widget_search panel-last-child" id="panel-w57e4594d719bc-0-0-2"
+                             data-index="2">
+                            <form method="get" id="searchform" action="../index.html" role="search">
+                                <label for="s" class="assistive-text">Search</label>
+                                <input type="text" class="field" name="s" value="" id="s" placeholder="Search"/>
+                                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+</div>
+<script async type='text/javascript'
+        src='../wp-content/plugins/cleantalk-spam-protect/inc/cleantalk_nocache.js?random=5.57.1'></script>
+<script type="text/javascript">function ctSetCookie(c_name, value, def_value) {
+    document.cookie = c_name + "=" + escape(value) + "; path=/";
+}
+ctSetCookie("ct_checkjs", "754191685", "0");</script>
+<style type="text/css" media="all" id="siteorigin-panels-grids-wp_footer">/* Layout w57e4594d719bc */
+#pg-w57e4594d719bc-0 .panel-grid-cell {
+    float: none
+}
+
+#pl-w57e4594d719bc .panel-grid-cell .so-panel {
+    margin-bottom: 30px
+}
+
+#pl-w57e4594d719bc .panel-grid-cell .so-panel:last-child {
+    margin-bottom: 0px
+}
+
+#pg-w57e4594d719bc-0 {
+    margin-left: -15px;
+    margin-right: -15px
+}
+
+#pg-w57e4594d719bc-0 .panel-grid-cell {
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+@media (max-width: 780px) {
+    #pg-w57e4594d719bc-0 .panel-grid-cell {
+        float: none;
+        width: auto
+    }
+
+    #pl-w57e4594d719bc .panel-grid, #pl-w57e4594d719bc .panel-grid-cell {
+    }
+
+    #pl-w57e4594d719bc .panel-grid .panel-grid-cell-empty {
+        display: none
+    }
+
+    #pl-w57e4594d719bc .panel-grid .panel-grid-cell-mobile-last {
+        margin-bottom: 0px
+    }
+} </style>
+<script type='text/javascript' src='../wp-includes/js/comment-reply.min.js?ver=4.7.2'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min.js?ver=4.7.2'></script>
+
+<script async type='text/javascript'
+        src='../wp-content/plugins/cleantalk-spam-protect/inc/cleantalk_nocache.js?random=5.57.1'></script>
+</body>
+</html>
